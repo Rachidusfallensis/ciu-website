@@ -1,0 +1,275 @@
+import { motion } from 'framer-motion';
+import { Mail, Phone, MapPin, Send, User, MessageSquare } from 'lucide-react';
+import { useState } from 'react';
+
+export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    university: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log('Form submitted:', formData);
+  };
+
+  const universities = [
+    'Université Cheikh Anta Diop (UCAD)',
+    'Université Gaston Berger (UGB)',
+    'Université Assane Seck (UASZ)',
+    'Université Alioune Diop (UADB)',
+    'Université du Sine Saloum (USSEIN)',
+    'Université Iba Der Thiam (UIDT)',
+    'Autre'
+  ];
+
+  return (
+    <main className="pt-20">
+      <section className="section-padding bg-gradient-to-br from-primary-50/30 via-white to-accent-50/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-20"
+          >
+            <motion.div
+              className="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full font-medium mb-4"
+              whileHover={{ scale: 1.05 }}
+            >
+              Contact & Adhésion
+            </motion.div>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="gradient-text">Rejoignez</span> Notre Communauté
+            </h1>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              Nous sommes là pour vous accompagner. Contactez-nous pour toute question 
+              ou pour rejoindre le Comité Inter-Universitaire dans votre université.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            
+            {/* Contact Form */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <div className="bg-white rounded-3xl shadow-2xl p-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Envoyez-nous un Message</h2>
+                
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                        Nom Complet *
+                      </label>
+                      <div className="relative">
+                        <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+                        <input
+                          type="text"
+                          id="name"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleInputChange}
+                          required
+                          className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200"
+                          placeholder="Votre nom complet"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                        Email *
+                      </label>
+                      <div className="relative">
+                        <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          required
+                          className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200"
+                          placeholder="votre.email@example.com"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="university" className="block text-sm font-medium text-gray-700 mb-2">
+                      Université
+                    </label>
+                    <select
+                      id="university"
+                      name="university"
+                      value={formData.university}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200"
+                    >
+                      <option value="">Sélectionnez votre université</option>
+                      {universities.map((uni) => (
+                        <option key={uni} value={uni}>{uni}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                      Sujet *
+                    </label>
+                    <input
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200"
+                      placeholder="Objet de votre message"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                      Message *
+                    </label>
+                    <div className="relative">
+                      <MessageSquare className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                      <textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        required
+                        rows={6}
+                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200 resize-none"
+                        placeholder="Décrivez votre demande ou question..."
+                      />
+                    </div>
+                  </div>
+
+                  <motion.button
+                    type="submit"
+                    className="w-full btn-primary"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <Send className="mr-2 h-5 w-5" />
+                    Envoyer le Message
+                  </motion.button>
+                </form>
+              </div>
+            </motion.div>
+
+            {/* Contact Information */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="space-y-8"
+            >
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Informations de Contact</h2>
+                
+                <div className="space-y-6">
+                  <div className="flex items-start">
+                    <div className="flex items-center justify-center w-12 h-12 bg-gradient-primary rounded-2xl mr-4 flex-shrink-0">
+                      <Mail className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-1">Email Principal</h3>
+                      <p className="text-gray-600">contact@ciu-senegal.org</p>
+                      <p className="text-sm text-gray-500">Réponse sous 24h</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start">
+                    <div className="flex items-center justify-center w-12 h-12 bg-gradient-secondary rounded-2xl mr-4 flex-shrink-0">
+                      <Phone className="h-6 w-6 text-primary-900" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-1">Téléphone</h3>
+                      <p className="text-gray-600">+221 12 345 67 89</p>
+                      <p className="text-sm text-gray-500">Lun-Ven: 9h-17h</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start">
+                    <div className="flex items-center justify-center w-12 h-12 bg-gradient-accent rounded-2xl mr-4 flex-shrink-0">
+                      <MapPin className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-1">Siège Social</h3>
+                      <p className="text-gray-600">Dakar, Sénégal</p>
+                      <p className="text-sm text-gray-500">Près des universités principales</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Membership Benefits */}
+              <div className="bg-gradient-to-br from-primary-50 to-accent-50 rounded-3xl p-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Avantages de l'Adhésion</h3>
+                <ul className="space-y-3">
+                  {[
+                    "Accès à tous les événements et conférences",
+                    "Réseau d'entraide inter-universitaire",
+                    "Ressources éducatives exclusives",
+                    "Accompagnement spirituel et académique",
+                    "Opportunités de leadership et de développement",
+                    "Connexions avec des alumni influents"
+                  ].map((benefit, index) => (
+                    <motion.li
+                      key={index}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                      className="flex items-center"
+                    >
+                      <div className="w-2 h-2 bg-gradient-primary rounded-full mr-3 flex-shrink-0"></div>
+                      <span className="text-gray-700">{benefit}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Quick Actions */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <motion.button
+                  className="btn-outline text-center"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Adhésion en Ligne
+                </motion.button>
+                <motion.button
+                  className="btn-secondary text-center"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Télécharger la Brochure
+                </motion.button>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
