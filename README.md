@@ -134,6 +134,6 @@ Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 
 <div align="center">
 
-**Fait avec ❤️ pour la communauté estudiantine moustarchidine du Sénégal**
+**Fait avec ❤️ pour la communauté by Rachidoux**
 
 </div>
