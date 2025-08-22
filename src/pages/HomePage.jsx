@@ -81,12 +81,22 @@ export default function HomePage() {
               className="mb-6"
             >
               <motion.div
-                className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6"
-                whileHover={{ scale: 1.05 }}
+                className="relative overflow-hidden bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6 px-6 py-3 max-w-4xl mx-auto"
+                whileHover={{ scale: 1.02 }}
               >
-                <span className="text-secondary-200 font-medium">
-                  ✨ Bienvenue au Comité Inter-Universitaire
-                </span>
+                <motion.div
+                  className="whitespace-nowrap"
+                  animate={{ x: [400, -1000] }}
+                  transition={{
+                    duration: 18,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                >
+                  <span className="text-secondary-200 font-medium text-lg">
+                    ✨ S'atteler à une œuvre d'intérêt général au lieu d'œuvrer à son seul avantage doit être notre dessein à tous
+                  </span>
+                </motion.div>
               </motion.div>
             </motion.div>
 
