@@ -14,7 +14,7 @@ Le CIU unit plus de **500 étudiants** à travers **8 universités publiques** d
 ### 🎯 Mission
 Accompagner les étudiants moustarchidines dans leur parcours universitaire tout en préservant et enrichissant leurs valeurs spirituelles et morales.
 
-## 🚀 Fonctionnalités
+##  Fonctionnalités
 
 ### 📱 **Interface Moderne**
 -  Design responsive mobile-first
@@ -32,13 +32,13 @@ Accompagner les étudiants moustarchidines dans leur parcours universitaire tout
 6. **📰 Actualités** - Dernières nouvelles et newsletter
 7. **📞 Contact** - Formulaires et informations d'adhésion
 
-### 🎨 **Design System**
+###  **Design System**
 - **Couleurs**: Gradients professionnels bleu/jaune
 - **Typographie**: Inter font avec hiérarchie claire
 - **Composants**: Buttons, cards, modals réutilisables
 - **Animations**: Micro-interactions et transitions fluides
 
-## 🛠️ Stack Technique
+##  Stack Technique
 
 ### **Frontend**
 - **React 19.1.1** - Framework JavaScript moderne
