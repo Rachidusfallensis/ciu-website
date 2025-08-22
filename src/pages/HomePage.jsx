@@ -38,16 +38,32 @@ export default function HomePage() {
     <main className="pt-20">
       {/* Hero Section */}
       <section 
-        className="relative min-h-screen flex items-center bg-gradient-hero overflow-hidden"
+        className="relative min-h-screen flex items-center overflow-hidden"
         aria-labelledby="hero-heading"
       >
-        {/* Animated Background Elements */}
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <motion.img
+            src="/background.jpg"
+            alt="Rencontre du Comité Inter-Universitaire à Saint-Louis - 11 février 2023"
+            className="w-full h-full object-cover"
+            initial={{ scale: 1.1 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 10, ease: "easeOut" }}
+          />
+          {/* Gradient Overlay for better text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-primary-900/90 via-primary-800/70 to-accent-900/80"></div>
+          {/* Additional dark overlay */}
+          <div className="absolute inset-0 bg-black/40"></div>
+        </div>
+
+        {/* Animated Background Elements (subtle) */}
         <div className="absolute inset-0">
           <motion.div
-            className="absolute top-20 left-10 w-72 h-72 bg-secondary-400/20 rounded-full blur-3xl"
+            className="absolute top-20 left-10 w-72 h-72 bg-secondary-400/10 rounded-full blur-3xl"
             animate={{
               scale: [1, 1.2, 1],
-              opacity: [0.3, 0.5, 0.3],
+              opacity: [0.1, 0.3, 0.1],
             }}
             transition={{
               duration: 8,
@@ -56,10 +72,10 @@ export default function HomePage() {
             }}
           />
           <motion.div
-            className="absolute bottom-20 right-10 w-96 h-96 bg-accent-400/20 rounded-full blur-3xl"
+            className="absolute bottom-20 right-10 w-96 h-96 bg-accent-400/10 rounded-full blur-3xl"
             animate={{
               scale: [1.2, 1, 1.2],
-              opacity: [0.2, 0.4, 0.2],
+              opacity: [0.1, 0.2, 0.1],
             }}
             transition={{
               duration: 10,
@@ -80,24 +96,7 @@ export default function HomePage() {
               variants={itemVariants}
               className="mb-6"
             >
-              <motion.div
-                className="relative overflow-hidden bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6 px-6 py-3 max-w-4xl mx-auto"
-                whileHover={{ scale: 1.02 }}
-              >
-                <motion.div
-                  className="whitespace-nowrap"
-                  animate={{ x: [400, -1000] }}
-                  transition={{
-                    duration: 18,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }}
-                >
-                  <span className="text-secondary-200 font-medium text-lg">
-                    ✨ S'atteler à une œuvre d'intérêt général au lieu d'œuvrer à son seul avantage doit être notre dessein à tous
-                  </span>
-                </motion.div>
-              </motion.div>
+             
             </motion.div>
 
             <motion.h1
@@ -111,19 +110,14 @@ export default function HomePage() {
               </span>
             </motion.h1>
             
-            <motion.p
-              variants={itemVariants}
-              className="text-xl md:text-2xl mb-4 text-primary-100 font-medium"
-            >
-              Dahiratoul Moustarchidina Wal Moustarchidaty
-            </motion.p>
+         
 
             <motion.p
               variants={itemVariants}
               className="text-lg md:text-xl mb-12 text-primary-200 max-w-4xl mx-auto leading-relaxed"
             >
-              Unir les étudiants moustarchidines de toutes les universités publiques du Sénégal 
-              pour un équilibre harmonieux entre excellence académique et épanouissement spirituel.
+              Unir les étudiants moustarchidines de toutes les universités  du Sénégal 
+              pour un équilibre harmonieux entre excellence académique et Tarbiya implicatif.
             </motion.p>
 
             <motion.div
@@ -238,8 +232,7 @@ export default function HomePage() {
               <span className="gradient-text">Accompagner</span> l'Excellence
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Nous guidons les étudiants moustarchidines dans leur parcours académique 
-              tout en préservant et enrichissant leurs valeurs spirituelles.
+            Nous accompagnons les membres pour exceller tant dans leurs études universitaires que dans leur parcours spirituel.
             </p>
           </motion.div>
 
@@ -253,20 +246,20 @@ export default function HomePage() {
               {
                 icon: Users,
                 title: "Communauté Unie",
-                description: "Rassembler tous les étudiants moustarchidines des universités publiques du Sénégal.",
-                gradient: "from-primary-600 to-blue-500",
+                description: "Rassembler tous les étudiants moustarchidines des universités publiques et privées du Sénégal.",
+                gradient: "from-blue-500 to-yellow-500",
                 link: "/about"
               },
               {
                 icon: BookOpen,
                 title: "Excellence Académique",
-                description: "Promouvoir l'excellence dans les études tout en maintenant l'équilibre spirituel.",
+                description: "Promouvoir l'excellence dans les études.",
                 gradient: "from-blue-500 to-yellow-500",
                 link: "/universities"
               },
               {
                 icon: Heart,
-                title: "Développement Spirituel",
+                title: "Tarbiya Implicatif",
                 description: "Organiser des événements qui contribuent au développement personnel et spirituel.",
                 gradient: "from-yellow-500 to-primary-600",
                 link: "/activities"
