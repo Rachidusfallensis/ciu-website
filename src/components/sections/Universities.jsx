@@ -37,12 +37,11 @@ const universities = [
     description: "La plus ancienne et prestigieuse université du Sénégal, située au cœur de Dakar.",
     logo: "/ucad.png",
     contact: [
-      { name: "Mamadou Ndiaye", phone: "+221 77 123 45 67" },
-      { name: "Awa Diop", phone: "+221 77 234 56 78" },
-      { name: "Cheikh Faye", phone: "+221 77 345 67 89" }
+      { name: "EL HADJI GAYE", phone: "+221 70 684 49 31" },
+      { name: "BABACAR NDAO", phone: "+221 77 518 72 41" },
+      { name: "ASSANE NIANG", phone: "+221 77 198 24 07" }
     ],
     coordinates: [14.6928, -17.4467],
-    faculties: ["Médecine", "Droit", "Sciences", "Lettres", "Sciences Économiques"],
     gradient: "from-primary-600 to-blue-500"
   },
   {
@@ -54,12 +53,11 @@ const universities = [
     description: "Université moderne axée sur la recherche et l'innovation, située dans la ville historique de Saint-Louis.",
     logo: "/ugb.png",
     contact: [
-      { name: "Fatou Sow", phone: "+221 77 111 22 33" },
-      { name: "Moussa Diallo", phone: "+221 77 222 33 44" },
-      { name: "Khady Ba", phone: "+221 77 333 44 55" }
+      { name: "Mouhamed Diouf", phone: "+221 78 010 22 69" },
+      { name: "PF 2", phone: "+221 77 669 40 42" },
+      { name: "PF3", phone: "+221 76 279 26 62" }
     ],
     coordinates: [16.0378, -16.4894],
-    faculties: ["Sciences Appliquées", "Sciences Juridiques", "Lettres", "Sciences Économiques"],
     gradient: "from-accent-500 to-secondary-500"
   },
   {
@@ -71,12 +69,11 @@ const universities = [
     description: "Université dynamique du Sud, contribuant au développement de la Casamance.",
     logo: "/uasz.png",
     contact: [
-      { name: "Ousmane Sarr", phone: "+221 77 444 55 66" },
-      { name: "Mariama Diouf", phone: "+221 77 555 66 77" },
-      { name: "Abdoulaye Kane", phone: "+221 77 666 77 88" }
+      { name: "El Hadji Cheikh Bécaye Dia", phone: "+221 77 656 18 74" },
+      { name: "Pape Ndiambe DIOP", phone: "+221 77 988 21 88" },
+      { name: "Pape seyni Diouf", phone: "+221 70 346 65 71" }
     ],
     coordinates: [12.5444, -16.2736],
-    faculties: ["Sciences et Technologies", "Sciences Économiques", "Lettres"],
     gradient: "from-secondary-500 to-primary-600"
   },
   {
@@ -88,12 +85,11 @@ const universities = [
     description: "Université agricole spécialisée dans les sciences agronomiques et vétérinaires.",
     logo: "/uadb.png",
     contact: [
-      { name: "Serigne Fall", phone: "+221 77 777 88 99" },
-      { name: "Aissatou Ndiaye", phone: "+221 77 888 99 00" },
-      { name: "Mamadou Sy", phone: "+221 77 999 00 11" }
+      { name: "Mouhamadou F Chimère Diallo", phone: "+221 77 690 61 46" },
+      { name: "Cheikh Ahmed Tidiane Fall", phone: "+221 78 562 58 86" },
+      { name: "Cheikh Tidiane kane", phone: "+221 77 861 39 75" }
     ],
     coordinates: [14.7022, -16.4522],
-    faculties: ["Agronomie", "Sciences Vétérinaires", "Sciences Appliquées"],
     gradient: "from-primary-600 to-accent-600"
   },
   {
@@ -105,12 +101,11 @@ const universities = [
     description: "Université régionale contribuant au développement du bassin arachidier.",
     logo: "/ussein.png",
     contact: [
-      { name: "Ibrahima Cissé", phone: "+221 77 101 20 30" },
-      { name: "Astou Ndiaye", phone: "+221 77 202 30 40" },
-      { name: "Mamadou Diop", phone: "+221 77 303 40 50" }
+      { name: "Ismaila CISSE", phone: "+221 77 071 75 77" },
+      { name: "El Hadji Malick NIANG", phone: "+221 77 180 73 35" },
+      { name: "Cheikhna Ahmet Tidiane NIANG", phone: "+221 77 696 51 21" }
     ],
     coordinates: [14.1372, -16.0728],
-    faculties: ["Sciences Économiques", "Lettres", "Sciences de l'Éducation"],
     gradient: "from-accent-600 to-secondary-600"
   },
   {
@@ -122,12 +117,11 @@ const universities = [
     description: "Université technologique spécialisée dans l'ingénierie et les sciences appliquées.",
     logo: "/uidt.png",
     contact: [
-      { name: "Cheikh Ndiaye", phone: "+221 77 404 50 60" },
-      { name: "Sokhna Ba", phone: "+221 77 505 60 70" },
-      { name: "Aliou Seck", phone: "+221 77 606 70 80" }
+      { name: "Massata Samb", phone: "+221 77 096 45 41" },
+      { name: "Abdoulaye Diome SARR", phone: "+221 78 734 56 27" },
+      { name: "Demba Ndiaye", phone: "+221 76 789 03 70" }
     ],
     coordinates: [14.7886, -16.9260],
-    faculties: ["Génie Civil", "Génie Informatique", "Sciences Appliquées"],
     gradient: "from-secondary-600 to-primary-500"
   },
   {
@@ -135,16 +129,13 @@ const universities = [
     name: "Université Amadou Mahtar Mbow / ISEP",
     location: "Dakar",
     members: 55,
-    established: "2007",
-    description: "Institut supérieur d'enseignement professionnel spécialisé dans la formation technique.",
-    logo: "/isep.png",
+    established: "2012",
+    description: "Conseil universitaire unifiant deux institutions d'enseignement supérieur de Dakar.",
+    logos: ["/uam.png", "/isep.png"],
     contact: [
-      { name: "Fatoumata Sow", phone: "+221 77 707 80 90" },
-      { name: "Ibrahima Ndiaye", phone: "+221 77 808 90 01" },
-      { name: "Khadim Diop", phone: "+221 77 909 01 12" }
+      { name: "Mademba Gueye", phone: "+221 77 830 86 39" }
     ],
     coordinates: [14.7645, -17.3660],
-    faculties: ["Informatique", "Génie Civil", "Électromécanique"],
     gradient: "from-primary-500 to-accent-500"
   }
 ];
@@ -182,7 +173,7 @@ export default function Universities() {
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
             Présent dans toutes les universités publiques du Sénégal, le CIU unit {totalMembers}+ étudiants 
-            moustarchidines à travers le pays dans une communauté d'apprentissage et de spiritualité.
+            moustarchidines à travers le pays.
           </p>
 
           {/* Quick Stats */}
@@ -195,8 +186,8 @@ export default function Universities() {
             {[
               { icon: GraduationCap, number: universities.length, label: "Universités", color: "text-primary-600" },
               { icon: Users, number: `${totalMembers}+`, label: "Étudiants", color: "text-accent-600" },
-              { icon: MapPin, number: "6", label: "Régions", color: "text-secondary-600" },
-              { icon: Calendar, number: "15+", label: "Années", color: "text-primary-700" }
+              { icon: MapPin, number: "8", label: "Régions", color: "text-secondary-600" },
+              { icon: Calendar, number: "5+", label: "Années", color: "text-primary-700" }
             ].map((stat, index) => (
               <motion.div
                 key={index}
@@ -224,7 +215,7 @@ export default function Universities() {
             className="text-center mb-12"
           >
             <h3 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="gradient-text">Carte Interactive</span> du Réseau
+              <span className="gradient-text">Carte Interactive</span> du CIU
             </h3>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Explorez notre présence à travers tout le Sénégal et découvrez nos communautés universitaires.
@@ -270,11 +261,24 @@ export default function Universities() {
                   >
                     <div className="flex items-start justify-between mb-4">
                       <div className="w-12 h-12 rounded-2xl overflow-hidden bg-white shadow-md flex items-center justify-center">
-                        <img 
-                          src={university.logo} 
-                          alt={`Logo ${university.name}`}
-                          className="w-10 h-10 object-contain"
-                        />
+                        {university.logos ? (
+                          <div className="flex space-x-1">
+                            {university.logos.map((logo, logoIndex) => (
+                              <img 
+                                key={logoIndex}
+                                src={logo} 
+                                alt={`Logo ${university.name}`}
+                                className="w-5 h-5 object-contain"
+                              />
+                            ))}
+                          </div>
+                        ) : (
+                          <img 
+                            src={university.logo} 
+                            alt={`Logo ${university.name}`}
+                            className="w-10 h-10 object-contain"
+                          />
+                        )}
                       </div>
                       <div className="text-right">
                         <div className="text-2xl font-bold gradient-text">{university.members}</div>
@@ -330,11 +334,24 @@ export default function Universities() {
                   >
                     <div className="flex items-center mb-6">
                       <div className="w-16 h-16 rounded-2xl overflow-hidden bg-white shadow-lg mr-4 flex items-center justify-center">
-                        <img 
-                          src={selectedUniversity.logo} 
-                          alt={`Logo ${selectedUniversity.name}`}
-                          className="w-14 h-14 object-contain"
-                        />
+                        {selectedUniversity.logos ? (
+                          <div className="flex space-x-2">
+                            {selectedUniversity.logos.map((logo, logoIndex) => (
+                              <img 
+                                key={logoIndex}
+                                src={logo} 
+                                alt={`Logo ${selectedUniversity.name}`}
+                                className="w-6 h-6 object-contain"
+                              />
+                            ))}
+                          </div>
+                        ) : (
+                          <img 
+                            src={selectedUniversity.logo} 
+                            alt={`Logo ${selectedUniversity.name}`}
+                            className="w-14 h-14 object-contain"
+                          />
+                        )}
                       </div>
                       <div>
                         <h3 className="text-2xl font-bold text-gray-900">{selectedUniversity.name}</h3>
@@ -346,16 +363,11 @@ export default function Universities() {
                       {selectedUniversity.description}
                     </p>
 
-                    <div className="grid grid-cols-2 gap-4 mb-6">
+                    <div className="grid grid-cols-1 gap-4 mb-6">
                       <div className="bg-primary-50 rounded-xl p-4 text-center">
                         <Users className="h-6 w-6 text-primary-600 mx-auto mb-2" />
                         <div className="text-2xl font-bold text-primary-700">{selectedUniversity.members}</div>
                         <div className="text-sm text-gray-600">Membres CIU</div>
-                      </div>
-                      <div className="bg-secondary-50 rounded-xl p-4 text-center">
-                        <GraduationCap className="h-6 w-6 text-secondary-600 mx-auto mb-2" />
-                        <div className="text-2xl font-bold text-secondary-700">{selectedUniversity.faculties.length}</div>
-                        <div className="text-sm text-gray-600">Facultés</div>
                       </div>
                     </div>
                   </motion.div>
@@ -367,22 +379,6 @@ export default function Universities() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                   >
-                    <h4 className="text-xl font-bold text-gray-900 mb-4">Facultés Représentées</h4>
-                    <div className="grid grid-cols-1 gap-3 mb-8">
-                      {selectedUniversity.faculties.map((faculty, index) => (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0, x: 10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.4, delay: index * 0.1 }}
-                          className="flex items-center bg-gray-50 rounded-lg p-3"
-                        >
-                          <div className="w-2 h-2 bg-gradient-primary rounded-full mr-3"></div>
-                          <span className="text-gray-700">{faculty}</span>
-                        </motion.div>
-                      ))}
-                    </div>
-
                     <h4 className="text-xl font-bold text-gray-900 mb-4">Contacts Locaux</h4>
                     <div className="space-y-4">
                       {selectedUniversity.contact.map((contact, index) => (
