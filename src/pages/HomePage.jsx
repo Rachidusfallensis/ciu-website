@@ -107,8 +107,17 @@ export default function HomePage() {
               <motion.span 
                 className="block"
                 initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 1, ease: "easeOut" }}
+                animate={{ 
+                  opacity: [0, 1, 0.8, 1],
+                  x: [-30, 0, 0, 0]
+                }}
+                transition={{ 
+                  duration: 4,
+                  times: [0, 0.3, 0.65, 1],
+                  repeat: Infinity,
+                  repeatDelay: 2,
+                  ease: "easeInOut"
+                }}
               >
                 Comité
               </motion.span>
@@ -117,14 +126,27 @@ export default function HomePage() {
                   <motion.span
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    animate={{
+                      opacity: index < 17 ? [0, 1, 0.9, 1] : [0, 1, 0.9, 1],
+                      y: [20, 0, 0, 0]
+                    }}
                     transition={{
-                      duration: 0.5,
-                      delay: 1.5 + index * 0.05,
+                      duration: 6,
+                      times: [0, 0.1 + index * 0.02, 0.6, 1],
+                      delay: 1.2 + index * 0.05,
+                      repeat: Infinity,
+                      repeatDelay: 2,
                       ease: "easeOut"
                     }}
                     className="inline-block"
-                    style={{ display: letter === " " ? "inline" : "inline-block" }}
+                    style={{ 
+                      display: letter === " " ? "inline" : "inline-block",
+                      backgroundImage: "linear-gradient(to right, rgb(253 224 71), rgb(254 240 138))",
+                      backgroundSize: "200% 200%",
+                      backgroundClip: "text",
+                      WebkitBackgroundClip: "text",
+                      color: "transparent"
+                    }}
                   >
                     {letter === " " ? "\u00A0" : letter}
                   </motion.span>
