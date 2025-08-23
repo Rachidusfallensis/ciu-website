@@ -1,4 +1,4 @@
-# 🌟 CIU - Comité Inter-Universitaire
+#  CIU - Comité Inter-Universitaire
 
 [![React](https://img.shields.io/badge/React-19.1.1-blue.svg)](https://reactjs.org/)
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4.0-38B2AC.svg)](https://tailwindcss.com/)
@@ -7,23 +7,23 @@
 
 Site web moderne et responsive du **Comité Inter-Universitaire**, structure estudiantine sous l'égide de **Dahiratoul Moustarchidina Wal Moustarchidaty**, regroupant les étudiants moustarchidines de toutes les universités publiques du Sénégal.
 
-## ✨ Aperçu
+##  Aperçu
 
 Le CIU unit plus de **500 étudiants** à travers **8 universités publiques** du Sénégal dans une communauté dédiée à l'équilibre harmonieux entre excellence académique et épanouissement spirituel.
 
 ### 🎯 Mission
 Accompagner les étudiants moustarchidines dans leur parcours universitaire tout en préservant et enrichissant leurs valeurs spirituelles et morales.
 
-## 🚀 Fonctionnalités
+##  Fonctionnalités
 
 ### 📱 **Interface Moderne**
-- ✅ Design responsive mobile-first
-- ✅ Animations fluides avec Framer Motion
-- ✅ Thème professionnel bleu et jaune
-- ✅ Navigation multi-pages avec React Router
-- ✅ Accessibilité WCAG conforme
+-  Design responsive mobile-first
+-  Animations fluides avec Framer Motion
+-  Thème professionnel bleu et jaune
+-  Navigation multi-pages avec React Router
+-  Accessibilité WCAG conforme
 
-### 🏛️ **Sections Principales**
+###  **Sections Principales**
 1. **🏠 Accueil** - Page d'atterrissage avec mission et services
 2. **👥 À Propos** - Histoire, équipe dirigeante et valeurs
 3. **🎓 Universités** - Carte interactive des 8 universités partenaires
@@ -32,13 +32,13 @@ Accompagner les étudiants moustarchidines dans leur parcours universitaire tout
 6. **📰 Actualités** - Dernières nouvelles et newsletter
 7. **📞 Contact** - Formulaires et informations d'adhésion
 
-### 🎨 **Design System**
+###  **Design System**
 - **Couleurs**: Gradients professionnels bleu/jaune
 - **Typographie**: Inter font avec hiérarchie claire
 - **Composants**: Buttons, cards, modals réutilisables
 - **Animations**: Micro-interactions et transitions fluides
 
-## 🛠️ Stack Technique
+##  Stack Technique
 
 ### **Frontend**
 - **React 19.1.1** - Framework JavaScript moderne
@@ -56,7 +56,7 @@ Accompagner les étudiants moustarchidines dans leur parcours universitaire tout
 - **PostCSS** - Traitement CSS avancé
 - **Autoprefixer** - Compatibilité navigateurs
 
-## 🏃‍♂️ Démarrage Rapide
+## 🏃‍♂ Démarrage Rapide
 
 ### Prérequis
 - Node.js 18+ 
@@ -108,14 +108,6 @@ src/
 └── index.css          # Styles globaux
 ```
 
-## 🎓 Universités Partenaires
-
-1. **UCAD** - Université Cheikh Anta Diop (Dakar) - 150 membres
-2. **UGB** - Université Gaston Berger (Saint-Louis) - 85 membres  
-3. **UASZ** - Université Assane Seck (Ziguinchor) - 65 membres
-4. **UADB** - Université Alioune Diop (Bambey) - 45 membres
-5. **USSEIN** - Université du Sine Saloum (Kaolack) - 40 membres
-6. **UIDT** - Université Iba Der Thiam (Thiès) - 55 membres
 
 ## 🤝 Contribution
 
@@ -134,20 +126,14 @@ Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 ## 📞 Contact
 
 **Comité Inter-Universitaire**
-- 📧 Email: contact@ciu-senegal.org
-- 📱 Téléphone: +221 12 345 67 89
+- 📧 Email: comiteinteru@gmail.com
 - 📍 Adresse: Dakar, Sénégal
 
-## 🙏 Remerciements
-
-- **Dahiratoul Moustarchidina Wal Moustarchidaty** pour le soutien spirituel
-- Toutes les **universités partenaires** pour leur collaboration
-- Les **500+ étudiants membres** qui font vivre cette communauté
 
 ---
 
 <div align="center">
 
-**Fait avec ❤️ pour la communauté estudiantine moustarchidine du Sénégal**
+**Fait avec ❤️ pour la communauté by Rachidoux**
 
 </div>
