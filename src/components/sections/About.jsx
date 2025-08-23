@@ -65,28 +65,94 @@ export default function About() {
 
   const team = [
     {
-      name: "Amadou Diallo",
-      role: "Président",
-      university: "Université Cheikh Anta Diop",
-      description: "Étudiant en Master de Gestion, passionné par le développement communautaire et l'excellence académique."
+      name: "Khalifa Ababacar Sy Traoré",
+      university: "UIDT",
+      commission: "Point Focal"
     },
     {
-      name: "Fatou Sow",
-      role: "Vice-Présidente",
-      university: "Université Gaston Berger",
-      description: "Étudiante en Sciences Politiques, engagée dans la promotion des valeurs spirituelles en milieu universitaire."
+      name: "Mouhamed Diouf",
+      university: "UGB",
+      commission: "Point Focal"
     },
     {
-      name: "Moussa Kane",
-      role: "Secrétaire Général",
-      university: "Université Assane Seck",
-      description: "Étudiant en Informatique, responsable de la coordination des activités inter-universitaires."
+      name: "El Hadj Gaye",
+      university: "UCAD",
+      commission: "Point Focal"
     },
     {
-      name: "Aïcha Ndiaye",
-      role: "Trésorière",
-      university: "Université Alioune Diop",
-      description: "Étudiante en Économie, spécialisée dans la gestion financière et la planification budgétaire."
+      name: "Mame Ousmane Sarr",
+      university: "UIDT",
+      commission: "Commission Administrative"
+    },
+    {
+      name: "Mouhamadou Fadilou Chimere Diallo",
+      university: "UADB",
+      commission: "Commission Administrative"
+    },
+    {
+      name: "Mademba Gueye",
+      university: "UAM",
+      commission: "Commission Administrative"
+    },
+    {
+      name: "Arona Fall",
+      university: "UADB",
+      commission: "Commission d'Intelligence et de Perception Spirituelle"
+    },
+    {
+      name: "Adama Niang",
+      university: "UCAD",
+      commission: "Commission d'Intelligence et de Perception Spirituelle"
+    },
+    {
+      name: "Mouhamed Seck",
+      university: "UGB",
+      commission: "Commission d'Intelligence et de Perception Spirituelle"
+    },
+    {
+      name: "El Hadj Ndiouga",
+      university: "UIDT",
+      commission: "Commission d'Intelligence et de Perception Spirituelle"
+    },
+    {
+      name: "Cheikh Becaye",
+      university: "UASZ",
+      commission: "Commission d'Intelligence et de Perception Spirituelle"
+    },
+    {
+      name: "El Hadj Malick",
+      university: "USSEIN",
+      commission: "Commission d'Intelligence et de Perception Spirituelle"
+    },
+    {
+      name: "Saer Diop",
+      university: "UASZ",
+      commission: "Commission d'Intelligence et de Perception Spirituelle"
+    },
+    {
+      name: "Tallab Diop",
+      university: "UCAD",
+      commission: "Commission Trésor et Capacitation"
+    },
+    {
+      name: "Mame Gaydel Gaye",
+      university: "UADB",
+      commission: "Commission Trésor et Capacitation"
+    },
+    {
+      name: "Moustapha Gueye",
+      university: "UASZ",
+      commission: "Commission Trésor et Capacitation"
+    },
+    {
+      name: "Mbaye Samb",
+      university: "UGB",
+      commission: "Commission Logistique"
+    },
+    {
+      name: "Ismaila",
+      university: "USSEIN",
+      commission: "Commission Logistique"
     }
   ];
 
@@ -168,10 +234,10 @@ export default function About() {
             {/* Stats */}
             <div className="grid grid-cols-2 gap-4 pt-6">
               {[
-                { number: "500+", label: "Membres Actifs" },
+                { number: "1400+", label: "Membres Actifs" },
                 { number: "8", label: "Universités" },
-                { number: "50+", label: "Événements/An" },
-                { number: "10+", label: "Années d'Expérience" }
+                { number: "19", label: "Comité Dirigeant" },
+                { number: "5+", label: "Années d'Expérience" }
               ].map((stat, index) => (
                 <motion.div
                   key={index}
@@ -267,53 +333,83 @@ export default function About() {
               <span className="gradient-text">Notre Équipe</span> Dirigeante
             </h3>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Des leaders étudiants dévoués qui œuvrent quotidiennement pour 
-              le développement et l'épanouissement de notre communauté.
+              Le comité est constitué de 19 membres venant des différentes universités, 
+              organisés en commissions spécialisées pour assurer une coordination efficace.
             </p>
           </motion.div>
 
+          {/* Horizontal Slider Container */}
           <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate={isTeamInView ? "visible" : "hidden"}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            initial={{ opacity: 0, x: -50 }}
+            animate={isTeamInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative"
           >
-            {team.map((member, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="group bg-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 card-hover text-center"
-                whileHover={{ y: -5 }}
-              >
-                <motion.div
-                  className="w-20 h-20 bg-gradient-primary rounded-full mx-auto mb-4 flex items-center justify-center"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ type: "spring", stiffness: 300 }}
+            <div className="overflow-x-auto pb-6">
+              <div className="flex space-x-6 w-max">
+                {team.map((member, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={isTeamInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    className="group bg-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 card-hover text-center min-w-[280px] max-w-[280px]"
+                    whileHover={{ y: -5, scale: 1.02 }}
+                  >
+                    {/* Photo Circle */}
+                    <motion.div
+                      className="w-16 h-16 bg-gradient-primary rounded-full mx-auto mb-4 flex items-center justify-center overflow-hidden"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      {/* Placeholder for photo - using initials for now */}
+                      <span className="text-white font-bold text-lg">
+                        {member.name.split(' ').slice(0, 2).map(n => n[0]).join('')}
+                      </span>
+                    </motion.div>
+
+                    {/* Name */}
+                    <h4 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-primary-700 transition-colors duration-300">
+                      {member.name}
+                    </h4>
+                    
+                    {/* University */}
+                    <div className="text-sm text-secondary-600 mb-3 font-medium">{member.university}</div>
+                    
+                    {/* Commission */}
+                    <div className="text-xs text-primary-600 bg-primary-50 rounded-full px-3 py-1 mb-4 inline-block">
+                      {member.commission}
+                    </div>
+
+                    {/* Animated Bottom Border */}
+                    <motion.div
+                      className="mt-4 h-1 bg-gradient-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
+                      transition={{ duration: 1, delay: index * 0.05 }}
+                    />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Scroll Indicator */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={isTeamInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 0.8, delay: 1 }}
+              className="text-center mt-4"
+            >
+              <p className="text-sm text-gray-500 flex items-center justify-center">
+                <span className="mr-2">Faites défiler horizontalement pour voir tous les membres</span>
+                <motion.span
+                  animate={{ x: [0, 10, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <span className="text-white font-bold text-xl">
-                    {member.name.split(' ').map(n => n[0]).join('')}
-                  </span>
-                </motion.div>
-
-                <h4 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-700 transition-colors duration-300">
-                  {member.name}
-                </h4>
-                
-                <div className="text-primary-600 font-semibold mb-2">{member.role}</div>
-                <div className="text-sm text-secondary-600 mb-4 font-medium">{member.university}</div>
-                
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {member.description}
-                </p>
-
-                <motion.div
-                  className="mt-4 h-1 bg-gradient-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  transition={{ duration: 1, delay: index * 0.1 }}
-                />
-              </motion.div>
-            ))}
+                  →
+                </motion.span>
+              </p>
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>

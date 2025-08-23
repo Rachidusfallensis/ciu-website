@@ -126,7 +126,7 @@ const universities = [
   },
   {
     id: 7,
-    name: "Université Amadou Mahtar Mbow / ISEP",
+    name: "Université Amadou Mahtar Mbow & Institut supérieur d'enseignement professionnel (ISEP) de Diamniadio ",
     location: "Dakar",
     members: 55,
     established: "2012",
@@ -218,7 +218,7 @@ export default function Universities() {
               <span className="gradient-text">Carte Interactive</span> du CIU
             </h3>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Explorez notre présence à travers tout le Sénégal et découvrez nos communautés universitaires.
+              Explorez notre présence à travers tout le Sénégal et découvrez nos conseils universitaires.
             </p>
           </motion.div>
 
@@ -240,7 +240,7 @@ export default function Universities() {
               <div className="text-center mb-8">
                 <div className="inline-flex items-center space-x-2 bg-white/90 backdrop-blur-sm rounded-full px-6 py-3">
                   <MapPin className="h-5 w-5 text-primary-600" />
-                  <span className="font-semibold text-gray-800">Sénégal - Réseau CIU</span>
+                  <span className="font-semibold text-gray-800">Conseils Universitaires</span>
                 </div>
               </div>
 
@@ -387,7 +387,7 @@ export default function Universities() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                   >
-                    <h4 className="text-xl font-bold text-gray-900 mb-4">Contacts Locaux</h4>
+                    <h4 className="text-xl font-bold text-gray-900 mb-4">Points Focaux</h4>
                     <div className="space-y-4">
                       {selectedUniversity.contact.map((contact, index) => (
                         <motion.div
