@@ -127,7 +127,7 @@ Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 
 **Comité Inter-Universitaire**
 - 📧 Email: comiteinteru@gmail.com
-- 📍 Adresse: Dakar, Sénégal
+- 77 470 11 73 / 77 830 86 39
 
 
 ---
