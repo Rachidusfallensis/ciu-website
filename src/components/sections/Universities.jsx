@@ -130,7 +130,7 @@ const universities = [
     location: "Dakar",
     members: 55,
     established: "2012",
-    description: "Conseil universitaire unifiant deux institutions d'enseignement supérieur de Dakar.",
+    description: "Conseil universitaire unifiant deux institutions d'enseignement supérieur de Diamniadio.",
     logos: ["/uam.png", "/isep.png"],
     contact: [
       { name: "Mademba Gueye", phone: "+221 77 830 86 39" }
@@ -260,26 +260,30 @@ export default function Universities() {
                     whileHover={{ y: -3 }}
                   >
                     <div className="flex items-start justify-between mb-4">
-                      <div className="w-12 h-12 rounded-2xl overflow-hidden bg-white shadow-md flex items-center justify-center">
-                        {university.logos ? (
-                          <div className="flex space-x-1">
-                            {university.logos.map((logo, logoIndex) => (
+                      {university.logos ? (
+                        <div className="flex space-x-2">
+                          {university.logos.map((logo, logoIndex) => (
+                            <div 
+                              key={logoIndex}
+                              className="w-6 h-6 rounded-lg overflow-hidden bg-white shadow-md flex items-center justify-center"
+                            >
                               <img 
-                                key={logoIndex}
                                 src={logo} 
                                 alt={`Logo ${university.name}`}
                                 className="w-5 h-5 object-contain"
                               />
-                            ))}
-                          </div>
-                        ) : (
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="w-12 h-12 rounded-2xl overflow-hidden bg-white shadow-md flex items-center justify-center">
                           <img 
                             src={university.logo} 
                             alt={`Logo ${university.name}`}
                             className="w-10 h-10 object-contain"
                           />
-                        )}
-                      </div>
+                        </div>
+                      )}
                       <div className="text-right">
                         <div className="text-2xl font-bold gradient-text">{university.members}</div>
                         <div className="text-xs text-gray-500">membres</div>
@@ -333,26 +337,30 @@ export default function Universities() {
                     transition={{ duration: 0.6 }}
                   >
                     <div className="flex items-center mb-6">
-                      <div className="w-16 h-16 rounded-2xl overflow-hidden bg-white shadow-lg mr-4 flex items-center justify-center">
-                        {selectedUniversity.logos ? (
-                          <div className="flex space-x-2">
-                            {selectedUniversity.logos.map((logo, logoIndex) => (
+                      {selectedUniversity.logos ? (
+                        <div className="flex space-x-3 mr-4">
+                          {selectedUniversity.logos.map((logo, logoIndex) => (
+                            <div 
+                              key={logoIndex}
+                              className="w-8 h-8 rounded-xl overflow-hidden bg-white shadow-lg flex items-center justify-center"
+                            >
                               <img 
-                                key={logoIndex}
                                 src={logo} 
                                 alt={`Logo ${selectedUniversity.name}`}
-                                className="w-6 h-6 object-contain"
+                                className="w-7 h-7 object-contain"
                               />
-                            ))}
-                          </div>
-                        ) : (
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="w-16 h-16 rounded-2xl overflow-hidden bg-white shadow-lg mr-4 flex items-center justify-center">
                           <img 
                             src={selectedUniversity.logo} 
                             alt={`Logo ${selectedUniversity.name}`}
                             className="w-14 h-14 object-contain"
                           />
-                        )}
-                      </div>
+                        </div>
+                      )}
                       <div>
                         <h3 className="text-2xl font-bold text-gray-900">{selectedUniversity.name}</h3>
                         <p className="text-gray-600">Établie en {selectedUniversity.established}</p>
