@@ -104,9 +104,31 @@ export default function HomePage() {
               variants={itemVariants}
               className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
             >
-              <span className="block">Comité</span>
+              <motion.span 
+                className="block"
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 1, ease: "easeOut" }}
+              >
+                Comité
+              </motion.span>
               <span className="block bg-gradient-to-r from-secondary-300 to-secondary-100 bg-clip-text text-transparent">
-                Inter-Universitaire
+                {"Inter-Universitaire".split("").map((letter, index) => (
+                  <motion.span
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.5,
+                      delay: 1.5 + index * 0.05,
+                      ease: "easeOut"
+                    }}
+                    className="inline-block"
+                    style={{ display: letter === " " ? "inline" : "inline-block" }}
+                  >
+                    {letter === " " ? "\u00A0" : letter}
+                  </motion.span>
+                ))}
               </span>
             </motion.h1>
             
