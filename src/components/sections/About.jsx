@@ -67,27 +67,32 @@ export default function About() {
     {
       name: "Khalifa Ababacar Sy Traoré",
       university: "UIDT",
-      commission: "Point Focal"
+      commission: "Point Focal",
+      photo: "/khalifa.jpg"
     },
     {
       name: "Mouhamed Diouf",
       university: "UGB",
-      commission: "Point Focal"
+      commission: "Point Focal",
+      photo: "/diouf.jpg"
     },
     {
       name: "El Hadj Gaye",
       university: "UCAD",
-      commission: "Point Focal"
+      commission: "Point Focal",
+      photo: "/elhadj.JPG"
     },
     {
       name: "Mame Ousmane Sarr",
       university: "UIDT",
-      commission: "Commission Administrative"
+      commission: "Commission Administrative",
+      photo: "/ousmane.jpg"
     },
     {
       name: "Mouhamadou Fadilou Chimere Diallo",
       university: "UADB",
-      commission: "Commission Administrative"
+      commission: "Commission Administrative",
+      photo: "/chimere.jpg"
     },
     {
       name: "Mademba Gueye",
@@ -103,12 +108,14 @@ export default function About() {
     {
       name: "Adama Niang",
       university: "UCAD",
-      commission: "Commission d'Intelligence et de Perception Spirituelle"
+      commission: "Commission d'Intelligence et de Perception Spirituelle",
+      photo: "/adama.jpg"
     },
     {
       name: "Mouhamed Seck",
       university: "UGB",
-      commission: "Commission d'Intelligence et de Perception Spirituelle"
+      commission: "Commission d'Intelligence et de Perception Spirituelle",
+      photo: "/seck.jpg"
     },
     {
       name: "El Hadj Ndiouga",
@@ -118,12 +125,14 @@ export default function About() {
     {
       name: "Cheikh Becaye",
       university: "UASZ",
-      commission: "Commission d'Intelligence et de Perception Spirituelle"
+      commission: "Commission d'Intelligence et de Perception Spirituelle",
+      photo: "/becaye.jpg"
     },
     {
       name: "El Hadj Malick",
       university: "USSEIN",
-      commission: "Commission d'Intelligence et de Perception Spirituelle"
+      commission: "Commission d'Intelligence et de Perception Spirituelle",
+      photo: "/elhadjmalick.jpg"
     },
     {
       name: "Saer Diop",
@@ -133,27 +142,32 @@ export default function About() {
     {
       name: "Tallab Diop",
       university: "UCAD",
-      commission: "Commission Trésor et Capacitation"
+      commission: "Commission Trésor et Capacitation",
+      photo: "/tallab.jpg"
     },
     {
       name: "Mame Gaydel Gaye",
       university: "UADB",
-      commission: "Commission Trésor et Capacitation"
+      commission: "Commission Trésor et Capacitation",
+      photo: "/gaydel.JPG"
     },
     {
       name: "Moustapha Gueye",
       university: "UASZ",
-      commission: "Commission Trésor et Capacitation"
+      commission: "Commission Trésor et Capacitation",
+      photo: "/moustapha.JPG"
     },
     {
       name: "Mbaye Samb",
       university: "UGB",
-      commission: "Commission Logistique"
+      commission: "Commission Logistique",
+      photo: "/mbaye.jpg"
     },
     {
       name: "Ismaila",
       university: "USSEIN",
-      commission: "Commission Logistique"
+      commission: "Commission Logistique",
+      photo: "/ismaila.jpg"
     }
   ];
 
