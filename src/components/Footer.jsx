@@ -94,25 +94,25 @@ export default function Footer() {
               <div className="flex items-center">
                 <Mail size={18} className="text-secondary-400 mr-2 flex-shrink-0" aria-hidden="true" />
                 <a 
-                  href="mailto:contact@ciu-senegal.org"
+                  href="mailto:comiteinteru@gmail.com"
                   className={cn(
                     "text-gray-300 hover:text-secondary-300 transition-colors duration-200 text-sm",
                     "focus:outline-none focus:ring-2 focus:ring-secondary-400 focus:ring-offset-2 focus:ring-offset-primary-900 rounded-md"
                   )}
                 >
-                  contact@ciu-senegal.org
+                  comiteinteru@gmail.com
                 </a>
               </div>
               <div className="flex items-center">
                 <Phone size={18} className="text-secondary-400 mr-2 flex-shrink-0" aria-hidden="true" />
                 <a 
-                  href="tel:+221123456789"
+                  href="tel:+221774701173"
                   className={cn(
                     "text-gray-300 hover:text-secondary-300 transition-colors duration-200 text-sm",
                     "focus:outline-none focus:ring-2 focus:ring-secondary-400 focus:ring-offset-2 focus:ring-offset-primary-900 rounded-md"
                   )}
                 >
-                  +221 12 345 67 89
+                  77 470 11 73 / 77 830 86 39
                 </a>
               </div>
             </div>

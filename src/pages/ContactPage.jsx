@@ -29,6 +29,9 @@ export default function ContactPage() {
     'Université Alioune Diop (UADB)',
     'Université du Sine Saloum (USSEIN)',
     'Université Iba Der Thiam (UIDT)',
+    'Université Amadou Mahtar Mbow (UAM)',
+    'Institut Supérieur d\'ensignements profesionnels (ISEP)',
+    'Université Numérique Cheikh Hamidou Kane (UNCHK)',
     'Autre'
   ];
 
@@ -44,12 +47,7 @@ export default function ContactPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-20"
           >
-            <motion.div
-              className="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full font-medium mb-4"
-              whileHover={{ scale: 1.05 }}
-            >
-              Contact & Adhésion
-            </motion.div>
+            
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               <span className="gradient-text">Rejoignez</span> Notre Communauté
             </h1>
@@ -194,8 +192,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-1">Email Principal</h3>
-                      <p className="text-gray-600">contact@ciu-senegal.org</p>
-                      <p className="text-sm text-gray-500">Réponse sous 24h</p>
+                      <p className="text-gray-600">comiteinteru@gmail.com</p>
                     </div>
                   </div>
 
@@ -205,8 +202,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-1">Téléphone</h3>
-                      <p className="text-gray-600">+221 12 345 67 89</p>
-                      <p className="text-sm text-gray-500">Lun-Ven: 9h-17h</p>
+                      <p className="text-gray-600"> 77 470 11 73 / 77 830 86 39</p>
                     </div>
                   </div>
 
@@ -216,48 +212,17 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-1">Siège Social</h3>
-                      <p className="text-gray-600">Dakar, Sénégal</p>
-                      <p className="text-sm text-gray-500">Près des universités principales</p>
+                      <p className="text-gray-600">Chez Khalifa Ababacar Sy, Tivaouane</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Membership Benefits */}
-              <div className="bg-gradient-to-br from-primary-50 to-accent-50 rounded-3xl p-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Avantages de l'Adhésion</h3>
-                <ul className="space-y-3">
-                  {[
-                    "Accès à tous les événements et conférences",
-                    "Réseau d'entraide inter-universitaire",
-                    "Ressources éducatives exclusives",
-                    "Accompagnement spirituel et académique",
-                    "Opportunités de leadership et de développement",
-                    "Connexions avec des alumni influents"
-                  ].map((benefit, index) => (
-                    <motion.li
-                      key={index}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.4, delay: index * 0.1 }}
-                      className="flex items-center"
-                    >
-                      <div className="w-2 h-2 bg-gradient-primary rounded-full mr-3 flex-shrink-0"></div>
-                      <span className="text-gray-700">{benefit}</span>
-                    </motion.li>
-                  ))}
-                </ul>
-              </div>
+
 
               {/* Quick Actions */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <motion.button
-                  className="btn-outline text-center"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Adhésion en Ligne
-                </motion.button>
                 <motion.button
                   className="btn-secondary text-center"
                   whileHover={{ scale: 1.02 }}
