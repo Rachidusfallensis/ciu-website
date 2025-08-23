@@ -165,8 +165,8 @@ export default function HomePage() {
             >
               {[
                 { number: "8+", label: "Universités Partenaires", icon: Globe },
-                { number: "500+", label: "Étudiants Membres", icon: Users },
-                { number: "10+", label: "Années d'Excellence", icon: Star },
+                { number: "1500+", label: "Étudiants Membres", icon: Users },
+                { number: "5+", label: "Années d'Excellence", icon: Star },
               ].map((stat, index) => (
                 <motion.div
                   key={index}

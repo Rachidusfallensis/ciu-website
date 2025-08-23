@@ -112,8 +112,8 @@ export default function About() {
             <span className="gradient-text">Notre Histoire</span> & Mission
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Depuis plus d'une décennie, le Comité Inter-Universitaire œuvre pour l'épanouissement 
-            des étudiants moustarchidines dans toutes les universités publiques du Sénégal.
+            Depuis sa mise en place en 2022, le comité Inter-Universitaire œuvre pour l'épanouissement 
+            des étudiants moustarchidines dans toutes les universités publiques et privées du Sénégal.
           </p>
         </motion.div>
 
@@ -127,14 +127,14 @@ export default function About() {
           <motion.div variants={itemVariants} className="space-y-6">
             <div className="flex items-center space-x-3 mb-6">
               <div className="flex items-center justify-center w-12 h-12 bg-gradient-primary rounded-2xl">
-                <Target className="h-6 w-6 text-white" />
+                <Target className="h-6 w-6 text-primary-900" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900">Notre Mission</h3>
             </div>
             <p className="text-lg text-gray-600 leading-relaxed">
               Le CIU a été créé avec la vision d'unir tous les étudiants moustarchidines 
-              des universités publiques sénégalaises sous une même bannière de fraternité, 
-              d'excellence académique et de développement spirituel.
+              des universités sénégalaises sous une même bannière de fraternité, 
+              d'excellence académique et de Tarbiya.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed">
               Nous croyons fermement qu'il est possible de concilier réussite académique 
@@ -147,7 +147,7 @@ export default function About() {
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <div className="w-12 h-1 bg-gradient-primary rounded-full"></div>
-              <span className="text-primary-600 font-semibold">Excellence • Spiritualité • Fraternité</span>
+              <span className="text-primary-900 font-semibold">Excellence • Tarbiya • Fraternité</span>
             </motion.div>
           </motion.div>
 
@@ -159,14 +159,10 @@ export default function About() {
               <h3 className="text-2xl font-bold text-gray-900">Notre Vision</h3>
             </div>
             <p className="text-lg text-gray-600 leading-relaxed">
-              Nous aspirons à devenir le pont entre les valeurs spirituelles traditionnelles 
-              et les exigences du monde académique moderne, en formant des leaders conscients 
-              et engagés pour l'avenir du Sénégal.
+            En tant que jeunesse musulmane consciente de sa responsabilité historique, nous nous engageons à jouer un rôle d’avant-garde dans la préservation et l’élévation de notre génération. Nous menons ce combat sur les plans intellectuel, moral, économique, social et surtout religieux, afin de bâtir une jeunesse forte, lucide et fidèle à ses valeurs.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed">
-              Notre vision s'étend au-delà des frontières universitaires pour créer 
-              un réseau national de diplômés moustarchidines qui contribuent positivement 
-              au développement de notre société.
+            Nous aspirons à être le pont entre les valeurs spirituelles traditionnelles et les exigences du monde académique moderne, en formant des leaders conscients et engagés pour l’avenir du Sénégal. Notre vision dépasse le cadre universitaire pour créer un réseau national de diplômés moustarchidines, porteurs d’un projet de société ancré dans la foi et orienté vers le développement harmonieux de la nation.
             </p>
             
             {/* Stats */}
