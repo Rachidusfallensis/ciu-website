@@ -127,7 +127,7 @@ const universities = [
     description: "Conseil universitaire unifiant deux institutions d'enseignement supérieur de Diamniadio.",
     logos: ["/uam.png", "/isep.png"],
     contact: [
-      { name: "Mademba Ba", phone: "+221 77 830 86 39" },
+      { name: "Mademba Gueye", phone: "+221 77 830 86 39" },
       { name: "Fatima Diallo", phone: "+221 77 447 50 38" }
     ],
     coordinates: [14.7645, -17.3660],
