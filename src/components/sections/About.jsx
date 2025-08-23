@@ -97,7 +97,8 @@ export default function About() {
     {
       name: "Mademba Gueye",
       university: "UAM",
-      commission: "Commission Administrative"
+      commission: "Commission Administrative",
+      photo: "/mademba.jpg"
     },
     {
       name: "Arona Fall",
@@ -120,7 +121,8 @@ export default function About() {
     {
       name: "El Hadj Ndiouga",
       university: "UIDT",
-      commission: "Commission d'Intelligence et de Perception Spirituelle"
+      commission: "Commission d'Intelligence et de Perception Spirituelle",
+      photo: "/ndiouga.JPG"
     },
     {
       name: "Cheikh Becaye",
