@@ -97,7 +97,8 @@ export default function About() {
     {
       name: "Arona Fall",
       university: "UADB",
-      commission: "Commission d'Intelligence et de Perception Spirituelle"
+      commission: "Commission d'Intelligence et de Perception Spirituelle",
+      photo: "/arona.jpeg"
     },
     {
       name: "Adama Niang",
@@ -358,14 +359,23 @@ export default function About() {
                   >
                     {/* Photo Circle */}
                     <motion.div
-                      className="w-16 h-16 bg-gradient-primary rounded-full mx-auto mb-4 flex items-center justify-center overflow-hidden"
+                      className="w-16 h-16 rounded-full mx-auto mb-4 overflow-hidden shadow-lg"
                       whileHover={{ scale: 1.1 }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
-                      {/* Placeholder for photo - using initials for now */}
-                      <span className="text-white font-bold text-lg">
-                        {member.name.split(' ').slice(0, 2).map(n => n[0]).join('')}
-                      </span>
+                      {member.photo ? (
+                        <img
+                          src={member.photo}
+                          alt={`Photo de ${member.name}`}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-gradient-primary flex items-center justify-center">
+                          <span className="text-white font-bold text-lg">
+                            {member.name.split(' ').slice(0, 2).map(n => n[0]).join('')}
+                          </span>
+                        </div>
+                      )}
                     </motion.div>
 
                     {/* Name */}
