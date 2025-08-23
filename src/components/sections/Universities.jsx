@@ -37,9 +37,8 @@ const universities = [
     description: "La plus ancienne et prestigieuse université du Sénégal, située au cœur de Dakar.",
     logo: "/ucad.png",
     contact: [
-      { name: "EL HADJI GAYE", phone: "+221 70 684 49 31" },
-      { name: "BABACAR NDAO", phone: "+221 77 518 72 41" },
-      { name: "ASSANE NIANG", phone: "+221 77 198 24 07" }
+      { name: "ASSANE NIANG", phone: "+221 78 198 24 07" },
+      { name: "Khalifa Cisse", phone: "+221 77 291 10 84" }
     ],
     coordinates: [14.6928, -17.4467],
     gradient: "from-primary-600 to-blue-500"
@@ -53,9 +52,8 @@ const universities = [
     description: "Université moderne axée sur la recherche et l'innovation, située dans la ville historique de Saint-Louis.",
     logo: "/ugb.png",
     contact: [
-      { name: "Mouhamed Diouf", phone: "+221 78 010 22 69" },
-      { name: "PF 2", phone: "+221 77 669 40 42" },
-      { name: "PF3", phone: "+221 76 279 26 62" }
+      { name: "Gade Fall", phone: "+221 77 273 43 30" },
+      { name: "Pape Gora Guéne", phone: "+221 77 284 57 78" }
     ],
     coordinates: [16.0378, -16.4894],
     gradient: "from-accent-500 to-secondary-500"
@@ -69,9 +67,8 @@ const universities = [
     description: "Université dynamique du Sud, contribuant au développement de la Casamance.",
     logo: "/uasz.png",
     contact: [
-      { name: "El Hadji Cheikh Bécaye Dia", phone: "+221 77 656 18 74" },
-      { name: "Pape Ndiambe DIOP", phone: "+221 77 988 21 88" },
-      { name: "Pape seyni Diouf", phone: "+221 70 346 65 71" }
+      { name: "Baba Diaw", phone: "+221 76 321 23 90" },
+      { name: "Ndiaga Ndiaye", phone: "+221 77 789 63 79" }
     ],
     coordinates: [12.5444, -16.2736],
     gradient: "from-secondary-500 to-primary-600"
@@ -85,9 +82,8 @@ const universities = [
     description: "Université agricole spécialisée dans les sciences agronomiques et vétérinaires.",
     logo: "/uadb.png",
     contact: [
-      { name: "Mouhamadou F Chimère Diallo", phone: "+221 77 690 61 46" },
-      { name: "Cheikh Ahmed Tidiane Fall", phone: "+221 78 562 58 86" },
-      { name: "Cheikh Tidiane kane", phone: "+221 77 861 39 75" }
+      { name: "Idrissa Pouye", phone: "+221 70 548 90 75" },
+      { name: "Abdou Seydi", phone: "+221 77 611 50 66" }
     ],
     coordinates: [14.7022, -16.4522],
     gradient: "from-primary-600 to-accent-600"
@@ -101,9 +97,8 @@ const universities = [
     description: "Université régionale contribuant au développement du bassin arachidier.",
     logo: "/ussein.png",
     contact: [
-      { name: "Ismaila CISSE", phone: "+221 77 071 75 77" },
-      { name: "El Hadji Malick NIANG", phone: "+221 77 180 73 35" },
-      { name: "Cheikhna Ahmet Tidiane NIANG", phone: "+221 77 696 51 21" }
+      { name: "Moustapha Diakhate", phone: "+221 76 155 03 95" },
+      { name: "Saly", phone: "+221 78 481 09 11" }
     ],
     coordinates: [14.1372, -16.0728],
     gradient: "from-accent-600 to-secondary-600"
@@ -117,9 +112,8 @@ const universities = [
     description: "Université technologique spécialisée dans l'ingénierie et les sciences appliquées.",
     logo: "/uidt.png",
     contact: [
-      { name: "Massata Samb", phone: "+221 77 096 45 41" },
-      { name: "Abdoulaye Diome SARR", phone: "+221 78 734 56 27" },
-      { name: "Demba Ndiaye", phone: "+221 76 789 03 70" }
+      { name: "Massata", phone: "+221 77 096 45 41" },
+      { name: "Demba Ndiaye", phone: "+221 77 492 78 83" }
     ],
     coordinates: [14.7886, -16.9260],
     gradient: "from-secondary-600 to-primary-500"
@@ -133,7 +127,8 @@ const universities = [
     description: "Conseil universitaire unifiant deux institutions d'enseignement supérieur de Diamniadio.",
     logos: ["/uam.png", "/isep.png"],
     contact: [
-      { name: "Mademba Gueye", phone: "+221 77 830 86 39" }
+      { name: "Mademba Ba", phone: "+221 77 830 86 39" },
+      { name: "Fatima Diallo", phone: "+221 77 447 50 38" }
     ],
     coordinates: [14.7645, -17.3660],
     gradient: "from-primary-500 to-accent-500"
