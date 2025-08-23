@@ -236,8 +236,8 @@ export default function About() {
             <div className="grid grid-cols-2 gap-4 pt-6">
               {[
                 { number: "1400+", label: "Membres Actifs" },
-                { number: "8", label: "Universités" },
-                { number: "19", label: "Comité Dirigeant" },
+                { number: "8", label: "Conseils universitaires" },
+                { number: "19", label: "Collaborateur" },
                 { number: "5+", label: "Années d'Expérience" }
               ].map((stat, index) => (
                 <motion.div
@@ -359,7 +359,7 @@ export default function About() {
                   >
                     {/* Photo Circle */}
                     <motion.div
-                      className="w-16 h-16 rounded-full mx-auto mb-4 overflow-hidden shadow-lg"
+                      className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden shadow-lg"
                       whileHover={{ scale: 1.1 }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
@@ -371,7 +371,7 @@ export default function About() {
                         />
                       ) : (
                         <div className="w-full h-full bg-gradient-primary flex items-center justify-center">
-                          <span className="text-white font-bold text-lg">
+                          <span className="text-white font-bold text-xl">
                             {member.name.split(' ').slice(0, 2).map(n => n[0]).join('')}
                           </span>
                         </div>
@@ -379,15 +379,15 @@ export default function About() {
                     </motion.div>
 
                     {/* Name */}
-                    <h4 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-primary-700 transition-colors duration-300">
+                    <h4 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-primary-700 transition-colors duration-300">
                       {member.name}
                     </h4>
                     
                     {/* University */}
-                    <div className="text-sm text-secondary-600 mb-3 font-medium">{member.university}</div>
+                    <div className="text-sm text-secondary-600 mb-4 font-medium text-center">{member.university}</div>
                     
                     {/* Commission */}
-                    <div className="text-xs text-primary-600 bg-primary-50 rounded-full px-3 py-1 mb-4 inline-block">
+                    <div className="text-xs text-primary-600 bg-primary-50 rounded-full px-3 py-1 mb-2 inline-block text-center">
                       {member.commission}
                     </div>
 
