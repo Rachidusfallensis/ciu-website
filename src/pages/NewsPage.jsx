@@ -221,13 +221,12 @@ export default function NewsPage() {
               <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                   <div className="relative h-64 lg:h-auto">
-                    <div className={`absolute inset-0 bg-gradient-to-br ${featuredArticle.gradient} opacity-90`} />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center text-white">
-                        <div className="text-6xl font-bold mb-2">À LA UNE</div>
-                        <div className="text-lg opacity-90">Article Principal</div>
-                      </div>
-                    </div>
+                    <img 
+                      src="/colloque-optimized/banniere_colloque.jpg" 
+                      alt="Bannière Colloque Interuniversitaire 2025"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className={`absolute inset-0 bg-gradient-to-br ${featuredArticle.gradient} opacity-20`} />
                   </div>
                   
                   <div className="p-8 lg:p-12">
