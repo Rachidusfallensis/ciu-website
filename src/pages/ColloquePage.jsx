@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
-import { Calendar, Clock, MapPin, Users, GraduationCap, Award, FileText, Download, Share2, ChevronRight, Star, Target, BookOpen, Mic, Camera, Play } from 'lucide-react';
+import { useRef, useState, useEffect } from 'react';
+import { Calendar, Clock, MapPin, Users, GraduationCap, Award, FileText, Download, Share2, ChevronRight, Star, Target, BookOpen, Mic, Camera, Play, ArrowUp } from 'lucide-react';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { cn } from '../utils/cn';
@@ -163,6 +163,7 @@ export default function ColloquePage() {
   const galleryRef = useRef(null);
 
   const [selectedDay, setSelectedDay] = useState(0);
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   const isHeroInView = useInView(heroRef, { once: true, amount: 0.3 });
   const isPresentationInView = useInView(presentationRef, { once: true, amount: 0.2 });
@@ -173,6 +174,23 @@ export default function ColloquePage() {
   const isStatsInView = useInView(statsRef, { once: true, amount: 0.2 });
   const isCommunicationsInView = useInView(communicationsRef, { once: true, amount: 0.2 });
   const isGalleryInView = useInView(galleryRef, { once: true, amount: 0.2 });
+
+  // Gestion du bouton scroll to top
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   const getSessionIcon = (type) => {
     switch(type) {
@@ -403,73 +421,70 @@ export default function ColloquePage() {
             </h2>
           </motion.div>
 
+          {/* Objectif Général */}
           <motion.div
-            className="grid grid-cols-1 lg:grid-cols-3 gap-8"
-            variants={containerVariants}
-            initial="hidden"
-            animate={isObjectivesInView ? "visible" : "hidden"}
+            initial={{ opacity: 0, y: 30 }}
+            animate={isObjectivesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="bg-white rounded-3xl shadow-lg border border-gray-100 p-8 mb-12"
           >
-            {/* Objectif Général */}
-            <motion.div
-              variants={itemVariants}
-              className="lg:col-span-1 bg-gradient-to-br from-primary-600 to-blue-600 rounded-3xl p-8 text-white"
-            >
-              <div className="text-center mb-6">
-                <Target className="h-12 w-12 text-yellow-400 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold">Objectif Général</h3>
+            <div className="text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-100 rounded-2xl mb-6">
+                <Target className="h-8 w-8 text-primary-600" />
               </div>
-              <p className="text-lg text-center leading-relaxed">
-                Promouvoir la collaboration interdisciplinaire entre étudiants et experts
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Objectif Général</h3>
+              <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                Promouvoir la collaboration interdisciplinaire entre étudiants et experts pour bâtir un avenir meilleur
               </p>
-            </motion.div>
+            </div>
+          </motion.div>
 
-            {/* Objectifs Spécifiques */}
-            <motion.div
-              variants={itemVariants}
-              className="lg:col-span-2"
-            >
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Objectifs Spécifiques</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {[
-                  {
-                    title: "Favoriser les échanges",
-                    description: "Entre universitaires et professionnels",
-                    icon: Users,
-                    color: "from-green-500 to-teal-500"
-                  },
-                  {
-                    title: "Réfléchir ensemble",
-                    description: "Sur des problématiques communes",
-                    icon: BookOpen,
-                    color: "from-blue-500 to-indigo-500"
-                  },
-                  {
-                    title: "Élaborer des stratégies",
-                    description: "Axes stratégiques pour le développement",
-                    icon: Target,
-                    color: "from-purple-500 to-pink-500"
-                  },
-                  {
-                    title: "Proposer des solutions",
-                    description: "Feuilles de route thématiques",
-                    icon: FileText,
-                    color: "from-yellow-500 to-orange-500"
-                  }
-                ].map((objective, index) => (
-                  <motion.div
-                    key={index}
-                    className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300"
-                    whileHover={{ y: -5 }}
-                  >
-                    <div className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r ${objective.color} rounded-xl mb-4`}>
-                      <objective.icon className="h-6 w-6 text-white" />
-                    </div>
-                    <h4 className="text-lg font-bold text-gray-900 mb-2">{objective.title}</h4>
-                    <p className="text-gray-600">{objective.description}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
+          {/* Objectifs Spécifiques */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isObjectivesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Objectifs Spécifiques</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                {
+                  title: "Favoriser les échanges",
+                  description: "Entre universitaires et professionnels",
+                  icon: Users
+                },
+                {
+                  title: "Réfléchir ensemble",
+                  description: "Sur des problématiques communes",
+                  icon: BookOpen
+                },
+                {
+                  title: "Élaborer des stratégies",
+                  description: "Axes stratégiques pour le développement",
+                  icon: Target
+                },
+                {
+                  title: "Proposer des solutions",
+                  description: "Feuilles de route thématiques",
+                  icon: FileText
+                }
+              ].map((objective, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isObjectivesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                  transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+                  className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 hover:shadow-xl hover:border-primary-200 transition-all duration-300"
+                  whileHover={{ y: -5 }}
+                >
+                  <div className="inline-flex items-center justify-center w-12 h-12 bg-primary-50 rounded-xl mb-4">
+                    <objective.icon className="h-6 w-6 text-primary-600" />
+                  </div>
+                  <h4 className="text-lg font-bold text-gray-900 mb-2">{objective.title}</h4>
+                  <p className="text-gray-600 text-sm leading-relaxed">{objective.description}</p>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>
@@ -912,6 +927,22 @@ export default function ColloquePage() {
 
       {/* Gallery Section avec vraies images */}
       <ColloqueGallery />
+
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <motion.button
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.8 }}
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 z-50 bg-primary-600 hover:bg-primary-700 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          aria-label="Retour en haut"
+        >
+          <ArrowUp className="h-6 w-6" />
+        </motion.button>
+      )}
     </main>
   );
 }
