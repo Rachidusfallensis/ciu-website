@@ -122,9 +122,9 @@ const youtubeVideos = [
     id: 'cloture',
     title: 'Cérémonie de Clôture',
     description: 'Cérémonie de clôture du colloque',
-    url: 'https://www.youtube.com/live/m5jhUYzvGV4?si=6JqYI3kNeoYaOzUr',
-    thumbnail: 'https://img.youtube.com/vi/m5jhUYzvGV4/maxresdefault.jpg',
-    duration: 'Live',
+    url: 'https://youtu.be/zRq4rFoRtGM?si=nmjFzJJP8P0RyVum',
+    thumbnail: 'https://img.youtube.com/vi/zRq4rFoRtGM/maxresdefault.jpg',
+    duration: 'Vidéo',
     type: 'ceremony'
   },
   {
