@@ -205,13 +205,16 @@ export default function ColloquePage() {
       {/* Hero Section */}
       <section 
         ref={heroRef}
-        className="section-padding bg-gradient-to-br from-primary-900 via-blue-800 to-accent-900 text-white relative overflow-hidden"
+        className="section-padding text-white relative overflow-hidden"
       >
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%), 
-                             radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 0%, transparent 50%)`
-          }}></div>
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img 
+            src="/colloque-optimized/gallery/ceremonie-ouverture/21_gallery.jpg" 
+            alt="Cérémonie d'ouverture du colloque"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-900/80 via-blue-800/70 to-accent-900/80"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -228,8 +231,8 @@ export default function ColloquePage() {
             </h1>
             
             <p className="text-2xl md:text-3xl mb-8 text-blue-100 font-light leading-relaxed">
-              "Synergie Pluridisciplinaire, Horizons Multiples :<br />
-              Comment Bâtir un Avenir Meilleur"
+              Synergie Pluridisciplinaire, Horizons Multiples :<br />
+              Comment Bâtir un Avenir Meilleur
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">

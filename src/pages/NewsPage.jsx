@@ -32,10 +32,10 @@ const itemVariants = {
 const newsArticles = [
   {
     id: 1,
-    title: "COLLOQUE INTERUNIVERSITAIRE 2025",
-    excerpt: "Synergie Pluridisciplinaire, Horizons Multiples : Comment Bâtir un Avenir Meilleur. Premier colloque interuniversitaire organisé par le CIU du 21-23 février 2025 à l'UIDT Thiès.",
+    title: "COLLOQUE INTER-UNIVERSITAIRE 2025",
+    excerpt: "Premier colloque interuniversitaire organisé par le CIU du 21-23 février 2025 à l'UIDT Thiès.",
     content: "Le Comité Interuniversitaire (CIU) a organisé son premier colloque interuniversitaire...",
-    author: "Comité Interuniversitaire",
+    author: "Arona Fall",
     date: new Date(2025, 1, 21),
     category: "Colloque",
     image: "/api/placeholder/600/300",
