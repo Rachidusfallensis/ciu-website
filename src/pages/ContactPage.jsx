@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, User, MessageSquare } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ScrollToTop from '../components/ScrollToTop';
 
 export default function ContactPage() {
@@ -12,16 +12,55 @@ export default function ContactPage() {
     message: ''
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', null
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      // Simulation d'envoi d'email (remplacer par votre service d'email)
+      // Exemple avec mailto (ouverture du client email local)
+      const mailtoLink = `mailto:comiteinteru@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
+        `Nom: ${formData.name}\nEmail: ${formData.email}\nUniversité: ${formData.university || 'Non spécifiée'}\n\nMessage:\n${formData.message}`
+      )}`;
+      
+      window.location.href = mailtoLink;
+      
+      // Réinitialiser le formulaire après succès
+      setFormData({
+        name: '',
+        email: '',
+        university: '',
+        subject: '',
+        message: ''
+      });
+      
+      setSubmitStatus('success');
+    } catch (error) {
+      console.error('Erreur lors de l\'envoi:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
+  // Effacer automatiquement les messages de feedback après 5 secondes
+  useEffect(() => {
+    if (submitStatus) {
+      const timer = setTimeout(() => {
+        setSubmitStatus(null);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [submitStatus]);
 
   const universities = [
     'Université Cheikh Anta Diop (UCAD)',
@@ -149,7 +188,7 @@ export default function ContactPage() {
                       Message *
                     </label>
                     <div className="relative">
-                      <MessageSquare className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                      <MessageSquare className="absolute left-3 top-4 h-5 w-5 text-gray-400" />
                       <textarea
                         id="message"
                         name="message"
@@ -163,14 +202,45 @@ export default function ContactPage() {
                     </div>
                   </div>
 
+                  {/* Messages de feedback */}
+                  {submitStatus === 'success' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="p-4 bg-green-50 border border-green-200 rounded-xl"
+                    >
+                      <p className="text-green-800 font-medium">✓ Votre client email va s'ouvrir pour envoyer le message</p>
+                    </motion.div>
+                  )}
+
+                  {submitStatus === 'error' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="p-4 bg-red-50 border border-red-200 rounded-xl"
+                    >
+                      <p className="text-red-800 font-medium">✗ Erreur lors de l'envoi. Veuillez réessayer.</p>
+                    </motion.div>
+                  )}
+
                   <motion.button
                     type="submit"
-                    className="w-full btn-primary"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                    disabled={isSubmitting}
+                    className={`w-full btn-primary ${isSubmitting ? 'opacity-75 cursor-not-allowed' : ''}`}
+                    whileHover={!isSubmitting ? { scale: 1.02 } : {}}
+                    whileTap={!isSubmitting ? { scale: 0.98 } : {}}
                   >
-                    <Send className="mr-2 h-5 w-5" />
-                    Envoyer le Message
+                    {isSubmitting ? (
+                      <>
+                        <div className="mr-2 h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
+                        Envoi en cours...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="mr-2 h-5 w-5" />
+                        Envoyer le Message
+                      </>
+                    )}
                   </motion.button>
                 </form>
               </div>
