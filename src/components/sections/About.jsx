@@ -230,7 +230,7 @@ export default function About() {
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <div className="w-12 h-1 bg-gradient-primary rounded-full"></div>
-              <span className="text-primary-900 font-semibold">Excellence • Tarbiya • Fraternité</span>
+              <span className="text-primary-900 font-semibold">Tarbiya • Excellence • Fraternité</span>
             </motion.div>
           </motion.div>
 
@@ -355,27 +355,31 @@ export default function About() {
             </p>
           </motion.div>
 
-          {/* Horizontal Slider Container */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isTeamInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
-          >
-            <div className="overflow-x-auto pb-6">
-              <div className="flex space-x-6 w-max">
-                {team.map((member, index) => (
+          {/* Commission Containers */}
+          <div className="space-y-16">
+            {/* Points Focaux */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isTeamInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="bg-gradient-to-br from-primary-50 to-accent-50 rounded-3xl p-8"
+            >
+              <div className="text-center mb-8">
+                <h4 className="text-2xl font-bold text-gray-900 mb-2">Points Focaux</h4>
+  
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {team.filter(member => member.commission === "Point Focal").map((member, index) => (
                   <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={isTeamInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className="group bg-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 card-hover text-center min-w-[280px] max-w-[280px]"
-                    whileHover={{ y: -5, scale: 1.02 }}
+                    key={member.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isTeamInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                    className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center"
+                    whileHover={{ y: -3 }}
                   >
-                    {/* Photo Circle */}
                     <motion.div
-                      className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden shadow-lg"
+                      className="w-16 h-16 rounded-full mx-auto mb-4 overflow-hidden shadow-md"
                       whileHover={{ scale: 1.1 }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
@@ -387,56 +391,205 @@ export default function About() {
                         />
                       ) : (
                         <div className="w-full h-full bg-gradient-primary flex items-center justify-center">
-                          <span className="text-white font-bold text-xl">
+                          <span className="text-white font-bold text-lg">
                             {member.name.split(' ').slice(0, 2).map(n => n[0]).join('')}
                           </span>
                         </div>
                       )}
                     </motion.div>
-
-                    {/* Name */}
-                    <h4 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-primary-700 transition-colors duration-300">
-                      {member.name}
-                    </h4>
-                    
-                    {/* University */}
-                    <div className="text-sm text-secondary-600 mb-4 font-medium text-center">{member.university}</div>
-                    
-                    {/* Commission */}
-                    <div className="text-xs text-primary-600 bg-primary-50 rounded-full px-3 py-1 mb-2 inline-block text-center">
-                      {member.commission}
-                    </div>
-
-                    {/* Animated Bottom Border */}
-                    <motion.div
-                      className="mt-4 h-1 bg-gradient-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                      initial={{ scaleX: 0 }}
-                      whileInView={{ scaleX: 1 }}
-                      transition={{ duration: 1, delay: index * 0.05 }}
-                    />
+                    <h5 className="font-bold text-gray-900 mb-2">{member.name}</h5>
+                    <p className="text-sm text-secondary-600 font-medium">{member.university}</p>
                   </motion.div>
                 ))}
               </div>
-            </div>
-            
-            {/* Scroll Indicator */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={isTeamInView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ duration: 0.8, delay: 1 }}
-              className="text-center mt-4"
-            >
-              <p className="text-sm text-gray-500 flex items-center justify-center">
-                <span className="mr-2">Faites défiler horizontalement pour voir tous les membres</span>
-                <motion.span
-                  animate={{ x: [0, 10, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  →
-                </motion.span>
-              </p>
             </motion.div>
-          </motion.div>
+
+            {/* Commission Administrative */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isTeamInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="bg-gradient-to-br from-secondary-50 to-primary-50 rounded-3xl p-8"
+            >
+              <div className="text-center mb-8">
+                <h4 className="text-2xl font-bold text-gray-900 mb-2">Commission Administrative</h4>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {team.filter(member => member.commission === "Commission Administrative").map((member, index) => (
+                  <motion.div
+                    key={member.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isTeamInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+                    className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center"
+                    whileHover={{ y: -3 }}
+                  >
+                    <motion.div
+                      className="w-16 h-16 rounded-full mx-auto mb-4 overflow-hidden shadow-md"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      {member.photo ? (
+                        <img
+                          src={member.photo}
+                          alt={`Photo de ${member.name}`}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-gradient-secondary flex items-center justify-center">
+                          <span className="text-white font-bold text-lg">
+                            {member.name.split(' ').slice(0, 2).map(n => n[0]).join('')}
+                          </span>
+                        </div>
+                      )}
+                    </motion.div>
+                    <h5 className="font-bold text-gray-900 mb-2">{member.name}</h5>
+                    <p className="text-sm text-secondary-600 font-medium">{member.university}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Commission d'Intelligence et de Perception Spirituelle */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isTeamInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="bg-gradient-to-br from-accent-50 to-secondary-50 rounded-3xl p-8"
+            >
+              <div className="text-center mb-8">
+                <h4 className="text-2xl font-bold text-gray-900 mb-2">Commission d'Intelligence et de Perception Spirituelle</h4>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {team.filter(member => member.commission === "Commission d'Intelligence et de Perception Spirituelle").map((member, index) => (
+                  <motion.div
+                    key={member.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isTeamInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+                    className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center"
+                    whileHover={{ y: -3 }}
+                  >
+                    <motion.div
+                      className="w-16 h-16 rounded-full mx-auto mb-4 overflow-hidden shadow-md"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      {member.photo ? (
+                        <img
+                          src={member.photo}
+                          alt={`Photo de ${member.name}`}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-gradient-accent flex items-center justify-center">
+                          <span className="text-white font-bold text-lg">
+                            {member.name.split(' ').slice(0, 2).map(n => n[0]).join('')}
+                          </span>
+                        </div>
+                      )}
+                    </motion.div>
+                    <h5 className="font-bold text-gray-900 mb-2">{member.name}</h5>
+                    <p className="text-sm text-secondary-600 font-medium">{member.university}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Commission Trésor et Capacitation */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isTeamInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-3xl p-8"
+            >
+              <div className="text-center mb-8">
+                <h4 className="text-2xl font-bold text-gray-900 mb-2">Commission Trésor et Capacitation</h4>
+         
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {team.filter(member => member.commission === "Commission Trésor et Capacitation").map((member, index) => (
+                  <motion.div
+                    key={member.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isTeamInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    transition={{ duration: 0.6, delay: 1.0 + index * 0.1 }}
+                    className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center"
+                    whileHover={{ y: -3 }}
+                  >
+                    <motion.div
+                      className="w-16 h-16 rounded-full mx-auto mb-4 overflow-hidden shadow-md"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      {member.photo ? (
+                        <img
+                          src={member.photo}
+                          alt={`Photo de ${member.name}`}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-gradient-primary flex items-center justify-center">
+                          <span className="text-white font-bold text-lg">
+                            {member.name.split(' ').slice(0, 2).map(n => n[0]).join('')}
+                          </span>
+                        </div>
+                      )}
+                    </motion.div>
+                    <h5 className="font-bold text-gray-900 mb-2">{member.name}</h5>
+                    <p className="text-sm text-secondary-600 font-medium">{member.university}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Commission Logistique */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isTeamInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.8, delay: 1.0 }}
+              className="bg-gradient-to-br from-accent-50 to-primary-50 rounded-3xl p-8"
+            >
+              <div className="text-center mb-8">
+                <h4 className="text-2xl font-bold text-gray-900 mb-2">Commission Logistique</h4>
+        
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                {team.filter(member => member.commission === "Commission Logistique").map((member, index) => (
+                  <motion.div
+                    key={member.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isTeamInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}
+                    className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center"
+                    whileHover={{ y: -3 }}
+                  >
+                    <motion.div
+                      className="w-16 h-16 rounded-full mx-auto mb-4 overflow-hidden shadow-md"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      {member.photo ? (
+                        <img
+                          src={member.photo}
+                          alt={`Photo de ${member.name}`}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-gradient-accent flex items-center justify-center">
+                          <span className="text-white font-bold text-lg">
+                            {member.name.split(' ').slice(0, 2).map(n => n[0]).join('')}
+                          </span>
+                        </div>
+                      )}
+                    </motion.div>
+                    <h5 className="font-bold text-gray-900 mb-2">{member.name}</h5>
+                    <p className="text-sm text-secondary-600 font-medium">{member.university}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>
