@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 import { MapPin, Users, GraduationCap, Calendar, ExternalLink, Phone, Mail } from 'lucide-react';
 import { cn } from '../../utils/cn';
 import Modal from '../Modal';
+import { Link } from 'react-router-dom';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -413,15 +414,18 @@ export default function Universities() {
             Votre université n'est pas encore représentée ? Contactez-nous pour créer 
             une nouvelle section CIU dans votre établissement.
           </p>
-          <motion.a
-            href="#contact"
-            className="inline-flex items-center btn-secondary"
+          <motion.div
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >
-            Nous Contacter
-            <ExternalLink className="ml-2 h-5 w-5" />
-          </motion.a>
+            <Link
+              to="/contact"
+              className="inline-flex items-center btn-secondary"
+            >
+              Nous Contacter
+              <ExternalLink className="ml-2 h-5 w-5" />
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </section>
