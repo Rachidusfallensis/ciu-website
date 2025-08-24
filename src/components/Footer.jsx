@@ -61,9 +61,8 @@ export default function Footer() {
                 {[
                   { name: 'À Propos', href: '#about' },
                   { name: 'Universités', href: '#universities' },
-                  { name: 'Activités', href: '#activities' },
-                  { name: 'Ressources', href: '#resources' },
                   { name: 'Actualités', href: '#news' },
+                  { name: 'Ressources', href: '#resources' },
                 ].map((link) => (
                   <li key={link.name}>
                     <a 

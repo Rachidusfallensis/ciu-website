@@ -180,7 +180,7 @@ export default function Activities() {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="gradient-text">Événements</span> & Programmes
           </h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed text-center">
             Découvrez notre riche programme d'activités conçu pour enrichir votre parcours 
             académique et spirituel à travers des événements variés et engageants.
           </p>
@@ -294,7 +294,7 @@ export default function Activities() {
                     </div>
                   </div>
 
-                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                  <p className="text-gray-600 text-sm mb-4 leading-relaxed text-center">
                     {event.description}
                   </p>
 
@@ -336,7 +336,7 @@ export default function Activities() {
             <h3 className="text-3xl font-bold mb-4">
               <span className="gradient-text">Calendrier</span> des Événements
             </h3>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto text-center">
               Planifiez votre participation aux événements du CIU
             </p>
           </motion.div>
@@ -428,7 +428,7 @@ export default function Activities() {
             <h3 className="text-3xl font-bold mb-4">
               <span className="gradient-text">Galerie</span> d'Activités
             </h3>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto text-center">
               Revivez les moments forts de nos événements passés
             </p>
           </motion.div>
@@ -490,7 +490,7 @@ export default function Activities() {
           className="mt-20 text-center bg-gradient-to-br from-secondary-600 to-primary-600 rounded-3xl p-12 text-white"
         >
           <h3 className="text-3xl font-bold mb-4">Organisez Votre Événement</h3>
-          <p className="text-xl mb-8 text-secondary-100 max-w-2xl mx-auto">
+          <p className="text-xl mb-8 text-secondary-100 max-w-2xl mx-auto text-center">
             Vous avez une idée d'événement ? Proposez-la et bénéficiez du soutien 
             du réseau CIU pour la réaliser.
           </p>

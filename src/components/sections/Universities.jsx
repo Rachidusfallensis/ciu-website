@@ -2,6 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { MapPin, Users, GraduationCap, Calendar, ExternalLink, Phone, Mail } from 'lucide-react';
 import { cn } from '../../utils/cn';
+import Modal from '../Modal';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -79,7 +80,7 @@ const universities = [
     location: "Bambey",
     members: 168,
     established: "2007",
-    description: "Université agricole spécialisée dans les sciences agronomiques et vétérinaires.",
+    description: "L’Université Alioune Diop de Bambey (UADB), héritière du premier Centre Universitaire Régional du Sénégal, est une université au cœur du Baol.",
     logo: "/uadb.png",
     contact: [
       { name: "Idrissa Pouye", phone: "+221 70 548 90 75" },
@@ -166,7 +167,7 @@ export default function Universities() {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="gradient-text">Réseau National</span> d'Excellence
           </h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8 text-center">
             Présent dans toutes les universités publiques du Sénégal, le CIU unit {totalMembers}+ étudiants 
             moustarchidines à travers le pays.
           </p>
@@ -212,8 +213,12 @@ export default function Universities() {
             <h3 className="text-3xl md:text-4xl font-bold mb-4">
               <span className="gradient-text">Carte Interactive</span> du CIU
             </h3>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto text-center mb-4">
               Explorez notre présence à travers tout le Sénégal et découvrez nos conseils universitaires.
+            </p>
+            <p className="text-base text-gray-700 max-w-4xl mx-auto text-center font-medium">
+              Vous êtes nouveaux bacheliers ou voulez continuer vos activités à l'université ? 
+              Veuillez contacter les Points Focaux des différentes universités en cliquant sur les cartes ci-dessous.
             </p>
           </motion.div>
 
@@ -294,7 +299,7 @@ export default function Universities() {
                       <span className="text-sm">{university.location}</span>
                     </div>
 
-                    <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                    <p className="text-gray-600 text-sm mb-4 leading-relaxed text-center">
                       {university.description}
                     </p>
 
@@ -314,116 +319,87 @@ export default function Universities() {
           </motion.div>
         </motion.div>
 
-        {/* Selected University Details */}
-        {selectedUniversity && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-20"
-          >
-            <div className="bg-white rounded-3xl shadow-2xl p-8 lg:p-12">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div>
-                  <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6 }}
-                  >
-                    <div className="flex items-center mb-6">
-                      {selectedUniversity.logos ? (
-                        <div className="flex space-x-3 mr-4">
-                          {selectedUniversity.logos.map((logo, logoIndex) => (
-                            <div 
-                              key={logoIndex}
-                              className="w-8 h-8 rounded-xl overflow-hidden bg-white shadow-lg flex items-center justify-center"
-                            >
-                              <img 
-                                src={logo} 
-                                alt={`Logo ${selectedUniversity.name}`}
-                                className="w-7 h-7 object-contain"
-                              />
-                            </div>
-                          ))}
-                        </div>
-                      ) : (
-                        <div className="w-16 h-16 rounded-2xl overflow-hidden bg-white shadow-lg mr-4 flex items-center justify-center">
+        {/* University Details Modal */}
+        <Modal 
+          isOpen={!!selectedUniversity} 
+          onClose={() => setSelectedUniversity(null)}
+          title={selectedUniversity?.name || "Détails de l'université"}
+        >
+          {selectedUniversity && (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div>
+                <div className="flex items-center mb-6">
+                  {selectedUniversity.logos ? (
+                    <div className="flex space-x-3 mr-4">
+                      {selectedUniversity.logos.map((logo, logoIndex) => (
+                        <div 
+                          key={logoIndex}
+                          className="w-12 h-12 rounded-xl overflow-hidden bg-white shadow-lg flex items-center justify-center"
+                        >
                           <img 
-                            src={selectedUniversity.logo} 
+                            src={logo} 
                             alt={`Logo ${selectedUniversity.name}`}
-                            className="w-14 h-14 object-contain"
+                            className="w-10 h-10 object-contain"
                           />
                         </div>
-                      )}
-                      <div>
-                        <h3 className="text-2xl font-bold text-gray-900">{selectedUniversity.name}</h3>
-                        <p className="text-gray-600">Établie en {selectedUniversity.established}</p>
-                      </div>
+                      ))}
                     </div>
-
-                    <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                      {selectedUniversity.description}
-                    </p>
-
-                    <div className="grid grid-cols-1 gap-4 mb-6">
-                      <div className="bg-primary-50 rounded-xl p-4 text-center">
-                        <Users className="h-6 w-6 text-primary-600 mx-auto mb-2" />
-                        <div className="text-2xl font-bold text-primary-700">{selectedUniversity.members}</div>
-                        <div className="text-sm text-gray-600">Membres CIU</div>
-                      </div>
+                  ) : (
+                    <div className="w-16 h-16 rounded-2xl overflow-hidden bg-white shadow-lg mr-4 flex items-center justify-center">
+                      <img 
+                        src={selectedUniversity.logo} 
+                        alt={`Logo ${selectedUniversity.name}`}
+                        className="w-14 h-14 object-contain"
+                      />
                     </div>
-                  </motion.div>
+                  )}
+                  <div>
+                    <p className="text-gray-600">Établie en {selectedUniversity.established}</p>
+                  </div>
                 </div>
 
-                <div>
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                  >
-                    <h4 className="text-xl font-bold text-gray-900 mb-4">Points Focaux</h4>
-                    <div className="space-y-4">
-                      {selectedUniversity.contact.map((contact, index) => (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0, x: 10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.4, delay: index * 0.1 }}
-                          className="bg-gray-50 rounded-lg p-4"
+                <p className="text-lg text-gray-600 mb-6 leading-relaxed text-justify">
+                  {selectedUniversity.description}
+                </p>
+
+                <div className="grid grid-cols-1 gap-4 mb-6">
+                  <div className="bg-primary-50 rounded-xl p-4 text-center">
+                    <Users className="h-6 w-6 text-primary-600 mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-primary-700">{selectedUniversity.members}</div>
+                    <div className="text-sm text-gray-600">Membres CIU</div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h4 className="text-xl font-bold text-gray-900 mb-4">Points Focaux</h4>
+                <div className="space-y-4">
+                  {selectedUniversity.contact.map((contact, index) => (
+                    <div
+                      key={index}
+                      className="bg-gray-50 rounded-lg p-4"
+                    >
+                      <div className="font-medium text-gray-900 mb-2 text-center">{contact.name}</div>
+                      <div className="flex items-center justify-center">
+                        <Phone className="h-4 w-4 text-primary-600 mr-2" />
+                        <a 
+                          href={`tel:${contact.phone}`}
+                          className="text-gray-600 hover:text-primary-600 transition-colors duration-200 text-sm"
                         >
-                          <div className="font-medium text-gray-900 mb-2">{contact.name}</div>
-                          <div className="flex items-center">
-                            <Phone className="h-4 w-4 text-primary-600 mr-2" />
-                            <a 
-                              href={`tel:${contact.phone}`}
-                              className="text-gray-600 hover:text-primary-600 transition-colors duration-200 text-sm"
-                            >
-                              {contact.phone}
-                            </a>
-                          </div>
-                        </motion.div>
-                      ))}
-                      <div className="flex items-center mt-4 pt-4 border-t border-gray-200">
-                        <MapPin className="h-5 w-5 text-primary-600 mr-3" />
-                        <span className="text-gray-600">{selectedUniversity.location}, Sénégal</span>
+                          {contact.phone}
+                        </a>
                       </div>
                     </div>
-
-                    <motion.button
-                      onClick={() => setSelectedUniversity(null)}
-                      className="mt-6 btn-outline w-full"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      Fermer les détails
-                    </motion.button>
-                  </motion.div>
+                  ))}
+                  <div className="flex items-center justify-center mt-4 pt-4 border-t border-gray-200">
+                    <MapPin className="h-5 w-5 text-primary-600 mr-3" />
+                    <span className="text-gray-600">{selectedUniversity.location}, Sénégal</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </motion.div>
-        )}
+          )}
+        </Modal>
 
         {/* Call to Action */}
         <motion.div
@@ -433,7 +409,7 @@ export default function Universities() {
           className="text-center bg-gradient-to-br from-primary-600 to-accent-600 rounded-3xl p-12 text-white"
         >
           <h3 className="text-3xl font-bold mb-4">Rejoignez Notre Réseau</h3>
-          <p className="text-xl mb-8 text-primary-100 max-w-2xl mx-auto">
+          <p className="text-xl mb-8 text-primary-100 max-w-2xl mx-auto text-center">
             Votre université n'est pas encore représentée ? Contactez-nous pour créer 
             une nouvelle section CIU dans votre établissement.
           </p>

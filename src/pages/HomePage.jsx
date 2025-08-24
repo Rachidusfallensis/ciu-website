@@ -158,7 +158,7 @@ export default function HomePage() {
 
             <motion.p
               variants={itemVariants}
-              className="text-lg md:text-xl mb-12 text-primary-200 max-w-4xl mx-auto leading-relaxed"
+              className="text-lg md:text-xl mb-12 text-primary-200 max-w-4xl mx-auto leading-relaxed text-center"
             >
               Unir les étudiants moustarchidines de toutes les universités  du Sénégal 
               pour un équilibre harmonieux entre excellence académique et Tarbiya implicatif.
@@ -275,7 +275,7 @@ export default function HomePage() {
             <h2 id="mission-heading" className="text-4xl md:text-5xl font-bold mb-6">
               <span className="gradient-text">Accompagner</span> l'Excellence
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed text-center">
             Nous accompagnons les membres pour exceller tant dans leurs études universitaires que dans leur parcours spirituel.
             </p>
           </motion.div>
@@ -306,7 +306,7 @@ export default function HomePage() {
                 title: "Tarbiya Implicatif",
                 description: "Organiser des événements qui contribuent au développement personnel et spirituel.",
                 gradient: "from-yellow-500 to-primary-600",
-                link: "/activities"
+                link: "/news"
               }
             ].map((card, index) => (
               <motion.div
@@ -316,22 +316,24 @@ export default function HomePage() {
                 whileHover={{ scale: 1.02 }}
               >
                 <div className="relative p-8">
-                  <motion.div 
-                    className={cn(
-                      "flex items-center justify-center w-16 h-16 rounded-2xl mb-6",
-                      `bg-gradient-to-br ${card.gradient}`
-                    )}
-                    whileHover={{ rotate: 360, scale: 1.1 }}
-                    transition={{ duration: 0.6 }}
-                  >
-                    <card.icon className="h-8 w-8 text-white" aria-hidden="true" />
-                  </motion.div>
+                  <div className="flex items-center mb-6">
+                    <motion.div 
+                      className={cn(
+                        "flex items-center justify-center w-14 h-14 rounded-2xl mr-4 flex-shrink-0",
+                        `bg-gradient-to-br ${card.gradient}`
+                      )}
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <card.icon className="h-7 w-7 text-white" aria-hidden="true" />
+                    </motion.div>
+                    
+                    <h3 className="text-2xl font-bold text-gray-900 group-hover:text-primary-700 transition-colors duration-300">
+                      {card.title}
+                    </h3>
+                  </div>
                   
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-700 transition-colors duration-300">
-                    {card.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300 mb-6">
+                  <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300 mb-6 text-center">
                     {card.description}
                   </p>
 
@@ -364,13 +366,13 @@ export default function HomePage() {
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               <span className="gradient-text">Découvrez</span> Nos Services
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed text-center">
               Explorez toutes les ressources et services que nous offrons à notre communauté
             </p>
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             variants={containerVariants}
             initial="hidden"
             animate={isServicesInView ? "visible" : "hidden"}
@@ -384,10 +386,10 @@ export default function HomePage() {
                 gradient: "from-primary-600 to-blue-500"
               },
               {
-                title: "Activités",
-                description: "Calendrier complet de nos événements et programmes",
+                title: "Actualités",
+                description: "Actualités, événements et activités du CIU",
                 icon: Calendar,
-                link: "/activities",
+                link: "/news",
                 gradient: "from-blue-500 to-yellow-500"
               },
               {
@@ -396,13 +398,6 @@ export default function HomePage() {
                 icon: BookOpen,
                 link: "/resources",
                 gradient: "from-yellow-500 to-primary-600"
-              },
-              {
-                title: "Actualités",
-                description: "Dernières nouvelles et annonces importantes",
-                icon: Star,
-                link: "/news",
-                gradient: "from-primary-600 to-blue-600"
               }
             ].map((service, index) => (
               <motion.div
@@ -413,22 +408,24 @@ export default function HomePage() {
                   to={service.link}
                   className="group block bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 card-hover"
                 >
-                  <motion.div
-                    className={cn(
-                      "flex items-center justify-center w-12 h-12 rounded-2xl mb-4",
-                      `bg-gradient-to-br ${service.gradient}`
-                    )}
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  >
-                    <service.icon className="h-6 w-6 text-white" />
-                  </motion.div>
+                  <div className="flex items-center mb-4">
+                    <motion.div
+                      className={cn(
+                        "flex items-center justify-center w-12 h-12 rounded-2xl mr-3 flex-shrink-0",
+                        `bg-gradient-to-br ${service.gradient}`
+                      )}
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    >
+                      <service.icon className="h-6 w-6 text-white" />
+                    </motion.div>
+                    
+                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-primary-700 transition-colors duration-300">
+                      {service.title}
+                    </h3>
+                  </div>
                   
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-700 transition-colors duration-300">
-                    {service.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
+                  <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300 text-center">
                     {service.description}
                   </p>
 

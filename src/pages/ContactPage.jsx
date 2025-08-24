@@ -51,7 +51,7 @@ export default function ContactPage() {
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               <span className="gradient-text">Rejoignez</span> Notre Communauté
             </h1>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed text-center">
               Nous sommes là pour vous accompagner. Contactez-nous pour toute question 
               ou pour rejoindre le Comité Inter-Universitaire dans votre université.
             </p>

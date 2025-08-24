@@ -68,7 +68,7 @@ export default function About() {
       name: "Khalifa Ababacar Sy Traoré",
       university: "UIDT",
       commission: "Point Focal",
-      photo: "/khalifa.jpg"
+      photo: "/khalifa.JPG"
     },
     {
       name: "Mouhamed Diouf",
@@ -194,7 +194,7 @@ export default function About() {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="gradient-text">Notre Histoire</span> & Mission
           </h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed text-center">
             Depuis sa mise en place en 2022, le comité Inter-Universitaire œuvre pour l'épanouissement 
             des étudiants moustarchidines dans toutes les universités publiques et privées du Sénégal.
           </p>
@@ -214,12 +214,12 @@ export default function About() {
               </div>
               <h3 className="text-2xl font-bold text-gray-900">Notre Mission</h3>
             </div>
-            <p className="text-lg text-gray-600 leading-relaxed">
+            <p className="text-lg text-gray-600 leading-relaxed text-justify">
               Le CIU a été créé avec la vision d'unir tous les étudiants moustarchidines 
               des universités sénégalaises sous une même bannière de fraternité, 
               d'excellence académique et de Tarbiya.
             </p>
-            <p className="text-lg text-gray-600 leading-relaxed">
+            <p className="text-lg text-gray-600 leading-relaxed text-justify">
               Nous croyons fermement qu'il est possible de concilier réussite académique 
               et épanouissement spirituel, en créant un environnement propice à 
               l'excellence sous toutes ses formes.
@@ -241,11 +241,11 @@ export default function About() {
               </div>
               <h3 className="text-2xl font-bold text-gray-900">Notre Vision</h3>
             </div>
-            <p className="text-lg text-gray-600 leading-relaxed">
-            En tant que jeunesse musulmane consciente de sa responsabilité historique, nous nous engageons à jouer un rôle d’avant-garde dans la préservation et l’élévation de notre génération. Nous menons ce combat sur les plans intellectuel, moral, économique, social et surtout religieux, afin de bâtir une jeunesse forte, lucide et fidèle à ses valeurs.
+            <p className="text-lg text-gray-600 leading-relaxed text-justify">
+            En tant que jeunesse musulmane consciente de sa responsabilité historique, nous nous engageons à jouer un rôle d'avant-garde dans la préservation et l'élévation de notre génération. Nous menons ce combat sur les plans intellectuel, moral, économique, social et surtout religieux, afin de bâtir une jeunesse forte, lucide et fidèle à ses valeurs.
             </p>
-            <p className="text-lg text-gray-600 leading-relaxed">
-            Nous aspirons à être le pont entre les valeurs spirituelles traditionnelles et les exigences du monde académique moderne, en formant des leaders conscients et engagés pour l’avenir du Sénégal. Notre vision dépasse le cadre universitaire pour créer un réseau national de diplômés moustarchidines, porteurs d’un projet de société ancré dans la foi et orienté vers le développement harmonieux de la nation.
+            <p className="text-lg text-gray-600 leading-relaxed text-justify">
+            Nous aspirons à être le pont entre les valeurs spirituelles traditionnelles et les exigences du monde académique moderne, en formant des leaders conscients et engagés pour l'avenir du Sénégal. Notre vision dépasse le cadre universitaire pour créer un réseau national de diplômés moustarchidines, porteurs d'un projet de société ancré dans la foi et orienté vers le développement harmonieux de la nation.
             </p>
             
             {/* Stats */}
@@ -284,7 +284,7 @@ export default function About() {
             <h3 className="text-3xl md:text-4xl font-bold mb-4">
               <span className="gradient-text">Nos Valeurs</span> Fondamentales
             </h3>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto text-center">
               Ces quatre piliers guident toutes nos actions et définissent notre identité 
               en tant que communauté estudiantine engagée.
             </p>
@@ -305,22 +305,24 @@ export default function About() {
               >
                 <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl" />
                 
-                <motion.div
-                  className={cn(
-                    "flex items-center justify-center w-16 h-16 rounded-2xl mb-6 mx-auto",
-                    `bg-gradient-to-br ${value.gradient}`
-                  )}
-                  whileHover={{ rotate: 360, scale: 1.1 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <value.icon className="h-8 w-8 text-white" />
-                </motion.div>
+                <div className="flex flex-col items-center text-center">
+                  <motion.div
+                    className={cn(
+                      "flex items-center justify-center w-16 h-16 rounded-2xl mb-6",
+                      `bg-gradient-to-br ${value.gradient}`
+                    )}
+                    whileHover={{ rotate: 360, scale: 1.1 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <value.icon className="h-8 w-8 text-white" />
+                  </motion.div>
 
-                <h4 className="text-xl font-bold text-center text-gray-900 mb-4 group-hover:text-primary-700 transition-colors duration-300">
-                  {value.title}
-                </h4>
+                  <h4 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-primary-700 transition-colors duration-300">
+                    {value.title}
+                  </h4>
+                </div>
                 
-                <p className="text-gray-600 text-center leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                <p className="text-gray-600 text-center leading-relaxed group-hover:text-gray-700 transition-colors duration-300 text-justify px-2">
                   {value.description}
                 </p>
 
@@ -349,7 +351,7 @@ export default function About() {
             <h3 className="text-3xl md:text-4xl font-bold mb-4">
               <span className="gradient-text">Notre Équipe</span> Dirigeante
             </h3>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto text-center">
               Le comité est constitué de 19 membres venant des différentes universités, 
               organisés en commissions spécialisées pour assurer une coordination efficace.
             </p>
@@ -511,7 +513,6 @@ export default function About() {
                 {team.filter(member => member.commission === "Commission Trésor et Capacitation").map((member, index) => (
                   <motion.div
                     key={member.name}
-                    initial={{ opacity: 0, y: 20 }}
                     animate={isTeamInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ duration: 0.6, delay: 1.0 + index * 0.1 }}
                     className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center"
