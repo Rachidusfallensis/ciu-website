@@ -3,6 +3,7 @@ import { ArrowRight, Users, BookOpen, Calendar, Star, Globe, Heart, MapPin, Grad
 import { cn } from '../utils/cn';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
+import ScrollToTop from '../components/ScrollToTop';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -439,6 +440,9 @@ export default function HomePage() {
           </motion.div>
         </div>
       </section>
+
+      {/* Scroll to Top Button */}
+      <ScrollToTop />
     </main>
   );
 }

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, User, MessageSquare } from 'lucide-react';
 import { useState } from 'react';
+import ScrollToTop from '../components/ScrollToTop';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -235,6 +236,9 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      {/* Scroll to Top Button */}
+      <ScrollToTop />
     </main>
   );
 }

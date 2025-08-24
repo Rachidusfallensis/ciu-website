@@ -1,10 +1,11 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef, useState, useEffect } from 'react';
-import { Calendar, Clock, MapPin, Users, GraduationCap, Award, FileText, Download, Share2, ChevronRight, Star, Target, BookOpen, Mic, Camera, Play, ArrowUp } from 'lucide-react';
+import { useRef, useState } from 'react';
+import { Calendar, Clock, MapPin, Users, GraduationCap, Award, FileText, Download, Share2, ChevronRight, Star, Target, BookOpen, Mic, Camera, Play } from 'lucide-react';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { cn } from '../utils/cn';
 import ColloqueGallery from '../components/ColloqueGallery';
+import ScrollToTop from '../components/ScrollToTop';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -163,7 +164,6 @@ export default function ColloquePage() {
   const galleryRef = useRef(null);
 
   const [selectedDay, setSelectedDay] = useState(0);
-  const [showScrollTop, setShowScrollTop] = useState(false);
 
   const isHeroInView = useInView(heroRef, { once: true, amount: 0.3 });
   const isPresentationInView = useInView(presentationRef, { once: true, amount: 0.2 });
@@ -174,23 +174,6 @@ export default function ColloquePage() {
   const isStatsInView = useInView(statsRef, { once: true, amount: 0.2 });
   const isCommunicationsInView = useInView(communicationsRef, { once: true, amount: 0.2 });
   const isGalleryInView = useInView(galleryRef, { once: true, amount: 0.2 });
-
-  // Gestion du bouton scroll to top
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 400);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
 
   const getSessionIcon = (type) => {
     switch(type) {
@@ -929,20 +912,7 @@ export default function ColloquePage() {
       <ColloqueGallery />
 
       {/* Scroll to Top Button */}
-      {showScrollTop && (
-        <motion.button
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.8 }}
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 bg-primary-600 hover:bg-primary-700 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          aria-label="Retour en haut"
-        >
-          <ArrowUp className="h-6 w-6" />
-        </motion.button>
-      )}
+      <ScrollToTop />
     </main>
   );
 }

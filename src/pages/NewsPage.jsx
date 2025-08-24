@@ -4,6 +4,7 @@ import { Calendar, Clock, User, Tag, ArrowRight, MapPin, Users, Image, Video, Fi
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { cn } from '../utils/cn';
+import ScrollToTop from '../components/ScrollToTop';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -602,6 +603,9 @@ export default function NewsPage() {
           </motion.div>
         </div>
       </section>
+
+      {/* Scroll to Top Button */}
+      <ScrollToTop />
     </main>
   );
 }

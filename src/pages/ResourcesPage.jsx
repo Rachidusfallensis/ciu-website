@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { BookOpen, Video, FileText, Download, ExternalLink } from 'lucide-react';
+import ScrollToTop from '../components/ScrollToTop';
 
 export default function ResourcesPage() {
   return (
@@ -114,6 +115,9 @@ export default function ResourcesPage() {
           </motion.div>
         </div>
       </section>
+
+      {/* Scroll to Top Button */}
+      <ScrollToTop />
     </main>
   );
 }
