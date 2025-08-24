@@ -34,7 +34,7 @@ export default function About() {
   
   const isAboutInView = useInView(aboutRef, { once: true, amount: 0.3 });
   const isValuesInView = useInView(valuesRef, { once: true, amount: 0.3 });
-  const isTeamInView = useInView(teamRef, { once: true, amount: 0.3 });
+  const isTeamInView = useInView(teamRef, { once: true, amount: 0.1 });
 
   const values = [
     {
@@ -356,16 +356,16 @@ export default function About() {
           </motion.div>
 
           {/* Commission Containers */}
-          <div className="space-y-16">
+          <div className="space-y-12 sm:space-y-16">
             {/* Points Focaux */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={isTeamInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="bg-gradient-to-br from-primary-50 to-accent-50 rounded-3xl p-8"
+              className="bg-gradient-to-br from-primary-50 to-accent-50 rounded-3xl p-4 sm:p-8"
             >
-              <div className="text-center mb-8">
-                <h4 className="text-2xl font-bold text-gray-900 mb-2">Points Focaux</h4>
+              <div className="text-center mb-6 sm:mb-8">
+                <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Points Focaux</h4>
   
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -409,7 +409,7 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               animate={isTeamInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="bg-gradient-to-br from-secondary-50 to-primary-50 rounded-3xl p-8"
+              className="bg-gradient-to-br from-secondary-50 to-primary-50 rounded-3xl p-4 sm:p-8"
             >
               <div className="text-center mb-8">
                 <h4 className="text-2xl font-bold text-gray-900 mb-2">Commission Administrative</h4>
@@ -455,7 +455,7 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               animate={isTeamInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="bg-gradient-to-br from-accent-50 to-secondary-50 rounded-3xl p-8"
+              className="bg-gradient-to-br from-accent-50 to-secondary-50 rounded-3xl p-4 sm:p-8"
             >
               <div className="text-center mb-8">
                 <h4 className="text-2xl font-bold text-gray-900 mb-2">Commission d'Intelligence et de Perception Spirituelle</h4>
@@ -501,11 +501,11 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               animate={isTeamInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-3xl p-8"
+              className="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-3xl p-4 sm:p-8"
             >
               <div className="text-center mb-8">
                 <h4 className="text-2xl font-bold text-gray-900 mb-2">Commission Trésor et Capacitation</h4>
-         
+
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {team.filter(member => member.commission === "Commission Trésor et Capacitation").map((member, index) => (
@@ -548,7 +548,7 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               animate={isTeamInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: 1.0 }}
-              className="bg-gradient-to-br from-accent-50 to-primary-50 rounded-3xl p-8"
+              className="bg-gradient-to-br from-accent-50 to-primary-50 rounded-3xl p-4 sm:p-8"
             >
               <div className="text-center mb-8">
                 <h4 className="text-2xl font-bold text-gray-900 mb-2">Commission Logistique</h4>
