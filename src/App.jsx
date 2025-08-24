@@ -6,6 +6,7 @@ import AboutPage from './pages/AboutPage';
 import UniversitiesPage from './pages/UniversitiesPage';
 import ResourcesPage from './pages/ResourcesPage';
 import NewsPage from './pages/NewsPage';
+import ColloquePage from './pages/ColloquePage';
 import ContactPage from './pages/ContactPage';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route path="/universities" element={<UniversitiesPage />} />
             <Route path="/resources" element={<ResourcesPage />} />
             <Route path="/news" element={<NewsPage />} />
+            <Route path="/colloque" element={<ColloquePage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </div>

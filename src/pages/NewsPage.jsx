@@ -32,15 +32,16 @@ const itemVariants = {
 const newsArticles = [
   {
     id: 1,
-    title: "Lancement du Programme de Mentorat Inter-Universitaire",
-    excerpt: "Un nouveau programme pour connecter les étudiants seniors avec les nouveaux arrivants dans toutes nos universités partenaires.",
-    content: "Le CIU lance son programme de mentorat...",
-    author: "Équipe CIU",
-    date: new Date(2024, 10, 15),
-    category: "Programme",
+    title: "COLLOQUE INTERUNIVERSITAIRE 2025",
+    excerpt: "Synergie Pluridisciplinaire, Horizons Multiples : Comment Bâtir un Avenir Meilleur. Premier colloque interuniversitaire organisé par le CIU du 21-23 février 2025 à l'UIDT Thiès.",
+    content: "Le Comité Interuniversitaire (CIU) a organisé son premier colloque interuniversitaire...",
+    author: "Comité Interuniversitaire",
+    date: new Date(2025, 1, 21),
+    category: "Colloque",
     image: "/api/placeholder/600/300",
     featured: true,
-    gradient: "from-primary-500 to-accent-500"
+    gradient: "from-primary-500 to-blue-600",
+    link: "/colloque"
   },
   {
     id: 2,
@@ -254,13 +255,14 @@ export default function NewsPage() {
                         <span className="text-sm text-gray-500">Par {featuredArticle.author}</span>
                       </div>
 
-                      <motion.button
+                      <motion.a
+                        href={featuredArticle.link || "#"}
                         className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium transition-colors duration-200"
                         whileHover={{ x: 5 }}
                       >
-                        Lire l'article
+                        {featuredArticle.link ? "Voir le colloque" : "Lire l'article"}
                         <ArrowRight className="ml-1 h-4 w-4" />
-                      </motion.button>
+                      </motion.a>
                     </div>
                   </div>
                 </div>

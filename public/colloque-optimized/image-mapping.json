@@ -1,0 +1,24 @@
+{
+  "colloque": {
+    "ceremonie-ouverture": {
+      "title": "Cérémonie d'ouverture",
+      "description": "Discours inaugural et présentation officielle",
+      "folder": "ceremonie-ouverture"
+    },
+    "panels-debats": {
+      "title": "Panels et débats",
+      "description": "Échanges entre experts et participants",
+      "folder": "panels-debats"
+    },
+    "ateliers": {
+      "title": "Ateliers thématiques",
+      "description": "Travaux de groupe et réflexions",
+      "folder": "ateliers"
+    },
+    "ceremonie-cloture": {
+      "title": "Cérémonie de clôture",
+      "description": "Restitutions et perspectives d'avenir",
+      "folder": "ceremonie-cloture"
+    }
+  }
+}
