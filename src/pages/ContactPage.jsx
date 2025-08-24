@@ -259,7 +259,7 @@ export default function ContactPage() {
                 <div className="space-y-6">
                   <div className="flex items-start">
                     <div className="flex items-center justify-center w-12 h-12 bg-gradient-primary rounded-2xl mr-4 flex-shrink-0">
-                      <Mail className="h-6 w-6 text-white" />
+                      <Mail className="h-6 w-6 text-primary-900" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-1">Email Principal</h3>
@@ -279,7 +279,7 @@ export default function ContactPage() {
 
                   <div className="flex items-start">
                     <div className="flex items-center justify-center w-12 h-12 bg-gradient-accent rounded-2xl mr-4 flex-shrink-0">
-                      <MapPin className="h-6 w-6 text-white" />
+                      <MapPin className="h-6 w-6 text-primary-900" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-1">Siège Social</h3>
