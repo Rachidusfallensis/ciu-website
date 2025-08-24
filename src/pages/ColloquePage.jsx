@@ -912,32 +912,6 @@ export default function ColloquePage() {
 
       {/* Gallery Section avec vraies images */}
       <ColloqueGallery />
-
-      {/* Call to Action */}
-      <section className="section-padding bg-gradient-to-br from-primary-600 to-blue-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isGalleryInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-center"
-          >
-            <h3 className="text-3xl font-bold mb-4">Prochaine Édition</h3>
-            <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
-              Restez connectés pour ne pas manquer la prochaine édition du colloque interuniversitaire. 
-              Ensemble, continuons à bâtir un avenir meilleur !
-            </p>
-            <motion.button
-              className="inline-flex items-center btn-secondary"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Users className="mr-2 h-5 w-5" />
-              Nous Rejoindre
-            </motion.button>
-          </motion.div>
-        </div>
-      </section>
     </main>
   );
 }

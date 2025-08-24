@@ -312,8 +312,8 @@ export default function ColloqueGallery() {
                     }}
                   />
                   
-                  {/* Gradient Overlay */}
-                  <div className={`absolute inset-0 bg-gradient-to-t ${album.gradient} opacity-60 group-hover:opacity-40 transition-opacity duration-300`}></div>
+                  {/* Subtle Overlay */}
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
                   
                   {/* Play Icon */}
                   <div className="absolute inset-0 flex items-center justify-center">
