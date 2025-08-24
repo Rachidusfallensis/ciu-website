@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram } from 'lucide-react';
 import { cn } from '../utils/cn';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -59,21 +60,21 @@ export default function Footer() {
             <nav aria-label="Liens rapides">
               <ul className="space-y-2">
                 {[
-                  { name: 'À Propos', href: '#about' },
-                  { name: 'Universités', href: '#universities' },
-                  { name: 'Actualités', href: '#news' },
-                  { name: 'Ressources', href: '#resources' },
+                  { name: 'À Propos', to: '/about' },
+                  { name: 'Universités', to: '/universities' },
+                  { name: 'Actualités', to: '/news' },
+                  { name: 'Ressources', to: '/resources' },
                 ].map((link) => (
                   <li key={link.name}>
-                    <a 
-                      href={link.href}
+                    <Link 
+                      to={link.to}
                       className={cn(
                         "text-gray-300 hover:text-secondary-300 transition-colors duration-200",
                         "focus:outline-none focus:ring-2 focus:ring-secondary-400 focus:ring-offset-2 focus:ring-offset-primary-900 rounded-md"
                       )}
                     >
                       {link.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -87,7 +88,7 @@ export default function Footer() {
               <div className="flex items-start">
                 <MapPin size={18} className="text-secondary-400 mr-2 mt-1 flex-shrink-0" aria-hidden="true" />
                 <p className="text-gray-300 text-sm">
-                  Dakar, Sénégal
+                  Tivaouane, Sénégal
                 </p>
               </div>
               <div className="flex items-center">
