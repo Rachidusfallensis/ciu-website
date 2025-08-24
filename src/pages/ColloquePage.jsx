@@ -307,7 +307,7 @@ export default function ColloquePage() {
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               <span className="gradient-text">Présentation</span> du Colloque
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed text-center">
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed text-justify">
                 Depuis sa création, le Dahiratoul Moustarchidina Wal Moustarchidaty s'est engagé à offrir
                 un environnement favorable à l'épanouissement intellectuel de ses membres. C'est dans cette
                 dynamique de promotion du savoir que le Comité Interuniversitaire a organisé le Colloque
