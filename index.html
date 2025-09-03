@@ -4,13 +4,62 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
     <meta name="description" content="Comité Inter-Universitaire - Structure estudiantine sous l'égide de Dahiratoul Moustarchidina Wal Moustarchidaty, regroupant les moustarchidines de toutes les universités publiques du Sénégal." />
     <meta name="keywords" content="CIU, Comité Inter-Universitaire, DMWM, étudiants, universités, Sénégal, spiritualité, académie, association, amicale etudiant" />
     <meta name="author" content="Comité Inter-Universitaire" />
-    <title>CIU - Comité Inter-Universitaire </title>
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="fr" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="CIU - Comité Inter-Universitaire | Dahiratoul Moustarchidina Wal Moustarchidaty" />
+    <meta property="og:description" content="Comité Inter-Universitaire - Structure estudiantine sous l'égide de Dahiratoul Moustarchidina Wal Moustarchidaty, regroupant les moustarchidines de toutes les universités publiques du Sénégal." />
+    <meta property="og:image" content="/background.jpg" />
+    <meta property="og:site_name" content="CIU - Comité Inter-Universitaire" />
+    <meta property="og:locale" content="fr_SN" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CIU - Comité Inter-Universitaire" />
+    <meta name="twitter:description" content="Comité Inter-Universitaire - Structure estudiantine sous l'égide de Dahiratoul Moustarchidina Wal Moustarchidaty." />
+    <meta name="twitter:image" content="/background.jpg" />
+    
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1e40af" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="CIU" />
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    
+    <title>CIU - Comité Inter-Universitaire | Dahiratoul Moustarchidina Wal Moustarchidaty</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('SW registered: ', registration);
+            })
+            .catch((registrationError) => {
+              console.log('SW registration failed: ', registrationError);
+            });
+        });
+      }
+    </script>
   </body>
 </html>
