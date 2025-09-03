@@ -163,7 +163,7 @@ export default function Universities() {
             className="inline-block px-4 py-2 bg-accent-100 text-accent-700 rounded-full font-medium mb-4"
             whileHover={{ scale: 1.05 }}
           >
-            Nos Universités Partenaires
+            Nos Conseils Universitaires
           </motion.div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="gradient-text">Réseau National</span> d'Excellence
@@ -218,8 +218,7 @@ export default function Universities() {
               Explorez notre présence à travers tout le Sénégal et découvrez nos conseils universitaires.
             </p>
             <p className="text-base text-gray-700 max-w-4xl mx-auto text-center font-medium">
-              Vous êtes nouveaux bacheliers ou voulez continuer vos activités à l'université ? 
-              Veuillez contacter les Points Focaux des différentes universités en cliquant sur les cartes ci-dessous.
+              Cliquez sur les cartes pour obtenir plus d'informations sur chaque conseil universitaire.
             </p>
           </motion.div>
 

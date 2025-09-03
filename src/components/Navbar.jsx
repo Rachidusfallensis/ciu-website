@@ -122,10 +122,10 @@ export default function Navbar() {
               whileTap={{ scale: 0.95 }}
             >
               <Link
-                to="/contact"
+                to="/nouveaux-bacheliers"
                 className="btn-primary"
               >
-                Nous Rejoindre
+🎓 Nouveaux Bacheliers
               </Link>
             </motion.div>
           </div>
@@ -222,11 +222,11 @@ export default function Navbar() {
                 transition={{ duration: 0.3, delay: 0.4 }}
               >
                 <Link
-                  to="/contact"
+                  to="/nouveaux-bacheliers"
                   onClick={handleNavClick}
                   className="btn-primary w-full text-center block"
                 >
-                  Nous Rejoindre
+  🎓 Nouveaux Bacheliers
                 </Link>
               </motion.div>
             </motion.div>

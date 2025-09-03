@@ -194,11 +194,11 @@ export default function HomePage() {
                 whileTap={{ scale: 0.98 }}
               >
                 <Link
-                  to="/contact"
+                  to="/nouveaux-bacheliers"
                   className="group inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-2xl hover:bg-white hover:text-primary-700 transition-all duration-300 backdrop-blur-sm"
                   aria-label="Nous rejoindre"
                 >
-                  Nous Rejoindre
+🎓 Nouveaux Bacheliers
                 </Link>
               </motion.div>
             </motion.div>

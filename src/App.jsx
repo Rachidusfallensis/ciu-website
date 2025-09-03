@@ -8,6 +8,7 @@ import ResourcesPage from './pages/ResourcesPage';
 import NewsPage from './pages/NewsPage';
 import ColloquePage from './pages/ColloquePage';
 import ContactPage from './pages/ContactPage';
+import NouveauxBacheliersPage from './pages/NouveauxBacheliersPage';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/news" element={<NewsPage />} />
             <Route path="/colloque" element={<ColloquePage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/nouveaux-bacheliers" element={<NouveauxBacheliersPage />} />
           </Routes>
         </div>
         <Footer />

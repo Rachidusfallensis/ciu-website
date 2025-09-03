@@ -84,7 +84,7 @@ const youtubeVideos = [
   },
   {
     id: 'khalifa-traore',
-    title: 'Allocution d\'Ouverture par Khalifa Traoré',
+    title: 'Allocution d\'Ouverture ',
     description: 'Discours d\'ouverture par Khalifa Traoré',
     url: 'https://youtu.be/I6h8AA1Ru9s?si=LeEE6uWzPtJkXohp',
     thumbnail: 'https://img.youtube.com/vi/I6h8AA1Ru9s/maxresdefault.jpg',
@@ -93,7 +93,7 @@ const youtubeVideos = [
   },
   {
     id: 'djiby-diakhate',
-    title: 'Conférence Inaugurale Djiby Diakhaté',
+    title: 'Conférence Inaugurale',
     description: 'Conférence inaugurale du Professeur Djiby Diakhaté',
     url: 'https://youtu.be/z23xR_DkSzw?si=Gc0P1Bu3gx5Ia_52',
     thumbnail: 'https://img.youtube.com/vi/z23xR_DkSzw/maxresdefault.jpg',
@@ -110,9 +110,9 @@ const youtubeVideos = [
     type: 'keynote'
   },
   {
-    id: 'itv-seneweb',
-    title: 'Interview Seneweb - Adama Niang',
-    description: 'Interview d\'Adama Niang pour Seneweb',
+    id: 'itv-press',
+    title: 'Interview à la presse',
+    description: 'Interview de Dr Adama Niang pour la presse',
     url: 'https://youtu.be/N7b05CEcMd0?si=QkXcOEUYwoogzaBX',
     thumbnail: 'https://img.youtube.com/vi/N7b05CEcMd0/maxresdefault.jpg',
     duration: 'Vidéo',
