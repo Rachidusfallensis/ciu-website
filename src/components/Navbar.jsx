@@ -125,7 +125,7 @@ export default function Navbar() {
                 to="/nouveaux-bacheliers"
                 className="btn-primary"
               >
-🎓 Nouveaux Bacheliers
+Nouveaux Bacheliers
               </Link>
             </motion.div>
           </div>
