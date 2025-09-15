@@ -1,0 +1,129 @@
+{
+  "common": {
+    "skipToContent": "Aller au contenu principal",
+    "loading": "Chargement...",
+    "imageNotAvailable": "Image non disponible"
+  },
+  "navbar": {
+    "home": "Accueil",
+    "about": "À Propos",
+    "universities": "Universités",
+    "news": "Actualités",
+    "resources": "Ressources",
+    "contact": "Contact",
+    "newBachelors": "Nouveaux Bacheliers",
+    "language": "Langue"
+  },
+  "footer": {
+    "about": "Le comité interuniversitaire est la branche universitaire des Moustarchidines Juniors du Dahiratoul Moustarchidina Wal Moustarchidaty. Il regroupe les étudiants moustarchidines des universités publiques, des écoles et instituts de formation du Sénégal.",
+    "quickLinks": "Liens Rapides",
+    "contact": "Contact",
+    "address": "Tivaouane, Sénégal",
+    "email": "comiteinteru@gmail.com",
+    "phone": "77 470 11 73 / 77 830 86 39",
+    "copyright": "© {{year}} Comité Inter-Universitaire. Tous droits réservés.",
+    "privacyPolicy": "Politique de confidentialité",
+    "termsOfUse": "Conditions d'utilisation",
+    "followUs": "Suivez-nous sur {{platform}}"
+  },
+  "home": {
+    "hero": {
+      "title": "Comité",
+      "subtitle": "Inter-Universitaire",
+      "description": "Unir les étudiants moustarchidines de toutes les universités du Sénégal pour un équilibre harmonieux entre excellence académique et Tarbiya implicatif.",
+      "discover": "Découvrir le CIU",
+      "newBachelors": "Nouveaux Bacheliers"
+    },
+    "stats": {
+      "universities": "Universités Partenaires",
+      "students": "Étudiants Membres",
+      "years": "Années d'Excellence"
+    },
+    "mission": {
+      "title": "Notre Mission",
+      "heading": "Accompagner l'Excellence",
+      "description": "Nous accompagnons les membres pour exceller tant dans leurs études universitaires que dans leur parcours spirituel."
+    },
+    "features": {
+      "community": {
+        "title": "Communauté Unie",
+        "description": "Rassembler tous les étudiants moustarchidines des universités publiques et privées du Sénégal."
+      },
+      "academic": {
+        "title": "Excellence Académique",
+        "description": "Promouvoir l'excellence dans les études."
+      },
+      "spiritual": {
+        "title": "Tarbiya Implicatif",
+        "description": "Organiser des événements qui contribuent au développement personnel et spirituel."
+      },
+      "learnMore": "En savoir plus"
+    },
+    "services": {
+      "title": "Découvrez Nos Services",
+      "description": "Explorez toutes les ressources et services que nous offrons à notre communauté",
+      "universities": {
+        "title": "Universités",
+        "description": "Découvrez notre réseau de 8 universités partenaires"
+      },
+      "news": {
+        "title": "Actualités",
+        "description": "Actualités, événements et activités du CIU"
+      },
+      "resources": {
+        "title": "Ressources",
+        "description": "Bibliothèque, médias et outils d'apprentissage"
+      },
+      "explore": "Explorer"
+    }
+  },
+  "newBachelors": {
+    "hero": {
+      "title": "Nouveaux Bacheliers",
+      "subtitle": "Bienvenue dans la communauté universitaire moustarchidine"
+    },
+    "carousel": {
+      "title": "Choisissez Votre Université",
+      "description": "Découvrez les contacts de votre université et rejoignez la communauté estudiantine moustarchidine.",
+      "previous": "Université précédente",
+      "next": "Université suivante",
+      "goTo": "Aller à l'université {{number}}"
+    },
+    "guide": {
+      "title": "Guide d'Orientation",
+      "description": "Étapes essentielles pour rejoindre la communauté moustarchidine universitaire",
+      "steps": {
+        "step1": {
+          "title": "Choisissez votre Université",
+          "description": "Parcourez le carousel ci-dessus pour trouver votre université et découvrir l'affiche d'orientation."
+        },
+        "step2": {
+          "title": "Contactez le Conseil",
+          "description": "Appelez directement les numéros fournis pour entrer en contact avec le conseil de votre université."
+        },
+        "step3": {
+          "title": "Rejoignez la Communauté",
+          "description": "Participez aux activités et événements organisés par le conseil moustarchidine de votre université."
+        }
+      }
+    },
+    "faq": {
+      "title": "Questions Fréquentes",
+      "questions": {
+        "q1": {
+          "question": "Qui peut rejoindre le CIU ?",
+          "answer": "Tous les étudiants moustarchidines des universités partenaires peuvent rejoindre le Comité Inter-Universitaire."
+        },
+        "q2": {
+          "question": "Comment participer aux événements ?",
+          "answer": "Une fois inscrit dans votre conseil universitaire, vous recevrez toutes les informations sur les événements à venir."
+        }
+      }
+    },
+    "cta": {
+      "title": "Besoin d'Aide ?",
+      "description": "N'hésitez pas à nous contacter pour plus d'informations sur le processus d'inscription ou pour toute autre question.",
+      "button": "Contactez-nous"
+    }
+  }
+}

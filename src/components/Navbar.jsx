@@ -1,22 +1,27 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { Menu, X, ChevronDown, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '../utils/cn';
 
-const navItems = [
-  { name: 'Accueil', href: '/' },
-  { name: 'À Propos', href: '/about' },
-  { name: 'Universités', href: '/universities' },
-  { name: 'Actualités', href: '/news' },
-  { name: 'Ressources', href: '/resources' },
-  { name: 'Contact', href: '/contact' },
+const getNavItems = (t) => [
+  { name: t('navbar.home'), href: '/' },
+  { name: t('navbar.about'), href: '/about' },
+  { name: t('navbar.universities'), href: '/universities' },
+  { name: t('navbar.news'), href: '/news' },
+  { name: t('navbar.resources'), href: '/resources' },
+  { name: t('navbar.contact'), href: '/contact' },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   const location = useLocation();
+  const { t, i18n } = useTranslation();
+  
+  const navItems = getNavItems(t);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,7 +65,32 @@ export default function Navbar() {
 
   const handleNavClick = () => {
     setIsOpen(false);
+    setIsLangMenuOpen(false);
   };
+  
+  // Close language menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isLangMenuOpen && !event.target.closest('.language-selector')) {
+        setIsLangMenuOpen(false);
+      }
+    };
+    
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isLangMenuOpen]);
+  
+  // Close language menu when pressing Escape
+  useEffect(() => {
+    const handleEscKey = (event) => {
+      if (event.key === 'Escape' && isLangMenuOpen) {
+        setIsLangMenuOpen(false);
+      }
+    };
+    
+    window.addEventListener('keydown', handleEscKey);
+    return () => window.removeEventListener('keydown', handleEscKey);
+  }, [isLangMenuOpen]);
 
   return (
     <motion.nav 
@@ -144,7 +174,58 @@ export default function Navbar() {
           </div>
 
           {/* CTA Button - Desktop */}
-          <div className="hidden lg:block" id="desktop-cta">
+          <div className="hidden lg:flex items-center space-x-4" id="desktop-cta">
+            {/* Language Selector */}
+            <div className="relative">
+              <motion.button
+                onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
+                className="flex items-center space-x-1 text-gray-700 hover:text-primary-600 py-2 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus-visible:ring-2 min-h-[44px]"
+                aria-expanded={isLangMenuOpen}
+                aria-haspopup="true"
+                aria-label={t('navbar.language')}
+                whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
+                whileTap={prefersReducedMotion ? {} : { scale: 0.95 }}
+              >
+                <Globe size={18} />
+                <span className="text-sm font-medium">{i18n.language.toUpperCase()}</span>
+              </motion.button>
+              
+              <AnimatePresence>
+                {isLangMenuOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute right-0 mt-2 w-24 bg-white rounded-lg shadow-lg py-1 z-50 border border-gray-100"
+                    role="menu"
+                    aria-orientation="vertical"
+                  >
+                    <button
+                      onClick={() => {
+                        i18n.changeLanguage('fr');
+                        setIsLangMenuOpen(false);
+                      }}
+                      className={`block w-full text-left px-4 py-2 text-sm ${i18n.language === 'fr' ? 'bg-primary-50 text-primary-700' : 'text-gray-700 hover:bg-gray-50'} min-h-[44px]`}
+                      role="menuitem"
+                    >
+                      Français
+                    </button>
+                    <button
+                      onClick={() => {
+                        i18n.changeLanguage('en');
+                        setIsLangMenuOpen(false);
+                      }}
+                      className={`block w-full text-left px-4 py-2 text-sm ${i18n.language === 'en' ? 'bg-primary-50 text-primary-700' : 'text-gray-700 hover:bg-gray-50'} min-h-[44px]`}
+                      role="menuitem"
+                    >
+                      English
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+            
             <motion.div
               whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
               whileTap={prefersReducedMotion ? {} : { scale: 0.95 }}
@@ -153,7 +234,7 @@ export default function Navbar() {
                 to="/nouveaux-bacheliers"
                 className="btn-primary min-h-[44px] py-3 px-4"
               >
-Nouveaux Bacheliers
+                {t('navbar.newBachelors')}
               </Link>
             </motion.div>
           </div>
@@ -257,7 +338,7 @@ Nouveaux Bacheliers
                   onClick={handleNavClick}
                   className="btn-primary w-full text-center block min-h-[44px] py-3 px-4"
                 >
-  🎓 Nouveaux Bacheliers
+  🎓 {t('navbar.newBachelors')}
                 </Link>
               </motion.div>
             </motion.div>

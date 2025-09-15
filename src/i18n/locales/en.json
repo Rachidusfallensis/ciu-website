@@ -1,0 +1,129 @@
+{
+  "common": {
+    "skipToContent": "Skip to content",
+    "loading": "Loading...",
+    "imageNotAvailable": "Image not available"
+  },
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "universities": "Universities",
+    "news": "News",
+    "resources": "Resources",
+    "contact": "Contact",
+    "newBachelors": "New Bachelors",
+    "language": "Language"
+  },
+  "footer": {
+    "about": "The inter-university committee is the university branch of the Moustarchidines Juniors of Dahiratoul Moustarchidina Wal Moustarchidaty. It brings together Moustarchidine students from public universities, schools and training institutes in Senegal.",
+    "quickLinks": "Quick Links",
+    "contact": "Contact",
+    "address": "Tivaouane, Senegal",
+    "email": "comiteinteru@gmail.com",
+    "phone": "77 470 11 73 / 77 830 86 39",
+    "copyright": "© {{year}} Inter-University Committee. All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfUse": "Terms of Use",
+    "followUs": "Follow us on {{platform}}"
+  },
+  "home": {
+    "hero": {
+      "title": "Committee",
+      "subtitle": "Inter-University",
+      "description": "Uniting Moustarchidine students from all universities in Senegal for a harmonious balance between academic excellence and impactful Tarbiya.",
+      "discover": "Discover CIU",
+      "newBachelors": "New Bachelors"
+    },
+    "stats": {
+      "universities": "Partner Universities",
+      "students": "Student Members",
+      "years": "Years of Excellence"
+    },
+    "mission": {
+      "title": "Our Mission",
+      "heading": "Supporting Excellence",
+      "description": "We support members to excel both in their university studies and in their spiritual journey."
+    },
+    "features": {
+      "community": {
+        "title": "United Community",
+        "description": "Bringing together all Moustarchidine students from public and private universities in Senegal."
+      },
+      "academic": {
+        "title": "Academic Excellence",
+        "description": "Promoting excellence in studies."
+      },
+      "spiritual": {
+        "title": "Impactful Tarbiya",
+        "description": "Organizing events that contribute to personal and spiritual development."
+      },
+      "learnMore": "Learn more"
+    },
+    "services": {
+      "title": "Discover Our Services",
+      "description": "Explore all the resources and services we offer to our community",
+      "universities": {
+        "title": "Universities",
+        "description": "Discover our network of 8 partner universities"
+      },
+      "news": {
+        "title": "News",
+        "description": "News, events and activities of the CIU"
+      },
+      "resources": {
+        "title": "Resources",
+        "description": "Library, media and learning tools"
+      },
+      "explore": "Explore"
+    }
+  },
+  "newBachelors": {
+    "hero": {
+      "title": "New Bachelors",
+      "subtitle": "Welcome to the Moustarchidine university community"
+    },
+    "carousel": {
+      "title": "Choose Your University",
+      "description": "Discover your university's contacts and join the Moustarchidine student community.",
+      "previous": "Previous university",
+      "next": "Next university",
+      "goTo": "Go to university {{number}}"
+    },
+    "guide": {
+      "title": "Orientation Guide",
+      "description": "Essential steps to join the Moustarchidine university community",
+      "steps": {
+        "step1": {
+          "title": "Choose your University",
+          "description": "Browse the carousel above to find your university and discover the orientation poster."
+        },
+        "step2": {
+          "title": "Contact the Council",
+          "description": "Call the provided numbers directly to get in touch with your university's council."
+        },
+        "step3": {
+          "title": "Join the Community",
+          "description": "Participate in activities and events organized by your university's Moustarchidine council."
+        }
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "questions": {
+        "q1": {
+          "question": "Who can join the CIU?",
+          "answer": "All Moustarchidine students from partner universities can join the Inter-University Committee."
+        },
+        "q2": {
+          "question": "How to participate in events?",
+          "answer": "Once registered with your university council, you will receive all information about upcoming events."
+        }
+      }
+    },
+    "cta": {
+      "title": "Need Help?",
+      "description": "Don't hesitate to contact us for more information about the registration process or any other questions.",
+      "button": "Contact Us"
+    }
+  }
+}
