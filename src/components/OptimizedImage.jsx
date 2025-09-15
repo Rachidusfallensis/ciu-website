@@ -10,6 +10,8 @@ const OptimizedImage = ({
   priority = false,
   placeholder = 'blur',
   onLoad,
+  srcSet,
+  sizes,
   ...props 
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -89,8 +91,12 @@ const OptimizedImage = ({
             isLoaded ? "opacity-100" : "opacity-0",
             "absolute inset-0 w-full h-full object-cover"
           )}
+          srcSet={srcSet}
+          sizes={sizes || "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"}
           loading={priority ? "eager" : "lazy"}
           decoding="async"
+          width={width}
+          height={height}
         />
       )}
     </div>

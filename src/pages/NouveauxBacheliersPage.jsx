@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Phone, MapPin, Users, GraduationCap } from 'lucide-react';
 import { universityAffiches, welcomeMessages, generalInfo } from '../utils/universityAffiches';
@@ -7,6 +7,9 @@ import ScrollToTop from '../components/ScrollToTop';
 export default function NouveauxBacheliersPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+  const prefersReducedMotion = useReducedMotion();
 
   // Auto-play carousel
   useEffect(() => {
@@ -18,6 +21,36 @@ export default function NouveauxBacheliersPage() {
 
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
+  
+  // Handle touch events for swipe functionality
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+  
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+  
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isSwipe = Math.abs(distance) > 50; // Minimum distance for a swipe
+    
+    if (isSwipe) {
+      if (distance > 0) {
+        // Swipe left - go to next slide
+        nextSlide();
+      } else {
+        // Swipe right - go to previous slide
+        prevSlide();
+      }
+    }
+    
+    // Reset values
+    setTouchStart(0);
+    setTouchEnd(0);
+  };
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % universityAffiches.length);
@@ -38,7 +71,7 @@ export default function NouveauxBacheliersPage() {
     <main className="pt-20">
       {/* Hero Section */}
       <section 
-        className="relative min-h-screen flex items-center overflow-hidden"
+        className="relative min-h-[80vh] sm:min-h-[90vh] md:min-h-screen flex items-center overflow-hidden"
         aria-labelledby="hero-heading"
       >
         {/* Background Image */}
@@ -47,9 +80,10 @@ export default function NouveauxBacheliersPage() {
             src="/affiches-optimized/hero/background_nouveaux_bacheliers_hero.jpg"
             alt="Background nouveaux bacheliers"
             className="w-full h-full object-cover"
-            initial={{ scale: 1.1 }}
+            initial={prefersReducedMotion ? { scale: 1 } : { scale: 1.1 }}
             animate={{ scale: 1 }}
-            transition={{ duration: 10, ease: "easeOut" }}
+            transition={{ duration: prefersReducedMotion ? 0 : 10, ease: "easeOut" }}
+            loading="lazy"
           />
           {/* Gradient Overlay for better text readability */}
           <div className="absolute inset-0 bg-gradient-to-r from-primary-900/90 via-primary-800/70 to-accent-900/80"></div>
@@ -61,25 +95,25 @@ export default function NouveauxBacheliersPage() {
         <div className="absolute inset-0">
           <motion.div
             className="absolute top-20 left-10 w-72 h-72 bg-secondary-400/10 rounded-full blur-3xl"
-            animate={{
+            animate={prefersReducedMotion ? {} : {
               scale: [1, 1.2, 1],
               opacity: [0.1, 0.3, 0.1],
             }}
             transition={{
-              duration: 8,
-              repeat: Infinity,
+              duration: prefersReducedMotion ? 0 : 8,
+              repeat: prefersReducedMotion ? 0 : Infinity,
               ease: "easeInOut",
             }}
           />
           <motion.div
             className="absolute bottom-20 right-10 w-96 h-96 bg-accent-400/10 rounded-full blur-3xl"
-            animate={{
+            animate={prefersReducedMotion ? {} : {
               scale: [1.2, 1, 1.2],
               opacity: [0.1, 0.2, 0.1],
             }}
             transition={{
-              duration: 10,
-              repeat: Infinity,
+              duration: prefersReducedMotion ? 0 : 10,
+              repeat: prefersReducedMotion ? 0 : Infinity,
               ease: "easeInOut",
             }}
           />
@@ -234,18 +268,25 @@ export default function NouveauxBacheliersPage() {
 
           {/* Carousel Container */}
           <div 
-            className="relative bg-white rounded-3xl shadow-2xl overflow-hidden"
+            className="relative bg-white rounded-xl sm:rounded-3xl shadow-xl sm:shadow-2xl overflow-hidden"
             onMouseEnter={() => setIsAutoPlaying(false)}
             onMouseLeave={() => setIsAutoPlaying(true)}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            role="region"
+            aria-roledescription="carousel"
+            aria-label="Universités partenaires"
           >
-            <div className="relative h-96 md:h-[500px]">
+            <div className="relative h-[70vh] sm:h-96 md:h-[500px]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentSlide}
-                  initial={{ opacity: 0, x: 300 }}
+                  initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, x: 300 }}
                   animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -300 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, x: -300 }}
+                  transition={{ duration: prefersReducedMotion ? 0.2 : 0.5, ease: "easeInOut" }}
+                  aria-hidden="false"
                   className="absolute inset-0"
                 >
                   <div className="h-full relative">
@@ -262,11 +303,11 @@ export default function NouveauxBacheliersPage() {
                     <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent"></div>
                     
                     {/* University Logo */}
-                    <div className="absolute top-8 right-8 w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
+                    <div className="absolute top-4 sm:top-8 right-4 sm:right-8 w-16 h-16 sm:w-20 sm:h-20 bg-white/20 backdrop-blur-sm rounded-xl sm:rounded-2xl flex items-center justify-center">
                       <img
                         src={universityAffiches[currentSlide].image}
                         alt={universityAffiches[currentSlide].shortName}
-                        className="w-12 h-12 object-contain"
+                        className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
                         onError={(e) => {
                           e.target.src = `https://ui-avatars.com/api/?name=${universityAffiches[currentSlide].shortName}&background=ffffff&color=000000&size=48`;
                         }}
@@ -275,26 +316,26 @@ export default function NouveauxBacheliersPage() {
 
                     {/* Content */}
                     <div className="absolute inset-0 flex items-center">
-                      <div className="w-full px-8 md:px-16 text-white">
+                      <div className="w-full px-4 sm:px-8 md:px-16 text-white">
                         <div className="max-w-2xl">
                           <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
                           >
-                            <h3 className="text-3xl md:text-5xl font-bold mb-4">
+                            <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-2 sm:mb-4">
                               {universityAffiches[currentSlide].name}
                             </h3>
                             
                             <div className="flex items-center mb-6">
                               <MapPin className="w-5 h-5 mr-2" />
-                              <span className="text-lg">{universityAffiches[currentSlide].location}</span>
+                              <span className="text-base sm:text-lg">{universityAffiches[currentSlide].location}</span>
                             </div>
 
                             <div className="space-y-3 mb-6">
                               <div className="flex items-center">
                                 <Phone className="w-5 h-5 mr-3" />
-                                <span className="text-lg font-medium">Contacts :</span>
+                                <span className="text-base sm:text-lg font-medium">Contacts :</span>
                               </div>
                               {universityAffiches[currentSlide].contacts.map((contact, index) => (
                                 <motion.a
@@ -303,7 +344,7 @@ export default function NouveauxBacheliersPage() {
                                   initial={{ opacity: 0, x: -20 }}
                                   animate={{ opacity: 1, x: 0 }}
                                   transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                                  className="block text-xl font-mono bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2 hover:bg-white/30 transition-colors duration-200 w-fit"
+                                  className="block text-base sm:text-lg md:text-xl font-mono bg-white/20 backdrop-blur-sm rounded-lg px-3 sm:px-4 py-1 sm:py-2 hover:bg-white/30 transition-colors duration-200 w-fit min-h-[44px] flex items-center"
                                 >
                                   {contact}
                                 </motion.a>
@@ -314,11 +355,11 @@ export default function NouveauxBacheliersPage() {
                               initial={{ opacity: 0, y: 20 }}
                               animate={{ opacity: 1, y: 0 }}
                               transition={{ duration: 0.6, delay: 0.5 }}
-                              className="bg-white/20 backdrop-blur-sm rounded-2xl p-6"
+                              className="bg-white/20 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6"
                             >
                               <div className="flex items-start">
                                 <Users className="w-6 h-6 mr-3 mt-1 flex-shrink-0" />
-                                <p className="text-lg leading-relaxed">
+                                <p className="text-sm sm:text-base md:text-lg leading-relaxed">
                                   {universityAffiches[currentSlide].note}
                                 </p>
                               </div>
@@ -335,27 +376,27 @@ export default function NouveauxBacheliersPage() {
             {/* Navigation Arrows */}
             <button
               onClick={prevSlide}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/25 backdrop-blur-sm hover:bg-white/40 rounded-full p-3 transition-all duration-300 hover:scale-105"
+              className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-white/25 backdrop-blur-sm hover:bg-white/40 rounded-full p-2 sm:p-3 transition-all duration-300 hover:scale-105 min-h-[44px] min-w-[44px] focus:outline-none focus:ring-2 focus:ring-white focus-visible:ring-2 z-10"
               aria-label="Université précédente"
             >
-              <ChevronLeft className="w-6 h-6 text-white" />
+              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </button>
 
             <button
               onClick={nextSlide}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/25 backdrop-blur-sm hover:bg-white/40 rounded-full p-3 transition-all duration-300 hover:scale-105"
+              className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-white/25 backdrop-blur-sm hover:bg-white/40 rounded-full p-2 sm:p-3 transition-all duration-300 hover:scale-105 min-h-[44px] min-w-[44px] focus:outline-none focus:ring-2 focus:ring-white focus-visible:ring-2 z-10"
               aria-label="Université suivante"
             >
-              <ChevronRight className="w-6 h-6 text-white" />
+              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </button>
 
             {/* Dots Indicator */}
-            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2">
+            <div className="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-1 sm:space-x-2 z-10">
               {universityAffiches.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => goToSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-colors duration-200 ${
+                  className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors duration-200 min-h-[8px] min-w-[8px] ${
                     index === currentSlide ? 'bg-white' : 'bg-white/50'
                   }`}
                   aria-label={`Aller à l'université ${index + 1}`}
