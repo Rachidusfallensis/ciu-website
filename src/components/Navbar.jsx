@@ -118,6 +118,10 @@ export default function Navbar() {
               to="/" 
               className="flex items-center focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded-xl p-2"
               aria-label="Retour à l'accueil"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleNavClick();
+              }}
             >
               <motion.div 
                 className="relative h-8 w-8 xs:h-10 xs:w-10 sm:h-12 sm:w-12 mr-2 sm:mr-4"

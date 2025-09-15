@@ -15,34 +15,6 @@ export default defineConfig({
         navigateFallback: '/offline.html',
         navigateFallbackDenylist: [/\/api\//],
         offlineGoogleAnalytics: false,
-      manifest: {
-        name: 'Comité Inter-Universitaire',
-        short_name: 'CIU',
-        description: 'Site officiel du Comité Inter-Universitaire',
-        theme_color: '#ffffff',
-        background_color: '#ffffff',
-        display: 'standalone',
-        icons: [
-          {
-            src: '/android-chrome-192x192.png',
-            sizes: '192x192',
-            type: 'image/png'
-          },
-          {
-            src: '/android-chrome-512x512.png',
-            sizes: '512x512',
-            type: 'image/png'
-          },
-          {
-            src: '/android-chrome-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-            purpose: 'any maskable'
-          }
-        ]
-      },
-      workbox: {
-        // Cache strategies
         runtimeCaching: [
           {
             // Cache page navigations
@@ -104,6 +76,32 @@ export default defineConfig({
               },
               networkTimeoutSeconds: 10
             }
+          }
+        ]
+      },
+      manifest: {
+        name: 'Comité Inter-Universitaire',
+        short_name: 'CIU',
+        description: 'Site officiel du Comité Inter-Universitaire',
+        theme_color: '#ffffff',
+        background_color: '#ffffff',
+        display: 'standalone',
+        icons: [
+          {
+            src: '/android-chrome-192x192.png',
+            sizes: '192x192',
+            type: 'image/png'
+          },
+          {
+            src: '/android-chrome-512x512.png',
+            sizes: '512x512',
+            type: 'image/png'
+          },
+          {
+            src: '/android-chrome-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any maskable'
           }
         ]
       }
