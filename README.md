@@ -1,139 +1,112 @@
-#  CIU - Comité Inter-Universitaire
+# Comité Inter-Universitaire (CIU) Website
 
-[![React](https://img.shields.io/badge/React-19.1.1-blue.svg)](https://reactjs.org/)
-[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4.0-38B2AC.svg)](https://tailwindcss.com/)
-[![Vite](https://img.shields.io/badge/Vite-7.1.2-646CFF.svg)](https://vitejs.dev/)
-[![Framer Motion](https://img.shields.io/badge/Framer%20Motion-12.23.12-FF0055.svg)](https://www.framer.com/motion/)
+Site officiel du Comité Inter-Universitaire, la branche universitaire des Moustarchidines Juniors du Dahiratoul Moustarchidina Wal Moustarchidaty.
 
-Site web moderne et responsive du **Comité Inter-Universitaire**, structure estudiantine sous l'égide de **Dahiratoul Moustarchidina Wal Moustarchidaty**, regroupant les étudiants moustarchidines de toutes les universités publiques du Sénégal.
+## Technologies
 
-##  Aperçu
+- **Frontend**: React 19, React Router 7, Framer Motion, TailwindCSS
+- **Build**: Vite 7
+- **PWA**: Vite PWA Plugin
+- **Internationalisation**: react-i18next
+- **Tests**: Jest, React Testing Library
 
-Le CIU unit plus de **500 étudiants** à travers **8 universités publiques** du Sénégal dans une communauté dédiée à l'équilibre harmonieux entre excellence académique et épanouissement spirituel.
+## Fonctionnalités
 
-### 🎯 Mission
-Accompagner les étudiants moustarchidines dans leur parcours universitaire tout en préservant et enrichissant leurs valeurs spirituelles et morales.
+- Site responsive (mobile-first)
+- Support multilingue (Français, Anglais)
+- Animations et transitions fluides
+- Mode hors ligne
+- Optimisation SEO
+- Accessibilité améliorée
 
-##  Fonctionnalités
-
-### 📱 **Interface Moderne**
--  Design responsive mobile-first
--  Animations fluides avec Framer Motion
--  Thème professionnel bleu et jaune
--  Navigation multi-pages avec React Router
--  Accessibilité WCAG conforme
-
-###  **Sections Principales**
-1. **🏠 Accueil** - Page d'atterrissage avec mission et services
-2. **👥 À Propos** - Histoire, équipe dirigeante et valeurs
-3. **🎓 Universités** - Carte interactive des 8 universités partenaires
-4. **📅 Activités** - Calendrier d'événements et galerie
-5. **📚 Ressources** - Bibliothèque et outils éducatifs
-6. **📰 Actualités** - Dernières nouvelles et newsletter
-7. **📞 Contact** - Formulaires et informations d'adhésion
-
-###  **Design System**
-- **Couleurs**: Gradients professionnels bleu/jaune
-- **Typographie**: Inter font avec hiérarchie claire
-- **Composants**: Buttons, cards, modals réutilisables
-- **Animations**: Micro-interactions et transitions fluides
-
-##  Stack Technique
-
-### **Frontend**
-- **React 19.1.1** - Framework JavaScript moderne
-- **TailwindCSS 3.4.0** - Framework CSS utility-first
-- **Vite 7.1.2** - Build tool ultra-rapide
-- **React Router DOM** - Navigation côté client
-
-### **UI/UX**
-- **Framer Motion** - Animations et transitions
-- **Lucide React** - Icônes modernes et cohérentes
-- **date-fns** - Gestion des dates pour le calendrier
-
-### **Outils de Développement**
-- **ESLint** - Linting du code
-- **PostCSS** - Traitement CSS avancé
-- **Autoprefixer** - Compatibilité navigateurs
-
-## 🏃‍♂ Démarrage Rapide
-
-### Prérequis
-- Node.js 18+ 
-- npm ou yarn
-
-### Installation
+## Démarrage rapide
 
 ```bash
-# Cloner le repository
-git clone https://github.com/aronafall/ciu-website.git
-cd ciu-website
-
-# Installer les dépendances
+# Installation des dépendances
 npm install
 
-# Lancer le serveur de développement
+# Démarrage du serveur de développement
 npm run dev
+
+# Construction pour la production
+npm run build:prod
+
+# Prévisualisation de la version de production
+npm run serve
 ```
 
-Le site sera accessible sur `http://localhost:5173/`
+## Scripts disponibles
 
-### Scripts Disponibles
+- `npm run dev` : Démarre le serveur de développement
+- `npm run build` : Construit le projet pour la production
+- `npm run preview` : Prévisualise la version de production
+- `npm run lint` : Vérifie le code avec ESLint
+- `npm run test` : Lance les tests unitaires
+- `npm run test:watch` : Lance les tests en mode watch
+- `npm run test:coverage` : Lance les tests avec couverture
+- `npm run test:a11y` : Lance les tests d'accessibilité
+- `npm run optimize-images` : Optimise les images
+- `npm run generate-sitemap` : Génère le sitemap
+- `npm run security:audit` : Analyse les dépendances pour les vulnérabilités
+- `npm run security:fix` : Corrige les vulnérabilités automatiquement
 
-```bash
-npm run dev      # Serveur de développement
-npm run build    # Build de production
-npm run preview  # Prévisualisation du build
-npm run lint     # Vérification du code
+## Structure du projet
+
+```
+/
+├── public/              # Fichiers statiques
+│   ├── _headers         # En-têtes de sécurité
+│   ├── offline.html     # Page hors ligne
+│   └── ...
+├── src/
+│   ├── components/      # Composants React
+│   │   ├── ui/          # Composants UI réutilisables
+│   │   └── ...
+│   ├── hooks/           # Hooks personnalisés
+│   ├── i18n/            # Configuration et fichiers de traduction
+│   │   └── locales/     # Fichiers JSON de traduction
+│   ├── pages/           # Pages de l'application
+│   └── utils/           # Utilitaires
+├── scripts/             # Scripts utilitaires
+└── tests/               # Tests
 ```
 
-## 📁 Structure du Projet
+## Optimisations
 
-```
-src/
-├── components/          # Composants réutilisables
-│   ├── sections/       # Sections de pages
-│   ├── Navbar.jsx      # Navigation principale
-│   └── Footer.jsx      # Pied de page
-├── pages/              # Pages de l'application
-│   ├── HomePage.jsx    # Page d'accueil
-│   ├── AboutPage.jsx   # À propos
-│   ├── UniversitiesPage.jsx  # Universités
-│   ├── ActivitiesPage.jsx    # Activités
-│   ├── ResourcesPage.jsx     # Ressources
-│   ├── NewsPage.jsx          # Actualités
-│   └── ContactPage.jsx       # Contact
-├── utils/              # Utilitaires
-│   └── cn.js          # Classe utility merger
-└── index.css          # Styles globaux
-```
+### Performance
 
+- **Code splitting** : Chargement paresseux des pages et composants lourds
+- **Optimisation des images** : Support des formats modernes (WebP, AVIF)
+- **Mise en cache** : Stratégies de mise en cache pour les ressources statiques
+- **PWA** : Support hors ligne et installation sur l'écran d'accueil
 
-## 🤝 Contribution
+### Accessibilité
 
-Les contributions sont les bienvenues ! Pour contribuer :
+- **Skip links** : Permet aux utilisateurs de clavier de sauter la navigation
+- **ARIA** : Attributs ARIA pour les composants interactifs
+- **Contraste** : Respect des ratios de contraste WCAG
+- **Tests automatisés** : Tests d'accessibilité avec Axe
 
-1. Fork le projet
-2. Créer une branche feature (`git checkout -b feature/AmazingFeature`)
-3. Commit les changements (`git commit -m 'Add some AmazingFeature'`)
-4. Push sur la branche (`git push origin feature/AmazingFeature`)
+### Internationalisation
+
+- **Traductions** : Support du français et de l'anglais
+- **Détection de langue** : Détection automatique de la langue du navigateur
+- **Sélecteur de langue** : Interface pour changer de langue
+
+### Sécurité
+
+- **En-têtes HTTP** : En-têtes de sécurité (CSP, HSTS, etc.)
+- **Audit des dépendances** : Vérification des vulnérabilités
+- **Protection CSRF** : Protection contre les attaques CSRF
+
+## Contribuer
+
+1. Forker le projet
+2. Créer une branche pour votre fonctionnalité (`git checkout -b feature/amazing-feature`)
+3. Committer vos changements (`git commit -m 'Add some amazing feature'`)
+4. Pousser sur la branche (`git push origin feature/amazing-feature`)
 5. Ouvrir une Pull Request
 
-## 📄 Licence
+## Licence
 
 Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
-
-## 📞 Contact
-
-**Comité Inter-Universitaire**
-- 📧 Email: comiteinteru@gmail.com
-- 77 470 11 73 / 77 830 86 39
-
-
----
-
-<div align="center">
-
-**Fait avec ❤️ pour la communauté by Rachidoux**
-
-</div>

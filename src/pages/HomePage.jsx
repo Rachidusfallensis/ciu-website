@@ -3,7 +3,10 @@ import { ArrowRight, Users, BookOpen, Calendar, Star, Globe, Heart, MapPin, Grad
 import { cn } from '../utils/cn';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import ScrollToTop from '../components/ScrollToTop';
+import SEO from '../components/SEO';
+import { getOrganizationData, getWebPageData } from '../utils/structuredData';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -35,9 +38,26 @@ export default function HomePage() {
   const isMissionInView = useInView(missionRef, { once: true, amount: 0.3 });
   const isServicesInView = useInView(servicesRef, { once: true, amount: 0.3 });
   const prefersReducedMotion = useReducedMotion();
+  const { t } = useTranslation();
+  
+  // Structured data for the homepage
+  const organizationData = getOrganizationData();
+  const webpageData = getWebPageData(
+    t('home.hero.title') + ' ' + t('home.hero.subtitle'),
+    t('home.hero.description'),
+    window.location.href
+  );
 
   return (
     <main className="pt-20">
+      <SEO
+        title={`${t('home.hero.title')} ${t('home.hero.subtitle')} | CIU`}
+        description={t('home.hero.description')}
+        image="/background.jpg"
+        canonicalUrl="/"
+        keywords={['comité', 'inter-universitaire', 'ciu', 'université', 'sénégal', 'étudiants', 'moustarchidines']}
+        structuredData={[organizationData, webpageData]}
+      />
       {/* Hero Section */}
       <section 
         className="relative min-h-[80vh] sm:min-h-[90vh] md:min-h-screen flex items-center overflow-hidden"

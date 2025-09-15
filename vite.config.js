@@ -8,7 +8,13 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
+      includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png', 'offline.html'],
+      strategies: 'generateSW',
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp,avif,woff,woff2}'],
+        navigateFallback: '/offline.html',
+        navigateFallbackDenylist: [/\/api\//],
+        offlineGoogleAnalytics: false,
       manifest: {
         name: 'Comité Inter-Universitaire',
         short_name: 'CIU',

@@ -2,7 +2,12 @@
   "common": {
     "skipToContent": "Aller au contenu principal",
     "loading": "Chargement...",
-    "imageNotAvailable": "Image non disponible"
+    "imageNotAvailable": "Image non disponible",
+    "close": "Fermer",
+    "networkStatus": {
+      "online": "Vous êtes de nouveau connecté",
+      "offline": "Vous êtes hors ligne"
+    }
   },
   "navbar": {
     "home": "Accueil",
