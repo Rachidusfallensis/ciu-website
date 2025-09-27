@@ -11,10 +11,22 @@ export default defineConfig({
       includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png', 'offline.html'],
       strategies: 'generateSW',
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp,avif,woff,woff2}'],
+        // Exclure les images jpg/jpeg du précaching, elles seront gérées par runtimeCaching
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,webp,avif,woff,woff2}'],
+        // Ignorer explicitement les grandes images
+        globIgnores: [
+          '**/background.jpg',
+          '**/becaye.jpg',
+          '**/chimere.jpg',
+          '**/elhadjmalick.jpg',
+          '**/ismaila.jpg',
+          '**/mademba.jpg'
+        ],
         navigateFallback: '/offline.html',
         navigateFallbackDenylist: [/\/api\//],
         offlineGoogleAnalytics: false,
+        // Augmenter la limite de taille des fichiers à mettre en cache (10 MB)
+        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
         runtimeCaching: [
           {
             // Cache page navigations
@@ -29,15 +41,29 @@ export default defineConfig({
             }
           },
           {
-            // Cache images with stale-while-revalidate strategy
-            urlPattern: /\.(?:png|jpg|jpeg|svg|gif|webp|avif)$/,
+            // Cache small images (png, svg, webp, avif) with stale-while-revalidate strategy
+            urlPattern: /\.(?:png|svg|gif|webp|avif)$/,
             handler: 'StaleWhileRevalidate',
             options: {
-              cacheName: 'images-cache',
+              cacheName: 'small-images-cache',
               expiration: {
                 maxEntries: 100,
                 maxAgeSeconds: 30 * 24 * 60 * 60 // 30 days
               }
+            }
+          },
+          {
+            // Cache large images (jpg, jpeg) with network-first strategy
+            // Ces images sont généralement plus volumineuses et moins critiques
+            urlPattern: /\.(?:jpg|jpeg)$/,
+            handler: 'NetworkFirst',
+            options: {
+              cacheName: 'large-images-cache',
+              expiration: {
+                maxEntries: 50,
+                maxAgeSeconds: 7 * 24 * 60 * 60 // 7 days
+              },
+              networkTimeoutSeconds: 3 // Timeout court pour ne pas bloquer l'UI
             }
           },
           {
