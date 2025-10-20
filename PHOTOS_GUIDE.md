@@ -34,36 +34,7 @@ Dans `src/components/sections/About.jsx`, ajoutez le champ `photo` au membre cor
   photo: "/khalifa.jpeg" // À ajouter quand la photo sera disponible
 },
 ```
-
-## 📋 Liste des Membres à Photographier
-
-### Points Focaux
-- [ ] Khalifa Ababacar Sy Traoré (UIDT)
-- [ ] Mouhamed Diouf (UGB) 
-- [ ] El Hadj Gaye (UCAD)
-
-### Commission Administrative
-- [ ] Mame Ousmane Sarr (UIDT)
-- [ ] Mouhamadou Fadilou Chimere Diallo (UADB)
-- [ ] Mademba Gueye (UAM)
-
-### Commission d'Intelligence et de Perception Spirituelle
-- [x] Arona Fall (UADB) ✅ **Photo ajoutée**
-- [ ] Adama Niang (UCAD)
-- [ ] Mouhamed Seck (UGB)
-- [ ] El Hadj Ndiouga (UIDT)
-- [ ] Cheikh Becaye (UASZ)
-- [ ] El Hadj Malick (USSEIN)
-- [ ] Saer Diop (UASZ)
-
-### Commission Trésor et Capacitation
-- [ ] Tallab Diop (UCAD)
-- [ ] Mame Gaydel Gaye (UADB)
-- [ ] Moustapha Gueye (UASZ)
-
-### Commission Logistique
-- [ ] Mbaye Samb (UGB)
-- [ ] Ismaila (USSEIN)
+## Utiliser le script pour optimiser la taille des photos pour réduire le temps de chargement des photos. 
 
 ## 🎨 Spécifications Techniques
 
@@ -106,6 +77,5 @@ git push origin main
 ## ✨ Résultat
 
 - Les membres avec photos apparaissent avec leur vraie photo
-- Les autres gardent leurs initiales en attendant
 - Interface cohérente et professionnelle
 - Facile à maintenir et étendre
