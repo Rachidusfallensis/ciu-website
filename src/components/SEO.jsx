@@ -1,5 +1,4 @@
 import { Helmet } from 'react-helmet-async';
-import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 /**
@@ -23,8 +22,7 @@ const SEO = ({
   structuredData = null,
   keywords = [],
 }) => {
-  const { i18n } = useTranslation();
-  const currentLanguage = i18n.language;
+  const currentLanguage = 'fr';
   
   // Build the full URL for the image
   const siteUrl = import.meta.env.VITE_SITE_URL || 'https://ciu-senegal.com';
@@ -59,16 +57,6 @@ const SEO = ({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={fullImageUrl} />
-      
-      {/* Alternate language versions */}
-      {['fr', 'en'].map((lang) => (
-        <link 
-          key={lang}
-          rel="alternate" 
-          hrefLang={lang} 
-          href={`${siteUrl}${window.location.pathname}?lng=${lang}`}
-        />
-      ))}
       
       {/* Structured Data / JSON-LD */}
       {structuredData && (

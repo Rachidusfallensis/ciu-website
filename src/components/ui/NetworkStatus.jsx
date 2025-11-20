@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Wifi, WifiOff, X } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 
 /**
  * Component that shows a notification when the user goes offline or comes back online
@@ -9,7 +8,6 @@ import { useTranslation } from 'react-i18next';
 const NetworkStatus = () => {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
   const [showNotification, setShowNotification] = useState(false);
-  const { t } = useTranslation();
 
   useEffect(() => {
     const handleOnline = () => {
@@ -56,8 +54,8 @@ const NetworkStatus = () => {
           </div>
           <div className="text-sm font-medium">
             {isOnline
-              ? t('common.networkStatus.online', 'Vous êtes de nouveau connecté')
-              : t('common.networkStatus.offline', 'Vous êtes hors ligne')}
+              ? 'Vous êtes de nouveau connecté'
+              : 'Vous êtes hors ligne'}
           </div>
           <button
             onClick={() => setShowNotification(false)}
@@ -66,7 +64,7 @@ const NetworkStatus = () => {
             } focus:outline-none focus:ring-2 focus:ring-offset-2 ${
               isOnline ? 'focus:ring-green-500' : 'focus:ring-red-500'
             }`}
-            aria-label={t('common.close', 'Fermer')}
+            aria-label="Fermer"
           >
             <X className="h-4 w-4" aria-hidden="true" />
           </button>
