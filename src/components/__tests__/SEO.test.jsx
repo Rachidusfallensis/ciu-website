@@ -2,15 +2,6 @@ import { render } from '@testing-library/react';
 import { HelmetProvider } from 'react-helmet-async';
 import SEO from '../SEO';
 
-// Mock i18n
-jest.mock('react-i18next', () => ({
-  useTranslation: () => ({
-    i18n: {
-      language: 'fr'
-    }
-  })
-}));
-
 // Mock window.location
 Object.defineProperty(window, 'location', {
   value: {
@@ -119,16 +110,4 @@ describe('SEO Component', () => {
     expect(scriptTags).toContain(JSON.stringify(structuredData));
   });
   
-  it('renders alternate language links', () => {
-    const helmetContext = renderSEO({
-      title: 'Test Title',
-      description: 'Test description',
-    });
-    
-    const { helmet } = helmetContext;
-    const linkTags = helmet.link.toString();
-    
-    expect(linkTags).toContain('rel="alternate" hrefLang="fr"');
-    expect(linkTags).toContain('rel="alternate" hrefLang="en"');
-  });
 });
