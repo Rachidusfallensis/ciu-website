@@ -38,11 +38,8 @@ export default function NewsPage() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-2 bg-white rounded-full text-primary-700 font-bold text-sm shadow-sm mb-4 border border-gray-100">
-            Actualités & Événements
-          </span>
           <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">
-            Dernières Nouvelles
+            <span className="text-primary-600">Dernières</span> Nouvelles
           </h1>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
             Restez informés des activités, événements et initiatives du Comité Inter-Universitaire.
