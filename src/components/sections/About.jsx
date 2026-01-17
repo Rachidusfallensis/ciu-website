@@ -42,29 +42,25 @@ export default function About() {
       icon: Heart,
       title: "Spiritualité",
       description: "Préserver et renforcer les valeurs spirituelles islamiques dans un environnement académique moderne.",
-      gradient: "from-primary-500 to-accent-500",
-      bgGradient: "from-primary-50 to-accent-50"
+      gradient: "from-blue-400 to-blue-600"
     },
     {
       icon: BookOpen,
       title: "Excellence",
       description: "Promouvoir l'excellence académique et encourager la recherche de la connaissance sous toutes ses formes.",
-      gradient: "from-accent-500 to-secondary-500",
-      bgGradient: "from-accent-50 to-secondary-50"
+      gradient: "from-emerald-400 to-emerald-600"
     },
     {
       icon: Users,
       title: "Fraternité",
       description: "Cultiver l'esprit de fraternité et de solidarité entre tous les membres de notre communauté.",
-      gradient: "from-secondary-500 to-primary-600",
-      bgGradient: "from-secondary-50 to-primary-50"
+      gradient: "from-amber-400 to-amber-600"
     },
     {
       icon: Globe,
       title: "Ouverture",
       description: "Encourager l'ouverture d'esprit et le dialogue interculturel tout en restant fidèles à nos principes.",
-      gradient: "from-primary-600 to-accent-600",
-      bgGradient: "from-primary-50 to-accent-50"
+      gradient: "from-blue-500 to-indigo-600"
     }
   ];
 
@@ -93,7 +89,7 @@ export default function About() {
     "Points Focaux",
     "Commission Administrative",
     "Commission d'Intelligence et de Perception Spirituelle",
-    "Commission Trésor et Capacitation", // Fixed matching string
+    "Commission Trésor et Capacitation",
     "Commission Logistique"
   ];
 
@@ -120,6 +116,10 @@ export default function About() {
           transition={{ duration: 0.8 }}
           className="text-center mb-24"
         >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-slate-200 mb-6">
+            <Eye className="w-4 h-4 text-primary-600" />
+            <span className="text-sm font-semibold text-slate-600 tracking-wide uppercase">Qui sommes-nous (CIU) ?</span>
+          </div>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-slate-900 tracking-tight">
             <span className="text-primary-600">Notre Histoire</span> & Mission
@@ -140,8 +140,6 @@ export default function About() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="group relative bg-white rounded-[2.5rem] p-10 shadow-xl border border-slate-100 overflow-hidden"
           >
-
-
             <div className="relative z-10">
               <div className="w-16 h-16 rounded-2xl bg-primary-50 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
                 <Target className="w-8 h-8 text-primary-600" />
@@ -169,8 +167,6 @@ export default function About() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="group relative bg-slate-900 rounded-[2.5rem] p-10 shadow-xl overflow-hidden text-white"
           >
-
-
             <div className="relative z-10">
               <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
                 <Eye className="w-8 h-8 text-white" />
@@ -188,14 +184,14 @@ export default function About() {
           </motion.div>
         </div>
 
-        {/* 3. Values Section */}
+        {/* 3. Values Section - Premium Cards */}
         <div ref={valuesRef} className="mb-32">
           <div className="text-center mb-16">
             <h3 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
               <span className="text-primary-600">Nos Valeurs</span> Fondamentales
             </h3>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Des piliers solides qui définissent notre identité et guident chacune de nos actions.
+              Des piliers solides qui définissent notre identité.
             </p>
           </div>
 
@@ -210,13 +206,13 @@ export default function About() {
                 key={index}
                 variants={itemVariants}
                 whileHover={{ y: -8 }}
-                className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-100 group flex flex-col items-start text-left"
+                className="bg-white rounded-[2rem] p-8 shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-100 group flex flex-col items-start text-left h-full"
               >
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${value.gradient} flex items-center justify-center mb-6 shadow-md group-hover:scale-110 transition-transform`}>
-                  <value.icon className="w-7 h-7 text-white" />
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${value.gradient} flex items-center justify-center mb-6 shadow-md group-hover:scale-110 transition-transform duration-300`}>
+                  <value.icon className="w-6 h-6 text-white" />
                 </div>
                 <h4 className="text-xl font-bold text-slate-900 mb-3">{value.title}</h4>
-                <p className="text-slate-600 leading-relaxed text-sm">
+                <p className="text-slate-500 leading-relaxed text-sm flex-grow">
                   {value.description}
                 </p>
               </motion.div>
