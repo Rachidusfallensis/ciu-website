@@ -30,7 +30,7 @@ export default function Navbar() {
   const toggleMenu = useCallback(() => {
     setIsOpen(!isOpen);
   }, [isOpen]);
-  
+
   // Close menu when escape key is pressed
   useEffect(() => {
     const handleEscKey = (event) => {
@@ -38,22 +38,22 @@ export default function Navbar() {
         setIsOpen(false);
       }
     };
-    
+
     window.addEventListener('keydown', handleEscKey);
     return () => window.removeEventListener('keydown', handleEscKey);
   }, [isOpen]);
-  
+
   // Handle reduced motion preference
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  
+
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     setPrefersReducedMotion(mediaQuery.matches);
-    
+
     const handleMotionPreferenceChange = (e) => {
       setPrefersReducedMotion(e.matches);
     };
-    
+
     mediaQuery.addEventListener('change', handleMotionPreferenceChange);
     return () => mediaQuery.removeEventListener('change', handleMotionPreferenceChange);
   }, []);
@@ -63,56 +63,47 @@ export default function Navbar() {
   };
 
   return (
-    <motion.nav 
+    <motion.nav
       initial={prefersReducedMotion ? { y: 0 } : { y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: prefersReducedMotion ? 0 : 0.6, ease: "easeOut" }}
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled 
-          ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-primary-100" 
+        isScrolled
+          ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-primary-100"
           : "bg-white/90 backdrop-blur-sm"
-      )} 
-      role="navigation" 
+      )}
+      role="navigation"
       aria-label="Navigation principale"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex justify-between items-center h-16 sm:h-18 md:h-20">
           {/* Logo */}
-          <motion.div 
+          <motion.div
             className="flex items-center"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-            <Link 
-              to="/" 
-              className="flex items-center focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded-xl p-2"
+            <Link
+              to="/"
+              className="flex items-center gap-3 group cursor-pointer"
               aria-label="Retour à l'accueil"
               onClick={(e) => {
                 e.stopPropagation();
                 handleNavClick();
               }}
             >
-              <motion.div 
-                className="relative h-8 w-8 xs:h-10 xs:w-10 sm:h-12 sm:w-12 mr-2 sm:mr-4"
-                whileHover={prefersReducedMotion ? {} : { rotate: 360 }}
-                transition={{ duration: prefersReducedMotion ? 0 : 0.6 }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-800 to-primary-600 rounded-xl"></div>
-                <div className="absolute inset-1 bg-white rounded-lg flex items-center justify-center">
-                  <span className="gradient-text font-bold text-xs xs:text-sm sm:text-lg">CIU</span>
-                </div>
-              </motion.div>
-              <div className="flex flex-col">
-                <span className="font-bold text-sm xs:text-base sm:text-lg md:text-xl text-gray-900 hidden xs:block leading-tight">
-                  <span className="hidden sm:inline">Comité </span>Inter-Universitaire
-                </span>
+              <div className="w-11 h-11 bg-primary-600 rounded-xl flex items-center justify-center shadow-lg transform transition-transform group-hover:rotate-6">
+                <span className="text-white font-bold text-lg">CIU</span>
               </div>
+              <span className="text-xl md:text-2xl font-black tracking-tighter text-slate-900 uppercase leading-none">
+                Comité <span className="text-primary-600">IU</span>
+              </span>
             </Link>
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-1" id="desktop-menu">
+          <div className="hidden lg:flex items-center gap-8" id="desktop-menu">
             {navItems.map((item, index) => (
               <motion.div
                 key={item.name}
@@ -123,25 +114,14 @@ export default function Navbar() {
                 <Link
                   to={item.href}
                   className={cn(
-                    "relative px-3 md:px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300",
-                    "hover:bg-primary-50 hover:text-primary-700",
-                    "focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2",
-                    "focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2",
-                    location.pathname === item.href 
-                      ? "text-primary-700 bg-primary-50" 
-                      : "text-gray-700"
+                    "text-sm font-bold tracking-tight uppercase transition-colors duration-300",
+                    location.pathname === item.href
+                      ? "text-primary-600"
+                      : "text-slate-500 hover:text-primary-600"
                   )}
                   aria-label={`Naviguer vers ${item.name}`}
                 >
                   {item.name}
-                  {location.pathname === item.href && (
-                    <motion.div
-                      layoutId="activeSection"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-800 to-primary-600 rounded-full"
-                      initial={false}
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
-                  )}
                 </Link>
               </motion.div>
             ))}
@@ -155,7 +135,7 @@ export default function Navbar() {
             >
               <Link
                 to="/nouveaux-bacheliers"
-                className="btn-primary min-h-[44px] py-3 px-4"
+                className="bg-slate-900 text-white px-6 py-3 rounded-xl font-bold hover:bg-primary-600 transition-all text-sm shadow-lg shadow-slate-200 uppercase tracking-wide"
               >
                 Nouveaux Bacheliers
               </Link>
@@ -166,12 +146,12 @@ export default function Navbar() {
           <div className="lg:hidden flex items-center" id="mobile-menu-button">
             <motion.button
               onClick={toggleMenu}
-                className={cn(
-                  "p-2 rounded-xl text-gray-700 hover:text-primary-600 hover:bg-primary-50",
-                  "focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2",
-                  "focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2",
-                  "transition-colors duration-200 min-h-[44px] min-w-[44px]"
-                )}
+              className={cn(
+                "p-2 rounded-xl text-gray-700 hover:text-primary-600 hover:bg-primary-50",
+                "focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2",
+                "focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2",
+                "transition-colors duration-200 min-h-[44px] min-w-[44px]"
+              )}
               aria-expanded={isOpen}
               aria-label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
               whileTap={{ scale: 0.95 }}
@@ -214,7 +194,7 @@ export default function Navbar() {
             transition={{ duration: prefersReducedMotion ? 0 : 0.3, ease: "easeInOut" }}
             className="lg:hidden bg-white/95 backdrop-blur-md border-t border-primary-100 overflow-hidden w-full"
           >
-            <motion.div 
+            <motion.div
               className="px-4 pt-4 pb-6 space-y-2 max-h-[70vh] overflow-y-auto"
               initial={prefersReducedMotion ? { y: 0 } : { y: -20 }}
               animate={{ y: 0 }}
@@ -237,8 +217,8 @@ export default function Navbar() {
                       "focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2",
                       "focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2",
                       "min-h-[44px] w-full",
-                      location.pathname === item.href 
-                        ? "text-primary-700 bg-primary-50" 
+                      location.pathname === item.href
+                        ? "text-primary-700 bg-primary-50"
                         : "text-gray-700"
                     )}
                     aria-label={`Naviguer vers ${item.name}`}
@@ -248,9 +228,9 @@ export default function Navbar() {
                   </Link>
                 </motion.div>
               ))}
-              
+
               {/* Mobile CTA */}
-              <motion.div 
+              <motion.div
                 className="pt-4 border-t border-primary-100"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -259,9 +239,9 @@ export default function Navbar() {
                 <Link
                   to="/nouveaux-bacheliers"
                   onClick={handleNavClick}
-                  className="btn-primary w-full text-center block min-h-[44px] py-3 px-4"
+                  className="bg-slate-900 text-white w-full text-center block py-4 px-4 rounded-xl font-bold hover:bg-primary-600 transition-all text-sm shadow-lg shadow-slate-200 uppercase tracking-wide"
                 >
-  🎓 Nouveaux Bacheliers
+                  Nouveaux Bacheliers
                 </Link>
               </motion.div>
             </motion.div>

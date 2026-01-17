@@ -14,29 +14,29 @@ export default function NouveauxBacheliersPage() {
   // Auto-play carousel
   useEffect(() => {
     if (!isAutoPlaying) return;
-    
+
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % universityAffiches.length);
     }, 4000);
 
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
-  
+
   // Handle touch events for swipe functionality
   const handleTouchStart = (e) => {
     setTouchStart(e.targetTouches[0].clientX);
   };
-  
+
   const handleTouchMove = (e) => {
     setTouchEnd(e.targetTouches[0].clientX);
   };
-  
+
   const handleTouchEnd = () => {
     if (!touchStart || !touchEnd) return;
-    
+
     const distance = touchStart - touchEnd;
     const isSwipe = Math.abs(distance) > 50; // Minimum distance for a swipe
-    
+
     if (isSwipe) {
       if (distance > 0) {
         // Swipe left - go to next slide
@@ -46,7 +46,7 @@ export default function NouveauxBacheliersPage() {
         prevSlide();
       }
     }
-    
+
     // Reset values
     setTouchStart(0);
     setTouchEnd(0);
@@ -68,14 +68,14 @@ export default function NouveauxBacheliersPage() {
   };
 
   return (
-    <main className="pt-20">
+    <main className="pt-20 bg-slate-50 min-h-screen">
       {/* Hero Section */}
-      <section 
-        className="relative min-h-[80vh] sm:min-h-[90vh] md:min-h-screen flex items-center overflow-hidden"
+      <section
+        className="relative h-[80vh] flex items-center overflow-hidden"
         aria-labelledby="hero-heading"
       >
         {/* Background Image */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 z-0">
           <motion.img
             src="/affiches-optimized/hero/background_nouveaux_bacheliers_hero.jpg"
             alt="Background nouveaux bacheliers"
@@ -85,43 +85,11 @@ export default function NouveauxBacheliersPage() {
             transition={{ duration: prefersReducedMotion ? 0 : 10, ease: "easeOut" }}
             loading="lazy"
           />
-          {/* Gradient Overlay for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-primary-900/90 via-primary-800/70 to-accent-900/80"></div>
-          {/* Additional dark overlay */}
-          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 bg-slate-900/70" />
         </div>
 
-        {/* Animated Background Elements (subtle) */}
-        <div className="absolute inset-0">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <motion.div
-            className="absolute top-20 left-10 w-72 h-72 bg-secondary-400/10 rounded-full blur-3xl"
-            animate={prefersReducedMotion ? {} : {
-              scale: [1, 1.2, 1],
-              opacity: [0.1, 0.3, 0.1],
-            }}
-            transition={{
-              duration: prefersReducedMotion ? 0 : 8,
-              repeat: prefersReducedMotion ? 0 : Infinity,
-              ease: "easeInOut",
-            }}
-          />
-          <motion.div
-            className="absolute bottom-20 right-10 w-96 h-96 bg-accent-400/10 rounded-full blur-3xl"
-            animate={prefersReducedMotion ? {} : {
-              scale: [1.2, 1, 1.2],
-              opacity: [0.1, 0.2, 0.1],
-            }}
-            transition={{
-              duration: prefersReducedMotion ? 0 : 10,
-              repeat: prefersReducedMotion ? 0 : Infinity,
-              ease: "easeInOut",
-            }}
-          />
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <motion.div 
-            className="text-center text-white"
             variants={{
               hidden: { opacity: 0 },
               visible: {
@@ -151,12 +119,28 @@ export default function NouveauxBacheliersPage() {
               className="mb-6"
             >
 
-              
+
               <h1 id="hero-heading" className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                <span className="block">{generalInfo.title}</span>
+                <span className="block mb-2">Bienvenue aux</span>
+                <motion.span
+                  className="inline-block relative px-4 py-1"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8, delay: 0.5, type: "spring" }}
+                >
+                  <motion.span
+                    className="absolute inset-0 bg-blue-600/80 -skew-x-6 rounded-lg backdrop-blur-sm"
+                    initial={{ width: "0%" }}
+                    animate={{ width: "100%" }}
+                    transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
+                  />
+                  <span className="relative z-10 text-white drop-shadow-sm">
+                    Nouveaux Bacheliers
+                  </span>
+                </motion.span>
               </h1>
-              
-              <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed mb-12">
+
+              <p className="text-xl md:text-2xl text-slate-200 max-w-4xl mx-auto leading-relaxed mb-12 font-light">
                 {generalInfo.subtitle}
               </p>
             </motion.div>
@@ -194,7 +178,7 @@ export default function NouveauxBacheliersPage() {
                       }
                     }
                   }}
-                  className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-white border border-white/20 hover:bg-white/15 transition-colors duration-300"
+                  className="bg-white/5 backdrop-blur-md rounded-2xl p-4 border border-white/10 hover:bg-white/10 transition-colors duration-300"
                 >
                   <p className="text-sm font-medium leading-relaxed">{message}</p>
                 </motion.div>
@@ -219,196 +203,20 @@ export default function NouveauxBacheliersPage() {
               className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"
             >
               <div className="text-center">
-                <div className="text-4xl font-bold text-accent-300 mb-2">8</div>
-                <div className="text-white/80">Conseils Universitaires</div>
+                <div className="text-4xl font-bold text-yellow-400 mb-2">8</div>
+                <div className="text-slate-300">Conseils Universitaires</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-accent-300 mb-2">1500+</div>
-                <div className="text-white/80">Étudiants Membres</div>
+                <div className="text-4xl font-bold text-yellow-400 mb-2">1500+</div>
+                <div className="text-slate-300">Étudiants Membres</div>
               </div>
             </motion.div>
           </motion.div>
         </div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 6, 0] }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-            className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center"
-          >
-            <div className="w-1 h-3 bg-white/70 rounded-full mt-2"></div>
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* Carousel Section */}
-      <section className="section-padding bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Choisissez Votre <span className="gradient-text">Université</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-             
-              Découvrez les contacts de votre université et rejoignez la communauté estudiantine moustarchidine.
-            </p>
-          </motion.div>
-
-          {/* Carousel Container */}
-          <div 
-            className="relative bg-white rounded-xl sm:rounded-3xl shadow-xl sm:shadow-2xl overflow-hidden"
-            onMouseEnter={() => setIsAutoPlaying(false)}
-            onMouseLeave={() => setIsAutoPlaying(true)}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-            role="region"
-            aria-roledescription="carousel"
-            aria-label="Universités partenaires"
-          >
-            <div className="relative h-[70vh] sm:h-96 md:h-[500px]">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={currentSlide}
-                  initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, x: 300 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, x: -300 }}
-                  transition={{ duration: prefersReducedMotion ? 0.2 : 0.5, ease: "easeInOut" }}
-                  aria-hidden="false"
-                  className="absolute inset-0"
-                >
-                  <div className="h-full relative">
-                    {/* University Affiche Background */}
-                    <img
-                      src={universityAffiches[currentSlide].heroImage}
-                      alt={`Affiche ${universityAffiches[currentSlide].shortName}`}
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.parentElement.className = `h-full bg-gradient-to-br ${universityAffiches[currentSlide].color} relative`;
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent"></div>
-                    
-                    {/* University Logo */}
-                    <div className="absolute top-4 sm:top-8 right-4 sm:right-8 w-16 h-16 sm:w-20 sm:h-20 bg-white/20 backdrop-blur-sm rounded-xl sm:rounded-2xl flex items-center justify-center">
-                      <img
-                        src={universityAffiches[currentSlide].image}
-                        alt={universityAffiches[currentSlide].shortName}
-                        className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
-                        onError={(e) => {
-                          e.target.src = `https://ui-avatars.com/api/?name=${universityAffiches[currentSlide].shortName}&background=ffffff&color=000000&size=48`;
-                        }}
-                      />
-                    </div>
-
-                    {/* Content */}
-                    <div className="absolute inset-0 flex items-center">
-                      <div className="w-full px-4 sm:px-8 md:px-16 text-white">
-                        <div className="max-w-2xl">
-                          <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                          >
-                            <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-2 sm:mb-4">
-                              {universityAffiches[currentSlide].name}
-                            </h3>
-                            
-                            <div className="flex items-center mb-6">
-                              <MapPin className="w-5 h-5 mr-2" />
-                              <span className="text-base sm:text-lg">{universityAffiches[currentSlide].location}</span>
-                            </div>
-
-                            <div className="space-y-3 mb-6">
-                              <div className="flex items-center">
-                                <Phone className="w-5 h-5 mr-3" />
-                                <span className="text-base sm:text-lg font-medium">Contacts :</span>
-                              </div>
-                              {universityAffiches[currentSlide].contacts.map((contact, index) => (
-                                <motion.a
-                                  key={index}
-                                  href={`tel:${contact}`}
-                                  initial={{ opacity: 0, x: -20 }}
-                                  animate={{ opacity: 1, x: 0 }}
-                                  transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                                  className="block text-base sm:text-lg md:text-xl font-mono bg-white/20 backdrop-blur-sm rounded-lg px-3 sm:px-4 py-1 sm:py-2 hover:bg-white/30 transition-colors duration-200 w-fit min-h-[44px] flex items-center"
-                                >
-                                  {contact}
-                                </motion.a>
-                              ))}
-                            </div>
-
-                            <motion.div
-                              initial={{ opacity: 0, y: 20 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{ duration: 0.6, delay: 0.5 }}
-                              className="bg-white/20 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6"
-                            >
-                              <div className="flex items-start">
-                                <Users className="w-6 h-6 mr-3 mt-1 flex-shrink-0" />
-                                <p className="text-sm sm:text-base md:text-lg leading-relaxed">
-                                  {universityAffiches[currentSlide].note}
-                                </p>
-                              </div>
-                            </motion.div>
-                          </motion.div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-
-            {/* Navigation Arrows */}
-            <button
-              onClick={prevSlide}
-              className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-white/25 backdrop-blur-sm hover:bg-white/40 rounded-full p-2 sm:p-3 transition-all duration-300 hover:scale-105 min-h-[44px] min-w-[44px] focus:outline-none focus:ring-2 focus:ring-white focus-visible:ring-2 z-10"
-              aria-label="Université précédente"
-            >
-              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-            </button>
-
-            <button
-              onClick={nextSlide}
-              className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-white/25 backdrop-blur-sm hover:bg-white/40 rounded-full p-2 sm:p-3 transition-all duration-300 hover:scale-105 min-h-[44px] min-w-[44px] focus:outline-none focus:ring-2 focus:ring-white focus-visible:ring-2 z-10"
-              aria-label="Université suivante"
-            >
-              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-            </button>
-
-            {/* Dots Indicator */}
-            <div className="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-1 sm:space-x-2 z-10">
-              {universityAffiches.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors duration-200 min-h-[8px] min-w-[8px] ${
-                    index === currentSlide ? 'bg-white' : 'bg-white/50'
-                  }`}
-                  aria-label={`Aller à l'université ${index + 1}`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* Guide d'Orientation Section */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-slate-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -417,10 +225,10 @@ export default function NouveauxBacheliersPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Guide d'<span className="gradient-text">Orientation</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              <span className="text-primary-600">Guide d'</span>Orientation
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
               Étapes essentielles pour rejoindre la communauté moustarchidine universitaire
             </p>
           </motion.div>
@@ -433,12 +241,12 @@ export default function NouveauxBacheliersPage() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-center"
             >
-              <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-primary-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <span className="text-2xl font-bold text-white">1</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Choisissez votre Université</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Parcourez le carousel ci-dessus pour trouver votre université et découvrir l'affiche d'orientation.
+              <h3 className="text-xl font-semibold text-slate-900 mb-4">Choisissez votre Université</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Parcourez le carousel ci-dessous pour trouver votre université et découvrir l'affiche d'orientation.
               </p>
             </motion.div>
 
@@ -449,11 +257,11 @@ export default function NouveauxBacheliersPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-center"
             >
-              <div className="w-16 h-16 bg-gradient-secondary rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-secondary-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <span className="text-2xl font-bold text-white">2</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Contactez le Conseil</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <h3 className="text-xl font-semibold text-slate-900 mb-4">Contactez le Conseil</h3>
+              <p className="text-slate-600 leading-relaxed">
                 Appelez directement les numéros fournis pour entrer en contact avec le conseil de votre université.
               </p>
             </motion.div>
@@ -465,37 +273,219 @@ export default function NouveauxBacheliersPage() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-center"
             >
-              <div className="w-16 h-16 bg-gradient-accent rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-accent-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <span className="text-2xl font-bold text-white">3</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Rejoignez la Communauté</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <h3 className="text-xl font-semibold text-slate-900 mb-4">Rejoignez la Communauté</h3>
+              <p className="text-slate-600 leading-relaxed">
                 Participez aux activités et événements organisés par le conseil moustarchidine de votre université.
               </p>
             </motion.div>
           </div>
 
-          {/* FAQ Section */}
+        </div>
+      </section>
+
+      {/* Carousel Section */}
+      <section className="section-padding bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-16 bg-gray-50 rounded-3xl p-8"
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
           >
-            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Questions Fréquentes</h3>
-            
-            <div className="space-y-6">
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <h4 className="font-semibold text-gray-900 mb-2">Qui peut rejoindre le CIU ?</h4>
-                <p className="text-gray-600">Tous les étudiants moustarchidines des universités partenaires peuvent rejoindre le Comité Inter-Universitaire.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              <span className="text-primary-600">Choisissez Votre</span> Université
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Découvrez les contacts de votre université et rejoignez la communauté estudiantine moustarchidine.
+            </p>
+          </motion.div>
+
+          {/* Carousel Container */}
+          <div
+            className="relative bg-slate-900 rounded-[2.5rem] shadow-2xl overflow-hidden min-h-[600px] border-4 border-white/20"
+            onMouseEnter={() => setIsAutoPlaying(false)}
+            onMouseLeave={() => setIsAutoPlaying(true)}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            role="region"
+            aria-roledescription="carousel"
+            aria-label="Universités partenaires"
+          >
+            <div className="relative h-[600px] md:h-[700px]">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentSlide}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="absolute inset-0"
+                >
+                  {/* Background Image with Ken Burns Effect */}
+                  <div className="absolute inset-0 overflow-hidden">
+                    <motion.img
+                      src={universityAffiches[currentSlide].heroImage}
+                      alt=""
+                      className="w-full h-full object-cover"
+                      initial={{ scale: 1.1 }}
+                      animate={{ scale: 1 }}
+                      transition={{ duration: 6, ease: "easeOut" }}
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.parentElement.className = `absolute inset-0 bg-gradient-to-br ${universityAffiches[currentSlide].color}`;
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent" />
+                  </div>
+
+                  {/* University Logo Badge (Top Right) */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8, y: -20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="absolute top-6 right-6 md:top-10 md:right-10 w-20 h-20 md:w-24 md:h-24 bg-white rounded-2xl p-4 shadow-xl flex items-center justify-center z-20"
+                  >
+                    <img
+                      src={universityAffiches[currentSlide].image}
+                      alt={universityAffiches[currentSlide].shortName}
+                      className="w-full h-full object-contain"
+                      onError={(e) => {
+                        e.target.src = `https://ui-avatars.com/api/?name=${universityAffiches[currentSlide].shortName}&background=ffffff&color=000000&size=48`;
+                      }}
+                    />
+                  </motion.div>
+
+                  {/* Glassmorphism Content Card */}
+                  <div className="absolute inset-0 flex items-end md:items-center justify-start p-6 md:p-12 lg:p-16">
+                    <motion.div
+                      className="relative w-full max-w-3xl bg-white/10 backdrop-blur-xl border border-white/20 rounded-[2rem] p-6 md:p-10 shadow-2xl overflow-hidden"
+                      initial={{ opacity: 0, y: 50 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.2 }}
+                    >
+                      {/* Decorative gradient blob inside card */}
+                      <div className={`absolute -top-20 -right-20 w-64 h-64 bg-gradient-to-br ${universityAffiches[currentSlide].color} rounded-full blur-[80px] opacity-40`} />
+
+                      <div className="relative z-10 text-white">
+                        <div className="flex flex-col md:flex-row md:items-end gap-4 mb-6">
+                          <h3 className="text-3xl md:text-5xl font-black leading-tight tracking-tight">
+                            {universityAffiches[currentSlide].name}
+                          </h3>
+                          <span className="hidden md:block text-2xl font-bold text-white/50 mb-1">
+                            ({universityAffiches[currentSlide].shortName})
+                          </span>
+                        </div>
+
+                        <div className="flex items-center gap-3 mb-8">
+                          <div className="p-2 bg-white/20 rounded-lg">
+                            <MapPin className="w-6 h-6 text-yellow-300" />
+                          </div>
+                          <span className="text-xl md:text-2xl font-medium">{universityAffiches[currentSlide].location}</span>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                          <div className="space-y-4">
+                            <h4 className="flex items-center text-sm font-bold uppercase tracking-wider text-white/70">
+                              <Phone className="w-4 h-4 mr-2" />
+                              Contacts Conseil
+                            </h4>
+                            <div className="flex flex-wrap gap-3">
+                              {universityAffiches[currentSlide].contacts.map((contact, index) => (
+                                <motion.a
+                                  key={index}
+                                  href={`tel:${contact}`}
+                                  whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.3)" }}
+                                  whileTap={{ scale: 0.95 }}
+                                  className="px-4 py-2 bg-white/20 hover:bg-white/30 rounded-xl text-sm md:text-base font-bold transition-colors"
+                                >
+                                  {contact}
+                                </motion.a>
+                              ))}
+                            </div>
+                          </div>
+
+                          <div className="space-y-4">
+                            <h4 className="flex items-center text-sm font-bold uppercase tracking-wider text-white/70">
+                              <Users className="w-4 h-4 mr-2" />
+                              Information
+                            </h4>
+                            <p className="text-sm md:text-base text-white/90 leading-relaxed font-light">
+                              {universityAffiches[currentSlide].note}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Navigation Controls (Outside the content for easier click) */}
+              <div className="absolute bottom-8 right-8 flex gap-4 z-30">
+                <button
+                  onClick={prevSlide}
+                  className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-slate-900 transition-all duration-300 group"
+                  aria-label="Précédent"
+                >
+                  <ChevronLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform" />
+                </button>
+                <button
+                  onClick={nextSlide}
+                  className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-slate-900 transition-all duration-300 group"
+                  aria-label="Suivant"
+                >
+                  <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                </button>
               </div>
-    
-          
-              
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <h4 className="font-semibold text-gray-900 mb-2">Comment participer aux événements ?</h4>
-                <p className="text-gray-600">Une fois inscrit dans votre conseil universitaire, vous recevrez toutes les informations sur les événements à venir.</p>
+
+              {/* Custom Pagination Line */}
+              <div className="absolute top-0 left-0 right-0 p-8 z-30 flex justify-center gap-2">
+                {universityAffiches.map((_, index) => (
+                  <div
+                    key={index}
+                    className="h-1 rounded-full bg-white/20 overflow-hidden transition-all duration-500"
+                    style={{ width: index === currentSlide ? '40px' : '10px' }}
+                  >
+                    {index === currentSlide && (
+                      <motion.div
+                        className="h-full bg-white"
+                        layoutId="activeSlide"
+                      />
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="section-padding bg-slate-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="bg-white rounded-3xl p-8 border border-slate-100"
+          >
+            <h3 className="text-2xl font-bold text-slate-900 mb-8 text-center"><span className="text-primary-600">Questions</span> Fréquentes</h3>
+
+            <div className="space-y-6">
+              <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+                <h4 className="font-semibold text-slate-900 mb-2">Qui peut rejoindre le CIU ?</h4>
+                <p className="text-slate-600">Tous les étudiants moustarchidines des universités partenaires peuvent rejoindre le Comité Inter-Universitaire.</p>
+              </div>
+
+              <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+                <h4 className="font-semibold text-slate-900 mb-2">Comment participer aux événements ?</h4>
+                <p className="text-slate-600">Une fois inscrit dans votre conseil universitaire, vous recevrez toutes les informations sur les événements à venir.</p>
               </div>
             </div>
           </motion.div>
@@ -519,8 +509,8 @@ export default function NouveauxBacheliersPage() {
             </p>
             <motion.a
               href={`mailto:${generalInfo.contactGeneral}`}
-                              whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               className="inline-flex items-center px-8 py-4 bg-white text-primary-600 font-semibold rounded-2xl hover:bg-gray-50 transition-colors duration-200 shadow-lg"
             >
               <Phone className="w-5 h-5 mr-2" />
