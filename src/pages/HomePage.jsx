@@ -115,9 +115,20 @@ export default function HomePage() {
           >
             <motion.div
               variants={itemVariants}
-              className="mb-6"
+              className="mb-4 sm:mb-6"
             >
-             
+              <motion.div
+                className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white font-medium text-xs sm:text-sm mb-4"
+                whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.15)" }}
+                transition={{ duration: 0.3 }}
+              >
+                <motion.span
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="w-2 h-2 bg-secondary-300 rounded-full flex-shrink-0"
+                />
+                <span className="text-center leading-tight">Dahiratoul Moustarchidina Wal Moustarchidaty</span>
+              </motion.div>
             </motion.div>
 
             <motion.h1
@@ -190,17 +201,25 @@ export default function HomePage() {
               className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center"
             >
               <motion.div
-                whileHover={{ y: -2 }}
+                whileHover={{ scale: 1.05, y: -4 }}
                 whileTap={{ scale: 0.98 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
                 <Link
                   to="/about"
-                  className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-white text-primary-700 font-semibold rounded-xl sm:rounded-2xl hover:bg-secondary-50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 min-h-[44px] text-sm sm:text-base"
+                  className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-white text-primary-700 font-bold rounded-xl sm:rounded-2xl transition-all duration-300 shadow-2xl hover:shadow-3xl min-h-[44px] text-sm sm:text-base overflow-hidden"
                   aria-label="En savoir plus sur le CIU"
                 >
-                  Découvrir le CIU
+                  {/* Shine effect */}
                   <motion.div
-                    className="ml-1 sm:ml-2"
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent"
+                    animate={{ x: ["-200%", "200%"] }}
+                    transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
+                  />
+                  
+                  <span className="relative z-10">Découvrir le CIU</span>
+                  <motion.div
+                    className="ml-1 sm:ml-2 relative z-10"
                     animate={prefersReducedMotion ? {} : { x: [0, 5, 0] }}
                     transition={{ duration: 1.5, repeat: prefersReducedMotion ? 0 : Infinity }}
                   >
@@ -210,16 +229,25 @@ export default function HomePage() {
               </motion.div>
               
               <motion.div
-                whileHover={{ y: -2 }}
+                whileHover={{ scale: 1.05, y: -4 }}
                 whileTap={{ scale: 0.98 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
                 <Link
                   to="/nouveaux-bacheliers"
-                  className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 border-2 border-white text-white font-semibold rounded-xl sm:rounded-2xl hover:bg-white hover:text-primary-700 transition-all duration-300 backdrop-blur-sm min-h-[44px] text-sm sm:text-base"
+                  className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 border-2 border-white text-white font-bold rounded-xl sm:rounded-2xl hover:bg-white hover:text-primary-700 transition-all duration-300 backdrop-blur-md min-h-[44px] text-sm sm:text-base overflow-hidden"
                   aria-label="Nous rejoindre"
                 >
-                  <GraduationCap className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2" aria-hidden="true" />
-                  Nouveaux Bacheliers
+                  <GraduationCap className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2 relative z-10" aria-hidden="true" />
+                  <span className="relative z-10">Nouveaux Bacheliers</span>
+                  
+                  {/* Gradient hover background */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-secondary-200 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: 0 }}
+                    transition={{ duration: 0.3 }}
+                  />
                 </Link>
               </motion.div>
             </motion.div>
@@ -230,19 +258,59 @@ export default function HomePage() {
               className="mt-12 sm:mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto"
             >
               {[
-                { number: "8+", label: "Universités Partenaires", icon: Globe },
-                { number: "1500+", label: "Étudiants Membres", icon: Users },
-                { number: "5+", label: "Années d'Excellence", icon: Star },
+                { number: "8+", label: "Universités Partenaires", icon: Globe, color: "from-blue-400 to-blue-600" },
+                { number: "1500+", label: "Étudiants Membres", icon: Users, color: "from-yellow-400 to-yellow-600" },
+                { number: "5+", label: "Années d'Excellence", icon: Star, color: "from-orange-400 to-orange-600" },
               ].map((stat, index) => (
                 <motion.div
                   key={index}
-                  className="text-center p-4 sm:p-6 bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-white/20"
-                  whileHover={prefersReducedMotion ? {} : { scale: 1.05, y: -5 }}
+                  className="relative text-center p-5 sm:p-6 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 hover:bg-white/15 transition-all duration-300 overflow-hidden group"
+                  whileHover={prefersReducedMotion ? {} : { scale: 1.05, y: -8 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <stat.icon className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 mx-auto mb-2 sm:mb-3 text-secondary-300" />
-                  <div className="text-2xl sm:text-3xl font-bold text-white mb-1 sm:mb-2">{stat.number}</div>
-                  <div className="text-primary-200 text-sm sm:text-base">{stat.label}</div>
+                  {/* Animated Background Gradient */}
+                  <motion.div
+                    className={cn(
+                      "absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500",
+                      `bg-gradient-to-br ${stat.color}`
+                    )}
+                  />
+                  
+                  {/* Icon with Gradient */}
+                  <motion.div
+                    className="relative mx-auto mb-3 sm:mb-4 w-fit"
+                    whileHover={prefersReducedMotion ? {} : { rotate: [0, -10, 10, -10, 0] }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <div className={cn(
+                      "w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center",
+                      `bg-gradient-to-br ${stat.color} shadow-lg`
+                    )}>
+                      <stat.icon className="h-6 w-6 sm:h-7 sm:w-7 text-white" />
+                    </div>
+                    
+                    {/* Glow Effect */}
+                    <motion.div
+                      className={cn(
+                        "absolute inset-0 rounded-xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500",
+                        `bg-gradient-to-br ${stat.color}`
+                      )}
+                    />
+                  </motion.div>
+                  
+                  <motion.div
+                    className="text-3xl sm:text-4xl font-bold text-white mb-2"
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: index * 0.1, type: "spring" }}
+                    viewport={{ once: true }}
+                  >
+                    {stat.number}
+                  </motion.div>
+                  
+                  <div className="text-primary-100 text-sm sm:text-base font-medium">
+                    {stat.label}
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
@@ -314,57 +382,91 @@ export default function HomePage() {
                 title: "Communauté Unie",
                 description: "Rassembler tous les étudiants moustarchidines des universités publiques et privées du Sénégal.",
                 gradient: "from-blue-500 to-yellow-500",
-                link: "/about"
+                link: "/about",
+                color: "blue"
               },
               {
                 icon: BookOpen,
                 title: "Excellence Académique",
                 description: "Promouvoir l'excellence dans les études.",
                 gradient: "from-blue-500 to-yellow-500",
-                link: "/universities"
+                link: "/universities",
+                color: "yellow"
               },
               {
                 icon: Heart,
                 title: "Tarbiya Implicatif",
                 description: "Organiser des événements qui contribuent au développement personnel et spirituel.",
                 gradient: "from-yellow-500 to-primary-600",
-                link: "/news"
+                link: "/news",
+                color: "primary"
               }
             ].map((card, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}
                 className="group relative bg-white rounded-xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden card-hover"
-                whileHover={prefersReducedMotion ? {} : { scale: 1.02 }}
+                whileHover={prefersReducedMotion ? {} : { scale: [1, 1.02], y: [0, -8] }}
+                transition={{ duration: 0.3 }}
               >
+                {/* Gradient Background on Hover */}
+                <motion.div
+                  className={cn(
+                    "absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-500",
+                    `bg-gradient-to-br ${card.gradient}`
+                  )}
+                />
+                
+                {/* Decorative Corner Element - Hidden on mobile */}
+                <div className="hidden sm:block absolute top-0 right-0 w-20 h-20 overflow-hidden">
+                  <div className={cn(
+                    "absolute top-0 right-0 w-full h-full transform translate-x-8 -translate-y-8 rotate-45 opacity-10",
+                    `bg-gradient-to-br ${card.gradient}`
+                  )} />
+                </div>
+                
                 <div className="relative p-5 sm:p-6 md:p-8">
-                  <div className="flex flex-col sm:flex-row items-center mb-4 sm:mb-6">
+                  <div className="flex flex-col items-center mb-4 sm:mb-6">
                     <motion.div 
                       className={cn(
-                        "flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl mb-3 sm:mb-0 sm:mr-4 flex-shrink-0",
-                        `bg-gradient-to-br ${card.gradient}`
+                        "flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-2xl mb-3 sm:mb-4 relative",
+                        `bg-gradient-to-br ${card.gradient} shadow-lg`
                       )}
-                      whileHover={prefersReducedMotion ? {} : { rotate: 360, scale: 1.1 }}
-                      transition={{ duration: prefersReducedMotion ? 0 : 0.6 }}
+                      whileHover={prefersReducedMotion ? {} : { rotate: [0, -10, 10, -10, 0], scale: 1.1 }}
+                      transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
                     >
-                      <card.icon className="h-6 w-6 sm:h-7 sm:w-7 text-white" aria-hidden="true" />
+                      <card.icon className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-white" aria-hidden="true" />
+                      
+                      {/* Glow effect - Hidden on mobile for performance */}
+                      <motion.div
+                        className={cn(
+                          "hidden sm:block absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-500",
+                          `bg-gradient-to-br ${card.gradient}`
+                        )}
+                      />
                     </motion.div>
                     
-                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 group-hover:text-primary-700 transition-colors duration-300 text-center sm:text-left">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 group-hover:text-primary-700 transition-colors duration-300 text-center px-2">
                       {card.title}
                     </h3>
                   </div>
                   
-                  <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300 mb-4 sm:mb-6 text-center text-sm sm:text-base">
+                  <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300 mb-4 sm:mb-6 text-center text-sm sm:text-base px-2">
                     {card.description}
                   </p>
 
                   <Link
                     to={card.link}
-                    className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium transition-colors duration-200 min-h-[44px] py-2 px-3 -ml-3 rounded-lg justify-center sm:justify-start w-full sm:w-auto"
+                    className="group/link inline-flex items-center justify-center text-primary-600 hover:text-primary-700 font-medium transition-all duration-200 min-h-[44px] py-2 px-4 rounded-lg hover:bg-primary-50 w-full text-sm sm:text-base"
                   >
-                    En savoir plus
-                    <ArrowRight className="ml-1 h-4 w-4" />
+                    <span>En savoir plus</span>
+                    <motion.div
+                      className="ml-1 sm:ml-2"
+                      animate={{ x: [0, 4, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                    >
+                      <ArrowRight className="h-4 w-4" />
+                    </motion.div>
                   </Link>
                 </div>
               </motion.div>
@@ -388,6 +490,7 @@ export default function HomePage() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
               <span className="gradient-text">Découvrez</span> Nos Services
             </h2>
+            
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed text-center px-2">
               Explorez toutes les ressources et services que nous offrons à notre communauté
             </p>
@@ -405,21 +508,24 @@ export default function HomePage() {
                 description: "Découvrez notre réseau de 8 universités partenaires",
                 icon: GraduationCap,
                 link: "/universities",
-                gradient: "from-primary-600 to-blue-500"
+                gradient: "from-primary-600 to-blue-500",
+                badge: "8+"
               },
               {
                 title: "Actualités",
                 description: "Actualités, événements et activités du CIU",
                 icon: Calendar,
                 link: "/news",
-                gradient: "from-blue-500 to-yellow-500"
+                gradient: "from-blue-500 to-yellow-500",
+                badge: "Nouveau"
               },
               {
                 title: "Ressources",
                 description: "Bibliothèque, médias et outils d'apprentissage",
                 icon: BookOpen,
                 link: "/resources",
-                gradient: "from-yellow-500 to-primary-600"
+                gradient: "from-yellow-500 to-primary-600",
+                badge: "Bientôt"
               }
             ].map((service, index) => (
               <motion.div
@@ -428,32 +534,67 @@ export default function HomePage() {
               >
                 <Link
                   to={service.link}
-                  className="group block bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-2xl transition-all duration-500 card-hover min-h-[44px]"
+                  className="group relative block bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 shadow-lg hover:shadow-2xl transition-all duration-500 card-hover min-h-[44px] overflow-hidden border border-gray-100 hover:border-primary-200"
                 >
-                  <div className="flex flex-col sm:flex-row items-center mb-3 sm:mb-4">
-                    <motion.div
-                      className={cn(
-                        "flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl mb-2 sm:mb-0 sm:mr-3 flex-shrink-0",
-                        `bg-gradient-to-br ${service.gradient}`
-                      )}
-                      whileHover={prefersReducedMotion ? {} : { scale: 1.1, rotate: 5 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                    >
-                      <service.icon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
-                    </motion.div>
-                    
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-primary-700 transition-colors duration-300 text-center sm:text-left">
-                      {service.title}
-                    </h3>
+                  {/* Background Pattern - Hidden on mobile for performance */}
+                  <div className="hidden sm:block absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary-50/50 to-transparent" />
                   </div>
                   
-                  <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300 text-center text-sm sm:text-base">
-                    {service.description}
-                  </p>
+                  {/* Badge */}
+                  <motion.div
+                    className="absolute top-3 right-3 sm:top-4 sm:right-4 px-2 py-1 bg-gradient-to-r from-primary-500 to-secondary-500 text-white text-xs font-bold rounded-full shadow-md"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.2 + index * 0.1, type: "spring" }}
+                  >
+                    {service.badge}
+                  </motion.div>
+                  
+                  <div className="relative">
+                    <div className="flex flex-col sm:flex-row items-start sm:gap-4 mb-4">
+                      <motion.div
+                        className={cn(
+                          "flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl flex-shrink-0 relative mb-3 sm:mb-0",
+                          `bg-gradient-to-br ${service.gradient} shadow-md`
+                        )}
+                        whileHover={prefersReducedMotion ? {} : { scale: 1.15, rotate: [0, -5, 5, 0] }}
+                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      >
+                        <service.icon className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 text-white relative z-10" />
+                        
+                        {/* Icon Glow - Hidden on mobile */}
+                        <motion.div
+                          className={cn(
+                            "hidden sm:block absolute inset-0 rounded-xl sm:rounded-2xl blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-500",
+                            `bg-gradient-to-br ${service.gradient}`
+                          )}
+                        />
+                      </motion.div>
+                      
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 group-hover:text-primary-700 transition-colors duration-300 mb-2">
+                          {service.title}
+                        </h3>
+                        
+                        <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300 text-sm sm:text-base leading-relaxed">
+                          {service.description}
+                        </p>
+                      </div>
+                    </div>
 
-                  <div className="flex items-center justify-center sm:justify-start mt-3 sm:mt-4 text-primary-600 group-hover:text-primary-700 transition-colors duration-200">
-                    <span className="text-sm font-medium">Explorer</span>
-                    <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
+                    <motion.div
+                      className="flex items-center gap-2 text-primary-600 group-hover:text-primary-700 transition-colors duration-200 mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-100"
+                      whileHover={{ x: 5 }}
+                    >
+                      <span className="text-xs sm:text-sm font-semibold">Explorer</span>
+                      <motion.div
+                        animate={{ x: [0, 4, 0] }}
+                        transition={{ duration: 1.5, repeat: Infinity }}
+                      >
+                        <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4" />
+                      </motion.div>
+                    </motion.div>
                   </div>
                 </Link>
               </motion.div>
@@ -461,6 +602,8 @@ export default function HomePage() {
           </motion.div>
         </div>
       </section>
+
+      {/* Final CTA Section */}
 
       {/* Scroll to Top Button */}
       <ScrollToTop />
