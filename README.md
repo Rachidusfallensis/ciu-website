@@ -35,7 +35,7 @@ Le site a été entièrement repensé pour offrir une expérience fluide et cent
 ## ✨ Fonctionnalités Clés
 
 ### 🎨 Design & Expérience Utilisateur
-- **Interface Premium**: Design épuré, typographie soignée, effets de verre (Glassmorphism) et cartes interactives.
+- **Interface Fluide**: Design épuré, typographie soignée, effets de verre (Glassmorphism) et cartes interactives.
 - **Micro-interactions**: Animations subtiles au survol et au défilement pour une immersion totale.
 - **Totalement Responsive**: Optimisé pour mobile, tablette et desktop (Layouts adaptatifs).
 
