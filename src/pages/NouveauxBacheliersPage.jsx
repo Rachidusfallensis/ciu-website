@@ -76,7 +76,7 @@ export default function NouveauxBacheliersPage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <motion.img
-            src="/affiches-optimized/hero/"
+            src="colloque-optimized/hero/ceremonie-cloture/6_hero.jpg"
             alt="Background nouveaux bacheliers"
             className="w-full h-full object-cover"
             initial={prefersReducedMotion ? { scale: 1 } : { scale: 1.1 }}
