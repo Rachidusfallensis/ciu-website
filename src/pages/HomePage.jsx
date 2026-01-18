@@ -1,7 +1,7 @@
-import { motion, useInView, useReducedMotion } from 'framer-motion';
+import { motion, useInView, useReducedMotion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Users, BookOpen, Calendar, Star, Globe, Heart, MapPin, GraduationCap } from 'lucide-react';
 import { cn } from '../utils/cn';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ScrollToTop from '../components/ScrollToTop';
 import SEO from '../components/SEO';
@@ -36,6 +36,20 @@ export default function HomePage() {
   const servicesRef = useRef(null);
   const isMissionInView = useInView(missionRef, { once: true, amount: 0.3 });
   const isServicesInView = useInView(servicesRef, { once: true, amount: 0.3 });
+  /* Animation Logic for Mission Text */
+  const missionMessages = [
+    "Unir les étudiants moustarchidines de toutes les universités du Sénégal.",
+    "Promouvoir un équilibre harmonieux entre Excellence Académique et Tarbiya Implicatif."
+  ];
+  const [currentMissionIndex, setCurrentMissionIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentMissionIndex((prev) => (prev + 1) % missionMessages.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
   const prefersReducedMotion = useReducedMotion();
 
   // Structured data for the homepage
@@ -105,13 +119,23 @@ export default function HomePage() {
               </motion.span>
             </motion.h1>
 
-            <motion.p
-              variants={itemVariants}
-              className="text-lg md:text-xl md:text-2xl text-slate-200 max-w-3xl mx-auto leading-relaxed mb-10 font-light"
-            >
-              Unir les étudiants moustarchidines de toutes les universités du Sénégal
-              pour un équilibre harmonieux entre excellence académique et Tarbiya implicatif.
-            </motion.p>
+            {/* Mission Statement - Animated Carousel */}
+            <div className="h-24 md:h-20 mb-8 relative flex items-center justify-center overflow-hidden max-w-4xl mx-auto">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentMissionIndex}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                  className="absolute px-4 w-full"
+                >
+                  <p className="text-lg md:text-xl lg:text-2xl text-slate-200 font-light leading-relaxed">
+                    {missionMessages[currentMissionIndex]}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+            </div>
 
             <motion.div
               variants={itemVariants}
@@ -172,51 +196,34 @@ export default function HomePage() {
             {/* Stats */}
             <motion.div
               variants={itemVariants}
-              className="mt-12 sm:mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto"
+              className="mt-12 sm:mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-3xl mx-auto"
             >
               {[
-                { number: "8+", label: "Universités Partenaires", icon: Globe, color: "from-blue-400 to-blue-600" },
-                { number: "1500+", label: "Étudiants Membres", icon: Users, color: "from-yellow-400 to-yellow-600" },
-                { number: "5+", label: "Années d'Excellence", icon: Star, color: "from-orange-400 to-orange-600" },
+                { number: "8+", label: "Conseils Universitaires", icon: Globe, color: "blue", gradient: "from-blue-400 to-blue-500" },
+                { number: "1500+", label: "Étudiants Membres", icon: Users, color: "yellow", gradient: "from-yellow-400 to-yellow-500" },
               ].map((stat, index) => (
                 <motion.div
                   key={index}
-                  className="relative text-center p-5 sm:p-6 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 hover:bg-white/15 transition-all duration-300 overflow-hidden group"
-                  whileHover={prefersReducedMotion ? {} : { scale: 1.05, y: -8 }}
-                  transition={{ type: "spring", stiffness: 300 }}
+                  className={`relative text-center p-6 rounded-3xl border transition-all duration-500 overflow-hidden group hover:-translate-y-2
+                    bg-black/10 backdrop-blur-md border-white/10 hover:border-white/30
+                  `}
+                  whileHover={prefersReducedMotion ? {} : { scale: 1.02 }}
                 >
-                  {/* Animated Background Gradient */}
-                  <motion.div
-                    className={cn(
-                      "absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500",
-                      `bg-gradient-to-br ${stat.color}`
-                    )}
-                  />
+                  {/* Hover Gradient Background */}
+                  <div className={`absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-br ${stat.gradient}`} />
 
-                  {/* Icon with Gradient */}
-                  <motion.div
-                    className="relative mx-auto mb-3 sm:mb-4 w-fit"
-                    whileHover={prefersReducedMotion ? {} : { rotate: [0, -10, 10, -10, 0] }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <div className={cn(
-                      "w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center",
-                      `bg-gradient-to-br ${stat.color} shadow-lg`
-                    )}>
-                      <stat.icon className="h-6 w-6 sm:h-7 sm:w-7 text-white" />
+                  {/* Top Gradient Line (Always visible but subtle) */}
+                  <div className={`absolute top-0 left-0 right-0 h-[2px] opacity-50 group-hover:opacity-100 bg-gradient-to-r ${stat.gradient} transition-opacity duration-300`} />
+
+                  {/* Icon */}
+                  <div className="relative mx-auto mb-4 w-fit">
+                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center bg-gradient-to-br ${stat.gradient} shadow-lg shadow-black/20 group-hover:scale-110 transition-transform duration-500`}>
+                      <stat.icon className="h-7 w-7 text-white" />
                     </div>
-
-                    {/* Glow Effect */}
-                    <motion.div
-                      className={cn(
-                        "absolute inset-0 rounded-xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500",
-                        `bg-gradient-to-br ${stat.color}`
-                      )}
-                    />
-                  </motion.div>
+                  </div>
 
                   <motion.div
-                    className="text-3xl sm:text-4xl font-bold text-white mb-2"
+                    className="text-4xl font-black text-white mb-2 tracking-tight"
                     initial={{ opacity: 0, scale: 0.5 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ delay: index * 0.1, type: "spring" }}
@@ -225,7 +232,7 @@ export default function HomePage() {
                     {stat.number}
                   </motion.div>
 
-                  <div className="text-primary-100 text-sm sm:text-base font-medium">
+                  <div className="text-sm font-bold uppercase tracking-wide text-white/80 group-hover:text-white transition-colors">
                     {stat.label}
                   </div>
                 </motion.div>
@@ -379,7 +386,7 @@ export default function HomePage() {
             {[
               {
                 title: "Universités",
-                description: "Découvrez notre réseau de 8 universités partenaires",
+                description: "Découvrez notre réseau de 8 conseils universitaires ",
                 icon: GraduationCap,
                 link: "/universities",
                 badge: "8+",
