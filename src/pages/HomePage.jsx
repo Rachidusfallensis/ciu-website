@@ -280,7 +280,7 @@ export default function HomePage() {
               <span>NOTRE MISSION</span>
             </div>
             <h2 id="mission-heading" className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-              <span className="text-primary-600">Accompagner</span> l'Excellence
+              Accompagner l'<span className="text-primary-600">Excellence</span>
             </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
               Nous accompagnons les membres pour exceller tant dans leurs études universitaires que dans leur parcours spirituel.
@@ -362,7 +362,7 @@ export default function HomePage() {
             className="text-center mb-10 sm:mb-16"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-              <span className="text-primary-600">Découvrez</span> Nos Services
+              Découvrez <span className="text-primary-600">Nos Services</span>
             </h2>
 
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">

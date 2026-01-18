@@ -1,15 +1,24 @@
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Phone, MapPin, Users, GraduationCap } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Phone, MapPin, Users, GraduationCap, Award, Compass } from 'lucide-react';
 import { universityAffiches, welcomeMessages, generalInfo } from '../utils/universityAffiches';
 import ScrollToTop from '../components/ScrollToTop';
 
 export default function NouveauxBacheliersPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentWelcomeMessage, setCurrentWelcomeMessage] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
   const prefersReducedMotion = useReducedMotion();
+
+  // Auto-play welcome messages
+  useEffect(() => {
+    const messageInterval = setInterval(() => {
+      setCurrentWelcomeMessage((prev) => (prev + 1) % welcomeMessages.length);
+    }, 3000);
+    return () => clearInterval(messageInterval);
+  }, []);
 
   // Auto-play carousel
   useEffect(() => {
@@ -144,47 +153,25 @@ export default function NouveauxBacheliersPage() {
               </p>
             </motion.div>
 
-            {/* Welcome Messages */}
-            <motion.div
-              variants={{
-                hidden: { y: 20, opacity: 0 },
-                visible: {
-                  y: 0,
-                  opacity: 1,
-                  transition: {
-                    type: "spring",
-                    stiffness: 100,
-                    damping: 10,
-                    delay: 0.2
-                  }
-                }
-              }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-16"
-            >
-              {welcomeMessages.map((message, index) => (
+            {/* Welcome Messages - Animated Text Carousel */}
+            <div className="h-20 mb-12 relative flex items-center justify-center overflow-hidden">
+              <AnimatePresence mode="wait">
                 <motion.div
-                  key={index}
-                  variants={{
-                    hidden: { y: 20, opacity: 0 },
-                    visible: {
-                      y: 0,
-                      opacity: 1,
-                      transition: {
-                        type: "spring",
-                        stiffness: 100,
-                        damping: 10,
-                        delay: index * 0.1
-                      }
-                    }
-                  }}
-                  className="bg-white/5 backdrop-blur-md rounded-2xl p-4 border border-white/10 hover:bg-white/10 transition-colors duration-300"
+                  key={currentSlide} // We can sync it with the specific local state or just use the same interval logic
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                  className="absolute px-4"
                 >
-                  <p className="text-sm font-medium leading-relaxed">{message}</p>
+                  <p className="text-xl md:text-2xl text-white/90 font-light text-center leading-normal">
+                    {welcomeMessages[currentWelcomeMessage]}
+                  </p>
                 </motion.div>
-              ))}
-            </motion.div>
+              </AnimatePresence>
+            </div>
 
-            {/* Stats */}
+            {/* Stats - Horizontal */}
             <motion.div
               variants={{
                 hidden: { y: 20, opacity: 0 },
@@ -199,15 +186,15 @@ export default function NouveauxBacheliersPage() {
                   }
                 }
               }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+              className="flex justify-center gap-12 md:gap-24"
             >
               <div className="text-center">
-                <div className="text-4xl font-bold text-yellow-400 mb-2">8</div>
-                <div className="text-slate-300">Conseils Universitaires</div>
+                <div className="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500 mb-1">8+</div>
+                <div className="text-sm md:text-base text-slate-300 font-medium tracking-wide uppercase">Conseils</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-yellow-400 mb-2">1500+</div>
-                <div className="text-slate-300">Étudiants Membres</div>
+                <div className="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500 mb-1">1500+</div>
+                <div className="text-sm md:text-base text-slate-300 font-medium tracking-wide uppercase">Membres</div>
               </div>
             </motion.div>
           </motion.div>
@@ -225,7 +212,7 @@ export default function NouveauxBacheliersPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-             Guide d'<span className="text-primary-600"> Orientation </span> 
+              Guide d'<span className="text-primary-600"> Orientation </span>
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
               Étapes essentielles pour rejoindre la communauté moustarchidine universitaire
