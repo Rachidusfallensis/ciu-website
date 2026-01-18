@@ -12,9 +12,9 @@
 
 ## 📋 À propos
 
-Site officiel du **Comité Inter-Universitaire (CIU)**, la branche universitaire du Mouvement Moustarchidine. Cette plateforme moderne et immersive sert de point de convergence pour les étudiants, offrant des ressources, des informations sur les événements (Colloque, Ziarra), et un guide d'orientation pour les nouveaux bacheliers.
+Site officiel du **Comité Inter-Universitaire (CIU)**, la branche universitaire de la Dahiratoul Moustarchidina Wal Moustarchidat. Cette plateforme moderne et immersive sert de point de convergence pour les étudiants, offrant des ressources, des informations sur les événements et un guide d'orientation pour les nouveaux bacheliers.
 
-Le site a été entièrement repensé pour offrir une expérience **Premium**, fluide et centrée sur l'utilisateur, reflétant l'excellence et le dynamisme de la communauté.
+Le site a été entièrement repensé pour offrir une expérience fluide et centrée sur l'utilisateur, reflétant l'excellence et le dynamisme de la communauté.
 
 ## 🚀 Technologies
 
