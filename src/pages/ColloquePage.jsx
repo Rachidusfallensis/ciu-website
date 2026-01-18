@@ -1,5 +1,5 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { useRef, useState, useEffect } from 'react';
 import { Calendar, Clock, MapPin, Users, GraduationCap, Award, FileText, Download, Share2, ChevronRight, Star, Target, BookOpen, Mic, CheckCircle, Search, ArrowRight } from 'lucide-react';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
@@ -103,6 +103,11 @@ const projects = [
     { author: "Mamadou NDIAYE", title: "Espace maraîcher intelligent", position: "3ème Prix", color: "text-orange-700 bg-orange-50 border-orange-200" }
 ];
 
+const colloqueSubtitles = [
+    "Synergie Pluridisciplinaire, Horizons Multiples...",
+    "Comment Bâtir un Avenir Meilleur ?"
+];
+
 export default function ColloquePage() {
     const heroRef = useRef(null);
     const presentationRef = useRef(null);
@@ -112,6 +117,14 @@ export default function ColloquePage() {
     const communicationsRef = useRef(null);
 
     const [selectedDay, setSelectedDay] = useState(0);
+    const [currentSubtitleIndex, setCurrentSubtitleIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentSubtitleIndex((prev) => (prev + 1) % colloqueSubtitles.length);
+        }, 4000);
+        return () => clearInterval(interval);
+    }, []);
 
     const isHeroInView = useInView(heroRef, { once: true, amount: 0.3 });
     const isPresentationInView = useInView(presentationRef, { once: true, amount: 0.2 });
@@ -165,10 +178,22 @@ export default function ColloquePage() {
                             Colloque <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500 block sm:inline">Interuniversitaire</span>
                         </h1>
 
-                        <p className="text-xl md:text-2xl text-slate-200 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
-                            "Synergie Pluridisciplinaire, Horizons Multiples :<br className="hidden md:block" />
-                            Comment Bâtir un Avenir Meilleur"
-                        </p>
+                        <div className="h-24 md:h-20 mb-8 relative flex items-center justify-center overflow-hidden max-w-4xl mx-auto">
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={currentSubtitleIndex}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -20 }}
+                                    transition={{ duration: 0.5 }}
+                                    className="absolute px-4 w-full"
+                                >
+                                    <p className="text-xl md:text-2xl text-slate-200 font-light leading-relaxed">
+                                        {colloqueSubtitles[currentSubtitleIndex]}
+                                    </p>
+                                </motion.div>
+                            </AnimatePresence>
+                        </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto mb-12">
                             {[

@@ -18,17 +18,7 @@ const articles = [
     readTime: "5 min",
     featured: false
   },
-  {
-    id: 2,
-    title: "Le Culte du Savoir en Islam",
-    excerpt: "Conférence du Professeur Diarra sur l'importance de la recherche scientifique dans la foi.",
-    author: "Commission Culturelle",
-    date: new Date(2024, 10, 28),
-    category: "Spiritualité",
-    image: "/api/placeholder/800/600",
-    readTime: "12 min",
-    featured: false
-  },
+
   {
     id: 3,
     title: "Lancement du Programme de Mentorat",
@@ -40,6 +30,7 @@ const articles = [
     readTime: "3 min",
     featured: false
   },
+
   {
     id: 4,
     title: "Ziarra Annuelle 2025 : Préparatifs",
@@ -77,7 +68,7 @@ const featuredArticle = {
   readTime: "8 min"
 };
 
-const categories = ["Tout", "À la Une", "Vie Étudiante", "Spiritualité", "Pédagogie", "Événement"];
+const categories = ["Tout", "À la Une", "Vie Étudiante", "Pédagogie", "Événement"];
 
 export default function NewsPage() {
   const [activeCategory, setActiveCategory] = useState("Tout");
@@ -114,8 +105,8 @@ export default function NewsPage() {
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
                   className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 border ${activeCategory === cat
-                      ? "bg-slate-900 text-white border-slate-900 shadow-lg scale-105"
-                      : "bg-white text-slate-600 border-slate-200 hover:bg-slate-100 hover:border-slate-300"
+                    ? "bg-slate-900 text-white border-slate-900 shadow-lg scale-105"
+                    : "bg-white text-slate-600 border-slate-200 hover:bg-slate-100 hover:border-slate-300"
                     }`}
                 >
                   {cat}
@@ -136,42 +127,45 @@ export default function NewsPage() {
             transition={{ duration: 0.6 }}
             className="mb-16"
           >
-            <Link to={featuredArticle.link} className="group block relative bg-black rounded-[2.5rem] overflow-hidden shadow-2xl h-[500px] sm:h-[600px]">
-              <div className="absolute inset-0">
-                <img
-                  src={featuredArticle.image}
-                  alt={featuredArticle.title}
-                  className="w-full h-full object-cover opacity-80 group-hover:opacity-60 group-hover:scale-105 transition-all duration-1000"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent" />
-              </div>
+            <Link to={featuredArticle.link} className="group relative block bg-white rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-100 hover:shadow-3xl transition-all duration-300">
+              <div className="flex flex-col md:flex-row min-h-[500px]">
+                {/* Content Section (Left on Desktop, Bottom on Mobile) */}
+                <div className="relative z-10 w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center bg-white order-2 md:order-1">
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="px-3 py-1 bg-amber-100 text-amber-700 text-xs font-bold uppercase tracking-wider rounded-full">
+                      {featuredArticle.category}
+                    </span>
+                  </div>
 
-              <div className="absolute bottom-0 left-0 p-8 md:p-12 w-full md:w-2/3">
-                <div className="flex items-center gap-4 mb-4 text-white/80 text-sm font-medium">
-                  <span className="px-3 py-1 bg-amber-500/20 text-amber-400 border border-amber-500/30 rounded-full backdrop-blur-md">
-                    {featuredArticle.category}
-                  </span>
-                  <span className="flex items-center">
-                    <Calendar className="w-4 h-4 mr-2" />
-                    {format(featuredArticle.date, 'd MMMM yyyy', { locale: fr })}
-                  </span>
-                  <span className="flex items-center">
-                    <Clock className="w-4 h-4 mr-2" />
-                    {featuredArticle.readTime}
-                  </span>
+                  <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 leading-tight group-hover:text-primary-600 transition-colors">
+                    {featuredArticle.title}
+                  </h2>
+
+                  <p className="text-lg text-slate-600 mb-8 leading-relaxed line-clamp-3 md:line-clamp-none">
+                    {featuredArticle.excerpt}
+                  </p>
+
+                  <div className="pt-2">
+                    <span
+                      className="group/btn relative inline-flex items-center justify-center px-8 py-3 border-2 border-slate-900 text-slate-900 font-bold rounded-2xl hover:bg-slate-900 hover:text-white transition-all duration-300 min-h-[50px] text-base overflow-hidden"
+                    >
+                      <span className="relative z-10">Lire l'article</span>
+                      <ArrowRight className="h-5 w-5 ml-2 relative z-10 group-hover/btn:translate-x-1 transition-transform" aria-hidden="true" />
+                    </span>
+                  </div>
                 </div>
 
-                <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight group-hover:text-amber-400 transition-colors">
-                  {featuredArticle.title}
-                </h2>
-
-                <p className="text-lg text-slate-300 mb-8 line-clamp-2">
-                  {featuredArticle.excerpt}
-                </p>
-
-                <div className="inline-flex items-center px-6 py-3 bg-white text-slate-900 rounded-full font-bold group-hover:bg-amber-400 transition-colors">
-                  Lire l'article
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                {/* Image Section (Right on Desktop, Top on Mobile) */}
+                <div className="relative w-full md:w-1/2 h-64 md:h-auto overflow-hidden order-1 md:order-2">
+                  <div className="absolute inset-0 bg-slate-100">
+                    <img
+                      src={featuredArticle.image}
+                      alt={featuredArticle.title}
+                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                    />
+                    {/* Inner shadow for depth */}
+                    <div className="absolute inset-0 shadow-[inset_0_0_100px_rgba(0,0,0,0.1)] pointer-events-none" />
+                  </div>
                 </div>
               </div>
             </Link>
