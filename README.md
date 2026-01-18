@@ -40,9 +40,9 @@ Le site a été entièrement repensé pour offrir une expérience **Premium**, f
 - **Totalement Responsive**: Optimisé pour mobile, tablette et desktop (Layouts adaptatifs).
 
 ### 📚 Sections Principales
-- **Accueil Immersif**: Hero section vidéo/animée, présentation de la mission.
+- **Accueil**: Hero section vidéo/animée, présentation de la mission.
 - **Colloque Interuniversitaire**: Page événementielle complète avec galerie fluide, programme détaillé et modal vidéo.
-- **Nouveaux Bacheliers**: Guide d'orientation interactif et carrousel des universités partenaires.
+- **Nouveaux Bacheliers**: Guide d'orientation interactif et carrousel des conseils universitaires.
 - **Ressources**: Bibliothèque numérique avec filtres dynamiques (Académique, Spirituelle, Administrative).
 - **Contact**: Formulaire de contact moderne avec validation en temps réel.
 
