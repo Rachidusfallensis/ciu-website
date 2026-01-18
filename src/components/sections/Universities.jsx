@@ -149,8 +149,8 @@ export default function Universities() {
   const mapRef = useRef(null);
   const [selectedUniversity, setSelectedUniversity] = useState(null);
 
-  const isUniversitiesInView = useInView(universitiesRef, { once: true, amount: 0.2 });
-  const isMapInView = useInView(mapRef, { once: true, amount: 0.3 });
+  const isUniversitiesInView = useInView(universitiesRef, { once: true, amount: 0.1 });
+  const isMapInView = useInView(mapRef, { once: true, amount: 0.05 });
 
   const totalMembers = universities.reduce((sum, uni) => sum + uni.members, 0);
 
@@ -172,10 +172,10 @@ export default function Universities() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-  
+
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-slate-900 tracking-tight">
-            <span className="text-primary-600">Nos Universités</span> Partenaires
+            <span className="text-primary-600">Nos Conseils</span> Universitaires
           </h2>
           <p className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed font-light">
             Présent dans toutes les universités publiques du Sénégal, le CIU unit <span className="font-semibold text-primary-600">{totalMembers}+ étudiants</span> pour l'excellence.

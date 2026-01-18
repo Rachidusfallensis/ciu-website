@@ -116,10 +116,6 @@ export default function About() {
           transition={{ duration: 0.8 }}
           className="text-center mb-24"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-slate-200 mb-6">
-            <Eye className="w-4 h-4 text-primary-600" />
-            <span className="text-sm font-semibold text-slate-600 tracking-wide uppercase">Qui sommes-nous (CIU) ?</span>
-          </div>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-slate-900 tracking-tight">
             <span className="text-primary-600">Notre Histoire</span> & Mission

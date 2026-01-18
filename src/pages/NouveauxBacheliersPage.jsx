@@ -69,15 +69,14 @@ export default function NouveauxBacheliersPage() {
 
   return (
     <main className="pt-20 bg-slate-50 min-h-screen">
-      {/* Hero Section */}
       <section
-        className="relative h-[80vh] flex items-center overflow-hidden"
+        className="relative min-h-[100dvh] flex items-center overflow-hidden"
         aria-labelledby="hero-heading"
       >
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <motion.img
-            src="/affiches-optimized/hero/background_nouveaux_bacheliers_hero.jpg"
+            src="/affiches-optimized/hero/"
             alt="Background nouveaux bacheliers"
             className="w-full h-full object-cover"
             initial={prefersReducedMotion ? { scale: 1 } : { scale: 1.1 }}
@@ -88,7 +87,7 @@ export default function NouveauxBacheliersPage() {
           <div className="absolute inset-0 bg-slate-900/70" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white pt-32 md:pt-20">
           <motion.div
             variants={{
               hidden: { opacity: 0 },
@@ -120,7 +119,7 @@ export default function NouveauxBacheliersPage() {
             >
 
 
-              <h1 id="hero-heading" className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+              <h1 id="hero-heading" className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight">
                 <span className="block mb-2">Bienvenue aux</span>
                 <motion.span
                   className="inline-block relative px-4 py-1"

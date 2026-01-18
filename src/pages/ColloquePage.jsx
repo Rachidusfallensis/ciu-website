@@ -135,7 +135,7 @@ export default function ColloquePage() {
     return (
         <main className="pt-20 bg-slate-50 min-h-screen">
             {/* Hero Section */}
-            <section ref={heroRef} className="relative h-[85vh] flex items-center justify-center overflow-hidden">
+            <section ref={heroRef} className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <img
                         src="/colloque-optimized/gallery/ceremonie-ouverture/21_gallery.jpg"
@@ -146,7 +146,7 @@ export default function ColloquePage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-90" />
                 </div>
 
-                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white pt-32 md:pt-0">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={isHeroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -161,8 +161,8 @@ export default function ColloquePage() {
                             Première Édition • 2025
                         </motion.div>
 
-                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 tracking-tight leading-tight">
-                            Colloque <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500">Interuniversitaire</span>
+                        <h1 className="text-4xl md:text-6xl lg:text-8xl font-black mb-8 tracking-tight leading-tight">
+                            Colloque <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500 block sm:inline">Interuniversitaire</span>
                         </h1>
 
                         <p className="text-xl md:text-2xl text-slate-200 mb-12 max-w-3xl mx-auto font-light leading-relaxed">

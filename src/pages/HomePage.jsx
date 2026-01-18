@@ -58,7 +58,7 @@ export default function HomePage() {
       />
       {/* Hero Section */}
       <section
-        className="relative h-screen flex items-center overflow-hidden"
+        className="relative min-h-[100dvh] flex items-center overflow-hidden"
         aria-labelledby="hero-heading"
       >
         {/* Background Image */}
@@ -74,7 +74,7 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/50 to-slate-900/80" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white pt-20">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white pt-32 md:pt-20">
           <motion.div
             className="text-center text-white"
             variants={containerVariants}
@@ -84,7 +84,7 @@ export default function HomePage() {
             <motion.h1
               id="hero-heading"
               variants={itemVariants}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight tracking-tight"
+              className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight tracking-tight"
             >
               <span className="block mb-2">Comité</span>
               <motion.span

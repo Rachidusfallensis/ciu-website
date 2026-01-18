@@ -99,10 +99,6 @@ export default function ContactPage() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-slate-200 mb-6">
-            <Mail className="w-4 h-4 text-primary-600" />
-            <span className="text-sm font-semibold text-slate-600 tracking-wide uppercase">Nous contacter</span>
-          </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 tracking-tight">
             <span className="text-primary-600">Restons</span> en contact
@@ -181,15 +177,6 @@ export default function ContactPage() {
             </div>
 
             {/* Brochure Card */}
-            <div className="bg-gradient-to-r from-primary-600 to-primary-700 rounded-[2.5rem] p-8 text-white shadow-lg flex items-center justify-between">
-              <div>
-                <h3 className="font-bold text-xl mb-1">Notre Brochure</h3>
-                <p className="text-primary-100 text-sm">Découvrez nos activités en détail</p>
-              </div>
-              <button className="w-12 h-12 bg-white text-primary-600 rounded-full flex items-center justify-center shadow-md hover:scale-110 transition-transform">
-                <ExternalLink className="w-5 h-5" />
-              </button>
-            </div>
           </motion.div>
 
           {/* Right Form - Clean Style */}
