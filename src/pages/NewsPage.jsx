@@ -9,74 +9,66 @@ import ScrollToTop from '../components/ScrollToTop';
 const articles = [
   {
     id: 1,
-    title: "Retour sur la Journée d'Intégration 2024",
-    excerpt: "Une journée mémorable marquée par l'accueil chaleureux des nouveaux bacheliers à l'UCAD.",
-    author: "Commission Sociale",
-    date: new Date(2024, 11, 15),
-    category: "Vie Étudiante",
-    image: "/api/placeholder/800/600",
-    readTime: "5 min",
-    featured: false
-  },
-
-  {
-    id: 3,
-    title: "Lancement du Programme de Mentorat",
-    excerpt: "Un nouveau système de parrainage pour accompagner les étudiants de première année.",
-    author: "Secrétariat Général",
-    date: new Date(2025, 0, 10),
-    category: "Pédagogie",
-    image: "/api/placeholder/800/600",
-    readTime: "3 min",
-    featured: false
-  },
-
-  {
-    id: 4,
-    title: "Ziarra Annuelle 2025 : Préparatifs",
-    excerpt: "Les commissions s'activent pour la réussite de ce grand événement religieux.",
-    author: "Comité d'Organisation",
-    date: new Date(2025, 2, 5),
+    title: "COLLOQUE INTER-UNIVERSITAIRE 2025",
+    excerpt: "Premier colloque interuniversitaire organisé par le CIU du 21-23 février 2025 à l'UIDT Thiès. Un événement majeur regroupant l'élite universitaire autour des défis contemporains.",
+    author: "Commission d'Intelligence et de Perception Spirituelle",
+    date: new Date(2025, 1, 21),
     category: "Événement",
-    image: "/api/placeholder/800/600",
-    readTime: "4 min",
-    featured: false
+    image: "/colloque-optimized/banniere_colloque.jpg",
+    link: "/colloque",
+    readTime: "8 min",
+    featured: true
   },
   {
-    id: 5,
-    title: "Partenariat avec l'Université de Thiès",
-    excerpt: "Signature d'une convention pour faciliter l'accès aux ressources numériques.",
-    author: "Bureau Exécutif",
-    date: new Date(2025, 1, 15),
-    category: "Institutional",
-    image: "/api/placeholder/800/600",
-    readTime: "2 min",
+    id: 2,
+    title: "Amphi de Rentrée 2026",
+    excerpt: "À l’heure où les défis éducatifs, intellectuels et citoyens interpellent la jeunesse africaine, le CIU organise l’Amphi de Rentrée Universitaire 2026. \
+",
+    author: "Commission d'Intelligence et de Perception Spirituelle",
+    date: new Date(2026, 0, 31),
+    category: "Événement",
+    image: "/amphi.jpeg",
+    readTime: "3 min",
     featured: false
   }
 ];
 
-const featuredArticle = {
-  id: 0,
-  title: "COLLOQUE INTER-UNIVERSITAIRE 2025",
-  excerpt: "Premier colloque interuniversitaire organisé par le CIU du 21-23 février 2025 à l'UIDT Thiès. Un événement majeur regroupant l'élite universitaire autour des défis contemporains.",
-  author: "Cellule de Communication",
-  date: new Date(2025, 1, 21),
-  category: "À la Une",
-  image: "/colloque-optimized/banniere_colloque.jpg",
-  link: "/colloque",
-  tagColor: "bg-amber-100 text-amber-800",
-  readTime: "8 min"
-};
-
-const categories = ["Tout", "À la Une", "Vie Étudiante", "Pédagogie", "Événement"];
+const categories = ["Tout", "Événement"];
+const dateFilters = ["Tout", "À venir", "Passés"];
 
 export default function NewsPage() {
   const [activeCategory, setActiveCategory] = useState("Tout");
+  const [activeDateFilter, setActiveDateFilter] = useState("Tout");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [hoveredId, setHoveredId] = useState(null);
 
-  const filteredArticles = activeCategory === "Tout"
+  const now = new Date();
+
+  // Filter by category first
+  let filteredArticles = activeCategory === "Tout"
     ? articles
     : articles.filter(art => art.category === activeCategory);
+
+  // Then filter by date
+  if (activeDateFilter === "À venir") {
+    filteredArticles = filteredArticles.filter(art => art.date > now);
+  } else if (activeDateFilter === "Passés") {
+    filteredArticles = filteredArticles.filter(art => art.date <= now);
+  }
+
+  // Sort by date (upcoming first, then most recent)
+  filteredArticles = [...filteredArticles].sort((a, b) => {
+    const aIsFuture = a.date > now;
+    const bIsFuture = b.date > now;
+
+    if (aIsFuture && !bIsFuture) return -1;
+    if (!aIsFuture && bIsFuture) return 1;
+
+    // If both future or both past, sort by date
+    return aIsFuture ? a.date - b.date : b.date - a.date;
+  });
+
+  const featuredArticle = articles.find(art => art.featured);
 
   return (
     <main className="pt-20 bg-slate-50 min-h-screen">
@@ -98,20 +90,60 @@ export default function NewsPage() {
               Restez connectés avec la vie de la communauté. Retrouvez ici les derniers reportages, annonces et moments forts.
             </p>
 
-            {/* Categories Scroll */}
-            <div className="flex flex-wrap justify-center gap-3">
-              {categories.map((cat) => (
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-6">
+              {/* Categories Scroll */}
+              <div className="flex flex-wrap justify-center gap-3">
+                {categories.map((cat) => (
+                  <button
+                    key={cat}
+                    onClick={() => setActiveCategory(cat)}
+                    className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 border ${activeCategory === cat
+                      ? "bg-slate-900 text-white border-slate-900 shadow-lg scale-105"
+                      : "bg-white text-slate-600 border-slate-200 hover:bg-slate-100 hover:border-slate-300"
+                      }`}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
+
+              {/* Date Dropdown */}
+              <div className="relative z-20">
                 <button
-                  key={cat}
-                  onClick={() => setActiveCategory(cat)}
-                  className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 border ${activeCategory === cat
-                    ? "bg-slate-900 text-white border-slate-900 shadow-lg scale-105"
-                    : "bg-white text-slate-600 border-slate-200 hover:bg-slate-100 hover:border-slate-300"
-                    }`}
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  className="flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold bg-white text-slate-700 border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all shadow-sm"
                 >
-                  {cat}
+                  <Clock className="w-4 h-4 text-slate-500" />
+                  <span>{activeDateFilter === "Tout" ? "Période" : activeDateFilter}</span>
+                  <ChevronRight className={`w-4 h-4 transition-transform ${isDropdownOpen ? 'rotate-90' : ''}`} />
                 </button>
-              ))}
+
+                <AnimatePresence>
+                  {isDropdownOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                      className="absolute right-0 top-full mt-2 w-40 bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden py-1"
+                    >
+                      {dateFilters.map((filter) => (
+                        <button
+                          key={filter}
+                          onClick={() => {
+                            setActiveDateFilter(filter);
+                            setIsDropdownOpen(false);
+                          }}
+                          className={`w-full text-left px-4 py-2.5 text-sm font-medium transition-colors hover:bg-slate-50 flex items-center justify-between ${activeDateFilter === filter ? 'text-primary-600 bg-primary-50' : 'text-slate-600'
+                            }`}
+                        >
+                          {filter}
+                          {activeDateFilter === filter && <div className="w-1.5 h-1.5 rounded-full bg-primary-600" />}
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -201,6 +233,14 @@ export default function NewsPage() {
                       {article.category}
                     </span>
                   </div>
+                  {/* Date Status Badge */}
+                  {article.date > now && (
+                    <div className="absolute top-4 right-4">
+                      <span className="px-3 py-1.5 bg-gradient-to-r from-emerald-400 to-emerald-500 text-white text-xs font-black uppercase tracking-wider rounded-full shadow-lg animate-pulse">
+                        À venir
+                      </span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Content */}

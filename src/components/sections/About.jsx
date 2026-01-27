@@ -1,6 +1,6 @@
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Target, Eye, Heart, Users, BookOpen, Globe, ChevronRight } from 'lucide-react';
+import { Target, Eye, Heart, Users, BookOpen, Globe, ChevronRight, ChevronDown, HelpCircle, MessageCircle } from 'lucide-react';
 import { cn } from '../../utils/cn';
 
 const containerVariants = {
@@ -26,6 +26,80 @@ const itemVariants = {
     }
   }
 };
+
+
+const faqItems = [
+  {
+    question: "Comment rejoindre le Comité Inter-Universitaire ?",
+    answer: "L'adhésion est ouverte à tout étudiant moustarchide inscrit dans une université publique ou privée. Il suffit de se rapprocher du point focal de votre université ou de remplir le formulaire d'adhésion en ligne lors des campagnes de recrutement."
+  }
+];
+
+function FAQSection() {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleFAQ = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  return (
+    <div className="mt-32 max-w-4xl mx-auto">
+      <div className="text-center mb-16">
+        <h3 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
+          Questions <span className="text-primary-600">Fréquentes</span>
+        </h3>
+        <p className="text-lg text-slate-600">
+          Quelques réponses aux interrogations courantes.
+        </p>
+      </div>
+
+      <div className="space-y-4">
+        {faqItems.map((item, index) => (
+          <div
+            key={index}
+            className="border border-slate-200 rounded-2xl bg-white overflow-hidden transition-all duration-300 hover:shadow-md"
+          >
+            <button
+              onClick={() => toggleFAQ(index)}
+              className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
+            >
+              <h4 className="text-lg font-bold text-slate-900 pr-8">{item.question}</h4>
+              <div className={`p-2 rounded-full transition-colors duration-300 ${openIndex === index ? 'bg-primary-100 text-primary-600' : 'bg-slate-50 text-slate-400'}`}>
+                <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`} />
+              </div>
+            </button>
+            <AnimatePresence>
+              {openIndex === index && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                >
+                  <div className="px-6 pb-6 pt-0 text-slate-600 leading-relaxed border-t border-slate-50/50">
+                    {item.answer}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-12 text-center p-8 bg-slate-100 rounded-3xl border border-slate-200">
+        <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-4 text-primary-600 shadow-sm">
+          <MessageCircle className="w-6 h-6" />
+        </div>
+        <h4 className="text-lg font-bold text-slate-900 mb-2">Vous avez d'autres questions ?</h4>
+        <p className="text-slate-600 mb-6">Notre équipe est là pour vous répondre.</p>
+        <a href="/contact" className="inline-flex items-center justify-center px-6 py-3 bg-slate-900 text-white font-bold rounded-xl hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+          Contacter le support
+        </a>
+      </div>
+
+    </div>
+  );
+}
 
 export default function About() {
   const aboutRef = useRef(null);
@@ -202,15 +276,29 @@ export default function About() {
                 key={index}
                 variants={itemVariants}
                 whileHover={{ y: -8 }}
-                className="bg-white rounded-[2rem] p-8 shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-100 group flex flex-col items-start text-left h-full"
+                className="group relative bg-white rounded-[2rem] p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-100 overflow-hidden"
               >
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${value.gradient} flex items-center justify-center mb-6 shadow-md group-hover:scale-110 transition-transform duration-300`}>
-                  <value.icon className="w-6 h-6 text-white" />
+                {/* Decorative Gradient Blob on Hover */}
+                <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${value.gradient} opacity-0 group-hover:opacity-10 rounded-full transition-opacity duration-500 blur-2xl`} />
+
+                {/* Icon Container with Soft Glow */}
+                <div className="relative mb-6 inline-block">
+                  <div className={`active-glow absolute inset-0 bg-gradient-to-br ${value.gradient} opacity-20 blur-xl rounded-2xl group-hover:opacity-40 transition-opacity duration-300`} />
+                  <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${value.gradient} flex items-center justify-center text-white shadow-inner group-hover:scale-105 transition-transform duration-300`}>
+                    <value.icon className="w-7 h-7" />
+                  </div>
                 </div>
-                <h4 className="text-xl font-bold text-slate-900 mb-3">{value.title}</h4>
-                <p className="text-slate-500 leading-relaxed text-sm flex-grow">
+
+                <h4 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-primary-700 transition-colors">
+                  {value.title}
+                </h4>
+
+                <p className="text-slate-500 leading-relaxed text-sm">
                   {value.description}
                 </p>
+
+                {/* Bottom Accent Line */}
+                <div className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${value.gradient} w-0 group-hover:w-full transition-all duration-500 ease-out`} />
               </motion.div>
             ))}
           </motion.div>
@@ -227,20 +315,20 @@ export default function About() {
             </p>
           </div>
 
-          {/* Tabs */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12 px-4">
+          {/* Tabs - Horizontal Scroll on Mobile */}
+          <div className="flex flex-nowrap overflow-x-auto pb-4 mb-12 px-4 gap-3 justify-start lg:justify-center scrollbar-hide -mx-4 sm:mx-0">
             {commissions.map((commission) => (
               <button
                 key={commission}
                 onClick={() => setActiveTab(commission)}
                 className={cn(
-                  "px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 border",
+                  "px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 border flex-shrink-0 whitespace-nowrap",
                   activeTab === commission
                     ? "bg-slate-900 text-white border-slate-900 shadow-lg transform scale-105"
                     : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50 hover:border-slate-300"
                 )}
               >
-                {commission === "Commission d'Intelligence et de Perception Spirituelle" ? "Comm. Intelligence & Spirituelle" : commission}
+                {commission === "Commission d'Intelligence et de Perception Spirituelle" ? "CIPS" : commission}
               </button>
             ))}
           </div>
@@ -267,7 +355,8 @@ export default function About() {
                     {/* Hover Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-br from-primary-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
-                    <div className="w-24 h-24 rounded-full mb-4 relative z-10 group-hover:scale-105 transition-transform duration-300 ring-4 ring-slate-50 shadow-inner overflow-hidden bg-slate-100">
+                    {/* Modern "Squircle" Photo Style */}
+                    <div className="w-32 h-32 rounded-2xl mb-4 relative z-10 group-hover:scale-105 transition-transform duration-300 ring-1 ring-slate-200/50 shadow-lg overflow-hidden bg-slate-100">
                       {member.photo ? (
                         <img
                           src={member.photo}
@@ -298,7 +387,11 @@ export default function About() {
             </AnimatePresence>
           </div>
 
+
         </div>
+
+        {/* 5. FAQ Section */}
+        <FAQSection />
 
       </div>
     </section>
