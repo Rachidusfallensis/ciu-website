@@ -1,16 +1,76 @@
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Phone, MapPin, Users, GraduationCap, Award, Compass } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Phone, MapPin, Users, GraduationCap, Award, Compass, Sparkles, X } from 'lucide-react';
+import confetti from 'canvas-confetti';
 import { universityAffiches, welcomeMessages, generalInfo } from '../utils/universityAffiches';
 import ScrollToTop from '../components/ScrollToTop';
+
+function CelebrationSplash({ onComplete }) {
+  useEffect(() => {
+    // Fire confetti
+    const duration = 10000; // 10 seconds max
+    const animationEnd = Date.now() + duration;
+    let frameId;
+
+    const frame = () => {
+      const timeLeft = animationEnd - Date.now();
+
+      if (timeLeft <= 0) {
+        onComplete();
+        return;
+      }
+
+      confetti({
+        particleCount: 2,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 },
+        colors: ['#ca8a04', '#2563eb', '#ffffff'] // Gold, Blue, White
+      });
+      confetti({
+        particleCount: 2,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 },
+        colors: ['#ca8a04', '#2563eb', '#ffffff']
+      });
+
+      frameId = requestAnimationFrame(frame);
+    };
+
+    frame();
+
+    // Stop on scroll
+    const handleScroll = () => {
+      onComplete();
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // Cleanup
+    return () => {
+      cancelAnimationFrame(frameId);
+      window.removeEventListener('scroll', handleScroll);
+      confetti.reset(); // Clear confetti immediately
+    };
+  }, [onComplete]);
+
+  return null;
+}
 
 export default function NouveauxBacheliersPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [currentWelcomeMessage, setCurrentWelcomeMessage] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [showSplash, setShowSplash] = useState(true); // Default to true to show on load
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
   const prefersReducedMotion = useReducedMotion();
+
+  // Handle Splash Close
+  const handleSplashComplete = () => {
+    setShowSplash(false);
+  };
 
   // Auto-play welcome messages
   useEffect(() => {
@@ -78,6 +138,10 @@ export default function NouveauxBacheliersPage() {
 
   return (
     <main className="pt-20 bg-slate-50 min-h-screen">
+      <AnimatePresence>
+        {showSplash && <CelebrationSplash onComplete={handleSplashComplete} />}
+      </AnimatePresence>
+
       <section
         className="relative min-h-[100dvh] flex items-center overflow-hidden"
         aria-labelledby="hero-heading"
