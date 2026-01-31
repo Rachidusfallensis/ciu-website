@@ -530,7 +530,7 @@ export default function NouveauxBacheliersPage() {
             <div className="space-y-6">
               <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100">
                 <h4 className="font-semibold text-slate-900 mb-2">Qui peut rejoindre le CIU ?</h4>
-                <p className="text-slate-600">Tous les étudiants moustarchidines des universités partenaires peuvent rejoindre le Comité Inter-Universitaire.</p>
+                <p className="text-slate-600">Tous les moustarchides étudiants des universités partenaires peuvent rejoindre le Comité Inter-Universitaire.</p>
               </div>
 
               <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100">

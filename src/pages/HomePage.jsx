@@ -38,7 +38,7 @@ export default function HomePage() {
   const isServicesInView = useInView(servicesRef, { once: true, amount: 0.3 });
   /* Animation Logic for Mission Text */
   const missionMessages = [
-    "Unir les étudiants moustarchidines de toutes les universités du Sénégal.",
+    "Unir les moustarchides étudiants de toutes les universités du Sénégal.",
     "Promouvoir un équilibre harmonieux entre Excellence Académique et Tarbiya Implicatif."
   ];
   const [currentMissionIndex, setCurrentMissionIndex] = useState(0);
@@ -56,7 +56,7 @@ export default function HomePage() {
   const organizationData = getOrganizationData();
   const webpageData = getWebPageData(
     'Comité Inter-Universitaire',
-    "Unir les étudiants moustarchidines de toutes les universités du Sénégal pour un équilibre harmonieux entre excellence académique et Tarbiya implicatif.",
+    "Unir les moustarchides étudiants de toutes les universités du Sénégal pour un équilibre harmonieux entre excellence académique et Tarbiya implicatif.",
     window.location.href
   );
 
@@ -64,7 +64,7 @@ export default function HomePage() {
     <main className="pt-20">
       <SEO
         title="CIU"
-        description="Unir les étudiants moustarchidines de toutes les universités du Sénégal pour un équilibre harmonieux entre excellence académique et Tarbiya implicatif."
+        description="Unir les moustarchides étudiants de toutes les universités du Sénégal pour un équilibre harmonieux entre excellence académique et Tarbiya implicatif."
         image="/background.jpg"
         canonicalUrl="/"
         keywords={['comité', 'inter-universitaire', 'ciu', 'université', 'sénégal', 'étudiants', 'moustarchidines']}
@@ -304,7 +304,7 @@ export default function HomePage() {
               {
                 icon: Users,
                 title: "Communauté Unie",
-                description: "Rassembler tous les étudiants moustarchidines des universités publiques et privées du Sénégal.",
+                description: "Rassembler tous les moustarchides étudiants des universités publiques et privées du Sénégal.",
                 link: "/about",
                 iconColor: "text-blue-500",
                 bgClass: "bg-blue-50"

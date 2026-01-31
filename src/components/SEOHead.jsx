@@ -14,7 +14,7 @@ const SEOHead = ({
   const currentUrl = `${baseUrl}${location.pathname}`;
   
   const fullTitle = title ? `${title} | CIU - Comité Inter-Universitaire` : 'CIU - Comité Inter-Universitaire | Dahiratoul Moustarchidina Wal Moustarchidaty';
-  const defaultDescription = "Le Comité Inter-Universitaire (CIU) unit les étudiants moustarchidines des universités sénégalaises. Excellence académique, développement spirituel et fraternité.";
+  const defaultDescription = "Le Comité Inter-Universitaire (CIU) unit les moustarchides étudiants des universités sénégalaises. Excellence académique, développement spirituel et fraternité.";
   const defaultKeywords = "CIU, Comité Inter-Universitaire, étudiants, universités, Sénégal, moustarchidines, DMWM, excellence académique, spiritualité, fraternité";
   const defaultImage = `${baseUrl}/background.jpg`;
 

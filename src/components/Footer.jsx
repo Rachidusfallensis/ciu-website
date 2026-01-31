@@ -18,7 +18,7 @@ export default function Footer() {
               <h3 className="text-lg sm:text-xl font-bold">Comité Inter-Universitaire</h3>
             </div>
             <p className="text-gray-300 mb-4 leading-relaxed text-sm sm:text-base">
-            Le comité interuniversitaire est la branche universitaire des Moustarchidines Juniors du Dahiratoul Moustarchidina Wal Moustarchidaty. Il regroupe les étudiants moustarchidines des universités publiques, des écoles et instituts de formation du Sénégal.
+            Le comité interuniversitaire est la branche universitaire des Moustarchidines Juniors du Dahiratoul Moustarchidina Wal Moustarchidaty. Il regroupe les moustarchides étudiants des universités publiques, des écoles et instituts de formation du Sénégal.
             </p>
             <div className="flex space-x-3 sm:space-x-4">
               <a 

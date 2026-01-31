@@ -197,7 +197,7 @@ export default function About() {
 
           <p className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed font-light">
             Depuis 2022, le comité Inter-Universitaire œuvre pour l'épanouissement
-            des étudiants moustarchidines, créant un pont entre <span className="font-medium text-primary-600">excellence académique</span> et <span className="font-medium text-primary-600">valeurs spirituelles</span>.
+            des moustarchides étudiants, créant un pont entre <span className="font-medium text-primary-600">excellence académique</span> et <span className="font-medium text-primary-600">valeurs spirituelles</span>.
           </p>
         </motion.div>
 
@@ -216,7 +216,7 @@ export default function About() {
               </div>
               <h3 className="text-3xl font-bold text-slate-900 mb-6">Notre Mission</h3>
               <p className="text-lg text-slate-600 leading-relaxed mb-8">
-                Le CIU a été créé avec la vision d'unir tous les étudiants moustarchidines
+                Le CIU a été créé avec la vision d'unir tous les moustarchides étudiants
                 des universités sénégalaises sous une même bannière de fraternité,
                 d'excellence académique et de Tarbiya.
               </p>

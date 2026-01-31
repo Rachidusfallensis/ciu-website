@@ -71,7 +71,7 @@ export default function ResponsiveComponentsExample() {
           </Heading>
           
           <Paragraph size="lg" className="text-primary-200 max-w-4xl mx-auto text-center mb-12">
-            Unir les étudiants moustarchidines de toutes les universités du Sénégal 
+            Unir les moustarchides étudiants de toutes les universités du Sénégal 
             pour un équilibre harmonieux entre excellence académique et Tarbiya implicatif.
           </Paragraph>
           
