@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import NetworkStatus from './components/ui/NetworkStatus';
 import AnimatedRoutes from './components/ui/AnimatedRoutes';
+import ScrollToTop from './components/ScrollToTop';
 
 // Lazy load pages for code splitting
 const HomePage = lazy(() => import('./pages/HomePage'));
@@ -30,6 +31,7 @@ const routes = [
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen flex flex-col">
         <Navbar />
         <NetworkStatus />

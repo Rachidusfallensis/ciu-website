@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Phone, MapPin, Users, GraduationCap, Award, Compass, Sparkles, X } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { universityAffiches, welcomeMessages, generalInfo } from '../utils/universityAffiches';
-import ScrollToTop from '../components/ScrollToTop';
+
 
 function CelebrationSplash({ onComplete }) {
   useEffect(() => {
@@ -571,7 +571,7 @@ export default function NouveauxBacheliersPage() {
       </section>
 
       {/* Scroll to Top Button */}
-      <ScrollToTop />
+
     </main>
   );
 }

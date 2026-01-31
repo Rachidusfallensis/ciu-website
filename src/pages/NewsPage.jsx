@@ -4,37 +4,8 @@ import { Link } from 'react-router-dom';
 import { Calendar, User, ArrowRight, Clock, Tag, Search, ChevronRight } from 'lucide-react';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
-import ScrollToTop from '../components/ScrollToTop';
+import { articles, categories, dateFilters } from '../data/newsData';
 
-const articles = [
-  {
-    id: 1,
-    title: "COLLOQUE INTER-UNIVERSITAIRE 2025",
-    excerpt: "Premier colloque interuniversitaire organisé par le CIU du 21-23 février 2025 à l'UIDT Thiès. Un événement majeur regroupant l'élite universitaire autour des défis contemporains.",
-    author: "Commission d'Intelligence et de Perception Spirituelle",
-    date: new Date(2025, 1, 21),
-    category: "Événement",
-    image: "/colloque-optimized/banniere_colloque.jpg",
-    link: "/colloque",
-    readTime: "8 min",
-    featured: true
-  },
-  {
-    id: 2,
-    title: "Amphi de Rentrée 2026",
-    excerpt: "À l’heure où les défis éducatifs, intellectuels et citoyens interpellent la jeunesse africaine, le CIU organise l’Amphi de Rentrée Universitaire 2026. \
-",
-    author: "Commission d'Intelligence et de Perception Spirituelle",
-    date: new Date(2026, 0, 31),
-    category: "Événement",
-    image: "/amphi.jpeg",
-    readTime: "3 min",
-    featured: false
-  }
-];
-
-const categories = ["Tout", "Événement"];
-const dateFilters = ["Tout", "À venir", "Passés"];
 
 export default function NewsPage() {
   const [activeCategory, setActiveCategory] = useState("Tout");
@@ -293,8 +264,6 @@ export default function NewsPage() {
         )}
 
       </section>
-
-      <ScrollToTop />
     </main>
   );
 }

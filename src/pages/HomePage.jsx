@@ -3,7 +3,7 @@ import { ArrowRight, Users, BookOpen, Calendar, Star, Globe, Heart, MapPin, Grad
 import { cn } from '../utils/cn';
 import { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import ScrollToTop from '../components/ScrollToTop';
+
 import SEO from '../components/SEO';
 import { getOrganizationData, getWebPageData } from '../utils/structuredData';
 
@@ -454,7 +454,7 @@ export default function HomePage() {
       {/* Final CTA Section */}
 
       {/* Scroll to Top Button */}
-      <ScrollToTop />
+
     </main>
   );
 }

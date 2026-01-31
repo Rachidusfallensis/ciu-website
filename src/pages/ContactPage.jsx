@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, User, MessageSquare, ArrowRight, Instagram, Facebook, Twitter, Linkedin, ExternalLink } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import ScrollToTop from '../components/ScrollToTop';
+
 
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
@@ -340,7 +340,7 @@ export default function ContactPage() {
         </div>
       </div>
 
-      <ScrollToTop />
+
     </main>
   );
 }
