@@ -155,7 +155,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-bold text-lg mb-1">Siège</h3>
-                    <p className="text-slate-300 leading-relaxed">Chez Khalifa Ababacar Sy<br />Tivaouane, Sénégal</p>
+                    <p className="text-slate-300 leading-relaxed">Chez Seyd Mouhammadul Mustafa Sy<br />Tivaouane, Sénégal</p>
                   </div>
                 </div>
               </div>
@@ -323,6 +323,22 @@ export default function ContactPage() {
 
         </div>
       </section>
+
+      {/* Map Section - Full Width aligned with Footer */}
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24">
+        <div className="h-96 w-full bg-slate-200 relative grayscale hover:grayscale-0 transition-all duration-700 rounded-[2.5rem] overflow-hidden shadow-xl border border-slate-100">
+          <iframe
+            src="https://maps.google.com/maps?q=14.9430865,-16.8257181&z=17&output=embed"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Localisation Tivaouane"
+          ></iframe>
+        </div>
+      </div>
 
       <ScrollToTop />
     </main>
