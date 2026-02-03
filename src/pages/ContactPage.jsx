@@ -92,20 +92,32 @@ export default function ContactPage() {
     <main className="pt-20 bg-slate-50 min-h-screen">
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
 
+        {/* Background Decorators */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-100/50 rounded-full blur-3xl -z-0 pointer-events-none mix-blend-multiply opacity-70" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-yellow-100/50 rounded-full blur-3xl -z-0 pointer-events-none mix-blend-multiply opacity-70" />
+
         {/* Header - Premium Style */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-16 relative z-10"
         >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-slate-200 text-slate-500 text-sm font-bold uppercase tracking-wider mb-6">
+            <MessageSquare className="w-4 h-4 text-primary-500" />
+            Nous sommes à votre écoute
+          </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 tracking-tight">
-            <span className="text-primary-600">Restons</span> en contact
+          <h1 className="text-5xl md:text-7xl font-black text-slate-900 mb-8 tracking-tight leading-tight flex flex-col md:block items-center justify-center gap-2">
+            <span className="block md:inline">Restons</span>{' '}
+            <span className="relative inline-block px-6 py-2">
+              <span className="absolute inset-0 bg-primary-600 -skew-x-6 rounded-xl shadow-xl shadow-primary-500/20 transform md:rotate-2 opacity-90" />
+              <span className="relative z-10 text-white">en Contact</span>
+            </span>
           </h1>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-light">
-            Une question, une suggestion ou simplement envie d'échanger ?<br />
-            Notre équipe est à votre écoute pour vous répondre.
+          <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium">
+            Une question, une suggestion ou simplement envie d'échanger ?<br className="hidden md:block" />
+            Notre équipe est là pour construire l'avenir avec vous.
           </p>
         </motion.div>
 

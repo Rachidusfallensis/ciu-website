@@ -266,20 +266,26 @@ export default function NouveauxBacheliersPage() {
       </section>
 
       {/* Guide d'Orientation Section */}
-      <section className="section-padding bg-slate-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-padding bg-slate-50 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-40 pointer-events-none mix-blend-multiply" style={{ backgroundImage: 'radial-gradient(#cbd5e1 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-12"
+            className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Guide d'<span className="text-primary-600"> Orientation </span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-slate-200 text-primary-600 text-sm font-bold uppercase tracking-wider mb-6">
+              <Compass className="w-4 h-4" />
+              Parcours d'Intégration
+            </div>
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">
+              Guide d'<span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-primary-400">Orientation</span>
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Étapes essentielles pour rejoindre la communauté moustarchidine universitaire
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-light">
+              Trois étapes essentielles pour rejoindre la communauté moustarchidine universitaire.
             </p>
           </motion.div>
 
@@ -289,13 +295,13 @@ export default function NouveauxBacheliersPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-center"
+              className="bg-white rounded-[2.5rem] p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group"
             >
-              <div className="w-16 h-16 bg-primary-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold text-white">1</span>
+              <div className="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary-600 transition-all duration-300">
+                <span className="text-2xl font-black text-primary-600 group-hover:text-white transition-colors">1</span>
               </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-4">Choisissez votre Université</h3>
-              <p className="text-slate-600 leading-relaxed">
+              <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-primary-600 transition-colors">Choisissez votre Université</h3>
+              <p className="text-slate-600 leading-relaxed font-medium">
                 Parcourez le carousel ci-dessous pour trouver votre université et découvrir l'affiche d'orientation.
               </p>
             </motion.div>
@@ -305,13 +311,13 @@ export default function NouveauxBacheliersPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-center"
+              className="bg-white rounded-[2.5rem] p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group"
             >
-              <div className="w-16 h-16 bg-secondary-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold text-white">2</span>
+              <div className="w-16 h-16 bg-yellow-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-yellow-400 transition-all duration-300">
+                <span className="text-2xl font-black text-yellow-600 group-hover:text-white transition-colors">2</span>
               </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-4">Contactez le Conseil</h3>
-              <p className="text-slate-600 leading-relaxed">
+              <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-yellow-500 transition-colors">Contactez le Conseil</h3>
+              <p className="text-slate-600 leading-relaxed font-medium">
                 Appelez directement les numéros fournis pour entrer en contact avec le conseil de votre université.
               </p>
             </motion.div>
@@ -321,13 +327,13 @@ export default function NouveauxBacheliersPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-center"
+              className="bg-white rounded-[2.5rem] p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group"
             >
-              <div className="w-16 h-16 bg-accent-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold text-white">3</span>
+              <div className="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-green-500 transition-all duration-300">
+                <span className="text-2xl font-black text-green-600 group-hover:text-white transition-colors">3</span>
               </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-4">Rejoignez la Communauté</h3>
-              <p className="text-slate-600 leading-relaxed">
+              <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-green-600 transition-colors">Rejoignez la Communauté</h3>
+              <p className="text-slate-600 leading-relaxed font-medium">
                 Participez aux activités et événements organisés par le conseil moustarchidine de votre université.
               </p>
             </motion.div>

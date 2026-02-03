@@ -46,18 +46,30 @@ export default function NewsPage() {
 
       {/* Hero Section */}
       <section className="relative px-4 sm:px-6 lg:px-8 py-16 sm:py-24 overflow-hidden">
+        {/* Background Decorators */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-100/50 rounded-full blur-3xl -z-0 pointer-events-none mix-blend-multiply opacity-70" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-yellow-100/50 rounded-full blur-3xl -z-0 pointer-events-none mix-blend-multiply opacity-70" />
+
         <div className="max-w-7xl mx-auto relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-slate-200 text-primary-600 text-sm font-bold uppercase tracking-wider mb-6">
+              <Calendar className="w-4 h-4" />
+              La Vie du Campus
+            </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-slate-900 tracking-tight">
-              <span className="text-primary-600">Actualités</span> & Événements
+            <h1 className="text-5xl md:text-7xl font-black mb-8 tracking-tight leading-tight flex flex-col md:block items-center justify-center gap-2">
+              <span className="block md:inline">Actualités</span>{' '}
+              <span className="relative inline-block px-6 py-2">
+                <span className="absolute inset-0 bg-primary-600 -skew-x-6 rounded-xl shadow-xl shadow-primary-500/20 transform md:rotate-2 opacity-90" />
+                <span className="relative z-10 text-white">& Événements</span>
+              </span>
             </h1>
 
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-light mb-10">
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium mb-12">
               Restez connectés avec la vie de la communauté. Retrouvez ici les derniers reportages, annonces et moments forts.
             </p>
 
@@ -68,11 +80,18 @@ export default function NewsPage() {
                   <button
                     key={cat}
                     onClick={() => setActiveCategory(cat)}
-                    className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 border ${activeCategory === cat
-                      ? "bg-slate-900 text-white border-slate-900 shadow-lg scale-105"
-                      : "bg-white text-slate-600 border-slate-200 hover:bg-slate-100 hover:border-slate-300"
+                    className={`relative px-6 py-3 rounded-full text-sm font-bold transition-all duration-300 z-10 ${activeCategory === cat
+                        ? "text-white"
+                        : "text-slate-500 hover:text-slate-900 bg-white border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow"
                       }`}
                   >
+                    {activeCategory === cat && (
+                      <motion.div
+                        layoutId="activeCategoryNews"
+                        className="absolute inset-0 bg-slate-900 rounded-full -z-10 shadow-lg"
+                        transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                      />
+                    )}
                     {cat}
                   </button>
                 ))}
@@ -82,7 +101,7 @@ export default function NewsPage() {
               <div className="relative z-20">
                 <button
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className="flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold bg-white text-slate-700 border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all shadow-sm"
+                  className="flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold bg-white text-slate-700 border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all shadow-sm hover:shadow"
                 >
                   <Clock className="w-4 h-4 text-slate-500" />
                   <span>{activeDateFilter === "Tout" ? "Période" : activeDateFilter}</span>
@@ -95,7 +114,7 @@ export default function NewsPage() {
                       initial={{ opacity: 0, y: 10, scale: 0.95 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                      className="absolute right-0 top-full mt-2 w-40 bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden py-1"
+                      className="absolute right-0 top-full mt-2 w-48 bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden py-2"
                     >
                       {dateFilters.map((filter) => (
                         <button
