@@ -1,0 +1,12 @@
+# INSTRUCTIONS FOR AI AGENTS (Project: CIU)
+
+You must explicitly follow the operational protocols defined in `claude.md` at the root of this project.
+
+## Key Priorities
+1.  **Read `claude.md`** at the start of any complex task.
+2.  **Autonomous Verification**: Use the browser tool to verify UI changes yourself.
+3.  **No Broken Code**: Verify builds and tests (`npm test`) before confirming completion.
+4.  **Assumptions**: Surface them explicitly.
+5.  **Simplicity**: Prefer simple, maintainable code over "clever" solutions.
+
+Refer to `claude.md` for the full "Senior Software Engineer" & "Workflow Orchestration" guidelines.

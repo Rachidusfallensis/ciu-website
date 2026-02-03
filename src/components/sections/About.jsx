@@ -32,6 +32,22 @@ const faqItems = [
   {
     question: "Comment rejoindre le Comité Inter-Universitaire ?",
     answer: "L'adhésion est ouverte à tout étudiant moustarchide inscrit dans une université publique ou privée. Il suffit de se rapprocher du point focal de votre université ou de remplir le formulaire d'adhésion en ligne lors des campagnes de recrutement."
+  },
+  {
+    question: "Quelles sont les activités principales du CIU ?",
+    answer: "Le CIU organise régulièrement des séances de Tarbiya, des conférences académiques, des colloques nationaux, des ateliers de développement personnel, et des événements de networking entre étudiants moustarchides. Nous mettons également à disposition des ressources pédagogiques et spirituelles sur notre plateforme."
+  },
+  {
+    question: "Y a-t-il une cotisation pour les membres ?",
+    answer: "L'adhésion au CIU est gratuite. Cependant, des cotisations volontaires peuvent être demandées pour financer certains projets spécifiques ou événements majeurs. Tout reste transparent et consensuel."
+  },
+  {
+    question: "Comment puis-je contribuer au CIU ?",
+    answer: "Vous pouvez contribuer de plusieurs façons : rejoindre une commission selon vos compétences, participer aux événements et activités, proposer des initiatives, partager vos connaissances et expertise, ou simplement être actif au sein de votre point focal universitaire."
+  },
+  {
+    question: "Le CIU organise-t-il des événements inter-universitaires ?",
+    answer: "Oui ! Le CIU organise annuellement un grand Colloque National qui réunit tous les moustarchides étudiants du Sénégal. Nous organisons également des rencontres régionales, des séminaires thématiques et des activités sportives et culturelles tout au long de l'année."
   }
 ];
 
@@ -43,7 +59,7 @@ function FAQSection() {
   };
 
   return (
-    <div className="mt-32 max-w-4xl mx-auto">
+    <div className="mt-20 max-w-4xl mx-auto">
       <div className="text-center mb-16">
         <h3 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
           Questions <span className="text-primary-600">Fréquentes</span>
@@ -105,7 +121,7 @@ export default function About() {
   const aboutRef = useRef(null);
   const valuesRef = useRef(null);
   const teamRef = useRef(null);
-  const isAboutInView = useInView(aboutRef, { once: true, amount: 0.2 });
+  const isAboutInView = useInView(aboutRef, { once: true, amount: 0.1 });
   const isValuesInView = useInView(valuesRef, { once: true, amount: 0.2 });
   const isTeamInView = useInView(teamRef, { once: true, amount: 0.1 });
 
@@ -173,229 +189,351 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="section-padding bg-slate-50 relative overflow-hidden">
-      {/* Background Decor */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary-100/50 rounded-full blur-3xl" />
-        <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-accent-100/30 rounded-full blur-3xl" />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-
-        {/* 1. Hero & Story Section */}
-        <motion.div
-          ref={aboutRef}
-          initial={{ opacity: 0, y: 30 }}
-          animate={isAboutInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-24"
-        >
-
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-slate-900 tracking-tight">
-            <span className="text-primary-600">Notre Histoire</span> & Mission
-          </h2>
-
-          <p className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed font-light">
-            Depuis 2022, le comité Inter-Universitaire œuvre pour l'épanouissement
-            des moustarchides étudiants, créant un pont entre <span className="font-medium text-primary-600">excellence académique</span> et <span className="font-medium text-primary-600">valeurs spirituelles</span>.
-          </p>
-        </motion.div>
-
-        {/* 2. Mission & Vision Split Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-32">
-          {/* Mission */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isAboutInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="group relative bg-white rounded-[2.5rem] p-10 shadow-xl border border-slate-100 overflow-hidden"
-          >
-            <div className="relative z-10">
-              <div className="w-16 h-16 rounded-2xl bg-primary-50 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
-                <Target className="w-8 h-8 text-primary-600" />
-              </div>
-              <h3 className="text-3xl font-bold text-slate-900 mb-6">Notre Mission</h3>
-              <p className="text-lg text-slate-600 leading-relaxed mb-8">
-                Le CIU a été créé avec la vision d'unir tous les moustarchides étudiants
-                des universités sénégalaises sous une même bannière de fraternité,
-                d'excellence académique et de Tarbiya.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                {['Tarbiya', 'Excellence', 'Fraternité'].map((tag) => (
-                  <span key={tag} className="px-4 py-2 rounded-full bg-slate-50 text-slate-700 font-medium text-sm border border-slate-200">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Vision */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isAboutInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="group relative bg-slate-900 rounded-[2.5rem] p-10 shadow-xl overflow-hidden text-white"
-          >
-            <div className="relative z-10">
-              <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
-                <Eye className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-3xl font-bold text-white mb-6">Notre Vision</h3>
-              <p className="text-lg text-slate-300 leading-relaxed mb-8">
-                Former des leaders conscients et engagés pour l'avenir du Sénégal.
-                Notre vision dépasse le cadre universitaire pour créer un réseau national de diplômés moustarchidines, porteurs d'un projet de société.
-              </p>
-
-              <button className="flex items-center gap-2 text-white font-semibold group-hover:gap-4 transition-all">
-                En savoir plus <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
-          </motion.div>
+    <>
+      {/* Premium Hero Section with Image */}
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0">
+          <img
+            src="/hero_about.jpg"
+            alt="Rencontre Comité Inter-Universitaire"
+            className="w-full h-full object-cover"
+            loading="eager"
+          />
+          {/* Multi-layer gradient overlays for premium feel */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-900/70 to-primary-900/80" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
         </div>
 
-        {/* 3. Values Section - Premium Cards */}
-        <div ref={valuesRef} className="mb-32">
-          <div className="text-center mb-16">
-            <h3 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
-              <span className="text-primary-600">Nos Valeurs</span> Fondamentales
-            </h3>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Des piliers solides qui définissent notre identité.
-            </p>
-          </div>
+        {/* Animated decorative elements */}
+        <div className="absolute top-20 right-20 w-72 h-72 bg-primary-500/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-accent-500/10 rounded-full blur-3xl animate-pulse delay-700" />
 
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
+          {/* Headline */}
           <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate={isValuesInView ? "visible" : "hidden"}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mb-6"
           >
-            {values.map((value, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                whileHover={{ y: -8 }}
-                className="group relative bg-white rounded-[2rem] p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-100 overflow-hidden"
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight text-white">
+              <span className="block mb-2">Notre Histoire</span>
+              <motion.span
+                className="inline-block relative px-4 py-1"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.5, type: "spring" }}
               >
-                {/* Decorative Gradient Blob on Hover */}
-                <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${value.gradient} opacity-0 group-hover:opacity-10 rounded-full transition-opacity duration-500 blur-2xl`} />
+                <motion.span
+                  className="absolute inset-0 bg-primary-600/80 -skew-x-6 rounded-lg backdrop-blur-sm"
+                  initial={{ width: "0%" }}
+                  animate={{ width: "100%" }}
+                  transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
+                />
+                <span className="relative z-10 text-white drop-shadow-sm">
+                  & Mission
+                </span>
+              </motion.span>
+            </h1>
+          </motion.div>
 
-                {/* Icon Container with Soft Glow */}
-                <div className="relative mb-6 inline-block">
-                  <div className={`active-glow absolute inset-0 bg-gradient-to-br ${value.gradient} opacity-20 blur-xl rounded-2xl group-hover:opacity-40 transition-opacity duration-300`} />
-                  <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${value.gradient} flex items-center justify-center text-white shadow-inner group-hover:scale-105 transition-transform duration-300`}>
-                    <value.icon className="w-7 h-7" />
-                  </div>
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-lg sm:text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed mb-12"
+          >
+            Depuis 2022, le comité Inter-Universitaire œuvre pour l'épanouissement des moustarchides étudiants,
+            créant un pont entre excellence académique et valeurs spirituelles.
+          </motion.p>
+
+          {/* Stats Row */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-wrap justify-center gap-12 sm:gap-24"
+          >
+            {[
+              { value: "9+", label: "Universités" },
+              { value: "1000+", label: "Membres" }
+            ].map((stat, index) => (
+              <div key={index} className="text-center group hover:-translate-y-1 transition-transform duration-300">
+                <div className="text-4xl sm:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-secondary-300 to-secondary-500 mb-2 drop-shadow-sm">
+                  {stat.value}
+                </div>
+                <div className="text-sm sm:text-base text-slate-300 font-bold tracking-widest uppercase group-hover:text-white transition-colors">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      <section id="about" ref={aboutRef} className="pt-12 pb-20 bg-slate-50 relative overflow-hidden">
+        {/* Background Decor */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary-100/50 rounded-full blur-3xl" />
+          <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-accent-100/30 rounded-full blur-3xl" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+
+          {/* 2. Mission & Vision Split Cards */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
+            {/* Mission (Yin - Dark & Yellow) */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={isAboutInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="group relative bg-gradient-to-br from-primary-900 to-primary-800 rounded-[2.5rem] p-8 sm:p-10 shadow-xl overflow-hidden text-white flex flex-col h-full"
+            >
+              {/* Decorative Background Elements */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500 shadow-inner">
+                  <Target className="w-8 h-8 text-secondary-400" />
                 </div>
 
-                <h4 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-primary-700 transition-colors">
-                  {value.title}
-                </h4>
+                <h3 className="text-3xl font-bold text-white mb-6 flex items-center gap-3 flex-wrap">
+                  <span>Notre</span>
+                  <span className="relative inline-block px-3 py-1">
+                    <span className="absolute inset-0 bg-secondary-400 -skew-x-6 rounded-lg transform transition-transform duration-300 group-hover:skew-x-0" />
+                    <span className="relative z-10 text-primary-900 font-extrabold">Mission</span>
+                  </span>
+                </h3>
 
-                <p className="text-slate-500 leading-relaxed text-sm">
-                  {value.description}
+                <p className="text-lg text-primary-100 leading-relaxed mb-8 flex-grow">
+                  Le CIU a été créé avec la vision d'unir tous les moustarchides étudiants
+                  des universités sénégalaises, créant un pont solide entre foi et savoir.
                 </p>
 
-                {/* Bottom Accent Line */}
-                <div className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${value.gradient} w-0 group-hover:w-full transition-all duration-500 ease-out`} />
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-
-        {/* 4. Leadership Team - Tabbed Interface */}
-        <div ref={teamRef} className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">
-              <span className="text-primary-600">Notre Équipe</span> Dirigeante
-            </h3>
-            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-              Une organisation structurée en commissions spécialisées pour une efficacité optimale.
-            </p>
-          </div>
-
-          {/* Tabs - Horizontal Scroll on Mobile */}
-          <div className="flex flex-nowrap overflow-x-auto pb-4 mb-12 px-4 gap-3 justify-start lg:justify-center scrollbar-hide -mx-4 sm:mx-0">
-            {commissions.map((commission) => (
-              <button
-                key={commission}
-                onClick={() => setActiveTab(commission)}
-                className={cn(
-                  "px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 border flex-shrink-0 whitespace-nowrap",
-                  activeTab === commission
-                    ? "bg-slate-900 text-white border-slate-900 shadow-lg transform scale-105"
-                    : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50 hover:border-slate-300"
-                )}
-              >
-                {commission === "Commission d'Intelligence et de Perception Spirituelle" ? "CIPS" : commission}
-              </button>
-            ))}
-          </div>
-
-          {/* Team Grid */}
-          <div className="min-h-[400px]">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeTab}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-              >
-                {getFilteredMembers().map((member, index) => (
-                  <motion.div
-                    key={member.name}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: index * 0.05 }}
-                    className="group bg-white rounded-3xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col items-center text-center relative overflow-hidden"
-                  >
-                    {/* Hover Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-
-                    {/* Modern "Squircle" Photo Style */}
-                    <div className="w-32 h-32 rounded-2xl mb-4 relative z-10 group-hover:scale-105 transition-transform duration-300 ring-1 ring-slate-200/50 shadow-lg overflow-hidden bg-slate-100">
-                      {member.photo ? (
-                        <img
-                          src={member.photo}
-                          alt={member.name}
-                          className="w-full h-full object-cover"
-                        />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center bg-slate-200 text-slate-400">
-                          <Users className="w-8 h-8" />
-                        </div>
-                      )}
+                {/* Structure Mirror: Timeline */}
+                <div className="relative pl-6 border-l-2 border-primary-500/30 space-y-8 mb-8">
+                  {[
+                    { year: "2022", event: "Création du CIU" },
+                    { year: "2023", event: "Premier Congrès National" },
+                    { year: "2024", event: "Lancement Plateforme" }
+                  ].map((item, idx) => (
+                    <div key={idx} className="relative">
+                      <span className="absolute -left-[29px] top-1 w-4 h-4 rounded-full bg-secondary-400 ring-4 ring-primary-900" />
+                      <span className="text-sm font-bold text-secondary-400 block tracking-wide uppercase">{item.year}</span>
+                      <span className="text-primary-50 font-medium">{item.event}</span>
                     </div>
+                  ))}
+                </div>
 
-                    <h4 className="text-lg font-bold text-slate-900 mb-1 active:text-primary-600 group-hover:text-primary-700 transition-colors z-10">
-                      {member.name}
-                    </h4>
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  {['Tarbiya', 'Excellence', 'Fraternité'].map((tag) => (
+                    <span key={tag} className="px-4 py-2 rounded-xl bg-white/10 text-white font-medium text-sm border border-white/10 hover:bg-white/20 transition-colors">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
 
-                    <div className="inline-block px-3 py-1 bg-slate-100 rounded-full text-xs font-semibold text-slate-600 mb-2 z-10">
-                      {member.university}
+            {/* Vision (Yang - Light & Blue) */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={isAboutInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="group relative bg-white rounded-[2.5rem] p-8 sm:p-10 shadow-xl overflow-hidden border border-slate-100 flex flex-col h-full"
+            >
+              {/* Decorative Background Elements */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-primary-50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="w-16 h-16 rounded-2xl bg-primary-50 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500 shadow-sm">
+                  <Eye className="w-8 h-8 text-primary-600" />
+                </div>
+
+                <h3 className="text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3 flex-wrap">
+                  <span>Notre</span>
+                  <span className="relative inline-block px-3 py-1">
+                    <span className="absolute inset-0 bg-primary-600 -skew-x-6 rounded-lg transform transition-transform duration-300 group-hover:skew-x-0" />
+                    <span className="relative z-10 text-white font-extrabold">Vision</span>
+                  </span>
+                </h3>
+
+                <p className="text-lg text-slate-600 leading-relaxed mb-8 flex-grow">
+                  Former des leaders conscients et engagés pour l'avenir du Sénégal.
+                  Une vision qui dépasse le cadre universitaire pour bâtir un projet de société.
+                </p>
+
+                {/* Structure Mirror: Key Points */}
+                <div className="relative pl-6 border-l-2 border-slate-100 space-y-8 mb-8">
+                  {[
+                    { title: "Leadership", desc: "Forger des décideurs éthiques" },
+                    { title: "Réseau", desc: "Connecter les talents nationaux" },
+                    { title: "Impact", desc: "Solutions aux défis sociétaux" }
+                  ].map((item, idx) => (
+                    <div key={idx} className="relative">
+                      <span className="absolute -left-[29px] top-1 w-4 h-4 rounded-full bg-primary-600 ring-4 ring-white shadow-sm" />
+                      <span className="text-sm font-bold text-primary-600 block tracking-wide uppercase">{item.title}</span>
+                      <span className="text-slate-600 font-medium">{item.desc}</span>
                     </div>
+                  ))}
+                </div>
 
-                    <p className="text-xs text-slate-500 z-10 opacity-0 group-hover:opacity-100 transition-opacity -mt-2 group-hover:mt-0">
-                      {member.commission}
-                    </p>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </AnimatePresence>
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  <button className="px-6 py-2 rounded-xl bg-slate-50 text-slate-900 font-bold text-sm border border-slate-200 hover:bg-primary-50 hover:text-primary-700 hover:border-primary-200 transition-all flex items-center gap-2 group-hover:pl-8">
+                    En savoir plus <ChevronRight className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+            </motion.div>
           </div>
+
+          {/* 3. Values Section - Premium Cards */}
+          <div ref={valuesRef} className="mb-20">
+            <div className="text-center mb-16">
+              <h3 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
+                <span className="text-primary-600">Nos Valeurs</span> Fondamentales
+              </h3>
+              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                Des piliers solides qui définissent notre identité.
+              </p>
+            </div>
+
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate={isValuesInView ? "visible" : "hidden"}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            >
+              {values.map((value, index) => (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  whileHover={{ y: -8 }}
+                  className="group relative bg-white rounded-[2rem] p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-100 overflow-hidden"
+                >
+                  {/* Decorative Gradient Blob on Hover */}
+                  <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${value.gradient} opacity-0 group-hover:opacity-10 rounded-full transition-opacity duration-500 blur-2xl`} />
+
+                  {/* Icon Container with Soft Glow */}
+                  <div className="relative mb-6 inline-block">
+                    <div className={`active-glow absolute inset-0 bg-gradient-to-br ${value.gradient} opacity-20 blur-xl rounded-2xl group-hover:opacity-40 transition-opacity duration-300`} />
+                    <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${value.gradient} flex items-center justify-center text-white shadow-inner group-hover:scale-105 transition-transform duration-300`}>
+                      <value.icon className="w-7 h-7" />
+                    </div>
+                  </div>
+
+                  <h4 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-primary-700 transition-colors">
+                    {value.title}
+                  </h4>
+
+                  <p className="text-slate-500 leading-relaxed text-sm">
+                    {value.description}
+                  </p>
+
+                  {/* Bottom Accent Line */}
+                  <div className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${value.gradient} w-0 group-hover:w-full transition-all duration-500 ease-out`} />
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* 4. Leadership Team - Tabbed Interface */}
+          <div ref={teamRef} className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">
+                <span className="text-primary-600">Notre Équipe</span> Dirigeante
+              </h3>
+              <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+                Une organisation structurée en commissions spécialisées pour une efficacité optimale.
+              </p>
+            </div>
+
+            {/* Tabs - Horizontal Scroll on Mobile */}
+            <div className="flex flex-nowrap overflow-x-auto pb-4 mb-12 px-4 gap-3 justify-start lg:justify-center scrollbar-hide -mx-4 sm:mx-0">
+              {commissions.map((commission) => (
+                <button
+                  key={commission}
+                  onClick={() => setActiveTab(commission)}
+                  className={cn(
+                    "px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 border flex-shrink-0 whitespace-nowrap",
+                    activeTab === commission
+                      ? "bg-slate-900 text-white border-slate-900 shadow-lg transform scale-105"
+                      : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50 hover:border-slate-300"
+                  )}
+                >
+                  {commission === "Commission d'Intelligence et de Perception Spirituelle" ? "CIPS" : commission}
+                </button>
+              ))}
+            </div>
+
+            {/* Team Grid */}
+            <div className="min-h-[400px]">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeTab}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3 }}
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+                >
+                  {getFilteredMembers().map((member, index) => (
+                    <motion.div
+                      key={member.name}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: index * 0.05 }}
+                      className="group bg-white rounded-3xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col items-center text-center relative overflow-hidden"
+                    >
+                      {/* Hover Gradient Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+                      {/* Modern "Squircle" Photo Style */}
+                      <div className="w-32 h-32 rounded-2xl mb-4 relative z-10 group-hover:scale-105 transition-transform duration-300 ring-1 ring-slate-200/50 shadow-lg overflow-hidden bg-slate-100">
+                        {member.photo ? (
+                          <img
+                            src={member.photo}
+                            alt={member.name}
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center bg-slate-200 text-slate-400">
+                            <Users className="w-8 h-8" />
+                          </div>
+                        )}
+                      </div>
+
+                      <h4 className="text-lg font-bold text-slate-900 mb-1 active:text-primary-600 group-hover:text-primary-700 transition-colors z-10">
+                        {member.name}
+                      </h4>
+
+                      <div className="inline-block px-3 py-1 bg-slate-100 rounded-full text-xs font-semibold text-slate-600 mb-2 z-10">
+                        {member.university}
+                      </div>
+
+                      <p className="text-xs text-slate-500 z-10 opacity-0 group-hover:opacity-100 transition-opacity -mt-2 group-hover:mt-0">
+                        {member.commission}
+                      </p>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+
+          </div>
+
+          {/* 5. FAQ Section */}
+          <FAQSection />
+
 
 
         </div>
-
-        {/* 5. FAQ Section */}
-        <FAQSection />
-
-
-
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

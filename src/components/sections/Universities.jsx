@@ -141,6 +141,19 @@ const universities = [
     coordinates: [14.7645, -17.3660],
     gradient: "from-primary-500 to-accent-500",
     bgGradient: "from-primary-50 to-accent-50"
+  },
+  {
+    id: 8,
+    name: "Université Numérique Cheikh Hamidou Kane (UNCHK)",
+    location: "National",
+    members: 0,
+    established: "2013",
+    description: "Université numérique axée sur l'enseignement à distance. Section en cours d'implémentation.",
+    logo: "/unchk.png",
+    contact: [],
+    coordinates: [14.7167, -17.4677],
+    gradient: "from-purple-600 to-indigo-600",
+    bgGradient: "from-purple-50 to-indigo-50"
   }
 ];
 
@@ -170,134 +183,134 @@ export default function Universities() {
           initial={{ opacity: 0, y: 30 }}
           animate={isUniversitiesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
 
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-slate-900 tracking-tight">
-            <span className="text-primary-600">Nos Conseils</span> Universitaires
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-black mb-8 text-slate-900 leading-tight">
+            <span className="block mb-2">Nos Conseils</span>
+            <span className="relative inline-block px-4 py-1">
+              <span className="absolute inset-0 bg-primary-600 -skew-x-6 rounded-lg shadow-lg shadow-primary-500/30" />
+              <span className="relative z-10 text-white">Universitaires</span>
+            </span>
           </h2>
-          <p className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed font-light">
-            Présent dans toutes les universités publiques du Sénégal, le CIU unit <span className="font-semibold text-primary-600">{totalMembers}+ étudiants</span> pour l'excellence.
+
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
+            Présent dans toutes les universités publiques du Sénégal, le CIU unit <span className="text-primary-600 font-bold">{totalMembers}+ étudiants</span> autour de l'excellence académique et des valeurs spirituelles.
           </p>
 
           {/* Quick Stats - Premium Style */}
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 max-w-5xl mx-auto"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-16 max-w-6xl mx-auto"
             variants={containerVariants}
             initial="hidden"
             animate={isUniversitiesInView ? "visible" : "hidden"}
           >
             {[
-              { icon: GraduationCap, number: universities.length, label: "Universités", color: "bg-primary-50 text-primary-600" },
-              { icon: Users, number: `${totalMembers}+`, label: "Étudiants", color: "bg-accent-50 text-accent-600" },
-              { icon: MapPin, number: "8", label: "Régions", color: "bg-secondary-50 text-secondary-600" },
-              { icon: Calendar, number: "5+", label: "Années", color: "bg-orange-50 text-orange-600" }
+              { icon: GraduationCap, number: universities.length, label: "Universités", color: "text-primary-600", bg: "bg-primary-50" },
+              { icon: Users, number: `${totalMembers}+`, label: "Étudiants", color: "text-secondary-600", bg: "bg-secondary-50" },
+              { icon: MapPin, number: "8", label: "Régions", color: "text-accent-600", bg: "bg-accent-50" },
+              { icon: Calendar, number: "4", label: "Années", color: "text-slate-600", bg: "bg-slate-50" }
             ].map((stat, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 flex flex-col items-center justify-center hover:shadow-lg transition-all duration-300"
-                whileHover={{ y: -4 }}
+                className="bg-white rounded-3xl p-8 shadow-lg border border-slate-100 flex flex-col items-center justify-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
               >
-                <div className={`p-3 rounded-xl ${stat.color} mb-3`}>
-                  <stat.icon className="w-6 h-6" />
+                <div className={`p-4 rounded-2xl ${stat.bg} ${stat.color} mb-4 group-hover:scale-110 transition-transform`}>
+                  <stat.icon className="w-8 h-8" />
                 </div>
-                <div className="text-2xl font-bold text-slate-900 mb-1">{stat.number}</div>
-                <div className="text-sm font-medium text-slate-500 uppercase tracking-wide">{stat.label}</div>
+                <div className="text-3xl font-black text-slate-900 mb-1 group-hover:text-primary-600 transition-colors">{stat.number}</div>
+                <div className="text-sm font-bold text-slate-400 uppercase tracking-widest">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
         </motion.div>
 
-        {/* Interactive Map/List Section */}
+        {/* Interactive List Section */}
         <motion.div
           ref={mapRef}
           className="mb-20"
         >
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={isMapInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={isMapInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.98 }}
             transition={{ duration: 0.8 }}
-            className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-xl border border-slate-100 relative overflow-hidden"
           >
-            {/* Map Background Pattern */}
-            <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#CBD5E1 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
+            <div className="text-center mb-16">
+              <h3 className="text-3xl font-bold text-slate-900 mb-4 flex items-center justify-center gap-3">
+                <span className="w-12 h-1 bg-slate-200 rounded-full"></span>
+                Découvrez nos Sections
+                <span className="w-12 h-1 bg-slate-200 rounded-full"></span>
+              </h3>
+            </div>
 
-            <div className="relative z-10">
-              <div className="text-center mb-12">
-                <h3 className="text-3xl font-bold text-slate-900 mb-4">
-                  Découvrez nos <span className="text-primary-600">Sections</span>
-                </h3>
-                <p className="text-slate-600">Cliquez sur une carte pour plus de détails.</p>
-              </div>
+            {/* Grid Layout for Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {universities.map((university, index) => (
+                <motion.div
+                  key={university.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className={cn(
+                    "group relative bg-white rounded-[2rem] p-8 shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer border border-slate-100 flex flex-col h-full overflow-visible",
+                    selectedUniversity?.id === university.id ? "ring-4 ring-primary-100 scale-[1.02]" : "hover:-translate-y-2"
+                  )}
+                  onClick={() => setSelectedUniversity(selectedUniversity?.id === university.id ? null : university)}
+                >
+                  {/* Hover Glow Effect */}
+                  <div className={cn(
+                    "absolute inset-0 rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br -z-10 blur-xl",
+                    university.bgGradient
+                  )} />
 
-              {/* Grid Layout for Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {universities.map((university, index) => (
-                  <motion.div
-                    key={university.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className={cn(
-                      "group relative bg-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer border border-slate-100 overflow-hidden flex flex-col h-full",
-                      selectedUniversity?.id === university.id ? "ring-2 ring-primary-500 scale-[1.02]" : ""
-                    )}
-                    onClick={() => setSelectedUniversity(selectedUniversity?.id === university.id ? null : university)}
-                    whileHover={{ y: -8 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    {/* Hover Gradient Top */}
-                    <div className={cn(
-                      "absolute top-0 left-0 right-0 h-2 bg-gradient-to-r",
-                      university.gradient
-                    )} />
-
-                    {/* Header: Logo & Members */}
-                    <div className="flex justify-between items-start mb-6 pt-2">
-                      {university.logos ? (
-                        <div className="flex -space-x-3">
-                          {university.logos.map((logo, i) => (
-                            <div key={i} className="w-12 h-12 bg-white rounded-2xl shadow-md border border-slate-100 flex items-center justify-center p-2 z-10 transition-transform hover:scale-110 hover:z-20">
-                              <img src={logo} alt="Logo" className="w-full h-full object-contain" />
-                            </div>
-                          ))}
-                        </div>
-                      ) : (
-                        <div className="w-14 h-14 bg-white rounded-2xl shadow-md border border-slate-100 flex items-center justify-center p-2 transition-transform group-hover:scale-110">
-                          <img src={university.logo} alt={university.name} className="w-full h-full object-contain" />
-                        </div>
-                      )}
-
-                      <div className="text-right">
-                        <span className="block text-2xl font-bold text-slate-900">{university.members}</span>
-                        <span className="text-xs font-semibold text-slate-400 uppercase tracking-wide">Membres</span>
+                  {/* Header: Logo & Members */}
+                  <div className="flex justify-between items-start mb-8">
+                    {university.logos ? (
+                      <div className="flex -space-x-4">
+                        {university.logos.map((logo, i) => (
+                          <div key={i} className="w-16 h-16 bg-white rounded-2xl shadow-lg border border-slate-50 flex items-center justify-center p-2 transition-transform duration-300 group-hover:scale-105 group-hover:rotate-3">
+                            <img src={logo} alt="Logo" className="w-full h-full object-contain" />
+                          </div>
+                        ))}
                       </div>
-                    </div>
+                    ) : (
+                      <div className="w-20 h-20 bg-white rounded-2xl shadow-lg border border-slate-50 flex items-center justify-center p-3 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+                        <img src={university.logo} alt={university.name} className="w-full h-full object-contain" />
+                      </div>
+                    )}
 
-                    {/* Content */}
-                    <h4 className="text-lg font-bold text-slate-900 mb-2 leading-tight group-hover:text-primary-600 transition-colors">
+                    <div className="bg-slate-50 px-4 py-2 rounded-2xl border border-slate-100 group-hover:bg-white group-hover:shadow-md transition-all">
+                      <span className="block text-2xl font-black text-slate-900 leading-none">{university.members}</span>
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Membres</span>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="mb-6">
+                    <h4 className="text-xl font-bold text-slate-900 mb-2 leading-tight group-hover:text-primary-600 transition-colors">
                       {university.name}
                     </h4>
-
-                    <div className="flex items-center text-slate-500 text-sm mb-4 font-medium">
-                      <MapPin className="w-4 h-4 mr-1 text-accent-500" />
+                    <div className="flex items-center text-slate-500 font-medium">
+                      <MapPin className="w-4 h-4 mr-2 text-secondary-500 fill-secondary-500/20" />
                       {university.location}
                     </div>
+                  </div>
 
-                    <p className="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-3">
-                      {university.description}
-                    </p>
+                  <p className="text-slate-600 text-sm leading-relaxed mb-8 line-clamp-3 opacity-80 group-hover:opacity-100 transition-opacity">
+                    {university.description}
+                  </p>
 
-                    {/* Action */}
-                    <div className="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between text-primary-600 font-semibold text-sm group-hover:translate-x-1 transition-transform">
-                      <span>Voir détails</span>
-                      <ChevronRight className="w-4 h-4" />
+                  {/* Action */}
+                  <div className="mt-auto">
+                    <div className="w-full py-3 rounded-xl bg-slate-50 text-slate-900 font-bold text-center group-hover:bg-primary-600 group-hover:text-white transition-all flex items-center justify-center gap-2">
+                      Voir les détails
+                      <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </div>
-                  </motion.div>
-                ))}
-              </div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </motion.div>
