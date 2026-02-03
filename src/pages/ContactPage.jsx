@@ -103,16 +103,13 @@ export default function ContactPage() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16 relative z-10"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-slate-200 text-slate-500 text-sm font-bold uppercase tracking-wider mb-6">
-            <MessageSquare className="w-4 h-4 text-primary-500" />
-            Nous sommes à votre écoute
-          </div>
+
 
           <h1 className="text-5xl md:text-7xl font-black text-slate-900 mb-8 tracking-tight leading-tight flex flex-col md:block items-center justify-center gap-2">
-            <span className="block md:inline">Restons</span>{' '}
+            <span className="block md:inline">Restons en</span>{' '}
             <span className="relative inline-block px-6 py-2">
               <span className="absolute inset-0 bg-primary-600 -skew-x-6 rounded-xl shadow-xl shadow-primary-500/20 transform md:rotate-2 opacity-90" />
-              <span className="relative z-10 text-white">en Contact</span>
+              <span className="relative z-10 text-white">Contact</span>
             </span>
           </h1>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium">

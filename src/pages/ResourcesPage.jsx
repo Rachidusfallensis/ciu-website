@@ -31,16 +31,19 @@ export default function ResourcesPage() {
             transition={{ duration: 0.8 }}
           >
 
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-slate-200 text-primary-600 text-sm font-bold uppercase tracking-wider mb-6">
-              <BookOpen className="w-4 h-4" />
-              Centre de Ressources
-            </div>
 
-            <h1 className="text-5xl md:text-7xl font-black mb-8 tracking-tight leading-tight flex flex-col md:block items-center justify-center gap-2">
-              <span className="block md:inline">Bibliothèque</span>{' '}
-              <span className="relative inline-block px-6 py-2">
+
+            <h1 className="text-5xl md:text-7xl font-black mb-8 tracking-tight leading-tight flex flex-wrap items-center justify-center gap-4">
+              <span className="relative inline-block px-4 py-1">
+                <span className="absolute inset-0 bg-yellow-400 -skew-x-6 rounded-xl shadow-xl shadow-yellow-400/20 transform md:-rotate-1 opacity-90" />
+                <span className="relative z-10 text-white">Bibliothèque</span>
+              </span>
+
+              <span className="text-slate-900">&</span>
+
+              <span className="relative inline-block px-4 py-1">
                 <span className="absolute inset-0 bg-primary-600 -skew-x-6 rounded-xl shadow-xl shadow-primary-500/20 transform md:rotate-2 opacity-90" />
-                <span className="relative z-10 text-white">& Ressources</span>
+                <span className="relative z-10 text-white">Ressources</span>
               </span>
             </h1>
 
@@ -75,8 +78,8 @@ export default function ResourcesPage() {
               key={cat}
               onClick={() => setActiveCategory(cat)}
               className={`relative px-6 py-3 rounded-full text-sm font-bold transition-all duration-300 z-10 ${activeCategory === cat
-                  ? "text-white"
-                  : "text-slate-500 hover:text-slate-900 bg-white border border-slate-200 hover:border-slate-300"
+                ? "text-white"
+                : "text-slate-500 hover:text-slate-900 bg-white border border-slate-200 hover:border-slate-300"
                 }`}
             >
               {activeCategory === cat && (

@@ -44,8 +44,8 @@ export default function HomePage() {
   const isMissionInView = useInView(missionRef, { once: true, amount: 0.3 });
   /* Animation Logic for Mission Text */
   const missionMessages = [
-    "Unir les moustarchides étudiants de toutes les universités du Sénégal.",
-    "Promouvoir un équilibre harmonieux entre Excellence Académique et Tarbiya Implicatif."
+    <span key="1">Unir les <span className="text-yellow-400 font-bold">moustarchides étudiants</span> de toutes les universités du Sénégal.</span>,
+    <span key="2">Promouvoir un équilibre harmonieux entre <span className="text-yellow-400 font-bold">Excellence Académique</span> et <span className="text-yellow-400 font-bold">Tarbiya Implicatif</span>.</span>
   ];
   const [currentMissionIndex, setCurrentMissionIndex] = useState(0);
 
@@ -53,6 +53,26 @@ export default function HomePage() {
     const interval = setInterval(() => {
       setCurrentMissionIndex((prev) => (prev + 1) % missionMessages.length);
     }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const heroImages = [
+    "/hero-slide-1.jpg",
+    "/hero-slide-2.jpg",
+    "/hero-slide-3.jpg",
+    "/hero-slide-4.jpg"
+  ];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    // Preload images
+    heroImages.forEach((image) => {
+      new Image().src = image;
+    });
+
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, 5000); // Change image every 5 seconds
     return () => clearInterval(interval);
   }, []);
 
@@ -71,7 +91,7 @@ export default function HomePage() {
       <SEO
         title="CIU"
         description="Unir les moustarchides étudiants de toutes les universités du Sénégal pour un équilibre harmonieux entre excellence académique et Tarbiya implicatif."
-        image="/background.jpg"
+        image="/hero-slide-1.jpg"
         canonicalUrl="/"
         keywords={['comité', 'inter-universitaire', 'ciu', 'université', 'sénégal', 'étudiants', 'moustarchidines']}
         structuredData={[organizationData, webpageData]}
@@ -81,16 +101,20 @@ export default function HomePage() {
         className="relative min-h-[90dvh] flex items-center overflow-hidden"
         aria-labelledby="hero-heading"
       >
-        {/* Background Image */}
+        {/* Background Image Carousel */}
         <div className="absolute inset-0 z-0">
-          <motion.img
-            src="/background.jpg"
-            alt="Rencontre du Comité Inter-Universitaire"
-            className="w-full h-full object-cover object-center"
-            initial={{ scale: 1.1 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
-          />
+          <AnimatePresence>
+            <motion.img
+              key={currentImageIndex}
+              src={heroImages[currentImageIndex]}
+              alt="Rencontre du Comité Inter-Universitaire"
+              className="absolute inset-0 w-full h-full object-cover object-center"
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.5 }}
+            />
+          </AnimatePresence>
           <div className="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/70 to-slate-900/90" />
         </div>
 
@@ -106,7 +130,24 @@ export default function HomePage() {
               variants={itemVariants}
               className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight tracking-tight"
             >
-              <span className="block mb-2">Comité</span>
+              <span className="block mb-2">
+                <motion.span
+                  className="inline-block relative px-4 py-1"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8, delay: 0.3, type: "spring" }}
+                >
+                  <motion.span
+                    className="absolute inset-0 bg-primary-600 -skew-x-6 rounded-lg"
+                    initial={{ width: "0%" }}
+                    animate={{ width: "100%" }}
+                    transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+                  />
+                  <span className="relative z-10 text-white drop-shadow-sm">
+                    Comité
+                  </span>
+                </motion.span>
+              </span>
               <motion.span
                 className="inline-block relative px-4 py-1"
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -245,7 +286,7 @@ export default function HomePage() {
               Piliers d'<span className="text-primary-600">Excellence</span>
             </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Nous reposons sur trois fondamentaux pour bâtir l'étudiant modèle de demain.
+              Nous reposons sur trois piliers fondamentaux pour mieux accompagner nos confrères étudiants.
             </p>
           </motion.div>
 

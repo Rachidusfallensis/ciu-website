@@ -22,7 +22,7 @@ export default function PartnersLogos() {
         <section className="py-10 bg-white border-b border-primary-50/50 overflow-hidden relative">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 text-center">
                 <p className="text-sm font-bold text-slate-400 uppercase tracking-widest">
-                    Nos conseils universitaires sont disponibles dans toutes les universités du Sénégal
+                    Nos conseils universitaires sont présents dans toutes les universités du Sénégal
                 </p>
             </div>
 

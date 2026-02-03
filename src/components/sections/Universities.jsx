@@ -170,10 +170,9 @@ export default function Universities() {
   return (
     <section id="universities" className="section-padding bg-slate-50 relative overflow-hidden">
       {/* Background Decor */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-[20%] right-[-5%] w-[600px] h-[600px] bg-primary-100/30 rounded-full blur-3xl opacity-50" />
-        <div className="absolute bottom-[20%] left-[-5%] w-[600px] h-[600px] bg-accent-100/30 rounded-full blur-3xl opacity-50" />
-      </div>
+
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-100/50 rounded-full blur-3xl -z-0 pointer-events-none mix-blend-multiply opacity-70" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-yellow-100/50 rounded-full blur-3xl -z-0 pointer-events-none mix-blend-multiply opacity-70" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
@@ -188,7 +187,13 @@ export default function Universities() {
 
 
           <h2 className="text-4xl md:text-5xl lg:text-7xl font-black mb-8 text-slate-900 leading-tight">
-            <span className="block mb-2">Nos Conseils</span>
+            <span className="block mb-4 sm:mb-2">
+              Nos
+              <span className="relative inline-block px-4 py-1 ml-3">
+                <span className="absolute inset-0 bg-yellow-400 -skew-x-6 rounded-lg shadow-lg shadow-yellow-400/30" />
+                <span className="relative z-10 text-white">Conseils</span>
+              </span>
+            </span>
             <span className="relative inline-block px-4 py-1">
               <span className="absolute inset-0 bg-primary-600 -skew-x-6 rounded-lg shadow-lg shadow-primary-500/30" />
               <span className="relative z-10 text-white">Universitaires</span>
