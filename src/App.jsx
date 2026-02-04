@@ -1,5 +1,6 @@
 import { BrowserRouter as Router } from 'react-router-dom';
 import { lazy } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import NetworkStatus from './components/ui/NetworkStatus';
@@ -48,6 +49,7 @@ function App() {
         </div>
         <Footer />
       </div>
+      <Analytics />
     </Router>
   );
 }
