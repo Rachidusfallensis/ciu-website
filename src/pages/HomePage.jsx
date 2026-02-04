@@ -125,49 +125,69 @@ export default function HomePage() {
             initial="hidden"
             animate="visible"
           >
-            <motion.h1
-              id="hero-heading"
-              variants={itemVariants}
-              className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight tracking-tight"
-            >
-              <span className="block mb-2">
-                <motion.span
-                  className="inline-block relative px-4 py-1"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, delay: 0.3, type: "spring" }}
-                >
-                  <motion.span
-                    className="absolute inset-0 bg-primary-600 -skew-x-6 rounded-lg"
-                    initial={{ width: "0%" }}
-                    animate={{ width: "100%" }}
-                    transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-                  />
-                  <span className="relative z-10 text-white drop-shadow-sm">
+            <motion.h1 className="flex flex-col items-center justify-center mb-8 relative z-20 perspective-1000">
+              {/* Comité Block */}
+              <motion.div
+                className="relative z-20 transform origin-bottom-center"
+                initial={{ y: -80, opacity: 0, rotate: -15, scale: 0.8 }}
+                animate={{
+                  y: 0,
+                  opacity: 1,
+                  rotate: -3,
+                  scale: [1, 1.02, 1] // Breathing/Pulse effect
+                }}
+                transition={{
+                  y: { type: "spring", stiffness: 200, damping: 15 },
+                  rotate: { type: "spring", stiffness: 200, damping: 15 },
+                  scale: {
+                    duration: 3,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    ease: "easeInOut"
+                  }
+                }}
+                whileHover={{ rotate: 0, scale: 1.05, transition: { duration: 0.2 } }}
+              >
+                <div className="bg-primary-600 px-8 py-3 rounded-2xl shadow-[8px_8px_0px_0px_rgba(0,0,0,0.25)] border-4 border-white transform transition-transform duration-300">
+                  <span className="block text-white font-black tracking-tighter text-5xl sm:text-6xl md:text-8xl drop-shadow-md">
                     Comité
                   </span>
-                </motion.span>
-              </span>
-              <motion.span
-                className="inline-block relative px-4 py-1"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.5, type: "spring" }}
+                </div>
+              </motion.div>
+
+              {/* Inter-Universitaire Block */}
+              <motion.div
+                className="relative z-10 transform origin-top-center -mt-4 sm:-mt-6 lg:-mt-8"
+                initial={{ y: 80, opacity: 0, rotate: 15, scale: 0.8 }}
+                animate={{
+                  y: 0,
+                  opacity: 1,
+                  rotate: 2,
+                  scale: [1, 1.02, 1] // Breathing/Pulse effect
+                }}
+                transition={{
+                  y: { type: "spring", stiffness: 200, damping: 15, delay: 0.1 },
+                  rotate: { type: "spring", stiffness: 200, damping: 15, delay: 0.1 },
+                  scale: {
+                    duration: 3,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    ease: "easeInOut",
+                    delay: 1.5 // Alternating phase (starts halfway through the other's cycle)
+                  }
+                }}
+                whileHover={{ rotate: 0, scale: 1.05, zIndex: 30, transition: { duration: 0.2 } }}
               >
-                <motion.span
-                  className="absolute inset-0 bg-yellow-400 -skew-x-6 rounded-lg"
-                  initial={{ width: "0%" }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
-                />
-                <span className="relative z-10 text-white drop-shadow-sm">
-                  Inter-Universitaire
-                </span>
-              </motion.span>
+                <div className="bg-yellow-400 px-8 py-3 rounded-2xl shadow-[8px_8px_0px_0px_rgba(0,0,0,0.25)] border-4 border-white transform transition-transform duration-300">
+                  <span className="block text-white font-black tracking-tighter text-4xl sm:text-5xl md:text-7xl drop-shadow-md">
+                    Inter-Universitaire
+                  </span>
+                </div>
+              </motion.div>
             </motion.h1>
 
             {/* Mission Statement - Animated Carousel */}
-            <div className="h-24 md:h-20 mb-8 relative flex items-center justify-center overflow-hidden max-w-4xl mx-auto">
+            <div className="h-32 sm:h-28 md:h-24 mb-8 relative flex items-center justify-center overflow-hidden max-w-4xl mx-auto">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentMissionIndex}
@@ -177,7 +197,7 @@ export default function HomePage() {
                   transition={{ duration: 0.5 }}
                   className="absolute px-4 w-full"
                 >
-                  <p className="text-lg md:text-xl lg:text-2xl text-slate-200 font-light leading-relaxed">
+                  <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-200 font-light leading-relaxed">
                     {missionMessages[currentMissionIndex]}
                   </p>
                 </motion.div>
@@ -238,6 +258,34 @@ export default function HomePage() {
                   />
                 </Link>
               </motion.div>
+            </motion.div>
+
+            {/* Quick Stats - Premium Restoration */}
+            <motion.div
+              variants={itemVariants}
+              className="mt-12 sm:mt-16 grid grid-cols-2 gap-4 max-w-lg mx-auto"
+            >
+              {/* Stat 1 */}
+              <div className="flex flex-col items-center p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl transition-transform hover:scale-105 duration-300">
+                <div className="bg-yellow-400/90 p-2 rounded-lg mb-2 text-primary-900 shadow-lg shadow-yellow-400/20">
+                  <GraduationCap size={20} />
+                </div>
+                <span className="text-2xl sm:text-3xl font-black bg-clip-text text-transparent bg-gradient-to-r from-yellow-100 to-amber-200 drop-shadow-sm">
+                  9+
+                </span>
+                <span className="text-xs sm:text-sm text-slate-100 font-medium tracking-wide">Conseils Universitaires</span>
+              </div>
+
+              {/* Stat 2 */}
+              <div className="flex flex-col items-center p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl transition-transform hover:scale-105 duration-300">
+                <div className="bg-primary-500/90 p-2 rounded-lg mb-2 text-white shadow-lg shadow-primary-500/20">
+                  <Users size={20} />
+                </div>
+                <span className="text-2xl sm:text-3xl font-black bg-clip-text text-transparent bg-gradient-to-r from-blue-100 to-cyan-200 drop-shadow-sm">
+                  1500+
+                </span>
+                <span className="text-xs sm:text-sm text-slate-100 font-medium tracking-wide">Membres</span>
+              </div>
             </motion.div>
           </motion.div>
         </div>

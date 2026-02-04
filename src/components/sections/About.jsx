@@ -276,7 +276,7 @@ export default function About() {
           >
             {[
               { value: "9+", label: "Universités" },
-              { value: "1000+", label: "Membres" }
+              { value: "1500+", label: "Membres" }
             ].map((stat, index) => (
               <div key={index} className="text-center group hover:-translate-y-1 transition-transform duration-300">
                 <div className="text-4xl sm:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-secondary-300 to-secondary-500 mb-2 drop-shadow-sm">
