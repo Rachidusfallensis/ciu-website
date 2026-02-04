@@ -212,7 +212,7 @@ export default function Universities() {
             animate={isUniversitiesInView ? "visible" : "hidden"}
           >
             {[
-              { icon: GraduationCap, number: universities.length, label: "Universités", color: "text-primary-600", bg: "bg-primary-50" },
+              { icon: GraduationCap, number: universities.length, label: "Conseils universitaires", color: "text-primary-600", bg: "bg-primary-50" },
               { icon: Users, number: `${totalMembers}+`, label: "Étudiants", color: "text-secondary-600", bg: "bg-secondary-50" },
               { icon: MapPin, number: "8", label: "Régions", color: "text-accent-600", bg: "bg-accent-50" },
               { icon: Calendar, number: "4", label: "Années", color: "text-slate-600", bg: "bg-slate-50" }

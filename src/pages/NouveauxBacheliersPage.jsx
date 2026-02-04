@@ -253,7 +253,7 @@ export default function NouveauxBacheliersPage() {
               className="flex justify-center gap-12 md:gap-24"
             >
               <div className="text-center">
-                <div className="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500 mb-1">8+</div>
+                <div className="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500 mb-1">9+</div>
                 <div className="text-sm md:text-base text-slate-300 font-medium tracking-wide uppercase">Conseils</div>
               </div>
               <div className="text-center">
