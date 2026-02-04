@@ -16,9 +16,10 @@ export const articles = [
         title: "Amphi de Rentrée 2026",
         excerpt: "À l'heure où les défis éducatifs, intellectuels et citoyens interpellent la jeunesse africaine, le CIU organise l'Amphi de Rentrée Universitaire 2026. \n",
         author: "Commission d'Intelligence et de Perception Spirituelle",
-        date: new Date(2026, 0, 31),
+        date: new Date(2026, 1, 7), // 7 Février 2026
         category: "Événement",
         image: "/amphi.jpeg",
+        link: "/amphi-rentree",
         readTime: "3 min",
         featured: false
     }

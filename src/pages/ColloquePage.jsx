@@ -15,11 +15,11 @@ export default function ColloquePage() {
         <main className="pt-20 bg-slate-50 min-h-screen">
             <HeroSection colloqueSubtitles={colloqueSubtitles} />
             <PresentationSection />
-            <ProgramSection programData={programData} />
+            <ColloqueGallery />
             <SpeakersSection speakers={speakers} />
+            <ProgramSection programData={programData} />
             <StatsSection />
             <CommunicationsSection projects={projects} />
-            <ColloqueGallery />
         </main>
     );
 }

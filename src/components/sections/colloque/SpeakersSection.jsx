@@ -11,9 +11,7 @@ export default function SpeakersSection({ speakers }) {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="text-center mb-20 animate-fade-in-up">
-                    <div className="inline-block px-4 py-1.5 rounded-full bg-slate-50 border border-slate-100 text-slate-500 font-bold text-xs uppercase tracking-widest mb-4">
-                        Les Experts
-                    </div>
+    
                     <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-primary-800">Invités</span> & Intervenants
                     </h2>

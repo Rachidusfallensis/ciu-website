@@ -17,7 +17,6 @@ export default function PresentationSection() {
                         transition={{ duration: 0.8 }}
                     >
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-slate-100 text-primary-600 text-xs font-bold uppercase tracking-wider mb-8">
-                            <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
                             À Propos du Colloque
                         </div>
 

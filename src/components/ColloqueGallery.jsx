@@ -298,34 +298,49 @@ export default function ColloqueGallery() {
                 key={album.id}
                 variants={itemVariants}
                 onClick={() => openAlbum(album)}
-                className="group relative h-80 rounded-[2rem] overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500"
+                className="group cursor-pointer flex flex-col h-full"
                 whileHover={{ y: -5 }}
               >
-                {/* Background Image */}
-                <div className="absolute inset-0">
-                  <img
-                    src={album.coverImage}
-                    alt={album.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    onError={(e) => { e.target.src = 'https://placehold.co/600x400'; }}
-                  />
-                  <div className={`absolute inset-0 bg-gradient-to-t ${album.gradient} opacity-60 group-hover:opacity-70 transition-opacity duration-300`} />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
-                </div>
+                {/* Minimalist Card */}
+                <div className="bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col h-full">
+                  {/* Image Container */}
+                  <div className="relative h-64 overflow-hidden">
+                    <img
+                      src={album.coverImage}
+                      alt={album.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      onError={(e) => { e.target.src = 'https://placehold.co/600x400'; }}
+                    />
 
-                {/* Content */}
-                <div className="absolute inset-0 p-8 flex flex-col justify-end text-white">
-                  <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center mb-4 text-white">
-                      <album.icon className="w-6 h-6" />
+                    {/* Subtle Gradient for depth */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                    {/* Type Badge */}
+                    <div className="absolute top-4 left-4">
+                      <div className={`px-3 py-1.5 rounded-full text-xs font-bold text-white bg-gradient-to-r ${album.gradient} shadow-lg flex items-center gap-1.5`}>
+                        <album.icon className="w-3 h-3" />
+                        <span className="uppercase tracking-wider">{album.type === 'videos' ? 'Vidéos' : 'Photos'}</span>
+                      </div>
                     </div>
-                    <h3 className="text-2xl font-bold mb-2">{album.title}</h3>
-                    <p className="text-white/80 text-sm mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 line-clamp-2">
+                  </div>
+
+                  {/* Content Container */}
+                  <div className="p-8 flex flex-col flex-grow">
+                    <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-primary-600 transition-colors">
+                      {album.title}
+                    </h3>
+
+                    <p className="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
                       {album.description}
                     </p>
-                    <div className="flex items-center text-sm font-semibold">
-                      <span>{album.type === 'videos' ? 'Regarder' : 'Explorer'}</span>
-                      <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+
+                    <div className="pt-6 border-t border-slate-50 flex items-center justify-between text-sm font-bold text-slate-900 mt-auto group/link">
+                      <span className="group-hover/link:text-primary-600 transition-colors">
+                        {album.type === 'videos' ? 'Regarder la série' : 'Explorer l\'album'}
+                      </span>
+                      <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover/link:bg-primary-600 group-hover/link:text-white transition-all">
+                        <ChevronRight className="w-4 h-4" />
+                      </div>
                     </div>
                   </div>
                 </div>

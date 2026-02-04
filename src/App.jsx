@@ -15,6 +15,7 @@ const NewsPage = lazy(() => import('./pages/NewsPage'));
 const ColloquePage = lazy(() => import('./pages/ColloquePage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 const NouveauxBacheliersPage = lazy(() => import('./pages/NouveauxBacheliersPage'));
+const AmphiRentreePage = lazy(() => import('./pages/AmphiRentreePage'));
 
 // Define routes with their transition types
 const routes = [
@@ -26,6 +27,7 @@ const routes = [
   { path: '/colloque', component: ColloquePage, transitionType: 'scale' },
   { path: '/contact', component: ContactPage, transitionType: 'slideUp' },
   { path: '/nouveaux-bacheliers', component: NouveauxBacheliersPage, transitionType: 'slide' },
+  { path: '/amphi-rentree', component: AmphiRentreePage, transitionType: 'scale' },
 ];
 
 function App() {

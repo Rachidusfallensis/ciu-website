@@ -22,7 +22,7 @@ export default function ProgramSection({ programData }) {
 
     return (
 
-        <section className="section-padding bg-slate-50 relative">
+        <section id="programme-detaille" className="section-padding bg-slate-50 relative">
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-100/40 rounded-full blur-3xl -z-0 pointer-events-none" />
 
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

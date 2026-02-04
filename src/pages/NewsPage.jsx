@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Calendar, User, ArrowRight, Clock, Tag, Search, ChevronRight } from 'lucide-react';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
@@ -8,6 +8,7 @@ import { articles, categories, dateFilters } from '../data/newsData';
 
 
 export default function NewsPage() {
+  const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState("Tout");
   const [activeDateFilter, setActiveDateFilter] = useState("Tout");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -40,6 +41,18 @@ export default function NewsPage() {
   });
 
   const featuredArticle = articles.find(art => art.featured);
+
+  const isFeaturedVisible = featuredArticle &&
+    (activeCategory === "Tout" || activeCategory === "À la Une" || activeCategory === featuredArticle.category) &&
+    (activeDateFilter === "Tout" ||
+      (activeDateFilter === "À venir" && featuredArticle.date > now) ||
+      (activeDateFilter === "Passés" && featuredArticle.date <= now)
+    );
+
+  // Remove featured article from grid if it's already shown in Hero
+  if (isFeaturedVisible) {
+    filteredArticles = filteredArticles.filter(art => art.id !== featuredArticle.id);
+  }
 
   return (
     <main className="pt-20 bg-slate-50 min-h-screen">
@@ -147,7 +160,8 @@ export default function NewsPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-32">
 
         {/* Featured Article - Big Card */}
-        {(activeCategory === "Tout" || activeCategory === "À la Une") && (
+        {/* Featured Article - Big Card */}
+        {isFeaturedVisible && (
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -214,7 +228,8 @@ export default function NewsPage() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 onHoverStart={() => setHoveredId(article.id)}
                 onHoverEnd={() => setHoveredId(null)}
-                className="group bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full"
+                onClick={() => article.link && navigate(article.link)}
+                className="group bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full cursor-pointer"
               >
                 {/* Image */}
                 <div className="relative h-56 overflow-hidden">

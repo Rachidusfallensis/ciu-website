@@ -1,10 +1,12 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, MapPin, Users, Download } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function HeroSection({ colloqueSubtitles }) {
     const [currentSubtitleIndex, setCurrentSubtitleIndex] = useState(0);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -12,6 +14,13 @@ export default function HeroSection({ colloqueSubtitles }) {
         }, 4000);
         return () => clearInterval(interval);
     }, [colloqueSubtitles]);
+
+    const scrollToProgram = () => {
+        const programSection = document.getElementById('programme-detaille');
+        if (programSection) {
+            programSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
     return (
         <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
@@ -32,16 +41,13 @@ export default function HeroSection({ colloqueSubtitles }) {
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-yellow-400 font-bold mb-8">
-                        <Calendar className="w-4 h-4" />
-                        <span>Édition 2025</span>
-                    </div>
+
 
                     <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 tracking-tight leading-tight flex flex-col md:block items-center justify-center gap-4">
                         <span className="block md:inline">Colloque</span>{' '}
                         <span className="relative inline-block px-6 py-2">
-                            <span className="absolute inset-0 bg-primary-600 -skew-x-6 rounded-xl shadow-lg shadow-primary-500/30 transform md:rotate-2 opacity-90" />
-                            <span className="relative z-10 text-white">Interuniversitaire</span>
+                            <span className="absolute inset-0 bg-yellow-400 -skew-x-6 rounded-xl shadow-lg shadow-yellow-400/20 transform md:rotate-2 opacity-90" />
+                            <span className="relative z-10 text-slate-900">Interuniversitaire</span>
                         </span>
                     </h1>
 
@@ -90,6 +96,7 @@ export default function HeroSection({ colloqueSubtitles }) {
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
+                            onClick={() => navigate('/resources')}
                             className="px-8 py-4 bg-yellow-400 text-slate-900 rounded-full font-bold hover:bg-yellow-300 transition-all flex items-center justify-center shadow-lg shadow-yellow-400/20"
                         >
                             <Download className="mr-2 h-5 w-5" />
@@ -98,6 +105,7 @@ export default function HeroSection({ colloqueSubtitles }) {
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
+                            onClick={scrollToProgram}
                             className="px-8 py-4 bg-white/10 text-white rounded-full font-bold hover:bg-white/20 transition-all backdrop-blur-md border border-white/20"
                         >
                             Découvrir le Programme

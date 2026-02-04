@@ -1,4 +1,4 @@
-import { FileText, Video, Heart, GraduationCap, FileCheck } from 'lucide-react';
+import { FileText, GraduationCap, FileCheck, BookOpen } from 'lucide-react';
 
 import CalendarIcon from '../components/icons/CalendarIcon';
 
@@ -17,14 +17,14 @@ export const resources = [
     },
     {
         id: 2,
-        title: "Conférence: L'Excellence en Islam",
-        type: "video",
-        category: "Spirituelle",
-        duration: "45 min",
-        views: 850,
-        icon: Video,
+        title: "Publications Scientifiques",
+        type: "document",
+        category: "Académique",
+        size: "3.5 MB",
+        downloads: 850,
+        icon: FileText,
         color: "bg-emerald-50 text-emerald-600",
-        description: "Une intervention marquante sur l'importance de la quête du savoir."
+        description: "Articles et travaux de recherche produits par nos membres."
     },
     {
         id: 3,
@@ -39,14 +39,14 @@ export const resources = [
     },
     {
         id: 4,
-        title: "Recueil de Qasidas",
+        title: "Discours de Mame Cheikh Ahmet Tidiane Sy Capitaine",
         type: "document",
-        category: "Spirituelle",
-        size: "5.6 MB",
-        downloads: 5600,
-        icon: Heart,
+        category: "Académique",
+        size: "2.1 MB",
+        downloads: 1200,
+        icon: BookOpen,
         color: "bg-rose-50 text-rose-600",
-        description: "Les textes essentiels pour les séances de Zikr du jeudi soir."
+        description: "Analyses et commentaires des textes de référence."
     },
     {
         id: 5,
