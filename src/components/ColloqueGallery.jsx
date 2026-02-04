@@ -298,7 +298,7 @@ export default function ColloqueGallery() {
                 key={album.id}
                 variants={itemVariants}
                 onClick={() => openAlbum(album)}
-                className="group cursor-pointer flex flex-col h-full"
+                className={cn("group cursor-pointer flex flex-col h-full", album.id === 'videos-colloque' ? "md:col-span-2" : "")}
                 whileHover={{ y: -5 }}
               >
                 {/* Minimalist Card */}

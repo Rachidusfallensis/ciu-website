@@ -90,7 +90,7 @@ export default function ContactPage() {
 
   return (
     <main className="pt-20 bg-slate-50 min-h-screen">
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
 
         {/* Background Decorators */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-100/50 rounded-full blur-3xl -z-0 pointer-events-none mix-blend-multiply opacity-70" />
@@ -334,7 +334,7 @@ export default function ContactPage() {
       </section>
 
       {/* Map Section - Full Width aligned with Footer */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 sm:pb-12">
         <div className="h-96 w-full bg-slate-200 relative grayscale hover:grayscale-0 transition-all duration-700 rounded-[2.5rem] overflow-hidden shadow-xl border border-slate-100">
           <iframe
             src="https://maps.google.com/maps?q=14.9430865,-16.8257181&z=17&output=embed"

@@ -37,7 +37,7 @@ export default function UniversityShowcase() {
         <section className="py-12 bg-white border-b border-t border-slate-100 overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
                 <p className="text-center text-sm font-bold text-slate-400 uppercase tracking-widest">
-                    Nos conseils universitaires sont disponibles dans toutes les universités du Sénégal
+                    Nos conseils universitaires sont présents dans toutes les universités du Sénégal
                 </p>
             </div>
 
@@ -61,7 +61,7 @@ export default function UniversityShowcase() {
                             <div className="w-20 h-20 rounded-full bg-slate-50 flex items-center justify-center p-4 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-110">
                                 <img src={uni.logo} alt={uni.name} className="w-full h-full object-contain rounded-full" />
                             </div>
-                            <span className="text-sm font-bold text-slate-400 group-hover:text-primary-600 transition-colors">
+                            <span className="text-sm font-bold text-slate-900 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
                                 {uni.name}
                             </span>
                         </div>

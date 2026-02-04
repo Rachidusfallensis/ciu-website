@@ -64,21 +64,21 @@ export default function FeaturedNews() {
                                     alt={mainFeature.title}
                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent opacity-90" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent opacity-95" />
                             </div>
 
                             <div className="absolute bottom-0 left-0 right-0 p-8 sm:p-10">
                                 <div className="flex flex-wrap gap-3 mb-4">
-                                    <span className="px-3 py-1 bg-primary-600 text-white text-xs font-bold rounded-full uppercase tracking-wide">
+                                    <span className="px-3 py-1 bg-primary-600 text-white text-xs font-bold rounded-full uppercase tracking-wide shadow-sm">
                                         {mainFeature.category}
                                     </span>
-                                    <div className="flex items-center text-slate-300 text-xs font-medium">
+                                    <div className="flex items-center text-slate-200 text-xs font-medium drop-shadow-md">
                                         <Calendar className="w-3 h-3 mr-1" />
                                         {formatDate(mainFeature.date)}
                                     </div>
                                 </div>
 
-                                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 leading-tight group-hover:text-primary-300 transition-colors">
+                                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 leading-tight group-hover:text-primary-300 transition-colors drop-shadow-lg shadow-black">
                                     {mainFeature.title}
                                 </h3>
 
@@ -141,9 +141,8 @@ export default function FeaturedNews() {
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.2 }}
-                            className="mt-auto bg-slate-900 rounded-2xl p-6 md:p-8 text-center sm:text-left relative overflow-hidden"
+                            className="bg-slate-900 rounded-2xl p-6 md:p-8 text-center sm:text-left relative overflow-hidden"
                         >
                             <div className="absolute top-0 right-0 w-32 h-32 bg-primary-600/20 rounded-full blur-2xl -mr-10 -mt-10" />
 
