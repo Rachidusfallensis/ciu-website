@@ -1,5 +1,5 @@
 import { motion, AnimatePresence, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Target, Eye, Heart, Users, BookOpen, Globe, ChevronRight, ChevronDown, HelpCircle, MessageCircle } from 'lucide-react';
 import { cn } from '../../utils/cn';
 
@@ -127,6 +127,28 @@ export default function About() {
 
   const [activeTab, setActiveTab] = useState("Points Focaux");
 
+  // Hero Carousel Logic
+  const heroImages = [
+    "/about-slide-1.jpg",
+    "/about-slide-2.jpg",
+    "/about-slide-3.jpg",
+    "/about-slide-4.jpg",
+    "/about-slide-5.jpg"
+  ];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    // Preload images
+    heroImages.forEach((image) => {
+      new Image().src = image;
+    });
+
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, 5000); // Change image every 5 seconds
+    return () => clearInterval(interval);
+  }, []);
+
   const values = [
     {
       icon: Heart,
@@ -193,16 +215,22 @@ export default function About() {
       {/* Premium Hero Section with Image */}
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         {/* Background Image with Overlay */}
-        <div className="absolute inset-0">
-          <img
-            src="/hero_about.jpg"
-            alt="Rencontre Comité Inter-Universitaire"
-            className="w-full h-full object-cover"
-            loading="eager"
-          />
+        <div className="absolute inset-0 z-0">
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={currentImageIndex}
+              src={heroImages[currentImageIndex]}
+              alt="Rencontre Comité Inter-Universitaire"
+              className="absolute inset-0 w-full h-full object-cover"
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.5 }}
+            />
+          </AnimatePresence>
           {/* Multi-layer gradient overlays for premium feel */}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-900/70 to-primary-900/80" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-900/70 to-primary-900/80 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10" />
         </div>
 
         {/* Animated decorative elements */}
