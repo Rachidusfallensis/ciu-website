@@ -31,23 +31,11 @@ const itemVariants = {
 const faqItems = [
   {
     question: <span>Comment rejoindre le <span className="text-primary-600">Comité Inter-Universitaire</span> ?</span>,
-    answer: "L'adhésion est ouverte à tout étudiant moustarchide inscrit dans une université publique ou privée. Il suffit de se rapprocher du point focal de votre université ou de remplir le formulaire d'adhésion en ligne lors des campagnes de recrutement."
-  },
-  {
-    question: "Quelles sont les activités principales du CIU ?",
-    answer: "Le CIU organise régulièrement des séances de Tarbiya, des conférences académiques, des colloques nationaux, des ateliers de développement personnel, et des événements de networking entre étudiants moustarchides. Nous mettons également à disposition des ressources pédagogiques et spirituelles sur notre plateforme."
-  },
-  {
-    question: "Y a-t-il une cotisation pour les membres ?",
-    answer: "L'adhésion au CIU est gratuite. Cependant, des cotisations volontaires peuvent être demandées pour financer certains projets spécifiques ou événements majeurs. Tout reste transparent et consensuel."
+    answer: "L'adhésion est ouverte à tout moustarchide étudiant inscrit dans une université publique ou privée. Il suffit de se rapprocher du point focal de votre université ou de remplir le formulaire d'adhésion en ligne lors des campagnes de recensement."
   },
   {
     question: "Comment puis-je contribuer au CIU ?",
-    answer: "Vous pouvez contribuer de plusieurs façons : rejoindre une commission selon vos compétences, participer aux événements et activités, proposer des initiatives, partager vos connaissances et expertise, ou simplement être actif au sein de votre point focal universitaire."
-  },
-  {
-    question: "Le CIU organise-t-il des événements inter-universitaires ?",
-    answer: "Oui ! Le CIU organise annuellement un grand Colloque National qui réunit tous les moustarchides étudiants du Sénégal. Nous organisons également des rencontres régionales, des séminaires thématiques et des activités sportives et culturelles tout au long de l'année."
+    answer: "Vous pouvez contribuer de plusieurs façons : rejoindre une commission selon vos compétences, participer aux événements et activités, proposer des initiatives, partager vos connaissances et expertise, ou simplement être actif au sein de votre point conseil universitaire."
   }
 ];
 
@@ -102,16 +90,7 @@ function FAQSection() {
         ))}
       </div>
 
-      <div className="mt-12 text-center p-8 bg-slate-100 rounded-3xl border border-slate-200">
-        <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-4 text-primary-600 shadow-sm">
-          <MessageCircle className="w-6 h-6" />
-        </div>
-        <h4 className="text-lg font-bold text-slate-900 mb-2">Vous avez d'autres questions ?</h4>
-        <p className="text-slate-600 mb-6">Notre équipe est là pour vous répondre.</p>
-        <a href="/contact" className="inline-flex items-center justify-center px-6 py-3 bg-slate-900 text-white font-bold rounded-xl hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
-          Contacter le support
-        </a>
-      </div>
+    
 
     </div>
   );
@@ -145,7 +124,7 @@ export default function About() {
 
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
-    }, 5000); // Change image every 5 seconds
+    }, 3000); // Change image every 3 seconds
     return () => clearInterval(interval);
   }, []);
 
@@ -177,24 +156,24 @@ export default function About() {
   ];
 
   const team = [
-    { name: "Khalifa Ababacar Sy Traoré", university: "UIDT", commission: "Point Focal", photo: "/khalifa.JPG" },
+    { name: "Khalifa Ababacar Sy Traoré", university: "UIDT", commission: "Point Focal", photo: "/khalifa_traore.jpeg" },
     { name: "Mouhamed Diouf", university: "UGB", commission: "Point Focal", photo: "/diouf.jpg" },
     { name: "El Hadj Gaye", university: "UCAD", commission: "Point Focal", photo: "/elhadj.JPG" },
-    { name: "Mame Ousmane Sarr", university: "UIDT", commission: "Commission Administrative", photo: "/ousmane.jpg" },
-    { name: "Mouhamadou Fadilou Chimere Diallo", university: "UADB", commission: "Commission Administrative", photo: "/chimere.jpg" },
-    { name: "Mademba Gueye", university: "UAM", commission: "Commission Administrative", photo: "/mademba.jpg" },
-    { name: "Arona Fall", university: "UADB", commission: "Commission d'Intelligence et de Perception Spirituelle", photo: "/arona.jpeg" },
+    { name: "Mame Ousmane Sarr", university: "UIDT", commission: "Commission Administrative", photo: "/mame_ousmane_sarr.png" },
+    { name: "Pape Samba Dia", university: "N/A", commission: "Commission Administrative" },
+    { name: "Mademba Gueye", university: "UAM", commission: "Commission Administrative", photo: "/mademba_gueye.jpeg" },
+    { name: "Mouhamadou Fadilou Chimere Diallo", university: "UADB", commission: "Commission d'Intelligence et de Perception Spirituelle", photo: "/chimere.jpg" },
     { name: "Adama Niang", university: "UCAD", commission: "Commission d'Intelligence et de Perception Spirituelle", photo: "/adama.jpg" },
-    { name: "Mouhamed Seck", university: "UGB", commission: "Commission d'Intelligence et de Perception Spirituelle", photo: "/seck.jpg" },
+    { name: "Idrissa Pouye", university: "UADB", commission: "Commission d'Intelligence et de Perception Spirituelle", photo: "/idrissa_pouye.jpg" },
+    { name: "Ndiaga Ndiaye", university: "UASZ", commission: "Commission d'Intelligence et de Perception Spirituelle", photo: "/ndiaga_ndiaye.jpg" },
+    { name: "Mame Cheikh Seck", university: "UGB", commission: "Commission d'Intelligence et de Perception Spirituelle", photo: "/mame_cheikh.jpg" },
     { name: "El Hadj Ndiouga", university: "UIDT", commission: "Commission d'Intelligence et de Perception Spirituelle", photo: "/ndiouga.JPG" },
     { name: "Cheikh Becaye", university: "UASZ", commission: "Commission d'Intelligence et de Perception Spirituelle", photo: "/becaye.jpg" },
-    { name: "El Hadj Malick", university: "USSEIN", commission: "Commission d'Intelligence et de Perception Spirituelle", photo: "/elhadjmalick.jpg" },
-    { name: "Saer Diop", university: "UASZ", commission: "Commission d'Intelligence et de Perception Spirituelle" },
-    { name: "Tallab Diop", university: "UCAD", commission: "Commission Trésor et Capacitation", photo: "/tallab.jpg" },
+    { name: "Tallab Diop", university: "UCAD", commission: "Commission Trésor et Capacitation", photo: "/tallab_diop.jpg" },
     { name: "Mame Gaydel Gaye", university: "UADB", commission: "Commission Trésor et Capacitation", photo: "/gaydel.JPG" },
-    { name: "Moustapha Gueye", university: "UASZ", commission: "Commission Trésor et Capacitation", photo: "/moustapha.JPG" },
-    { name: "Mbaye Samb", university: "UGB", commission: "Commission Logistique", photo: "/mbaye.jpg" },
-    { name: "Ismaila", university: "USSEIN", commission: "Commission Logistique", photo: "/ismaila.jpg" }
+    { name: "Moustapha Gueye", university: "UASZ", commission: "Commission Trésor et Capacitation", photo: "/moustapha_gueye.jpg" },
+    { name: "Mbaye Samb", university: "UGB", commission: "Commission Logistique", photo: "/mbaye_samb.jpg" },
+    { name: "Ismaila Cissé", university: "USSEIN", commission: "Commission Logistique", photo: "/ismaila_cisse.jpg" }
   ];
 
   const commissions = [
@@ -208,6 +187,19 @@ export default function About() {
   const getFilteredMembers = () => {
     if (activeTab === "Points Focaux") return team.filter(m => m.commission === "Point Focal");
     return team.filter(m => m.commission === activeTab);
+  };
+
+  const getAbbreviatedCommission = (name) => {
+    const map = {
+      "Point Focal": "PF",
+      "Commission Administrative": "CA",
+      "Commission d'Intelligence et de Perception Spirituelle": "CIPS",
+      "Commission Trésor et Capacitation": "CTC",
+      "Commission Logistique": "CL",
+      "Ex-CIPS": "CIPS", // Handle legacy/alumni cases if needed
+      "CIPS": "CIPS"
+    };
+    return map[name] || name;
   };
 
   return (
@@ -527,7 +519,7 @@ export default function About() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3 }}
-                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
                 >
                   {getFilteredMembers().map((member, index) => (
                     <motion.div
@@ -535,53 +527,119 @@ export default function About() {
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: index * 0.05 }}
-                      className="group bg-white rounded-3xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col items-center text-center relative overflow-hidden"
+                      className="group bg-white rounded-[2rem] p-3 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col relative overflow-hidden"
                     >
-                      {/* Hover Gradient Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-
-                      {/* Modern "Squircle" Photo Style */}
-                      <div className="w-32 h-32 rounded-2xl mb-4 relative z-10 group-hover:scale-105 transition-transform duration-300 ring-1 ring-slate-200/50 shadow-lg overflow-hidden bg-slate-100">
+                      {/* Image */}
+                      <div className="w-full aspect-[6/7] rounded-[2rem] mb-4 relative z-10 overflow-hidden bg-slate-100">
                         {member.photo ? (
                           <img
                             src={member.photo}
                             alt={member.name}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                           />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center bg-slate-200 text-slate-400">
-                            <Users className="w-8 h-8" />
+                            <Users className="w-16 h-16" />
                           </div>
                         )}
+                        {/* Overlay gradient on image bottom */}
+                        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       </div>
 
-                      <h4 className="text-lg font-bold text-slate-900 mb-1 active:text-primary-600 group-hover:text-primary-700 transition-colors z-10">
-                        {member.name}
-                      </h4>
+                      {/* Content Container */}
+                      <div className="flex flex-col items-center text-center px-2 pb-2">
 
-                      <div className="inline-block px-3 py-1 bg-slate-100 rounded-full text-xs font-semibold text-slate-600 mb-2 z-10">
-                        {member.university}
+                        {/* Name + Verified Badge */}
+                        <h4 className="text-xl font-bold text-slate-900 mb-1 flex items-center gap-2 justify-center">
+                          {member.name}
+                        </h4>
+
+                        {/* Commission */}
+                        <p className="text-sm text-slate-500 font-medium mb-1">
+                          {getAbbreviatedCommission(member.commission)}
+                        </p>
+
+                        {/* Bottom Row / Stats Style */}
+
+
                       </div>
-
-                      <p className="text-xs text-slate-500 z-10 opacity-0 group-hover:opacity-100 transition-opacity -mt-2 group-hover:mt-0">
-                        {member.commission}
-                      </p>
                     </motion.div>
                   ))}
                 </motion.div>
               </AnimatePresence>
             </div>
-
-
           </div>
+          {/* 5. Alumni Section */}
+          <div className="mb-32">
+            <div className="text-center mb-16">
+              <h3 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
+                Nos <span className="text-primary-600">Anciens</span>
+              </h3>
+              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                Ils ont marqué l'histoire du CIU par leur engagement et leur dévouement.
+              </p>
+            </div>
 
-          {/* 5. FAQ Section */}
-          <FAQSection />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[
+                { name: "Arona Fall", university: "UADB", commission: "CIPS", photo: "/arona_new.JPG" },
+                { name: "Mouhamed Seck", university: "UGB", commission: "CIPS", photo: "/seck.jpg" },
+                { name: "El Hadj Malick Niang", university: "USSEIN", commission: "CIPS", photo: "/elhadjmalick.jpg" },
+                { name: "Saer Diop", university: "UASZ", commission: "CIPS", photo: "/saer_diop.jpeg" }
+              ].map((member, index) => (
+                <motion.div
+                  key={member.name}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="group bg-white rounded-[2rem] p-3 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col relative overflow-hidden grayscale hover:grayscale-0"
+                >
+                  {/* Image */}
+                  <div className="w-full aspect-[6/7] rounded-[2rem] mb-4 relative z-10 overflow-hidden bg-slate-100">
+                    {member.photo ? (
+                      <img
+                        src={member.photo}
+                        alt={member.name}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center bg-slate-200 text-slate-400">
+                        <Users className="w-16 h-16" />
+                      </div>
+                    )}
+                    {/* Overlay gradient on image bottom */}
+                    <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+
+                  {/* Content Container */}
+                  <div className="flex flex-col items-center text-center px-2 pb-2">
+
+                    {/* Name */}
+                    < h4 className="text-xl font-bold text-slate-900 mb-1 flex items-center gap-2 justify-center" >
+                      {member.name}
+                    </h4>
+
+                    {/* Commission */}
+                    <p className="text-sm text-slate-500 font-medium mb-1">
+                      {getAbbreviatedCommission(member.commission)}
+                    </p>
 
 
 
-        </div>
-      </section>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div >
+
+          {/* 6. FAQ Section */}
+          < FAQSection />
+
+
+
+        </div >
+      </section >
     </>
   );
 }

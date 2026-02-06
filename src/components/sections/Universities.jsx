@@ -56,7 +56,7 @@ const universities = [
     logo: "/ugb.png",
     contact: [
       { name: "Gade Fall", phone: "+221 77 273 43 30" },
-      { name: "Pape Gora Guéne", phone: "+221 77 284 57 78" }
+      { name: "Abdoulaye Sow", phone: "+221 77 505 98 48" }
     ],
     coordinates: [16.0378, -16.4894],
     gradient: "from-accent-500 to-secondary-500",
@@ -71,7 +71,7 @@ const universities = [
     description: "Université dynamique du Sud, contribuant au développement de la Casamance.",
     logo: "/uasz.png",
     contact: [
-      { name: "Baba Diaw", phone: "+221 76 321 23 90" },
+      { name: "Baba Gueye", phone: "+221 77 986 27 98" },
       { name: "Ndiaga Ndiaye", phone: "+221 77 789 63 79" }
     ],
     coordinates: [12.5444, -16.2736],
@@ -88,7 +88,7 @@ const universities = [
     logo: "/uadb.png",
     contact: [
       { name: "Idrissa Pouye", phone: "+221 70 548 90 75" },
-      { name: "Abdou Seydi", phone: "+221 77 611 50 66" }
+      { name: "Assane Ngom", phone: "+221 77 669 40 42" }
     ],
     coordinates: [14.7022, -16.4522],
     gradient: "from-primary-600 to-accent-600",
@@ -103,8 +103,8 @@ const universities = [
     description: "Université régionale contribuant au développement du bassin arachidier.",
     logo: "/ussein.png",
     contact: [
-      { name: "Moustapha Diakhate", phone: "+221 76 155 03 95" },
-      { name: "Saly", phone: "+221 78 481 09 11" }
+      { name: "Magatte Guéye", phone: "+221 78 960 78 60" },
+      { name: "Soda Mariama Lo", phone: "+221 77 970 70 99" }
     ],
     coordinates: [14.1372, -16.0728],
     gradient: "from-accent-600 to-secondary-600",
@@ -119,7 +119,7 @@ const universities = [
     description: "Université technologique spécialisée dans l'ingénierie et les sciences appliquées.",
     logo: "/uidt.png",
     contact: [
-      { name: "Massata", phone: "+221 77 096 45 41" },
+      { name: "Massata Mbaye", phone: "+221 77 096 45 41" },
       { name: "Demba Ndiaye", phone: "+221 77 492 78 83" }
     ],
     coordinates: [14.7886, -16.9260],
