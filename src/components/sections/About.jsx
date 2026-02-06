@@ -2,6 +2,7 @@ import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { Target, Eye, Heart, Users, BookOpen, Globe, ChevronRight, ChevronDown, HelpCircle, MessageCircle } from 'lucide-react';
 import { cn } from '../../utils/cn';
+import TeamAccordion from '../TeamAccordion';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -90,7 +91,7 @@ function FAQSection() {
         ))}
       </div>
 
-    
+
 
     </div>
   );
@@ -104,29 +105,11 @@ export default function About() {
   const isValuesInView = useInView(valuesRef, { once: true, amount: 0.2 });
   const isTeamInView = useInView(teamRef, { once: true, amount: 0.1 });
 
-  const [activeTab, setActiveTab] = useState("Points Focaux");
+  // Removed Tabs Logic
+  // const [activeTab, setActiveTab] = useState("Points Focaux");
 
-  // Hero Carousel Logic
-  const heroImages = [
-    "/about-slide-1.jpg",
-    "/about-slide-2.jpg",
-    "/about-slide-3.jpg",
-    "/about-slide-4.jpg",
-    "/about-slide-5.jpg"
-  ];
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  useEffect(() => {
-    // Preload images
-    heroImages.forEach((image) => {
-      new Image().src = image;
-    });
-
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
-    }, 3000); // Change image every 3 seconds
-    return () => clearInterval(interval);
-  }, []);
+  // Hero Logic (Static)
+  // const heroImage = "/about-slide-3.jpg"; // Using direct string in style for simplicity
 
   const values = [
     {
@@ -204,114 +187,70 @@ export default function About() {
 
   return (
     <>
-      {/* Premium Hero Section with Image */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      {/* Premium Hero Section - Text Mask Style ("Voices United") */}
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={currentImageIndex}
-              src={heroImages[currentImageIndex]}
-              alt="Rencontre Comité Inter-Universitaire"
-              className="absolute inset-0 w-full h-full object-cover"
-              initial={{ opacity: 0, scale: 1.1 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1.5 }}
-            />
-          </AnimatePresence>
-          {/* Multi-layer gradient overlays for premium feel */}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-900/70 to-primary-900/80 z-10" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10" />
+          <img
+            src="/about-slide-5.jpg"
+            alt="Background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-white/70 backdrop-blur-[2px]" />
         </div>
 
-        {/* Animated decorative elements */}
-        <div className="absolute top-20 right-20 w-72 h-72 bg-primary-500/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-accent-500/10 rounded-full blur-3xl animate-pulse delay-700" />
+        <div className="relative z-10 w-full max-w-[90vw] text-center flex flex-col items-center justify-center">
 
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
-          {/* Headline */}
+          {/* Masked Text Container */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-6"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="relative"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight text-white">
-              <span className="block mb-2 sm:inline sm:mb-0 sm:mr-3">Notre</span>
-              <motion.span
-                className="inline-block relative px-4 py-1 sm:mr-3"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
-              >
-                <motion.span
-                  className="absolute inset-0 bg-yellow-500 -skew-x-6 rounded-lg backdrop-blur-sm"
-                  initial={{ width: "0%" }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-                />
-                <span className="relative z-10 text-white drop-shadow-sm">
-                  Histoire
+            {/* Main Title - Fun & Dynamic Sticker Style */}
+            <h1 className="flex flex-col items-center justify-center font-black tracking-tight select-none">
+
+              {/* Line 1: À (Simple) + PROPOS (Yellow Sticker) */}
+              <div className="flex items-center gap-4 md:gap-6 mb-2 md:mb-4">
+                <span className="text-4xl md:text-7xl lg:text-8xl text-slate-900 leading-none">
+                  À
                 </span>
-              </motion.span>
-              <span className="text-white mr-3">&</span>
-              <motion.span
-                className="inline-block relative px-4 py-1"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
-              >
-                <motion.span
-                  className="absolute inset-0 bg-primary-600 -skew-x-6 rounded-lg backdrop-blur-sm"
-                  initial={{ width: "0%" }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-                />
-                <span className="relative z-10 text-white drop-shadow-sm">
-                  Mission
+                <span className="bg-secondary-400 text-white px-6 md:px-10 py-1 md:py-4 rounded-xl md:rounded-3xl text-4xl md:text-7xl lg:text-8xl -rotate-3 shadow-lg transform hover:scale-105 transition-transform duration-300">
+                  PROPOS
                 </span>
-              </motion.span>
+              </div>
+
+              {/* Line 2: DE NOUS (Blue Sticker) */}
+              <div className="relative">
+                <span className="block bg-primary-600 text-white px-8 md:px-12 py-3 md:py-6 rounded-2xl md:rounded-[2rem] text-5xl md:text-8xl lg:text-9xl rotate-2 shadow-xl transform hover:rotate-1 transition-transform duration-300 z-10">
+                  DE NOUS
+                </span>
+
+                {/* Decorative dots/elements for sticker feel */}
+                <div className="absolute -right-4 -top-4 w-4 h-4 md:w-8 md:h-8 bg-secondary-400 rounded-full animate-bounce delay-700" />
+                <div className="absolute -left-2 -bottom-2 w-3 h-3 md:w-6 md:h-6 bg-primary-300 rounded-full animate-pulse" />
+              </div>
+
             </h1>
+
+            {/* Floating Decorative Elements - Harmonized */}
+            <motion.div
+              animate={{ y: [0, -20, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -top-10 -right-10 w-24 h-24 md:w-32 md:h-32 bg-secondary-400/20 rounded-full blur-2xl -z-10"
+            />
           </motion.div>
 
-          {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg sm:text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed mb-12"
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="mt-8 md:mt-12 text-lg md:text-2xl text-slate-600 max-w-3xl font-medium leading-relaxed"
           >
-            Depuis 2022, le <span className="font-bold text-secondary-400">Comité Inter-Universitaire</span> œuvre pour l'épanouissement des moustarchides étudiants,
-            créant un pont entre excellence académique et valeurs spirituelles.
+            Nous fédérons l'intelligentsia moustarchidine au service de l'excellence académique et des valeurs spirituelles.
           </motion.p>
-
-          {/* Stats Row */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-wrap justify-center gap-12 sm:gap-24"
-          >
-            {[
-              { value: "9+", label: "Universités" },
-              { value: "1500+", label: "Membres" }
-            ].map((stat, index) => (
-              <div key={index} className="text-center group hover:-translate-y-1 transition-transform duration-300">
-                <div className="text-4xl sm:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-secondary-300 to-secondary-500 mb-2 drop-shadow-sm">
-                  {stat.value}
-                </div>
-                <div className="text-sm sm:text-base text-slate-300 font-bold tracking-widest uppercase group-hover:text-white transition-colors">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </motion.div>
         </div>
-
-        {/* Decorative Wave Transition */}
-
       </section>
 
       <section id="about" ref={aboutRef} className="pt-12 pb-20 bg-slate-50 relative overflow-hidden">
@@ -492,146 +431,12 @@ export default function About() {
               </p>
             </div>
 
-            {/* Tabs - Horizontal Scroll on Mobile */}
-            <div className="flex flex-nowrap overflow-x-auto pb-4 mb-12 px-4 gap-3 justify-start lg:justify-center scrollbar-hide -mx-4 sm:mx-0">
-              {commissions.map((commission) => (
-                <button
-                  key={commission}
-                  onClick={() => setActiveTab(commission)}
-                  className={cn(
-                    "px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 border flex-shrink-0 whitespace-nowrap",
-                    activeTab === commission
-                      ? "bg-slate-900 text-white border-slate-900 shadow-lg transform scale-105"
-                      : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50 hover:border-slate-300"
-                  )}
-                >
-                  {commission === "Commission d'Intelligence et de Perception Spirituelle" ? "CIPS" : commission}
-                </button>
-              ))}
-            </div>
-
-            {/* Team Grid */}
-            <div className="min-h-[400px]">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeTab}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3 }}
-                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-                >
-                  {getFilteredMembers().map((member, index) => (
-                    <motion.div
-                      key={member.name}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: index * 0.05 }}
-                      className="group bg-white rounded-[2rem] p-3 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col relative overflow-hidden"
-                    >
-                      {/* Image */}
-                      <div className="w-full aspect-[6/7] rounded-[2rem] mb-4 relative z-10 overflow-hidden bg-slate-100">
-                        {member.photo ? (
-                          <img
-                            src={member.photo}
-                            alt={member.name}
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                          />
-                        ) : (
-                          <div className="w-full h-full flex items-center justify-center bg-slate-200 text-slate-400">
-                            <Users className="w-16 h-16" />
-                          </div>
-                        )}
-                        {/* Overlay gradient on image bottom */}
-                        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      </div>
-
-                      {/* Content Container */}
-                      <div className="flex flex-col items-center text-center px-2 pb-2">
-
-                        {/* Name + Verified Badge */}
-                        <h4 className="text-xl font-bold text-slate-900 mb-1 flex items-center gap-2 justify-center">
-                          {member.name}
-                        </h4>
-
-                        {/* Commission */}
-                        <p className="text-sm text-slate-500 font-medium mb-1">
-                          {getAbbreviatedCommission(member.commission)}
-                        </p>
-
-                        {/* Bottom Row / Stats Style */}
-
-
-                      </div>
-                    </motion.div>
-                  ))}
-                </motion.div>
-              </AnimatePresence>
+            {/* Team Grid (Consolidated Accordion) */}
+            <div className="min-h-[500px]">
+              <TeamAccordion members={team} />
             </div>
           </div>
-          {/* 5. Alumni Section */}
-          <div className="mb-32">
-            <div className="text-center mb-16">
-              <h3 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
-                Nos <span className="text-primary-600">Anciens</span>
-              </h3>
-              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                Ils ont marqué l'histoire du CIU par leur engagement et leur dévouement.
-              </p>
-            </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
-                { name: "Arona Fall", university: "UADB", commission: "CIPS", photo: "/arona_new.JPG" },
-                { name: "Mouhamed Seck", university: "UGB", commission: "CIPS", photo: "/seck.jpg" },
-                { name: "El Hadj Malick Niang", university: "USSEIN", commission: "CIPS", photo: "/elhadjmalick.jpg" },
-                { name: "Saer Diop", university: "UASZ", commission: "CIPS", photo: "/saer_diop.jpeg" }
-              ].map((member, index) => (
-                <motion.div
-                  key={member.name}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="group bg-white rounded-[2rem] p-3 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col relative overflow-hidden grayscale hover:grayscale-0"
-                >
-                  {/* Image */}
-                  <div className="w-full aspect-[6/7] rounded-[2rem] mb-4 relative z-10 overflow-hidden bg-slate-100">
-                    {member.photo ? (
-                      <img
-                        src={member.photo}
-                        alt={member.name}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-slate-200 text-slate-400">
-                        <Users className="w-16 h-16" />
-                      </div>
-                    )}
-                    {/* Overlay gradient on image bottom */}
-                    <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </div>
-
-                  {/* Content Container */}
-                  <div className="flex flex-col items-center text-center px-2 pb-2">
-
-                    {/* Name */}
-                    < h4 className="text-xl font-bold text-slate-900 mb-1 flex items-center gap-2 justify-center" >
-                      {member.name}
-                    </h4>
-
-                    {/* Commission */}
-                    <p className="text-sm text-slate-500 font-medium mb-1">
-                      {getAbbreviatedCommission(member.commission)}
-                    </p>
-
-
-
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div >
 
           {/* 6. FAQ Section */}
           < FAQSection />

@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Facebook, Twitter, Instagram } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, Instagram } from 'lucide-react';
 import { cn } from '../utils/cn';
 import { Link } from 'react-router-dom';
 
@@ -18,11 +18,11 @@ export default function Footer() {
               <h3 className="text-lg sm:text-xl font-bold">Comité Inter-Universitaire</h3>
             </div>
             <p className="text-gray-300 mb-4 leading-relaxed text-sm sm:text-base">
-            Le comité interuniversitaire est la branche universitaire des Moustarchidines Juniors du Dahiratoul Moustarchidina Wal Moustarchidaty. Il regroupe les moustarchides étudiants des universités publiques, des écoles et instituts de formation du Sénégal.
+              Le comité interuniversitaire est la branche universitaire des Moustarchidines Juniors du Dahiratoul Moustarchidina Wal Moustarchidaty. Il regroupe les moustarchides étudiants des universités publiques, des écoles et instituts de formation du Sénégal.
             </p>
             <div className="flex space-x-3 sm:space-x-4">
-              <a 
-                href="#" 
+              <a
+                href="#"
                 className={cn(
                   "text-gray-300 hover:text-secondary-300 transition-colors duration-200",
                   "focus:outline-none focus:ring-2 focus:ring-secondary-400 focus:ring-offset-2 focus:ring-offset-primary-900 focus-visible:ring-2 rounded-md p-1",
@@ -32,19 +32,22 @@ export default function Footer() {
               >
                 <Facebook size={20} />
               </a>
-              <a 
-                href="#" 
+              <a
+                href="#"
                 className={cn(
                   "text-gray-300 hover:text-secondary-300 transition-colors duration-200",
                   "focus:outline-none focus:ring-2 focus:ring-secondary-400 focus:ring-offset-2 focus:ring-offset-primary-900 focus-visible:ring-2 rounded-md p-1",
                   "min-h-[44px] min-w-[44px] flex items-center justify-center"
                 )}
-                aria-label="Suivez-nous sur Twitter"
+                aria-label="Suivez-nous sur X"
               >
-                <Twitter size={20} />
+                {/* X Logo */}
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
               </a>
-              <a 
-                href="#" 
+              <a
+                href="#"
                 className={cn(
                   "text-gray-300 hover:text-secondary-300 transition-colors duration-200",
                   "focus:outline-none focus:ring-2 focus:ring-secondary-400 focus:ring-offset-2 focus:ring-offset-primary-900 focus-visible:ring-2 rounded-md p-1",
@@ -69,7 +72,7 @@ export default function Footer() {
                   { name: 'Ressources', to: '/resources' },
                 ].map((link) => (
                   <li key={link.name}>
-                    <Link 
+                    <Link
                       to={link.to}
                       className={cn(
                         "text-gray-300 hover:text-secondary-300 transition-colors duration-200",
@@ -97,7 +100,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center">
                 <Mail size={16} className="text-secondary-400 mr-2 flex-shrink-0 sm:size-[18px]" aria-hidden="true" />
-                <a 
+                <a
                   href="mailto:comiteinteru@gmail.com"
                   className={cn(
                     "text-gray-300 hover:text-secondary-300 transition-colors duration-200 text-xs sm:text-sm",
@@ -110,7 +113,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center">
                 <Phone size={16} className="text-secondary-400 mr-2 flex-shrink-0 sm:size-[18px]" aria-hidden="true" />
-                <a 
+                <a
                   href="tel:+221774701173"
                   className={cn(
                     "text-gray-300 hover:text-secondary-300 transition-colors duration-200 text-xs sm:text-sm",
@@ -132,7 +135,7 @@ export default function Footer() {
               © {currentYear} Comité Inter-Universitaire. Tous droits réservés.
             </p>
             <div className="flex flex-col space-y-2 sm:flex-row sm:space-y-0 sm:space-x-4 md:space-x-6 items-center">
-              <a 
+              <a
                 href="#privacy"
                 className={cn(
                   "text-gray-300 hover:text-secondary-300 transition-colors duration-200 text-xs sm:text-sm",
@@ -142,7 +145,7 @@ export default function Footer() {
               >
                 Politique de confidentialité
               </a>
-              <a 
+              <a
                 href="#terms"
                 className={cn(
                   "text-gray-300 hover:text-secondary-300 transition-colors duration-200 text-xs sm:text-sm",

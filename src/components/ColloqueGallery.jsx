@@ -2,6 +2,7 @@ import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { Camera, X, ChevronLeft, ChevronRight, Image as ImageIcon, Play, ExternalLink, Film } from 'lucide-react';
 import { cn } from '../utils/cn';
+import VideoCarousel from './VideoCarousel';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -379,6 +380,12 @@ export default function ColloqueGallery() {
               <div className="flex justify-center py-20">
                 <div className="w-10 h-10 border-4 border-primary-100 border-t-primary-600 rounded-full animate-spin" />
               </div>
+            ) : selectedAlbum.id === 'videos-colloque' ? (
+              // Video Carousel View
+              <VideoCarousel
+                videos={currentList}
+                onVideoSelect={(video, index) => openMedia(video, index)}
+              />
             ) : (
               <motion.div
                 className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
