@@ -64,7 +64,8 @@ export default function FeaturedNews() {
                                     alt={mainFeature.title}
                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent opacity-95" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/90 to-transparent opacity-100" />
+                                <div className="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 backdrop-blur-[2px]" />
                             </div>
 
                             <div className="absolute bottom-0 left-0 right-0 p-8 sm:p-10">
@@ -94,7 +95,7 @@ export default function FeaturedNews() {
                     </motion.div>
 
                     {/* Recent Articles List (Right Side) */}
-                    <div className="lg:col-span-5 flex flex-col gap-6">
+                    <div className="lg:col-span-5 flex flex-col gap-6 h-full">
                         {recentArticles.map((article, index) => (
                             <motion.div
                                 key={article.id}
@@ -102,10 +103,11 @@ export default function FeaturedNews() {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: index * 0.1 }}
+                                className="flex-1"
                             >
                                 <Link
                                     to={article.link || '/news'}
-                                    className="group flex gap-4 bg-white p-5 rounded-2xl shadow-sm hover:shadow-md border border-slate-100 transition-all duration-300 hover:border-primary-100 hover:bg-primary-50/30"
+                                    className="group flex gap-4 bg-white p-5 rounded-2xl shadow-sm hover:shadow-md border border-slate-100 transition-all duration-300 hover:border-primary-100 hover:bg-primary-50/30 h-full items-center"
                                 >
                                     <div className="w-24 h-24 sm:w-32 sm:h-32 flex-shrink-0 rounded-xl overflow-hidden relative">
                                         <img
@@ -142,7 +144,7 @@ export default function FeaturedNews() {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
-                            className="bg-slate-900 rounded-2xl p-6 md:p-8 text-center sm:text-left relative overflow-hidden"
+                            className="bg-slate-900 rounded-2xl p-6 md:p-8 text-center sm:text-left relative overflow-hidden flex-shrink-0"
                         >
                             <div className="absolute top-0 right-0 w-32 h-32 bg-primary-600/20 rounded-full blur-2xl -mr-10 -mt-10" />
 
@@ -162,6 +164,6 @@ export default function FeaturedNews() {
                     </div>
                 </div>
             </div>
-        </section>
+        </section >
     );
 }
