@@ -6,78 +6,74 @@ export default function AmphiRentreePage() {
     return (
         <main className="pt-20 bg-slate-50 min-h-screen">
             {/* Hero Section */}
-            <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 z-0">
-                    <img
-                        src="/amphi.jpeg"
-                        alt="Amphi de rentrée"
-                        className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-slate-900/70" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent opacity-90" />
+            {/* Hero Section */}
+            <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-[#FDFBF7]">
+                {/* Subtle Background Pattern (No Image) */}
+                <div className="absolute inset-0 opacity-40 pointer-events-none">
+                    <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-secondary-200/30 rounded-full blur-[100px] -mr-20 -mt-20 mix-blend-multiply" />
+                    <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary-200/30 rounded-full blur-[100px] -ml-20 -mb-20 mix-blend-multiply" />
                 </div>
 
-                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
                     >
+                        {/* Main Title - Fun & Dynamic Sticker Style */}
+                        <h1 className="flex flex-col items-center justify-center font-black tracking-tight select-none mb-8">
 
+                            {/* Line 1: AMPHI (Yellow Sticker) */}
+                            <div className="flex items-center gap-4 mb-2 md:mb-4">
+                                <span className="bg-secondary-400 text-white px-6 md:px-10 py-1 md:py-4 rounded-xl md:rounded-3xl text-4xl md:text-7xl lg:text-8xl -rotate-3 shadow-lg transform hover:scale-105 transition-transform duration-300">
+                                    AMPHI
+                                </span>
+                            </div>
 
-                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 tracking-tight leading-tight">
-                            <span className="block mb-2">Amphi de</span>
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200">
-                                Rentrée
-                            </span>
+                            {/* Line 2: DE RENTRÉE (Blue Sticker) */}
+                            <div className="relative">
+                                <span className="block bg-primary-600 text-white px-8 md:px-12 py-3 md:py-6 rounded-2xl md:rounded-[2rem] text-4xl md:text-7xl lg:text-8xl rotate-2 shadow-xl transform hover:rotate-1 transition-transform duration-300 z-10">
+                                    DE RENTRÉE
+                                </span>
+
+                                {/* Decorative dots/elements for sticker feel */}
+                                <div className="absolute -right-4 -top-4 w-4 h-4 md:w-8 md:h-8 bg-secondary-400 rounded-full animate-bounce delay-700" />
+                                <div className="absolute -left-2 -bottom-2 w-3 h-3 md:w-6 md:h-6 bg-primary-300 rounded-full animate-pulse" />
+                            </div>
+
                         </h1>
 
-                        <p className="text-xl md:text-2xl text-slate-200 max-w-3xl mx-auto mb-12 font-light leading-relaxed">
+                        <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-12 font-medium leading-relaxed">
                             L'excellence au service de la Tarbiya !
                         </p>
-
 
                     </motion.div>
                 </div>
             </section>
 
-            {/* Video Section Title */}
-            <section className="py-20 bg-white">
-                <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="aspect-video rounded-3xl overflow-hidden shadow-2xl border-8 border-slate-100 bg-slate-900">
-                        <iframe
-                            width="100%"
-                            height="100%"
-                            src="https://www.youtube.com/embed/PwA1Zy8C7nY"
-                            title="Bande Annonce Amphi de rentrée"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                        ></iframe>
-                    </div>
-                </div>
-            </section>
+
 
             {/* Context Section */}
             <section className="py-24 bg-slate-50 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-100/40 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
+                {/* Background Decor (Matching Gallery/Colloque) */}
+                <div className="absolute inset-0 opacity-30 pointer-events-none">
+                    <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-100/40 rounded-full blur-3xl -mr-20 -mt-20" />
+                    <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-100/40 rounded-full blur-3xl -ml-20 -mb-20" />
+                </div>
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className="flex flex-col lg:flex-row gap-16 items-start">
+                    <div className="flex flex-col lg:flex-row gap-16 items-center">
                         {/* Text Content */}
-                        <div className="lg:w-3/5">
+                        <div className="lg:w-1/2">
                             <motion.div
                                 initial={{ opacity: 0, x: -30 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.8 }}
                             >
-                                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-slate-100 text-primary-600 text-xs font-bold uppercase tracking-wider mb-8">
-                                    <Brain className="w-4 h-4" />
-                                    Contexte & Vision
-                                </div>
+                            
 
-                                <h2 className="text-3xl md:text-5xl font-black mb-8 text-slate-900 leading-tight">
-                                    Répondre à l'Appel de la <span className="text-primary-600">Responsabilité</span>
+                                <h2 className="text-3xl md:text-5xl font-black mb-8 text-slate-900 leading-tight tracking-tight">
+                                    <span className="text-primary-600">Contexte</span>
                                 </h2>
 
                                 <div className="prose prose-lg text-slate-600 leading-relaxed text-justify">
@@ -94,24 +90,45 @@ export default function AmphiRentreePage() {
                             </motion.div>
                         </div>
 
-                        {/* Visual / Highlight */}
-                        <div className="lg:w-2/5 relative">
-                            <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 to-primary-600 rounded-[2.5rem] transform rotate-3 blur-2xl opacity-20" />
-                            <div className="relative bg-white p-10 rounded-[2.5rem] shadow-xl border border-slate-100">
-                                <Award className="w-16 h-16 text-yellow-500 mb-6" />
-                                <blockquote className="text-xl font-medium text-slate-900 italic mb-6 leading-relaxed">
-                                    "Nous sommes à la croisée des chemins, où la transition des démocraties vers les technocraties doit définitivement s’installer."
-                                </blockquote>
-                                <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center font-bold text-slate-400">
-                                        CIU
+                        {/* Visual / Highlight - Updated with Captain Image */}
+                        <div className="lg:w-1/2 relative">
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.8 }}
+                                className="relative"
+                            >
+                                {/* Image Frame */}
+                                <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white h-[600px]">
+                                    <img
+                                        src="/colloque-optimized/gallery/ceremonie-cloture/2_gallery.jpg"
+                                        alt="Capitaine Mame Cheikh Ahmed Tidiane SY"
+                                        className="w-full h-full object-cover"
+                                    />
+                                    {/* Gradient Overlay for Text Readability */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                                </div>
+
+                                {/* Floating Citation Card */}
+                                <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur p-8 rounded-[2rem] shadow-xl border border-slate-50">
+                                    <div className="flex gap-4 mb-4">
+                                        <Award className="w-8 h-8 text-yellow-500 flex-shrink-0" />
+                                        <blockquote className="text-lg font-medium text-slate-900 italic leading-relaxed">
+                                            "Nous sommes à la croisée des chemins, où la transition des démocraties vers les technocraties doit définitivement s’installer."
+                                        </blockquote>
                                     </div>
-                                    <div>
-                                        <div className="font-bold text-slate-900">Capitaine Mame Cheikh</div>
-                                        <div className="text-sm text-slate-500">Ahmed Tidiane SY</div>
+
+                                    <div className="flex items-center gap-3 pl-12">
+                                        <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center font-bold text-slate-400 text-xs">
+                                            CIU
+                                        </div>
+                                        <div>
+                                            <div className="font-bold text-slate-900 text-sm">Mame Cheikh Ahmed </div>
+                                            <div className="text-xs text-slate-500">Tidiane SY Capitaine</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
                         </div>
                     </div>
                 </div>
@@ -128,7 +145,7 @@ export default function AmphiRentreePage() {
                         >
                             <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tight">Objectifs</h2>
                             <p className="text-xl text-slate-500 font-medium max-w-2xl mx-auto">
-                                Inspirer, orienter et conscientiser la jeunesse estudiantine pour bâtir l'avenir.
+                                <span className="text-primary-600 font-bold">Inspirer</span>, <span className="text-primary-600 font-bold">orienter</span> et <span className="text-primary-600 font-bold">conscientiser</span> la jeunesse estudiantine pour bâtir un avenir meilleur.
                             </p>
                         </motion.div>
                     </div>
@@ -159,6 +176,23 @@ export default function AmphiRentreePage() {
                 </div>
             </section>
 
+            {/* Video Section Title */}
+            <section className="py-20 bg-white">
+                <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="aspect-video rounded-3xl overflow-hidden shadow-2xl border-8 border-slate-100 bg-slate-900">
+                        <iframe
+                            width="100%"
+                            height="100%"
+                            src="https://www.youtube.com/embed/PwA1Zy8C7nY"
+                            title="Bande Annonce Amphi de rentrée"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        ></iframe>
+                    </div>
+                </div>
+            </section>
+
             {/* Themes Section */}
             <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
@@ -181,9 +215,9 @@ export default function AmphiRentreePage() {
                                 <div className="w-16 h-16 rounded-2xl bg-yellow-400/20 text-yellow-400 flex items-center justify-center mb-8">
                                     <Target className="w-8 h-8" />
                                 </div>
-                                <h3 className="text-2xl md:text-3xl font-bold mb-4">Face aux urgences de l’heure</h3>
+                                <h3 className="text-2xl md:text-3xl font-bold mb-4">Face aux urgences de l’heure: </h3>
                                 <p className="text-slate-300 text-lg leading-relaxed">
-                                    Pluridisciplinarité et excellence, deux exigences à concilier pour répondre aux défis contemporains.
+                                    Pluridisciplinarité et excellence, deux exigences à concilier.
                                 </p>
                             </div>
                         </motion.div>
@@ -197,9 +231,9 @@ export default function AmphiRentreePage() {
                                 <div className="w-16 h-16 rounded-2xl bg-primary-500/20 text-primary-400 flex items-center justify-center mb-8">
                                     <Users className="w-8 h-8" />
                                 </div>
-                                <h3 className="text-2xl md:text-3xl font-bold mb-4">Posture du Moustarchid Étudiant</h3>
+                                <h3 className="text-2xl md:text-3xl font-bold mb-4">Entre épanouissement spirituel et participation citoyenne :</h3>
                                 <p className="text-slate-300 text-lg leading-relaxed">
-                                    Entre épanouissement spirituel et participation citoyenne : trouver l'équilibre pour un impact durable.
+                                    Quelle posture pour le Moustarchid Étudiant?
                                 </p>
                             </div>
                         </motion.div>
@@ -212,10 +246,7 @@ export default function AmphiRentreePage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div>
-                            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-100 text-primary-600 text-xs font-bold uppercase tracking-wider mb-6">
-                                <Mic className="w-4 h-4" />
-                                Parole aux Invités
-                            </div>
+                        
                             <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-6">
                                 Partage d'expérience & <span className="text-primary-600">Networking</span>
                             </h2>

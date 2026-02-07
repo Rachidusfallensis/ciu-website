@@ -168,37 +168,49 @@ export default function Universities() {
   const totalMembers = universities.reduce((sum, uni) => sum + uni.members, 0);
 
   return (
-    <section id="universities" className="section-padding bg-slate-50 relative overflow-hidden">
-      {/* Background Decor */}
-
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-100/50 rounded-full blur-3xl -z-0 pointer-events-none mix-blend-multiply opacity-70" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-yellow-100/50 rounded-full blur-3xl -z-0 pointer-events-none mix-blend-multiply opacity-70" />
+    <section id="universities" className="section-padding bg-[#FDFBF7] relative overflow-hidden">
+      {/* Background Decor (Subtle & Light) */}
+      <div className="absolute inset-0 opacity-40 pointer-events-none">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-secondary-200/30 rounded-full blur-[100px] -mr-20 -mt-20 mix-blend-multiply" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary-200/30 rounded-full blur-[100px] -ml-20 -mb-20 mix-blend-multiply" />
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Header */}
         <motion.div
           ref={universitiesRef}
-          initial={{ opacity: 0, y: 30 }}
-          animate={isUniversitiesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={isUniversitiesInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
 
+          {/* Main Title - Sticker Style */}
+          <h1 className="flex flex-col items-center justify-center font-black tracking-tight select-none mb-8">
 
-          <h2 className="text-4xl md:text-5xl lg:text-7xl font-black mb-8 text-slate-900 leading-tight">
-            <span className="block mb-4 sm:mb-2">
-              Nos
-              <span className="relative inline-block px-4 py-1 ml-3">
-                <span className="absolute inset-0 bg-yellow-400 -skew-x-6 rounded-lg shadow-lg shadow-yellow-400/30" />
-                <span className="relative z-10 text-white">Conseils</span>
+            {/* Line 1: NOS (Plain) + CONSEILS (Yellow Sticker) */}
+            <div className="flex items-center gap-4 mb-2 md:mb-4">
+              <span className="text-4xl md:text-6xl lg:text-7xl text-slate-900 leading-none">
+                NOS
               </span>
-            </span>
-            <span className="relative inline-block px-4 py-1">
-              <span className="absolute inset-0 bg-primary-600 -skew-x-6 rounded-lg shadow-lg shadow-primary-500/30" />
-              <span className="relative z-10 text-white">Universitaires</span>
-            </span>
-          </h2>
+              <span className="bg-secondary-400 text-white px-6 md:px-8 py-2 md:py-4 rounded-xl md:rounded-3xl text-3xl md:text-6xl lg:text-7xl -rotate-3 shadow-lg transform hover:scale-105 transition-transform duration-300">
+                CONSEILS
+              </span>
+            </div>
+
+            {/* Line 2: UNIVERSITAIRES (Blue Sticker) */}
+            <div className="relative">
+              <span className="block bg-primary-600 text-white px-6 md:px-10 py-3 md:py-5 rounded-2xl md:rounded-[2rem] text-3xl md:text-6xl lg:text-7xl rotate-2 shadow-xl transform hover:rotate-1 transition-transform duration-300 z-10">
+                UNIVERSITAIRES
+              </span>
+
+              {/* Decorative dots/elements */}
+              <div className="absolute -right-4 -top-4 w-4 h-4 md:w-8 md:h-8 bg-secondary-400 rounded-full animate-bounce delay-700" />
+              <div className="absolute -left-2 -bottom-2 w-3 h-3 md:w-6 md:h-6 bg-primary-300 rounded-full animate-pulse" />
+            </div>
+
+          </h1>
 
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
             Présent dans toutes les universités publiques du Sénégal, le CIU unit <span className="text-primary-600 font-bold">{totalMembers}+ étudiants</span> autour de l'excellence académique et des valeurs spirituelles.
@@ -404,6 +416,6 @@ export default function Universities() {
         </motion.div>
 
       </div>
-    </section>
+    </section >
   );
 }

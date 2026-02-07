@@ -19,32 +19,45 @@ export default function ResourcesPage() {
   return (
     <main className="pt-20 bg-slate-50 min-h-screen">
       {/* Hero Section */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-20 overflow-hidden">
-        {/* Abstract Background */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-100/40 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent-100/40 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none" />
+      <section className="relative px-4 sm:px-6 lg:px-8 py-20 bg-[#FDFBF7] overflow-hidden">
+        {/* Abstract Background (Subtle & Light) */}
+        <div className="absolute inset-0 opacity-40 pointer-events-none">
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-secondary-200/30 rounded-full blur-[100px] -mr-20 -mt-20 mix-blend-multiply" />
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary-200/30 rounded-full blur-[100px] -ml-20 -mb-20 mix-blend-multiply" />
+        </div>
 
         <div className="max-w-7xl mx-auto relative z-10 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
           >
 
 
+            {/* Main Title - Sticker Style */}
+            <h1 className="flex flex-col items-center justify-center font-black tracking-tight select-none mb-8">
 
-            <h1 className="text-5xl md:text-7xl font-black mb-8 tracking-tight leading-tight flex flex-wrap items-center justify-center gap-4">
-              <span className="relative inline-block px-4 py-1">
-                <span className="absolute inset-0 bg-yellow-400 -skew-x-6 rounded-xl shadow-xl shadow-yellow-400/20 transform md:-rotate-1 opacity-90" />
-                <span className="relative z-10 text-white">Bibliothèque</span>
-              </span>
+              {/* Line 1: BIBLIOTHÈQUE (Yellow Sticker) */}
+              <div className="flex items-center gap-4 mb-2 md:mb-4">
+                <span className="bg-secondary-400 text-white px-6 md:px-10 py-2 md:py-4 rounded-xl md:rounded-3xl text-3xl md:text-6xl lg:text-7xl -rotate-3 shadow-lg transform hover:scale-105 transition-transform duration-300">
+                  BIBLIOTHÈQUE
+                </span>
+              </div>
 
-              <span className="text-slate-900">&</span>
+              {/* Line 2: & (Neutral) RESSOURCES (Blue Sticker) */}
+              <div className="flex items-center gap-3 relative">
+                <span className="text-4xl md:text-6xl lg:text-7xl text-slate-300 select-none">&</span>
+                <div className="relative">
+                  <span className="block bg-primary-600 text-white px-6 md:px-12 py-3 md:py-5 rounded-2xl md:rounded-[2rem] text-3xl md:text-6xl lg:text-7xl rotate-2 shadow-xl transform hover:rotate-1 transition-transform duration-300 z-10">
+                    RESSOURCES
+                  </span>
 
-              <span className="relative inline-block px-4 py-1">
-                <span className="absolute inset-0 bg-primary-600 -skew-x-6 rounded-xl shadow-xl shadow-primary-500/20 transform md:rotate-2 opacity-90" />
-                <span className="relative z-10 text-white">Ressources</span>
-              </span>
+                  {/* Decorative dots */}
+                  <div className="absolute -right-4 -top-4 w-4 h-4 md:w-8 md:h-8 bg-secondary-400 rounded-full animate-bounce delay-700" />
+                  <div className="absolute -left-2 -bottom-2 w-3 h-3 md:w-6 md:h-6 bg-primary-300 rounded-full animate-pulse" />
+                </div>
+              </div>
+
             </h1>
 
             <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium mb-12">

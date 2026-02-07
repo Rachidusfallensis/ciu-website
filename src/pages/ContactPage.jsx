@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, User, MessageSquare, ArrowRight, Instagram, Facebook, Twitter, Linkedin, ExternalLink } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, User, MessageSquare, ArrowRight, Instagram, Facebook, X, Linkedin, ExternalLink } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 
@@ -90,27 +90,43 @@ export default function ContactPage() {
 
   return (
     <main className="pt-20 bg-slate-50 min-h-screen">
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 bg-[#FDFBF7] overflow-hidden rounded-[3rem] mb-20">
 
-        {/* Background Decorators */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-100/50 rounded-full blur-3xl -z-0 pointer-events-none mix-blend-multiply opacity-70" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-yellow-100/50 rounded-full blur-3xl -z-0 pointer-events-none mix-blend-multiply opacity-70" />
+        {/* Background Decorators (Subtle & Light) */}
+        <div className="absolute inset-0 opacity-40 pointer-events-none">
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-secondary-200/30 rounded-full blur-[100px] -mr-20 -mt-20 mix-blend-multiply" />
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary-200/30 rounded-full blur-[100px] -ml-20 -mb-20 mix-blend-multiply" />
+        </div>
 
-        {/* Header - Premium Style */}
+        {/* Header - Premium Sticker Style */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16 relative z-10"
         >
 
+          {/* Main Title - Sticker Style */}
+          <h1 className="flex flex-col items-center justify-center font-black tracking-tight select-none mb-8">
 
-          <h1 className="text-5xl md:text-7xl font-black text-slate-900 mb-8 tracking-tight leading-tight flex flex-col md:block items-center justify-center gap-2">
-            <span className="block md:inline">Restons en</span>{' '}
-            <span className="relative inline-block px-6 py-2">
-              <span className="absolute inset-0 bg-primary-600 -skew-x-6 rounded-xl shadow-xl shadow-primary-500/20 transform md:rotate-2 opacity-90" />
-              <span className="relative z-10 text-white">Contact</span>
-            </span>
+            {/* Line 1: RESTER (Yellow Sticker) */}
+            <div className="flex items-center gap-4 mb-2 md:mb-4">
+              <span className="bg-secondary-400 text-white px-6 md:px-10 py-2 md:py-4 rounded-xl md:rounded-3xl text-3xl md:text-6xl lg:text-7xl -rotate-3 shadow-lg transform hover:scale-105 transition-transform duration-300">
+                RESTONS
+              </span>
+            </div>
+
+            {/* Line 2: EN CONTACT (Blue Sticker) */}
+            <div className="relative">
+              <span className="block bg-primary-600 text-white px-6 md:px-12 py-3 md:py-5 rounded-2xl md:rounded-[2rem] text-3xl md:text-6xl lg:text-7xl rotate-2 shadow-xl transform hover:rotate-1 transition-transform duration-300 z-10">
+                EN CONTACT
+              </span>
+
+              {/* Decorative dots */}
+              <div className="absolute -right-4 -top-4 w-4 h-4 md:w-8 md:h-8 bg-secondary-400 rounded-full animate-bounce delay-700" />
+              <div className="absolute -left-2 -bottom-2 w-3 h-3 md:w-6 md:h-6 bg-primary-300 rounded-full animate-pulse" />
+            </div>
+
           </h1>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium">
             Une question, une suggestion ou simplement envie d'échanger ?<br className="hidden md:block" />
@@ -176,7 +192,7 @@ export default function ContactPage() {
                   <span className="h-px flex-grow bg-white/10 ml-2"></span>
                 </h3>
                 <div className="flex gap-4">
-                  {[Facebook, Twitter, Instagram, Linkedin].map((Icon, idx) => (
+                  {[Facebook, X, Instagram, Linkedin].map((Icon, idx) => (
                     <a key={idx} href="#" className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/20 flex items-center justify-center transition-all hover:scale-110">
                       <Icon className="w-5 h-5 text-white" />
                     </a>
