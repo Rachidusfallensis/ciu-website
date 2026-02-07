@@ -4,6 +4,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/ciu-website/',
   plugins: [
     react(),
     VitePWA({
@@ -133,7 +134,7 @@ export default defineConfig({
       }
     })
   ],
-  
+
   // Optimisations de build
   build: {
     // Code splitting manuel pour optimiser les chunks
@@ -150,7 +151,7 @@ export default defineConfig({
         }
       }
     },
-    
+
     // Optimisations supplémentaires
     target: 'esnext',
     minify: 'terser',
@@ -160,26 +161,26 @@ export default defineConfig({
         drop_debugger: true
       }
     },
-    
+
     // Taille limite des chunks
     chunkSizeWarningLimit: 1000,
-    
+
     // Optimiser les assets
     assetsInlineLimit: 4096, // Inline les assets < 4kb
   },
-  
+
   // Optimisations de développement
   server: {
     hmr: {
       overlay: false // Désactiver l'overlay d'erreur en dev
     }
   },
-  
+
   // Préchargement des modules
   optimizeDeps: {
     include: [
-      'react', 
-      'react-dom', 
+      'react',
+      'react-dom',
       'react-router-dom',
       'framer-motion',
       'lucide-react',

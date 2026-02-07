@@ -1,3 +1,5 @@
+import { getAssetPath } from '../utils/assets';
+
 export const articles = [
     {
         id: 1,
@@ -6,7 +8,7 @@ export const articles = [
         author: "Commission d'Intelligence et de Perception Spirituelle",
         date: new Date(2025, 1, 21),
         category: "Événement",
-        image: "/colloque-optimized/banniere_colloque.jpg",
+        image: getAssetPath("/colloque-optimized/banniere_colloque.jpg"),
         link: "/colloque",
         readTime: "8 min",
         featured: true
@@ -18,7 +20,7 @@ export const articles = [
         author: "Commission d'Intelligence et de Perception Spirituelle",
         date: new Date(2026, 1, 7), // 7 Février 2026
         category: "Événement",
-        image: "/amphi.jpeg",
+        image: getAssetPath("/amphi.jpeg"),
         link: "/amphi-rentree",
         readTime: "3 min",
         featured: false

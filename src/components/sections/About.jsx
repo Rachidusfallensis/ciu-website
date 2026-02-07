@@ -2,6 +2,7 @@ import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { Target, Eye, Heart, Users, BookOpen, Globe, ChevronRight, ChevronDown, HelpCircle, MessageCircle } from 'lucide-react';
 import { cn } from '../../utils/cn';
+import { getAssetPath } from '../../utils/assets';
 import TeamAccordion from '../TeamAccordion';
 
 const containerVariants = {
@@ -139,24 +140,24 @@ export default function About() {
   ];
 
   const team = [
-    { name: "Khalifa Ababacar Sy Traoré", university: "UIDT", commission: "Point Focal", photo: "/khalifa_traore.jpeg" },
-    { name: "Mouhamed Diouf", university: "UGB", commission: "Point Focal", photo: "/diouf.jpg" },
-    { name: "El Hadj Gaye", university: "UCAD", commission: "Point Focal", photo: "/elhadj.JPG" },
-    { name: "Mame Ousmane Sarr", university: "UIDT", commission: "Commission Administrative", photo: "/mame_ousmane_sarr.png" },
-    { name: "Pape Samba Dia", university: "N/A", commission: "Commission Administrative", photo: "/pape_samba.jpeg" },
-    { name: "Mademba Gueye", university: "UAM", commission: "Commission Administrative", photo: "/mademba_gueye.jpeg" },
-    { name: "Mouhamadou Fadilou Chimere Diallo", university: "UADB", commission: "Commission d'Intelligence et de Perception Spirituelle", photo: "/chimere.jpg" },
-    { name: "Adama Niang", university: "UCAD", commission: "Commission d'Intelligence et de Perception Spirituelle", photo: "/adama.jpg" },
-    { name: "Idrissa Pouye", university: "UADB", commission: "Commission d'Intelligence et de Perception Spirituelle", photo: "/idrissa_pouye.jpg" },
-    { name: "Ndiaga Ndiaye", university: "UASZ", commission: "Commission d'Intelligence et de Perception Spirituelle", photo: "/ndiaga_ndiaye.jpg" },
-    { name: "Mame Cheikh Seck", university: "UGB", commission: "Commission d'Intelligence et de Perception Spirituelle", photo: "/mame_cheikh.jpg" },
-    { name: "El Hadj Ndiouga", university: "UIDT", commission: "Commission d'Intelligence et de Perception Spirituelle", photo: "/ndiouga.JPG" },
-    { name: "Cheikh Becaye", university: "UASZ", commission: "Commission d'Intelligence et de Perception Spirituelle", photo: "/becaye.jpg" },
-    { name: "Tallab Diop", university: "UCAD", commission: "Commission Trésor et Capacitation", photo: "/tallab_diop.jpg" },
-    { name: "Mame Gaydel Gaye", university: "UADB", commission: "Commission Trésor et Capacitation", photo: "/gaydel.JPG" },
-    { name: "Moustapha Gueye", university: "UASZ", commission: "Commission Trésor et Capacitation", photo: "/moustapha_gueye.jpg" },
-    { name: "Mbaye Samb", university: "UGB", commission: "Commission Logistique", photo: "/mbaye_samb.jpg" },
-    { name: "Ismaila Cissé", university: "USSEIN", commission: "Commission Logistique", photo: "/ismaila_cisse.jpg" }
+    { name: "Khalifa Ababacar Sy Traoré", university: "UIDT", commission: "Point Focal", photo: getAssetPath("/khalifa_traore.jpeg") },
+    { name: "Mouhamed Diouf", university: "UGB", commission: "Point Focal", photo: getAssetPath("/diouf.jpg") },
+    { name: "El Hadj Gaye", university: "UCAD", commission: "Point Focal", photo: getAssetPath("/elhadj.JPG") },
+    { name: "Mame Ousmane Sarr", university: "UIDT", commission: "Commission Administrative", photo: getAssetPath("/mame_ousmane_sarr.png") },
+    { name: "Pape Samba Dia", university: "N/A", commission: "Commission Administrative", photo: getAssetPath("/pape_samba.jpeg") },
+    { name: "Mademba Gueye", university: "UAM", commission: "Commission Administrative", photo: getAssetPath("/mademba_gueye.jpeg") },
+    { name: "Mouhamadou Fadilou Chimere Diallo", university: "UADB", commission: "Commission d'Intelligence et de Perception Spirituelle", photo: getAssetPath("/chimere.jpg") },
+    { name: "Adama Niang", university: "UCAD", commission: "Commission d'Intelligence et de Perception Spirituelle", photo: getAssetPath("/adama.jpg") },
+    { name: "Idrissa Pouye", university: "UADB", commission: "Commission d'Intelligence et de Perception Spirituelle", photo: getAssetPath("/idrissa_pouye.jpg") },
+    { name: "Ndiaga Ndiaye", university: "UASZ", commission: "Commission d'Intelligence et de Perception Spirituelle", photo: getAssetPath("/ndiaga_ndiaye.jpg") },
+    { name: "Mame Cheikh Seck", university: "UGB", commission: "Commission d'Intelligence et de Perception Spirituelle", photo: getAssetPath("/mame_cheikh.jpg") },
+    { name: "El Hadj Ndiouga", university: "UIDT", commission: "Commission d'Intelligence et de Perception Spirituelle", photo: getAssetPath("/ndiouga.JPG") },
+    { name: "Cheikh Becaye", university: "UASZ", commission: "Commission d'Intelligence et de Perception Spirituelle", photo: getAssetPath("/becaye.jpg") },
+    { name: "Tallab Diop", university: "UCAD", commission: "Commission Trésor et Capacitation", photo: getAssetPath("/tallab_diop.jpg") },
+    { name: "Mame Gaydel Gaye", university: "UADB", commission: "Commission Trésor et Capacitation", photo: getAssetPath("/gaydel.JPG") },
+    { name: "Moustapha Gueye", university: "UASZ", commission: "Commission Trésor et Capacitation", photo: getAssetPath("/moustapha_gueye.jpg") },
+    { name: "Mbaye Samb", university: "UGB", commission: "Commission Logistique", photo: getAssetPath("/mbaye_samb.jpg") },
+    { name: "Ismaila Cissé", university: "USSEIN", commission: "Commission Logistique", photo: getAssetPath("/ismaila_cisse.jpg") }
   ];
 
   const commissions = [
@@ -192,7 +193,7 @@ export default function About() {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/about-slide-5.jpg"
+            src={getAssetPath("/about-slide-5.jpg")}
             alt="Background"
             className="w-full h-full object-cover"
           />
