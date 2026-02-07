@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://votre-domaine.com/sitemap.xml
+
+# Optimisations pour les moteurs de recherche
+Crawl-delay: 1
+
+# Bloquer les fichiers sensibles
+Disallow: /dist/
+Disallow: /node_modules/
+Disallow: *.json$
+Disallow: /src/

@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/ciu-website/sw.js', { scope: '/ciu-website/' })})}
