@@ -1,21 +1,20 @@
 import { motion } from 'framer-motion';
-import { getAssetPath } from '../../../utils/assets';
 
 // Logos des universités (utilisation des logos optimisés)
 const universities = [
-    { name: 'UCAD', logo: getAssetPath('/ucad.png') },
-    { name: 'UGB', logo: getAssetPath('/ugb.png') },
-    { name: 'UASZ', logo: getAssetPath('/uasz.png') },
-    { name: 'UADB', logo: getAssetPath('/uadb.png') },
-    { name: 'UAM', logo: getAssetPath('/uam.png') },
-    { name: 'ISEP', logo: getAssetPath('/isep.png') },
+    { name: 'UCAD', logo: '/ucad.png' },
+    { name: 'UGB', logo: '/ugb.png' },
+    { name: 'UASZ', logo: '/uasz.png' },
+    { name: 'UADB', logo: '/uadb.png' },
+    { name: 'UAM', logo: '/uam.png' },
+    { name: 'ISEP', logo: '/isep.png' },
     // Duplication pour l'effet de défilement infini
-    { name: 'UCAD', logo: getAssetPath('/ucad.png') },
-    { name: 'UGB', logo: getAssetPath('/ugb.png') },
-    { name: 'UASZ', logo: getAssetPath('/uasz.png') },
-    { name: 'UADB', logo: getAssetPath('/uadb.png') },
-    { name: 'UAM', logo: getAssetPath('/uam.png') },
-    { name: 'ISEP', logo: getAssetPath('/isep.png') },
+    { name: 'UCAD', logo: '/ucad.png' },
+    { name: 'UGB', logo: '/ugb.png' },
+    { name: 'UASZ', logo: '/uasz.png' },
+    { name: 'UADB', logo: '/uadb.png' },
+    { name: 'UAM', logo: '/uam.png' },
+    { name: 'ISEP', logo: '/isep.png' },
 ];
 
 export default function PartnersLogos() {

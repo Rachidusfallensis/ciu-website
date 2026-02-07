@@ -1,5 +1,3 @@
-import { getAssetPath } from '../utils/assets';
-
 export const programData = [
     {
         day: "Vendredi",
@@ -38,31 +36,31 @@ export const speakers = [
         name: "Mame Cheikh Ahmed Tidiane SY",
         role: "Invité d'honneur",
         type: "keynote",
-        photo: getAssetPath("/colloque-optimized/gallery/ceremonie-ouverture/capitaine_gallery.jpg")
+        photo: "/colloque-optimized/gallery/ceremonie-ouverture/capitaine_gallery.jpg"
     },
     {
         name: "Professeur Djiby DIAKHATÉ",
         role: "Conférencier - Sociologue",
         type: "keynote",
-        photo: getAssetPath("/colloque-optimized/gallery/ceremonie-ouverture/djiby_diakhate_gallery.jpg")
+        photo: "/colloque-optimized/gallery/ceremonie-ouverture/djiby_diakhate_gallery.jpg"
     },
     {
         name: "M. Babacar DIOP",
         role: "Maire Thiès-Ouest",
         type: "authority",
-        photo: getAssetPath("/colloque-optimized/gallery/ceremonie-ouverture/babacar_diop_maire_gallery.jpg")
+        photo: "/colloque-optimized/gallery/ceremonie-ouverture/babacar_diop_maire_gallery.jpg"
     },
     {
         name: "Dr Mamadou DJITTÉ",
         role: "Maire Thiès-Est",
         type: "authority",
-        photo: getAssetPath("/colloque-optimized/gallery/ceremonie-ouverture/dr_mamadou_djite_maire_gallery.jpg")
+        photo: "/colloque-optimized/gallery/ceremonie-ouverture/dr_mamadou_djite_maire_gallery.jpg"
     },
     {
         name: "Responsables DMWM",
         role: "Autorités Religieuses",
         type: "authority",
-        photo: getAssetPath("/colloque-optimized/gallery/ceremonie-ouverture/responsables_dmwm_gallery.jpg")
+        photo: "/colloque-optimized/gallery/ceremonie-ouverture/responsables_dmwm_gallery.jpg"
     }
 ];
 

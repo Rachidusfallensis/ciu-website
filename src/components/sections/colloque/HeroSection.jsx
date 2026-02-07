@@ -2,7 +2,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, MapPin, Users, Download } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getAssetPath } from '../../../utils/assets';
 
 
 export default function HeroSection({ colloqueSubtitles }) {
@@ -27,7 +26,7 @@ export default function HeroSection({ colloqueSubtitles }) {
         <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
             <div className="absolute inset-0 z-0">
                 <img
-                    src={getAssetPath("/colloque-optimized/gallery/ceremonie-ouverture/21_gallery.jpg")}
+                    src="/colloque-optimized/gallery/ceremonie-ouverture/21_gallery.jpg"
                     alt="Cérémonie d'ouverture"
                     className="w-full h-full object-cover scale-105"
                 />

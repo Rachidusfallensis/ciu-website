@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2, GraduationCap } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { getAssetPath } from '../../../utils/assets';
 
 export default function NewStudentsCTA() {
     return (
@@ -87,7 +86,7 @@ export default function NewStudentsCTA() {
                             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-900/90 z-10" />
 
                             <img
-                                src={getAssetPath("/amphi.jpeg")}
+                                src="/amphi.jpeg"
                                 alt="Étudiants du CIU en amphi"
                                 className="w-full h-full object-cover"
                             />
