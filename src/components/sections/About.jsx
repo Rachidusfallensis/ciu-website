@@ -143,7 +143,7 @@ export default function About() {
     { name: "Mouhamed Diouf", university: "UGB", commission: "Point Focal", photo: "/diouf.jpg" },
     { name: "El Hadj Gaye", university: "UCAD", commission: "Point Focal", photo: "/elhadj.JPG" },
     { name: "Mame Ousmane Sarr", university: "UIDT", commission: "Commission Administrative", photo: "/mame_ousmane_sarr.png" },
-    { name: "Pape Samba Dia", university: "N/A", commission: "Commission Administrative" },
+    { name: "Pape Samba Dia", university: "N/A", commission: "Commission Administrative", photo: "/pape_samba.jpeg" },
     { name: "Mademba Gueye", university: "UAM", commission: "Commission Administrative", photo: "/mademba_gueye.jpeg" },
     { name: "Mouhamadou Fadilou Chimere Diallo", university: "UADB", commission: "Commission d'Intelligence et de Perception Spirituelle", photo: "/chimere.jpg" },
     { name: "Adama Niang", university: "UCAD", commission: "Commission d'Intelligence et de Perception Spirituelle", photo: "/adama.jpg" },
