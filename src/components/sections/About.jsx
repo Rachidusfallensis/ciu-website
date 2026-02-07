@@ -290,15 +290,16 @@ export default function About() {
 
                 <p className="text-lg text-primary-100 leading-relaxed mb-8 flex-grow">
                   Le CIU a été créé avec la vision d'unir tous les moustarchides étudiants
-                  des universités sénégalaises, créant un pont solide entre foi et savoir.
+                  des universités sénégalaises, créant un pont solide entre tarbiya et quête de savoir.
                 </p>
 
                 {/* Structure Mirror: Timeline */}
                 <div className="relative pl-6 border-l-2 border-primary-500/30 space-y-8 mb-8">
                   {[
-                    { year: "2022", event: "Création du CIU" },
-                    { year: "2023", event: "Premier Congrès National" },
-                    { year: "2024", event: "Lancement Plateforme" }
+                    { year: "2022", event: "Passage de CSU Nationale au CIU" },
+                    { year: "2023", event: "Tournée d'installations des conseils" },
+                    { year: "2023", event: "Premier Colloque inter-universitaire" },
+                    { year: "2025", event: "Amphi de rentrée universitaire" }
                   ].map((item, idx) => (
                     <div key={idx} className="relative">
                       <span className="absolute -left-[29px] top-1 w-4 h-4 rounded-full bg-secondary-400 ring-4 ring-primary-900" />
@@ -349,7 +350,7 @@ export default function About() {
                 {/* Structure Mirror: Key Points */}
                 <div className="relative pl-6 border-l-2 border-slate-100 space-y-8 mb-8">
                   {[
-                    { title: "Leadership", desc: "Forger des décideurs éthiques" },
+                    { title: "Leadership", desc: "Forger des décideurs responsables" },
                     { title: "Réseau", desc: "Connecter les talents nationaux" },
                     { title: "Impact", desc: "Solutions aux défis sociétaux" }
                   ].map((item, idx) => (
@@ -359,12 +360,6 @@ export default function About() {
                       <span className="text-slate-600 font-medium">{item.desc}</span>
                     </div>
                   ))}
-                </div>
-
-                <div className="flex flex-wrap gap-2 mt-auto">
-                  <button className="px-6 py-2 rounded-xl bg-slate-50 text-slate-900 font-bold text-sm border border-slate-200 hover:bg-primary-50 hover:text-primary-700 hover:border-primary-200 transition-all flex items-center gap-2 group-hover:pl-8">
-                    En savoir plus <ChevronRight className="w-4 h-4" />
-                  </button>
                 </div>
               </div>
             </motion.div>

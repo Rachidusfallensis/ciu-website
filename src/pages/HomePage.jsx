@@ -347,7 +347,7 @@ export default function HomePage() {
               {
                 icon: Heart,
                 title: "Tarbiya Implicatif",
-                description: "Organiser des événements qui contribuent au développement personnel et spirituel.",
+                description: "Organiser des événements qui contribuent au développement spirituel et intellectuel.",
                 link: "/news",
                 iconColor: "text-primary-600",
                 bgClass: "bg-primary-50"

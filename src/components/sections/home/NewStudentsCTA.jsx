@@ -53,9 +53,8 @@ export default function NewStudentsCTA() {
                         <ul className="space-y-4 mb-10">
                             {[
                                 "Orientation et inscription administrative",
-                                "Logement et restauration",
-                                "Mentorat académique personnalisé",
-                                "Intégration dans la famille moustarchidine"
+                                "Logement dans nos Daarous Mourchid",
+                                "Parrainage et accompagnement",
                             ].map((item, index) => (
                                 <li key={index} className="flex items-start">
                                     <CheckCircle2 className="w-6 h-6 text-green-400 mr-3 flex-shrink-0" />
